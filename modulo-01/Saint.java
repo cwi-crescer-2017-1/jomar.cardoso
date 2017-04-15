@@ -1,6 +1,6 @@
 public class Saint {
     private String nome;
-    private Armadura armadura;
+    public Armadura armadura;
     private boolean armaduraVestida;
     private Genero genero = Genero.NAO_INFORMADO;
     private Status status = Status.VIVO;
@@ -39,4 +39,18 @@ public class Saint {
     public Status getStatus() {
         return this.status;
     }
+    
+    public String getNome() {
+        return this.nome;
+    }
+    
+    public Armadura getArmadura() {
+        return this.armadura;
+    }
+    
+    public double getVida() {
+        return this.vida;
+    }
+    
+   
 }
