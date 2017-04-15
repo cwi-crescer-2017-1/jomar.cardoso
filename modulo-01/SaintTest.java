@@ -44,16 +44,7 @@ public class SaintTest
      double vidaAtual = roxetta.perderVida(14);
      assertEquals(86.0, vidaAtual, 0.001);
  }
- 
-  
- @Test
- public void testarRetornoDaCategoriaArmadura() {
-     boolean testa = true;
-      Saint mana = new Saint("Mana", new Armadura("Cisne", Categoria.OURO));
-      
-     assertEquals(true, testa);
- }
- 
+
  @Test
   public void testarPrimeiroAtaqueEVerificarSePerdeuVida(){
       /// AAA
