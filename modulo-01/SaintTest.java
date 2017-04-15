@@ -26,8 +26,14 @@ public class SaintTest
  
  @Test
  public void aoCriarSaintGeneroENaoInformado() {
-     Saint shaka = new Saint("Shaka", new Armadura("Cisne", Categoria.OURO));
+     Saint shaka = new Saint("Shaka", new Armadura("Preta", Categoria.OURO));
      shaka.setGenero(Genero.FEMININO);
      //assertEquals(
+ }
+ 
+ @Test
+ public void aoCriarSaintStatusVivo() {
+     Saint roxette = new Saint("Roxette", new Armadura("Roxa", Categoria.PRATA));
+     roxette.setStatus(Status.DESACORDADO);
  }
 }
