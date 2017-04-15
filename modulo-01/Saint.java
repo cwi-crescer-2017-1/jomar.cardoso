@@ -25,4 +25,8 @@ public class Saint {
     public void setGenero(Genero genero){
         this.genero = genero;
     }
+    
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 }
