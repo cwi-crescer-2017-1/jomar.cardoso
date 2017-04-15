@@ -28,12 +28,20 @@ public class SaintTest
  public void aoCriarSaintGeneroENaoInformado() {
      Saint shaka = new Saint("Shaka", new Armadura("Preta", Categoria.OURO));
      shaka.setGenero(Genero.FEMININO);
-     //assertEquals(
+     assertEquals(shaka.getGenero(), Genero.FEMININO);
  }
  
  @Test
- public void aoCriarSaintStatusVivo() {
+ public void aoCriarSaintStatusVivoMudarParaDesacordado() {
      Saint roxette = new Saint("Roxette", new Armadura("Roxa", Categoria.PRATA));
      roxette.setStatus(Status.DESACORDADO);
+     assertEquals(roxette.getStatus(), Status.DESACORDADO);
+ }
+ 
+ @Test
+ public void aoCriarSaintCom100VidaReduzirVida() {
+     Saint roxetta = new Saint("Roxette", new Armadura("Roxa", Categoria.PRATA));
+     double vidaAtual = roxetta.perderVida(14);
+     assertEquals(86.0, vidaAtual, 0.001);
  }
 }
