@@ -61,8 +61,20 @@ public class SaintTest
     }
 
     @Test
-    public void criarSaintCom5SentidosDespertados() {
-        Saint shaka = new Saint("Shaka", new Armadura("Preta", Categoria.OURO));
+    public void criarSaintBronzeCom5SentidosDespertados() {
+        Saint shaka = new Saint("Shaka", new Armadura("Preta", Categoria.BRONZE));
         assertEquals(5, shaka.getQuantSentidosDespertados());
+    }
+    
+    @Test
+    public void criarSaintPrataCom6SentidosDespertados() {
+        Saint shaka = new Saint("Shaka", new Armadura("Preta", Categoria.PRATA));
+        assertEquals(6, shaka.getQuantSentidosDespertados());
+    }
+    
+        @Test
+    public void criarSaintOuroCom7SentidosDespertados() {
+        Saint shaka = new Saint("Shaka", new Armadura("Preta", Categoria.OURO));
+        assertEquals(7, shaka.getQuantSentidosDespertados());
     }
 }

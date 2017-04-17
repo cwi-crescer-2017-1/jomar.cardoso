@@ -8,8 +8,14 @@ public class Saint {
     private int quantSentidosDespertados = 5;
     
     public Saint(String nome, Armadura armadura) {
-        this.nome = nome;
+        this.nome = nome; 
         this.armadura = armadura;
+        
+        if(this.armadura.getCategoria() == Categoria.PRATA) {            
+            this.quantSentidosDespertados = 6;
+        } else if(this.armadura.getCategoria() == Categoria.OURO) {
+            this.quantSentidosDespertados = 7;
+        }
     }
     
     public void vestirArmadura(){
