@@ -4,20 +4,26 @@ public class Saint {
     private boolean armaduraVestida;
     private Genero genero = Genero.NAO_INFORMADO;
     private Status status = Status.VIVO;
-    private double vida = 100;
+    private double vida = 100.;
+    private int quantSentidosDespertados = 5;
     
     public Saint(String nome, Armadura armadura) {
-        this.nome = nome;
+        this.nome = nome; 
         this.armadura = armadura;
+        
+        if(this.armadura.getCategoria() == Categoria.PRATA) {            
+            this.quantSentidosDespertados = 6;
+        } else if(this.armadura.getCategoria() == Categoria.OURO) {
+            this.quantSentidosDespertados = 7;
+        }
     }
     
     public void vestirArmadura(){
         this.armaduraVestida = true;
     }
     
-    public double perderVida(double vidaPerdida) {
-        this.vida = vida - vidaPerdida;
-        return vida;
+    public void perderVida(double dano) {
+        this.vida -= dano;
     }
     
     public boolean getArmaduraVestida(){
@@ -30,10 +36,6 @@ public class Saint {
     
     public void setGenero(Genero genero){
         this.genero = genero;
-    }
-    
-    public void setStatus(Status status) {
-        this.status = status;
     }
     
     public Status getStatus() {
@@ -52,5 +54,7 @@ public class Saint {
         return this.vida;
     }
     
-   
+    public int getQuantSentidosDespertados() {
+        return this.quantSentidosDespertados;
+    }
 }
