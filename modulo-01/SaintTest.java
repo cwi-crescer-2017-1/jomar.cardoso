@@ -136,11 +136,11 @@ public class SaintTest {
         Constelacao aries = new Constelacao("Áries");
         Armadura roxa = new Armadura(aries, Categoria.OURO); 
         Saint jomar = new Saint("Jomar", roxa);
-        Golpe socoo = new Golpe("Soco", 6);
+        Golpe soco = new Golpe("Soco", 6);
         Golpe chute = new Golpe("Chute", 7);
         Golpe cabecada = new Golpe("Cabecada", 8);
         // Act
-        aries.adicionarGolpe(socoo);
+        aries.adicionarGolpe(soco);
         aries.adicionarGolpe(chute);
         aries.adicionarGolpe(cabecada);  
         // Arrange
@@ -151,6 +151,52 @@ public class SaintTest {
         assertEquals(stringSoco, "Soco");
         assertEquals(stringChute, "Chute");
         assertEquals(stringCabecada, "Cabecada");
+    }
+    
+    @Test
+    public void adicionarGolpePeloSaintEtestarGelGolpesPeloSaint() throws Exception{
+        // Arrange
+        Constelacao aries = new Constelacao("Áries");
+        Armadura roxa = new Armadura(aries, Categoria.OURO); 
+        Saint jomar = new Saint("Jomar", roxa);
+        Golpe soco = new Golpe("Soco", 6);
+        Golpe chute = new Golpe("Chute", 7);
+        Golpe cabecada = new Golpe("Cabecada", 8);
+        // Act
+        jomar.aprenderGolpe(soco);
+        jomar.aprenderGolpe(chute);
+        jomar.aprenderGolpe(cabecada);
+        // Arrange
+        String stringSoco = jomar.getGolpes()[0].getNome();
+        String stringChute = jomar.getGolpes()[1].getNome();
+        String stringCabecada = jomar.getGolpes()[2].getNome();
+         // Assert     
+        assertEquals(stringSoco, "Soco");
+        assertEquals(stringChute, "Chute");
+        assertEquals(stringCabecada, "Cabecada");  
+    }
+    
+    @Test
+    public void testarSeRecebeProximoGolpe() throws Exception{
+        // Arrange
+        Constelacao aries = new Constelacao("Áries");
+        Armadura roxa = new Armadura(aries, Categoria.OURO); 
+        Saint jomar = new Saint("Jomar", roxa);
+        Golpe soco = new Golpe("Soco", 6);
+        Golpe chute = new Golpe("Chute", 7);
+        Golpe cabecada = new Golpe("Cabecada", 8);
+        // Act
+        jomar.aprenderGolpe(soco);
+        jomar.aprenderGolpe(chute);
+        jomar.aprenderGolpe(cabecada);
+        // Arrange
+        String stringSoco = jomar.getProximoGolpe().getNome();
+        String stringChute = jomar.getProximoGolpe().getNome();
+        String stringCabecada = jomar.getProximoGolpe().getNome();
+         // Assert     
+        assertEquals(stringSoco, "Soco");
+        assertEquals(stringChute, "Chute");
+        assertEquals(stringCabecada, "Cabecada");  
     }
 }
 

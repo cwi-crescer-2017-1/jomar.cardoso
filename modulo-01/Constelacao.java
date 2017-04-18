@@ -2,7 +2,6 @@ public class Constelacao
 {
     private String nome;
     private Golpe[] golpes;
-    //private Golpe golpes;
     
     public Constelacao(String nome){
         this.nome = nome;
@@ -22,7 +21,6 @@ public class Constelacao
     }
     
     public Golpe[] getGolpes() {
-    //public Golpe getGolpes() {
         return this.golpes;
     }
 }

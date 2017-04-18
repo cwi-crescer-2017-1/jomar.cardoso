@@ -1,3 +1,5 @@
+import java.security.InvalidParameterException;
+
 public class Saint {
     private String nome;
     private Armadura armadura;
@@ -6,6 +8,7 @@ public class Saint {
     private Status status = Status.VIVO;
     private double vida = 100.;
     protected int qtdSentidosDespertados;
+    private int golpeAtual = 0;
 
     public Saint(String nome, Armadura armadura) throws Exception {
         this.nome = nome;
@@ -49,7 +52,7 @@ public class Saint {
                 this.vida = 0;
             }
         } else {
-            throw new Exception("dano negativo");
+            throw new InvalidParameterException("dano negativo");
         }
         
     }
@@ -61,6 +64,19 @@ public class Saint {
     public int getQtdSentidosDespertados() {
         return this.qtdSentidosDespertados;
     }
-
+    
+    public Golpe[] getGolpes(){
+        return this.getArmadura().getConstelacao().getGolpes();
+    }
+    
+    public void aprenderGolpe(Golpe golpe) {
+        this.getArmadura().getConstelacao().adicionarGolpe(golpe);
+    }
+    
+    public Golpe getProximoGolpe() {
+        Golpe golpe = this.getGolpes()[this.golpeAtual];
+        this.golpeAtual++;
+        return golpe;
+    }
 }
 
