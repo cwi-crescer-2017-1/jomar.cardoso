@@ -1,6 +1,3 @@
-public enum Status 
-{
-    VIVO,
-    MORTO,
-    DESACORDADO;
+public enum Status {
+    VIVO, MORTO, DESACORDADO;
 }

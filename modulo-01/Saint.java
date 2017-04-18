@@ -1,60 +1,56 @@
 public class Saint {
     private String nome;
-    public Armadura armadura;
+    private Armadura armadura;
     private boolean armaduraVestida;
     private Genero genero = Genero.NAO_INFORMADO;
     private Status status = Status.VIVO;
     private double vida = 100.;
-    private int quantSentidosDespertados = 5;
-    
-    public Saint(String nome, Armadura armadura) {
-        this.nome = nome; 
+    protected int qtdSentidosDespertados;
+
+    public Saint(String nome, Armadura armadura) throws Exception {
+        this.nome = nome;
         this.armadura = armadura;
-        
-        if(this.armadura.getCategoria() == Categoria.PRATA) {            
-            this.quantSentidosDespertados = 6;
-        } else if(this.armadura.getCategoria() == Categoria.OURO) {
-            this.quantSentidosDespertados = 7;
-        }
+        /*int valorCategoria = this.armadura.getCategoria().getValor();
+        this.qtdSentidosDespertados += valorCategoria;*/
     }
-    
-    public void vestirArmadura(){
+
+    public void vestirArmadura() {
         this.armaduraVestida = true;
     }
-    
-    public void perderVida(double dano) {
-        this.vida -= dano;
-    }
-    
-    public boolean getArmaduraVestida(){
+
+    // camelCase
+    public boolean getArmaduraVestida() {
         return this.armaduraVestida;
     }
-    
-    public Genero getGenero(){
+
+    public Genero getGenero() {
         return this.genero;
     }
-    
-    public void setGenero(Genero genero){
+
+    public void setGenero(Genero genero) {
         this.genero = genero;
     }
-    
+
     public Status getStatus() {
         return this.status;
     }
-    
-    public String getNome() {
-        return this.nome;
-    }
-    
-    public Armadura getArmadura() {
-        return this.armadura;
-    }
-    
+
     public double getVida() {
         return this.vida;
     }
-    
-    public int getQuantSentidosDespertados() {
-        return this.quantSentidosDespertados;
+
+    public void perderVida(double dano) {
+        //this.vida = this.vida - dano;
+        this.vida -= dano;
     }
+
+    public Armadura getArmadura() {
+        return this.armadura;
+    }
+
+    public int getQtdSentidosDespertados() {
+        return this.qtdSentidosDespertados;
+    }
+
 }
+
