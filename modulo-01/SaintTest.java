@@ -144,8 +144,10 @@ public class SaintTest {
         //aries.adicionarGolpe(chute);
         //aries.adicionarGolpe(cabecada);
         // Assert
-        //assertEquals("Soco", jomar.getArmadura().getConstelacao().getGolpes().getNome());
-         String oi = jomar.getArmadura().getConstelacao().getNome();
+        // assertEquals("Soco", jomar.getArmadura().getConstelacao().getGolpes().getNome());
+        String oi = jomar.getArmadura().getConstelacao().getGolpes().getNome();
+        // String oi = jomar.getArmadura().getConstelacao().getNome();
+        assertEquals(oi, "Soco");
     }
 }
 
