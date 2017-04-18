@@ -136,18 +136,21 @@ public class SaintTest {
         Constelacao aries = new Constelacao("Áries");
         Armadura roxa = new Armadura(aries, Categoria.OURO); 
         Saint jomar = new Saint("Jomar", roxa);
-        Golpe soco = new Golpe("Soco", 6);
+        Golpe socoo = new Golpe("Soco", 6);
         Golpe chute = new Golpe("Chute", 7);
         Golpe cabecada = new Golpe("Cabecada", 8);
         // Act
-        aries.adicionarGolpe(soco);
-        //aries.adicionarGolpe(chute);
-        //aries.adicionarGolpe(cabecada);
-        // Assert
-        // assertEquals("Soco", jomar.getArmadura().getConstelacao().getGolpes().getNome());
-        String oi = jomar.getArmadura().getConstelacao().getGolpes().getNome();
-        // String oi = jomar.getArmadura().getConstelacao().getNome();
-        assertEquals(oi, "Soco");
+        aries.adicionarGolpe(socoo);
+        aries.adicionarGolpe(chute);
+        aries.adicionarGolpe(cabecada);  
+        // Arrange
+        String stringSoco = jomar.getArmadura().getConstelacao().getGolpes()[0].getNome();
+        String stringChute = jomar.getArmadura().getConstelacao().getGolpes()[1].getNome();
+        String stringCabecada = jomar.getArmadura().getConstelacao().getGolpes()[2].getNome();
+         // Assert     
+        assertEquals(stringSoco, "Soco");
+        assertEquals(stringChute, "Chute");
+        assertEquals(stringCabecada, "Cabecada");
     }
 }
 
