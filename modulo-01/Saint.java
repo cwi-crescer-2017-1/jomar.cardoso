@@ -39,9 +39,19 @@ public class Saint {
         return this.vida;
     }
 
-    public void perderVida(double dano) {
-        //this.vida = this.vida - dano;
-        this.vida -= dano;
+    public void perderVida(double dano) throws Exception{
+        if(dano >= 0){
+            if(this.status != Status.MORTO){
+                this.vida -= dano;
+            }
+            if(this.vida < 1) {
+                this.status = Status.MORTO;
+                this.vida = 0;
+            }
+        } else {
+            throw new Exception("dano negativo");
+        }
+        
     }
 
     public Armadura getArmadura() {

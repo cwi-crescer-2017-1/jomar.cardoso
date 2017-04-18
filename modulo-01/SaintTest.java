@@ -72,16 +72,16 @@ public class SaintTest {
     }
 
     @Test
-    public void perderDanoComValor1000() throws Exception {
+    public void perderDanoComValor1000VidaNaoFicaNegativo() throws Exception {
         // Arrange
         Saint shiryu = new Saint("Shiryu", new Armadura("Dragão", Categoria.BRONZE));
         // Act
         shiryu.perderVida(1000);
         // Assert
-        assertEquals(-900, shiryu.getVida(), 0.01);
+        assertEquals(0, shiryu.getVida(), 0.01);
     }
 
-    @Test
+    @Test(expected=Exception.class)
     public void perderDanoComValorMenos1000() throws Exception {
         // Arrange
         Saint shiryu = new Saint("Shiryu", new Armadura("Dragão", Categoria.BRONZE));
@@ -112,6 +112,22 @@ public class SaintTest {
     @Test(expected=Exception.class)
     public void constelacaoInvalidaDeOuroDeveLancarErro() throws Exception {
         new GoldSaint("Bernardo", new Armadura("Café", Categoria.OURO));
+    }
+    
+    @Test
+    public void atacarAteMorrerETentarContinuarAtacando() throws Exception{
+        //Arrange
+        Saint shiryu = new Saint("Shiryu", new Armadura("Dragão", Categoria.BRONZE));
+        //Act
+        shiryu.perderVida(80);
+        // Assert
+        assertEquals(Status.VIVO, shiryu.getStatus());
+        assertEquals(20, shiryu.getVida(), 0.01);
+        // Act
+        shiryu.perderVida(30);
+        // Assert
+        assertEquals(Status.MORTO, shiryu.getStatus());
+        assertEquals(0, shiryu.getVida(), 0.01);
     }
 
 }
