@@ -1,26 +1,24 @@
-public class Constelacao
-{
+import java.util.ArrayList;
+
+public class Constelacao {
     private String nome;
-    private Golpe[] golpes;
-    
-    public Constelacao(String nome){
+    private ArrayList<Golpe> golpes = new ArrayList<Golpe>();
+    private int ultimaPosicaoPreenchida = 0;
+
+    public Constelacao(String nome) {
         this.nome = nome;
-        this.golpes = new Golpe[10];
-    }
-    
-    public void adicionarGolpe(Golpe golpe) {
-        int i = 0;
-        while(this.golpes[i] != null) {             
-            i++;
-        }   
-        this.golpes[i] = golpe;    
     }
     
     public String getNome() {
         return this.nome;
     }
     
-    public Golpe[] getGolpes() {
+    public ArrayList<Golpe> getGolpes() {
         return this.golpes;
     }
+    
+    public void adicionarGolpe(Golpe golpe) {
+        golpes.add(golpe);        
+    }
+    
 }
