@@ -101,7 +101,7 @@ public class SaintTest {
 
     @Test
     public void criarSaintPrataNasceCom6SentidosDespertados() throws Exception {
-        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("√Åguia"), Categoria.PRATA));
+        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("√?guia"), Categoria.PRATA));
         assertEquals(6, marin.getQtdSentidosDespertados());
     }
 
@@ -118,9 +118,9 @@ public class SaintTest {
 
     @Test
     public void aprenderUmGolpe() throws Exception {
-        Saint saga = new Saint("Saga", new Armadura(new Constelacao("G√™meos"), Categoria.OURO));
-        Golpe outraDimensao = new Golpe("Outra dimens√£o", 10);
-        saga.aprenderGolpe(new Golpe("Outra dimens√£o", 10));
+        Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gemeos"), Categoria.OURO));
+        Golpe outraDimensao = new Golpe("Outra dimens„o", 10);
+        saga.aprenderGolpe(new Golpe("Outra dimens„o", 10));
         ArrayList<Golpe> golpes = saga.getGolpes();
         assertEquals(outraDimensao, golpes.get(0));
         //assertNull(golpes.get(1));
@@ -174,16 +174,16 @@ public class SaintTest {
     @Test
     public void getProximoGolpeComUm() throws Exception {
         Saint saga = new Saint("Saga", new Armadura(new Constelacao("G√™meos"), Categoria.OURO));
-        Golpe outraDimensao = new Golpe("Outra dimens√£o", 10);
-        saga.aprenderGolpe(new Golpe("Outra dimens√£o", 10));
+        Golpe outraDimensao = new Golpe("Outra dimens„o", 10);
+        saga.aprenderGolpe(new Golpe("Outra dimens„o", 10));
         assertEquals(outraDimensao, saga.getProximoGolpe());
     }
 
     @Test
     public void getProximoGolpeComDois() throws Exception {
-        Saint saga = new Saint("Saga", new Armadura(new Constelacao("G√™meos"), Categoria.OURO));
-        Golpe outraDimensao = new Golpe("Outra dimens√£o", 10);
-        Golpe explosaoGalatica = new Golpe("Explos√£o Gal√°ctica", 11);
+        Saint saga = new Saint("Saga", new Armadura(new Constelacao("GÍmeos"), Categoria.OURO));
+        Golpe outraDimensao = new Golpe("Outra dimens„o", 10);
+        Golpe explosaoGalatica = new Golpe("Explos√£o Gal·ctica", 11);
         saga.aprenderGolpe(outraDimensao);
         saga.aprenderGolpe(explosaoGalatica);
         assertEquals(outraDimensao, saga.getProximoGolpe());
@@ -192,10 +192,10 @@ public class SaintTest {
 
     @Test
     public void getProximoGolpeComTres() throws Exception {
-        Saint saga = new Saint("Saga", new Armadura(new Constelacao("G√™meos"), Categoria.OURO));
-        Golpe outraDimensao = new Golpe("Outra dimens√£o", 10);
-        Golpe explosaoGalatica = new Golpe("Explos√£o Gal√°ctica", 11);
-        Golpe sataImperial = new Golpe("Sat√£ Imperial", 42);
+        Saint saga = new Saint("Saga", new Armadura(new Constelacao("GÍmeos"), Categoria.OURO));
+        Golpe outraDimensao = new Golpe("Outra dimens„o", 10);
+        Golpe explosaoGalatica = new Golpe("Explos„o Gal·ctica", 11);
+        Golpe sataImperial = new Golpe("Sat„ Imperial", 42);
         saga.aprenderGolpe(outraDimensao);
         saga.aprenderGolpe(explosaoGalatica);
         saga.aprenderGolpe(sataImperial);
@@ -206,10 +206,10 @@ public class SaintTest {
     
     @Test
     public void getProximoGolpeComQuatroChamadas() throws Exception {
-        Saint saga = new Saint("Saga", new Armadura(new Constelacao("G√™meos"), Categoria.OURO));
-        Golpe outraDimensao = new Golpe("Outra dimens√£o", 10);
-        Golpe explosaoGalatica = new Golpe("Explos√£o Gal√°ctica", 11);
-        Golpe sataImperial = new Golpe("Sat√£ Imperial", 42);
+        Saint saga = new Saint("Saga", new Armadura(new Constelacao("GÍmeos"), Categoria.OURO));
+        Golpe outraDimensao = new Golpe("Outra dimens„o", 10);
+        Golpe explosaoGalatica = new Golpe("Exploss„o Gal·ctica", 11);
+        Golpe sataImperial = new Golpe("Sat„ Imperial", 42);
         saga.aprenderGolpe(outraDimensao);
         saga.aprenderGolpe(explosaoGalatica);
         saga.aprenderGolpe(sataImperial);

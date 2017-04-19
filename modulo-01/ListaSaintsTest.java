@@ -11,7 +11,7 @@ public class ListaSaintsTest
     @Test
     public void adicionar() throws Exception{
         // Arrange
-        Saint saga = new Saint("Saga", new Armadura(new Constelacao("GÃªmeos"), Categoria.OURO));
+        Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
         ListaSaints lista = new ListaSaints();
         // Act
         lista.adicionarSaint(saga);
@@ -22,7 +22,7 @@ public class ListaSaintsTest
     @Test
     public void adicionar2Saints() throws Exception{
         // Arrange
-        Saint saga = new Saint("Saga", new Armadura(new Constelacao("GÃªmeos"), Categoria.OURO));
+        Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
         GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
         ListaSaints lista = new ListaSaints();
         // Act
