@@ -130,9 +130,9 @@ public class SaintTest {
 
     @Test
     public void aprenderDoisGolpes() throws Exception {
-        Saint saga = new Saint("Saga", new Armadura(new Constelacao("G√™meos"), Categoria.OURO));
-        Golpe outraDimensao = new Golpe("Outra dimens√£o", 10);
-        Golpe explosaoGalatica = new Golpe("Explos√£o Gal√°ctica", 11);
+        Saint saga = new Saint("Saga", new Armadura(new Constelacao("GÍmeos"), Categoria.OURO));
+        Golpe outraDimensao = new Golpe("Outra dimens„o", 10);
+        Golpe explosaoGalatica = new Golpe("Explos„o Gal·ctica", 11);
         saga.aprenderGolpe(outraDimensao);
         saga.aprenderGolpe(explosaoGalatica);
         ArrayList<Golpe> golpes = saga.getGolpes();
@@ -143,10 +143,10 @@ public class SaintTest {
 
     @Test
     public void aprenderTresGolpes() throws Exception {
-        Saint saga = new Saint("Saga", new Armadura(new Constelacao("G√™meos"), Categoria.OURO));
-        Golpe outraDimensao = new Golpe("Outra dimens√£o", 10);
-        Golpe explosaoGalatica = new Golpe("Explos√£o Gal√°ctica", 11);
-        Golpe sataImperial = new Golpe("Sat√£ Imperial", 42);
+        Saint saga = new Saint("Saga", new Armadura(new Constelacao("GÍmeos"), Categoria.OURO));
+        Golpe outraDimensao = new Golpe("Outra dimens„o", 10);
+        Golpe explosaoGalatica = new Golpe("Explos„o Gal·ctica", 11);
+        Golpe sataImperial = new Golpe("Sat„ Imperial", 42);
         saga.aprenderGolpe(outraDimensao);
         saga.aprenderGolpe(explosaoGalatica);
         saga.aprenderGolpe(sataImperial);
