@@ -13,9 +13,9 @@ public class ListaSaintsTest
         Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
         ListaSaints lista = new ListaSaints();
         // Act
-        lista.adicionar(saga);
+        lista.adicionarSaint(saga);
         // Assert
-        assertEquals(lista.get(0), saga);        
+        assertEquals(lista.getSaint(0), saga);        
     }
 
     @Test
@@ -25,11 +25,11 @@ public class ListaSaintsTest
         GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
         ListaSaints lista = new ListaSaints();
         // Act
-        lista.adicionar(saga);
-        lista.adicionar(afrodite);
+        lista.adicionarSaint(saga);
+        lista.adicionarSaint(afrodite);
         // Assert
-        assertEquals(lista.get(0), saga);
-        assertEquals(lista.get(1), afrodite);        
+        assertEquals(lista.getSaint(0), saga);
+        assertEquals(lista.getSaint(1), afrodite);        
     }
     
      @Test(expected=IndexOutOfBoundsException.class)
@@ -39,11 +39,62 @@ public class ListaSaintsTest
         GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
         ListaSaints lista = new ListaSaints();
         // Act
-        lista.adicionar(saga);
-        lista.adicionar(afrodite);
+        lista.adicionarSaint(saga);
+        lista.adicionarSaint(afrodite);
         // Assert
-        assertEquals(lista.get(0), saga);
-        assertEquals(lista.get(1), afrodite);
-        assertNull(lista.get(2));
+        assertEquals(lista.getSaint(0), saga);
+        assertEquals(lista.getSaint(1), afrodite);
+        assertNull(lista.getSaint(2));
+    }
+    
+    @Test
+    public void buscarPorNomeValido() throws Exception{
+        // Arrange
+        Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
+        GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
+        ListaSaints lista = new ListaSaints();
+        lista.adicionarSaint(saga);
+        lista.adicionarSaint(afrodite);
+        // Act
+        String nome = lista.buscarPorNome("Afrodite").getNome();
+        // Assert
+        assertEquals(nome, "Afrodite");
+    }
+    
+    @Test
+    public void buscarPorNomeInvalido() throws Exception{
+        // Arrange
+        Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
+        GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
+        ListaSaints lista = new ListaSaints();
+        lista.adicionarSaint(saga);
+        lista.adicionarSaint(afrodite);
+        // Act
+        System.out.println("oi");
+        String nome = lista.buscarPorNome("Afroditota").getNome();
+        System.out.println("oioi");
+        // Assert        
+        assertEquals(nome, "null");
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

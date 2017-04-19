@@ -86,6 +86,8 @@ public class Saint {
         return golpes.get(posicao);
     }
     
-
+    public String getNome() {
+        return this.nome;
+    }
 }
 

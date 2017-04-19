@@ -47,7 +47,7 @@ public class ConstelacaoTest {
     }
 
     @Test(expected=IndexOutOfBoundsException.class)
-    public void adicionarQuatroGolpesEVerificarExceptionConsultarOQuinto() {
+    public void adicionarQuatroGolpesEVerificarExceptionConsultarOQuinto(){
         Constelacao gemeos = new Constelacao("Gêmeos");
         Golpe outraDimensao = new Golpe("Outra dimensão", 10);
         Golpe explosaoGalatica = new Golpe("Explosão Galáctica", 11);
