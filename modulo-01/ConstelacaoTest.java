@@ -22,7 +22,7 @@ public class ConstelacaoTest {
     public void adicionarDoisGolpes() {
         Constelacao gemeos = new Constelacao("GÍmeos");
         Golpe outraDimensao = new Golpe("Outra dimens„o", 10);
-        Golpe explosaoGalatica = new Golpe("Explos√£o Gal·ctica", 11);
+        Golpe explosaoGalatica = new Golpe("Explos„o Gal·ctica", 11);
         gemeos.adicionarGolpe(outraDimensao);
         gemeos.adicionarGolpe(explosaoGalatica);
         ArrayList<Golpe> golpes = gemeos.getGolpes();
@@ -33,7 +33,7 @@ public class ConstelacaoTest {
 
     @Test
     public void adicionarTresGolpes() {
-        Constelacao gemeos = new Constelacao("G meos");
+        Constelacao gemeos = new Constelacao("GÍmeos");
         Golpe outraDimensao = new Golpe("Outra dimens„o", 10);
         Golpe explosaoGalatica = new Golpe("Explos„o Gal·ctica", 11);
         Golpe sataImperial = new Golpe("Sat„ Imperial", 60);
@@ -49,8 +49,8 @@ public class ConstelacaoTest {
     @Test(expected=IndexOutOfBoundsException.class)
     public void adicionarQuatroGolpesEVerificarExceptionConsultarOQuinto(){
         Constelacao gemeos = new Constelacao("GÍmeos");
-        Golpe outraDimensao = new Golpe("Outra dimens√o", 10);
-        Golpe explosaoGalatica = new Golpe("Explos√£o Gal·ctica", 11);
+        Golpe outraDimensao = new Golpe("Outra dimens„o", 10);
+        Golpe explosaoGalatica = new Golpe("Explos„o Gal·ctica", 11);
         Golpe sataImperial = new Golpe("Sat„ Imperial", 60);
         gemeos.adicionarGolpe(outraDimensao);
         gemeos.adicionarGolpe(explosaoGalatica);
