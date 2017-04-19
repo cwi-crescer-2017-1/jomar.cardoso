@@ -158,10 +158,10 @@ public class SaintTest {
 
     @Test(expected=IndexOutOfBoundsException.class)
     public void aprenderQuatroGolpesLancaErroDeVerificarQuinto() throws Exception {
-        Saint saga = new Saint("Saga", new Armadura(new Constelacao("G√™meos"), Categoria.OURO));
-        Golpe outraDimensao = new Golpe("Outra dimens√£o", 10);
-        Golpe explosaoGalatica = new Golpe("Explos√£o Gal√°ctica", 11);
-        Golpe sataImperial = new Golpe("Sat√£ Imperial", 42);
+        Saint saga = new Saint("Saga", new Armadura(new Constelacao("GÍmeos"), Categoria.OURO));
+        Golpe outraDimensao = new Golpe("Outra dimenss„o", 10);
+        Golpe explosaoGalatica = new Golpe("Explos„o Gal·ctica", 11);
+        Golpe sataImperial = new Golpe("Sat„ Imperial", 42);
         Golpe rasteira = new Golpe("Rasteira", 2);
         saga.aprenderGolpe(outraDimensao);
         saga.aprenderGolpe(explosaoGalatica);
@@ -173,7 +173,7 @@ public class SaintTest {
 
     @Test
     public void getProximoGolpeComUm() throws Exception {
-        Saint saga = new Saint("Saga", new Armadura(new Constelacao("G√™meos"), Categoria.OURO));
+        Saint saga = new Saint("Saga", new Armadura(new Constelacao("GÍmeos"), Categoria.OURO));
         Golpe outraDimensao = new Golpe("Outra dimens„o", 10);
         saga.aprenderGolpe(new Golpe("Outra dimens„o", 10));
         assertEquals(outraDimensao, saga.getProximoGolpe());
@@ -183,7 +183,7 @@ public class SaintTest {
     public void getProximoGolpeComDois() throws Exception {
         Saint saga = new Saint("Saga", new Armadura(new Constelacao("GÍmeos"), Categoria.OURO));
         Golpe outraDimensao = new Golpe("Outra dimens„o", 10);
-        Golpe explosaoGalatica = new Golpe("Explos√£o Gal·ctica", 11);
+        Golpe explosaoGalatica = new Golpe("Explos„o Gal·ctica", 11);
         saga.aprenderGolpe(outraDimensao);
         saga.aprenderGolpe(explosaoGalatica);
         assertEquals(outraDimensao, saga.getProximoGolpe());
@@ -208,7 +208,7 @@ public class SaintTest {
     public void getProximoGolpeComQuatroChamadas() throws Exception {
         Saint saga = new Saint("Saga", new Armadura(new Constelacao("GÍmeos"), Categoria.OURO));
         Golpe outraDimensao = new Golpe("Outra dimens„o", 10);
-        Golpe explosaoGalatica = new Golpe("Exploss„o Gal·ctica", 11);
+        Golpe explosaoGalatica = new Golpe("Explos„o Gal·ctica", 11);
         Golpe sataImperial = new Golpe("Sat„ Imperial", 42);
         saga.aprenderGolpe(outraDimensao);
         saga.aprenderGolpe(explosaoGalatica);

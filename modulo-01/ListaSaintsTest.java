@@ -36,7 +36,7 @@ public class ListaSaintsTest
      @Test(expected=IndexOutOfBoundsException.class)
     public void adicionar2SaintsEVerificarPosicao3() throws Exception{
         // Arrange
-        Saint saga = new Saint("Saga", new Armadura(new Constelacao("GÃªmeos"), Categoria.OURO));
+        Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
         GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
         ListaSaints lista = new ListaSaints();
         // Act
@@ -51,7 +51,7 @@ public class ListaSaintsTest
     @Test
     public void buscarPorNomeValido() throws Exception{
         // Arrange
-        Saint saga = new Saint("Saga", new Armadura(new Constelacao("GÃªmeos"), Categoria.OURO));
+        Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
         GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
         ListaSaints lista = new ListaSaints();
         lista.adicionarSaint(saga);
@@ -65,7 +65,7 @@ public class ListaSaintsTest
     @Test
     public void todosSaints() throws Exception{
         // Arrange
-        Saint saga = new Saint("Saga", new Armadura(new Constelacao("GÃªmeos"), Categoria.OURO));
+        Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
         GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
         GoldSaint jorge = new GoldSaint("Jorge", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
         ListaSaints lista = new ListaSaints();
@@ -97,7 +97,7 @@ public class ListaSaintsTest
         @Test
     public void removerSaint() throws Exception{
         // Arrange
-        Saint saga = new Saint("Saga", new Armadura(new Constelacao("GÃªmeos"), Categoria.OURO));
+        Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
         GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
         GoldSaint jorge = new GoldSaint("Jorge", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
         ListaSaints lista = new ListaSaints();

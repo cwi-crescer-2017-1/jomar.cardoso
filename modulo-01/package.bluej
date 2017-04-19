@@ -1,75 +1,0 @@
-#BlueJ package file 
-dependency1.from=GoldSaint 
-dependency1.to=Armadura 
-dependency1.type=UsesDependency 
-dependency10.from=ListaSaints 
-dependency10.to=Saint 
-dependency10.type=UsesDependency 
-dependency11.from=Saint 
-dependency11.to=Armadura 
-dependency11.type=UsesDependency 
-dependency12.from=Saint 
-dependency12.to=Genero 
-dependency12.type=UsesDependency 
-dependency13.from=Saint 
-dependency13.to=Status 
-dependency13.type=UsesDependency 
-dependency14.from=Saint 
-dependency14.to=Constelacao 
-dependency14.type=UsesDependency 
-dependency15.from=Saint 
-dependency15.to=Golpe 
-dependency15.type=UsesDependency 
-dependency16.from=SaintTest 
-dependency16.to=Armadura 
-dependency16.type=UsesDependency 
-dependency17.from=SaintTest 
-dependency17.to=Constelacao 
-dependency17.type=UsesDependency 
-dependency18.from=SaintTest 
-dependency18.to=Saint 
-dependency18.type=UsesDependency 
-dependency19.from=SaintTest 
-dependency19.to=BronzeSaint 
-dependency19.type=UsesDependency 
-dependency2.from=Armadura 
-dependency2.to=Constelacao 
-dependency2.type=UsesDependency 
-dependency20.from=SaintTest 
-dependency20.to=SilverSaint 
-dependency20.type=UsesDependency 
-dependency21.from=SaintTest 
-dependency21.to=GoldSaint 
-dependency21.type=UsesDependency 
-dependency22.from=SaintTest 
-dependency22.to=Golpe 
-dependency22.type=UsesDependency 
-dependency23.from=SaintTest 
-dependency23.to=Categoria 
-dependency23.type=UsesDependency 
-dependency24.from=SaintTest 
-dependency24.to=Genero 
-dependency24.type=UsesDependency 
-dependency25.from=SaintTest 
-dependency25.to=Status 
-dependency25.type=UsesDependency 
-dependency26.from=ConstelacaoTest 
-dependency26.to=Constelacao 
-dependency26.type=UsesDependency 
-dependency27.from=ConstelacaoTest 
-dependency27.to=Golpe 
-dependency27.type=UsesDependency 
-dependency3.from=Armadura 
-dependency3.to=Categoria 
-dependency3.type=UsesDependency 
-dependency4.from=BatalhaTest 
-dependency4.to=Saint 
-dependency4.type=UsesDependency 
-dependency5.from=BatalhaTest 
-dependency5.to=Armadura 
-dependency5.type=UsesDependency 
-dependency6.from=BatalhaTest 
-dependency6.to=Constelacao 
-dependency6.type=UsesDependency 
-dependency7.from=BatalhaTest 
-ign(Git)
