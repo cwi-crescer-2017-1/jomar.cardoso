@@ -5,6 +5,7 @@
 
 adicionar(Saint): adiciona Saint ao final da lista
 get(indice): busca o Saint na posição informada por parâmetro
+
 todos(): retorna toda lista de Saint.
 remover(Saint): retira o Saint informado da lista
 buscarPorNome(String): retorna o primeiro Saint que encontrar com o mesmo nome informado no parâmetro
@@ -19,6 +20,19 @@ esta operação APENAS ordena a lista de Saints e não a retorna.
 import java.util.ArrayList;
 public class ListaSaints
 {
-   private ArrayList<Saint> listaSaints= new ArrayList<>();
+   private ArrayList<Saint> listaSaints = new ArrayList<>();
    
+   public ListaSaints() {
+       
+    }
+    
+   public void adicionar(Saint saint) {
+       this.listaSaints.add(saint);
+    }
+    
+    public Saint get(int i) {
+        return this.listaSaints.get(i);
+    }
+    
+    
 }
