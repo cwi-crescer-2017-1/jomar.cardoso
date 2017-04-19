@@ -144,6 +144,18 @@ public class ListaSaints {
             }
         return uniao;
     }
+    
+    public ListaSaints diff(ListaSaints saints2) {
+        ListaSaints uniao = this;
+            for(Saint saint: saints2.saints) {
+                for(Saint saint2: this.saints) {
+                    if(saint2.equals(saint)) {
+                        uniao.saints.remove(saint);
+                    }
+                }
+            }
+        return uniao;
+    }
 }
     
 
