@@ -136,6 +136,14 @@ public class ListaSaints {
             }
         } while (posicoesSendoTrocadas);
     }
+    
+    public ListaSaints unir(ListaSaints saints2) {
+        ListaSaints uniao = this;
+            for(Saint saint: saints2.saints) {
+                uniao.saints.add(saint);
+            }
+        return uniao;
+    }
 }
     
 

@@ -295,5 +295,22 @@ public class ListaSaintsTest {
         assertEquals(misty, resultado.get(1));
         assertEquals(shun, resultado.get(0));
     }
+    
+            @Test
+    public void testeUnirFeliz() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        ListaSaints listaSaints2 = new ListaSaints();
+        Saint june = new Saint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
+        Saint misty = new SilverSaint("Misty", new Armadura(new Constelacao("Lagarto"), Categoria.PRATA));
+        Saint shun = new Saint("Shun", new Armadura(new Constelacao("Andrômeda"), Categoria.BRONZE));
+        listaSaints.adicionar(shun);
+        listaSaints2.adicionar(misty);
+        listaSaints.adicionar(june);
+        ListaSaints uniao = listaSaints.unir(listaSaints2);        
+        ArrayList<Saint> resultado = uniao.todos();
+        assertEquals(june, resultado.get(1));
+        assertEquals(misty, resultado.get(2));
+        assertEquals(shun, resultado.get(0));
+    }
 }
 
