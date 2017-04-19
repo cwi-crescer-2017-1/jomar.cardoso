@@ -3,7 +3,7 @@ public class GoldSaint extends Saint {
         super(nome, armadura);
         this.qtdSentidosDespertados = 7;
         String constelacao = armadura.getConstelacao().getNome();
-        if ( !constelacao.equals("Áries") 
+        if ( !constelacao.equals("�ries") 
         && !constelacao.equals("Touro")
         && !constelacao.equals("Gêmeos")
         && !constelacao.equals("Câncer")

@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class ListaSaints
 {
    private ArrayList<Saint> listaSaints = new ArrayList<>();
-   private int ultimaPosicaoPreenchida = 0;
+//   private int ultimaPosicaoPreenchida = 0;
    
    public ListaSaints() {
        
@@ -28,7 +28,7 @@ public class ListaSaints
     
    public void adicionarSaint(Saint saint) {
        this.listaSaints.add(saint);
-       ultimaPosicaoPreenchida++;
+      // ultimaPosicaoPreenchida++;
     }
     
     public Saint getSaint(int i) {
@@ -44,11 +44,62 @@ public class ListaSaints
     }
     
     public Saint buscarPorNome(String nome) {
-        for(int i = 0; i < this.ultimaPosicaoPreenchida ; i++) {
+        for(int i = 0; i < this.listaSaints.size() ; i++) {
             if(this.getSaint(i).getNome().equals(nome)) {
                 return this.getSaint(i);
             }
         }
         return null;
     }
+    
+    public Saint getSaintMenorVida() {
+        Saint menor = listaSaints.get(0);
+        for(int i=1; i<this.listaSaints.size(); i++) {
+            if(this.listaSaints.get(i).getVida() < menor.getVida()) {
+                menor = listaSaints.get(i);
+            }
+        }
+        return menor;
+    }
+    
+    public Saint getSaintMaiorVida() {
+        Saint maior = listaSaints.get(0);
+        for(int i=1; i<this.listaSaints.size(); i++) {
+            if(this.listaSaints.get(i).getVida() > maior.getVida()) {
+                maior = listaSaints.get(i);
+            }
+        }
+        return maior;
+    }
+    
+    public void ordenarSaints() {        
+        Saint menor = listaSaints.get(0);
+        for(int i=1; i<this.listaSaints.size(); i++) {
+            if(this.listaSaints.get(i).getVida() < menor.getVida()) {
+                menor = listaSaints.get(i);
+            }
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
