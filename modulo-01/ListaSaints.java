@@ -35,6 +35,14 @@ public class ListaSaints
         return this.listaSaints.get(i);
     }
     
+    public ArrayList<Saint> todosSaints() {
+        return this.listaSaints;
+    }
+    
+    public void removerSaint(Saint saint) {
+        this.listaSaints.remove(saint);
+    }
+    
     public Saint buscarPorNome(String nome) {
         for(int i = 0; i < this.ultimaPosicaoPreenchida ; i++) {
             if(this.getSaint(i).getNome().equals(nome)) {
