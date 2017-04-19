@@ -13,8 +13,8 @@ public class ConstelacaoTest {
         gemeos.adicionarGolpe(new Golpe("Outra dimensão", 10));
         ArrayList<Golpe> golpes = gemeos.getGolpes();
         assertEquals(outraDimensao, golpes.get(0));
-        assertNull(golpes.get(1));
-        assertNull(golpes.get(2));
+        //assertNull(golpes.get(1));
+        //assertNull(golpes.get(2));
         // TODO: assert null
     }
 
@@ -28,7 +28,7 @@ public class ConstelacaoTest {
         ArrayList<Golpe> golpes = gemeos.getGolpes();
         assertEquals(outraDimensao, golpes.get(0));
         assertEquals(explosaoGalatica, golpes.get(1));
-        assertNull(golpes.get(2));
+        //assertNull(golpes.get(2));
     }
 
     @Test
@@ -46,8 +46,8 @@ public class ConstelacaoTest {
         assertEquals(sataImperial, golpes.get(2));
     }
 
-    @Test(expected=ArrayIndexOutOfBoundsException.class)
-    public void adicionarQuatroGolpes() {
+    @Test(expected=IndexOutOfBoundsException.class)
+    public void adicionarQuatroGolpesEVerificarExceptionConsultarOQuinto() {
         Constelacao gemeos = new Constelacao("Gêmeos");
         Golpe outraDimensao = new Golpe("Outra dimensão", 10);
         Golpe explosaoGalatica = new Golpe("Explosão Galáctica", 11);
@@ -56,6 +56,8 @@ public class ConstelacaoTest {
         gemeos.adicionarGolpe(explosaoGalatica);
         gemeos.adicionarGolpe(sataImperial);
         gemeos.adicionarGolpe(new Golpe("Cólera do café intenso", 80));
+        ArrayList<Golpe> golpes = gemeos.getGolpes();
+        assertNull(golpes.get(4));
     }
 
 }
