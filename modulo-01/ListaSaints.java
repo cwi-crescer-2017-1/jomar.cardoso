@@ -1,105 +1,37 @@
-
-/**
- Crie uma classe ListaSaints que será responsável por manter um cadastro atualizado dos Saints de Atena,
- para que ela possa se organizar para a Guerra Santa. Nesta classe, implemente as seguintes operações:
-
-adicionar(Saint): adiciona Saint ao final da lista
-get(indice): busca o Saint na posição informada por parâmetro
-todos(): retorna toda lista de Saint.
-remover(Saint): retira o Saint informado da lista
-buscarPorNome(String): retorna o primeiro Saint que encontrar com o mesmo nome informado no parâmetro
-buscarPorCategoria(Categoria): retorna uma sub-lista de Saint que tenham armadura na categoria informada
-buscarPorStatus(Status): retorna uma sub-lista de Saint que tenham o status informado por parâmetro
-getSaintMaiorVida(): retorna o Saint com maior vida da lista.
-getSaintMenorVida(): retorna o Saint com menor vida da lista.
-ordenar(): ordena os Saints de acordo com sua vida (ascendente, do menor ao maior). Importante: 
-esta operação APENAS ordena a lista de Saints e não a retorna.
- */
-
 import java.util.ArrayList;
-public class ListaSaints
-{
-   private ArrayList<Saint> listaSaints = new ArrayList<>();
-//   private int ultimaPosicaoPreenchida = 0;
-   
-   public ListaSaints() {
-       
+
+public class ListaSaints {
+    private ArrayList<Saint> saints = new ArrayList<Saint>();
+    
+    public void adicionar(Saint saint) {
+        this.saints.add(saint);
     }
     
-   public void adicionarSaint(Saint saint) {
-       this.listaSaints.add(saint);
-      // ultimaPosicaoPreenchida++;
+    public Saint get(int indice) {
+        return this.saints.get(indice);
     }
     
-    public Saint getSaint(int i) {
-        return this.listaSaints.get(i);
+    public ArrayList<Saint> todos() {
+        return this.saints;
     }
     
-    public ArrayList<Saint> todosSaints() {
-        return this.listaSaints;
-    }
-    
-    public void removerSaint(Saint saint) {
-        this.listaSaints.remove(saint);
+    public void remover(Saint saint) {
+        this.saints.remove(saint);
     }
     
     public Saint buscarPorNome(String nome) {
-        for(int i = 0; i < this.listaSaints.size() ; i++) {
-            if(this.getSaint(i).getNome().equals(nome)) {
-                return this.getSaint(i);
+        // C#: foreach (Saint saint in this.saints) { }
+        // Python: for saint in saints:
+        // JavaScript: for (let saint of saints) { }
+        /*for (Saint saint : this.saints) {
+            if (saint.getNome().equals(nome)) {
+                return saint;
             }
         }
-        return null;
-    }
-    
-    public Saint getSaintMenorVida() {
-        Saint menor = listaSaints.get(0);
-        for(int i=1; i<this.listaSaints.size(); i++) {
-            if(this.listaSaints.get(i).getVida() < menor.getVida()) {
-                menor = listaSaints.get(i);
-            }
-        }
-        return menor;
-    }
-    
-    public Saint getSaintMaiorVida() {
-        Saint maior = listaSaints.get(0);
-        for(int i=1; i<this.listaSaints.size(); i++) {
-            if(this.listaSaints.get(i).getVida() > maior.getVida()) {
-                maior = listaSaints.get(i);
-            }
-        }
-        return maior;
-    }
-    
-    public void ordenarSaints() {        
-        Saint menor = listaSaints.get(0);
-        for(int i=1; i<this.listaSaints.size(); i++) {
-            if(this.listaSaints.get(i).getVida() < menor.getVida()) {
-                menor = listaSaints.get(i);
-            }
-        }
+        return null;*/
+        return this.saints.stream()
+            .filter(s -> s.getNome().equals(nome))
+            .findFirst()
+            .orElse(null);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
