@@ -156,12 +156,30 @@ public class ListaSaints {
             }
         return uniao;
     }
+    
+    public String getCSV() {
+        String csv = new String();
+        for(int i=0 ; i < this.saints.size() ; i++) {
+            String nome = this.saints.get(i).getNome();
+            csv = csv.concat(nome + ",");
+            String vida = Double.toString(this.saints.get(i).getVida());
+            csv = csv.concat(vida + ",");
+            String nomeConstelacao = this.saints.get(i).getArmadura().getConstelacao().getNome();
+            csv = csv.concat(nomeConstelacao + ",");
+            String categoriaArmadura = this.saints.get(i).getArmadura().getCategoria().toString();            
+            csv = csv.concat(categoriaArmadura + ",");
+            String status = this.saints.get(i).getStatus().toString();
+            csv = csv.concat(status + ",");
+            String genero = this.saints.get(i).getGenero().toString();
+            csv = csv.concat(genero + ",");
+            String armaduraVestida = Boolean.toString(this.saints.get(i).getArmaduraVestida());
+            csv = csv.concat(armaduraVestida + ",");
+        }
+        return csv;
+        //return this.saints.get(0).getNome()+","+this.saints.get(1).getNome()+","+this.saints.get(2).getNome();
+    }
 }
     
-
-
-
-
 
 
 

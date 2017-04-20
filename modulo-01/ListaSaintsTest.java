@@ -312,5 +312,18 @@ public class ListaSaintsTest {
         assertEquals(misty, resultado.get(2));
         assertEquals(shun, resultado.get(0));
     }
+    
+    @Test
+    public void getCSVFeliz() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint shun = new Saint("Shun", new Armadura(new Constelacao("Andrômeda"), Categoria.BRONZE));
+        Saint misty = new SilverSaint("Misty", new Armadura(new Constelacao("Lagarto"), Categoria.PRATA));
+        Saint june = new Saint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
+        listaSaints.adicionar(shun);
+        listaSaints.adicionar(misty);
+        listaSaints.adicionar(june);    
+        String csv = listaSaints.getCSV();
+        assertEquals("Shun,100.0,Andrômeda,BRONZE,VIVO,NAO_INFORMADO,false,Misty,100.0,Lagarto,PRATA,VIVO,NAO_INFORMADO,false,June,100.0,Camaleão,BRONZE,VIVO,NAO_INFORMADO,false,", csv);
+    }
 }
 
