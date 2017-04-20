@@ -176,24 +176,5 @@ public class ListaSaints {
             csv = csv.concat(armaduraVestida + ",");
         }
         return csv;
-        //return this.saints.get(0).getNome()+","+this.saints.get(1).getNome()+","+this.saints.get(2).getNome();
     }
 }
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
