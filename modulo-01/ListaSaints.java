@@ -145,16 +145,21 @@ public class ListaSaints {
         return uniao;
     }
     
-    public ListaSaints diff(ListaSaints saints2) {
-        ListaSaints uniao = this;
-            for(Saint saint: saints2.saints) {
-                for(Saint saint2: this.saints) {
-                    if(saint2.equals(saint)) {
-                        uniao.saints.remove(saint);
-                    }
+    public ListaSaints diff(ListaSaints lista2) {
+        ListaSaints diff = new ListaSaints();
+        boolean naoRepetido = true;
+        for(Saint saint : this.saints) {
+            naoRepetido = true;
+            for(Saint saint2 : lista2.saints) {
+                if(saint.equals(saint2)) {
+                    naoRepetido = false;
                 }
             }
-        return uniao;
+            if(naoRepetido) {
+                diff.saints.add(saint);
+            }
+        }
+        return diff;
     }
     
     public String getCSV() {
