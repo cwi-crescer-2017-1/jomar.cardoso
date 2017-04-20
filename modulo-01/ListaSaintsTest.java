@@ -333,6 +333,26 @@ public class ListaSaintsTest {
         assertEquals(shun, resultado.get(0));
     }
     
+                    @Test
+    public void testeCruzamentoFeliz() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        ListaSaints listaSaints2 = new ListaSaints();
+        Saint june = new Saint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
+        Saint misty = new SilverSaint("Misty", new Armadura(new Constelacao("Lagarto"), Categoria.PRATA));
+        Saint shun = new Saint("Shun", new Armadura(new Constelacao("Andrômeda"), Categoria.BRONZE));
+        Saint joca = new SilverSaint("Joca", new Armadura(new Constelacao("Lagarto"), Categoria.PRATA));
+        listaSaints.adicionar(shun);
+        listaSaints.adicionar(misty);
+        listaSaints.adicionar(june);
+        listaSaints2.adicionar(misty);
+        listaSaints2.adicionar(june);
+        listaSaints.adicionar(joca);
+        ListaSaints cruza = listaSaints.cruzamento(listaSaints2);        
+        ArrayList<Saint> resultado = cruza.todos();
+        assertEquals(misty, resultado.get(0));
+        assertEquals(june, resultado.get(1));
+    }
+    
     @Test
     public void getCSVFeliz() throws Exception {
         ListaSaints listaSaints = new ListaSaints();

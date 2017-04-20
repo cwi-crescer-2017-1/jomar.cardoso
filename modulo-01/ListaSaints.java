@@ -162,6 +162,23 @@ public class ListaSaints {
         return diff;
     }
     
+        public ListaSaints cruzamento(ListaSaints lista2) {
+        ListaSaints intersec = new ListaSaints();
+        boolean repetido = false;
+        for(Saint saint : this.saints) {
+            repetido = false;
+            for(Saint saint2 : lista2.saints) {
+                if(saint.equals(saint2)) {
+                    repetido = true;
+                }
+            }
+            if(repetido) {
+                intersec.saints.add(saint);
+            }
+        }
+        return intersec;
+    }
+    
     public String getCSV() {
         String csv = new String();
         for(int i=0 ; i < this.saints.size() ; i++) {
