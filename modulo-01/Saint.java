@@ -10,6 +10,8 @@ public abstract class Saint {
     private double vida = 100.;
     protected int qtdSentidosDespertados;
     private int acumuladorProximoGolpe = 0;
+    private ArrayList<Movimento> movimentos = new ArrayList<>();
+    private int acumuladorProximoMovimento = 0;
 
     public Saint(String nome, Armadura armadura) throws Exception {
         this.nome = nome;
@@ -117,5 +119,14 @@ public abstract class Saint {
             this.armaduraVestida;*/
     }
 
+    public void adicionarMovimento(Movimento movimento) {
+        this.movimentos.add(movimento);
+    }
+    
+    public Movimento getProximoMovimento() {
+        Movimento movimento = this.movimentos.get(this.acumuladorProximoMovimento);
+        this.acumuladorProximoMovimento++;
+        return movimento;
+    }
 }
 

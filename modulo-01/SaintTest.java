@@ -247,7 +247,7 @@ public class SaintTest {
         String esperado = "null,84.5,Camaleão,BRONZE,VIVO,FEMININO,false";
         assertEquals(esperado, june.getCSV());
     }
-
+    
 }
 
 
