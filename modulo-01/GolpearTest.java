@@ -26,21 +26,24 @@ public class GolpearTest
        Golpear golpe1 = new Golpear(seya, marin);
        golpe1.executar();
        assertEquals(92.0, marin.getVida(), 0.01);
-       seya.vestirArmadura();
+       VestirArmadura vestir1 = new VestirArmadura(seya);
+       vestir1.executar();
        golpe1.executar();
        assertEquals(76.0, marin.getVida(), 0.01);
        
        Golpear golpe2 = new Golpear(marin, mu);
        golpe2.executar();
        assertEquals(92.0, mu.getVida(), 0.01);
-       marin.vestirArmadura();
+       VestirArmadura vestir2 = new VestirArmadura(marin);
+       vestir2.executar();
        golpe2.executar();
        assertEquals(68.0, mu.getVida(), 0.01);
        
        Golpear golpe3 = new Golpear(mu, seya);
        golpe3.executar();
        assertEquals(92.0, seya.getVida(), 0.01);
-       mu.vestirArmadura();
+       VestirArmadura vestir3 = new VestirArmadura(mu);
+       vestir3.executar();
        golpe3.executar();
        assertEquals(60.0, seya.getVida(), 0.01);     
     }
