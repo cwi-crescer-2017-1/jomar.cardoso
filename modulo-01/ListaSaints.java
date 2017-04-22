@@ -84,57 +84,29 @@ public class ListaSaints {
         return menorVida;
     }
     
-    public void ordenar() {
-        /*
-         * BubbleSort
-         * Complexidade: O(n^2)
-         * 
-         * 
-         *     [4] [3] [60] [17] [10]
-         * i0: [3] [4] [17] [10] [60]
-         * i1: [3] [4] [10] [17] [60]
-         */
-        
+ public void ordenar(TipoOrdenacao tipoOrdenacao) {
+        boolean ascendente = tipoOrdenacao == TipoOrdenacao.ASCENDENTE;
         boolean posicoesSendoTrocadas;
         do {
             posicoesSendoTrocadas = false;
             for (int i = 0; i < this.saints.size() - 1; i++) {
                 Saint atual = this.saints.get(i);
                 Saint proximo = this.saints.get(i + 1);
-                boolean precisaTrocar = atual.getVida() > proximo.getVida();
+                boolean precisaTrocar = 
+                    ascendente ? atual.getVida() > proximo.getVida() :
+                    atual.getVida() < proximo.getVida();
+
                 if (precisaTrocar) {
                     this.saints.set(i, proximo);
                     this.saints.set(i + 1, atual);
                     posicoesSendoTrocadas = true;
                 }
             }
-        } while (posicoesSendoTrocadas);   
-    }   
-    
-    public void ordenar(TipoOrdenacao tipo) {
-        boolean ascendente = tipo.equals(TipoOrdenacao.ASCENDENTE);
-        if(ascendente) {
-            ordenar();
-        } else {
-            ordenarDescendente();   
-        }   
+        } while (posicoesSendoTrocadas); 
     }
-    
-    public void ordenarDescendente() {
-        boolean posicoesSendoTrocadas;
-        do {
-            posicoesSendoTrocadas = false;
-            for (int i = 0; i < this.saints.size() - 1; i++) {
-                Saint atual = this.saints.get(i);
-                Saint proximo = this.saints.get(i + 1);
-                boolean precisaTrocar = atual.getVida() < proximo.getVida();
-                if (precisaTrocar) {
-                    this.saints.set(i, proximo);
-                    this.saints.set(i + 1, atual);
-                    posicoesSendoTrocadas = true;
-                }
-            }
-        } while (posicoesSendoTrocadas);
+
+    public void ordenar() {
+        this.ordenar(TipoOrdenacao.ASCENDENTE);
     }
     
     public ListaSaints unir(ListaSaints saints2) {
