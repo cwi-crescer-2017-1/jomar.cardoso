@@ -1,50 +1,87 @@
-
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * The test class GolpearTest.
- *
- * @author  (your name)
- * @version (a version number or a date)
- */
-public class GolpearTest
-{
-   @Test
-   public void executarFeliz() throws Exception{
-       Saint seya = new BronzeSaint("Seya", "Pégaso");
-       Saint marin = new SilverSaint("Marin", "Águia");
-       Saint mu = new GoldSaint("Mu", "Áries");
-       Golpe soco = new Golpe("Soco", 8);
-       seya.aprenderGolpe(soco);
-       marin.aprenderGolpe(soco);
-       mu.aprenderGolpe(soco);       
-       
-       Golpear golpe1 = new Golpear(seya, marin);
-       golpe1.executar();
-       assertEquals(92.0, marin.getVida(), 0.01);
-       VestirArmadura vestir1 = new VestirArmadura(seya);
-       vestir1.executar();
-       golpe1.executar();
-       assertEquals(76.0, marin.getVida(), 0.01);
-       
-       Golpear golpe2 = new Golpear(marin, mu);
-       golpe2.executar();
-       assertEquals(92.0, mu.getVida(), 0.01);
-       VestirArmadura vestir2 = new VestirArmadura(marin);
-       vestir2.executar();
-       golpe2.executar();
-       assertEquals(68.0, mu.getVida(), 0.01);
-       
-       Golpear golpe3 = new Golpear(mu, seya);
-       golpe3.executar();
-       assertEquals(92.0, seya.getVida(), 0.01);
-       VestirArmadura vestir3 = new VestirArmadura(mu);
-       vestir3.executar();
-       golpe3.executar();
-       assertEquals(60.0, seya.getVida(), 0.01);     
+public class GolpearTest {
+
+    @Test
+    public void golpearBronzeComArmaduraVestida() throws Exception {
+        Saint seiya = new BronzeSaint("Seiya", "Pégaso");
+        Saint shiryu = new BronzeSaint("Shiryu", "Dragão");
+        shiryu.aprenderGolpe(new Golpe("Cólera do Dragão", 10));
+        new VestirArmadura(shiryu).executar();
+        Movimento golpear = new Golpear(shiryu, seiya);
+        golpear.executar();
+        assertEquals(80.0, seiya.getVida(), 0.01);
+        assertEquals(100.0, shiryu.getVida(), 0.01);
+    }
+
+    @Test
+    public void golpearBronzeSemArmaduraVestida() throws Exception {
+        Saint seiya = new BronzeSaint("Seiya", "Pégaso");
+        Saint shiryu = new BronzeSaint("Shiryu", "Dragão");
+        shiryu.aprenderGolpe(new Golpe("Cólera do Dragão", 10));
+        Movimento golpear = new Golpear(shiryu, seiya);
+        golpear.executar();
+        assertEquals(90.0, seiya.getVida(), 0.01);
+        assertEquals(100.0, shiryu.getVida(), 0.01);
+    }
+
+    @Test
+    public void golpearSilverComArmaduraVestida() throws Exception {
+        Saint seiya = new BronzeSaint("Seiya", "Pégaso");
+        Saint misty = new SilverSaint("Misty", "Lagarto");
+        misty.aprenderGolpe(new Golpe("Golpe do Lagarto", 10));
+        new VestirArmadura(misty).executar();
+        Movimento golpear = new Golpear(misty, seiya);
+        golpear.executar();
+        assertEquals(70.0, seiya.getVida(), 0.01);
+        assertEquals(100.0, misty.getVida(), 0.01);
+    }
+
+    @Test
+    public void golpearSilverSemArmaduraVestida() throws Exception {
+        Saint seiya = new BronzeSaint("Seiya", "Pégaso");
+        Saint misty = new SilverSaint("Misty", "Lagarto");
+        misty.aprenderGolpe(new Golpe("Golpe do Lagarto", 10));
+        Movimento golpear = new Golpear(misty, seiya);
+        golpear.executar();
+        assertEquals(90.0, seiya.getVida(), 0.01);
+        assertEquals(100.0, misty.getVida(), 0.01);
+    }
+
+    @Test
+    public void golpearGoldComArmaduraVestida() throws Exception {
+        Saint seiya = new BronzeSaint("Seiya", "Pégaso");
+        Saint aldebaran = new GoldSaint("Aldebaran", "Touro");
+        aldebaran.aprenderGolpe(new Golpe("Grande Chifre", 10));
+        new VestirArmadura(aldebaran).executar();
+        Movimento golpear = new Golpear(aldebaran, seiya);
+        golpear.executar();
+        assertEquals(60.0, seiya.getVida(), 0.01);
+        assertEquals(100.0, aldebaran.getVida(), 0.01);
+    }
+
+    @Test
+    public void golpearGoldSemArmaduraVestida() throws Exception {
+        Saint seiya = new BronzeSaint("Seiya", "Pégaso");
+        Saint aldebaran = new GoldSaint("Aldebaran", "Touro");
+        aldebaran.aprenderGolpe(new Golpe("Grande Chifre", 40));
+        Movimento golpear = new Golpear(aldebaran, seiya);
+        golpear.executar();
+        assertEquals(60.0, seiya.getVida(), 0.01);
+        assertEquals(100.0, aldebaran.getVida(), 0.01);
+    }
+
+    @Test(expected=ArithmeticException.class)
+    public void naoGolpear() throws Exception {
+        Saint seiya = new BronzeSaint("Seiya", "Pégaso");
+        Saint aldebaran = new GoldSaint("Aldebaran", "Touro");
+        Movimento golpear = new Golpear(aldebaran, seiya);
+        golpear.executar();
     }
 }
+
+
+

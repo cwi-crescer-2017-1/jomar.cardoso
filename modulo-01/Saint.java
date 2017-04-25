@@ -2,6 +2,7 @@ import java.security.InvalidParameterException;
 import java.util.ArrayList;
 
 public abstract class Saint {
+    private int id;
     private String nome;
     private Armadura armadura;
     private boolean armaduraVestida;
@@ -9,15 +10,20 @@ public abstract class Saint {
     private Status status = Status.VIVO;
     private double vida = 100.;
     protected int qtdSentidosDespertados;
-    private int acumuladorProximoGolpe = 0;
+    private int acumuladorProximoGolpe = 0, acumuladorProximoMovimento = 0;
     private ArrayList<Movimento> movimentos = new ArrayList<>();
-    private int acumuladorProximoMovimento = 0;
+    private static int qtdSaints = 0;
 
-    public Saint(String nome, Armadura armadura) throws Exception {
+    protected Saint(String nome, Armadura armadura) throws Exception {
         this.nome = nome;
         this.armadura = armadura;
+        Saint.qtdSaints++;
         /*int valorCategoria = this.armadura.getCategoria().getValor();
         this.qtdSentidosDespertados += valorCategoria;*/
+    }
+    
+    public static int getQtdSaints() {
+        return Saint.qtdSaints;
     }
 
     public void vestirArmadura() {
@@ -118,15 +124,23 @@ public abstract class Saint {
             this.genero + "," +
             this.armaduraVestida;*/
     }
-
+    
     public void adicionarMovimento(Movimento movimento) {
         this.movimentos.add(movimento);
     }
     
     public Movimento getProximoMovimento() {
-        Movimento movimento = this.movimentos.get(this.acumuladorProximoMovimento);
+        int posicao = this.acumuladorProximoMovimento % this.movimentos.size();
         this.acumuladorProximoMovimento++;
-        return movimento;
+        return movimentos.get(posicao);
     }
+    
+
+    // "agendando" execução do golpe no saint passado por parâmetro
+    // o golpe de fato só será executado na batalha.
+    public void golpear(Saint golpeado) {
+        this.adicionarMovimento(new Golpear(this, golpeado));
+    }
+
 }
 
