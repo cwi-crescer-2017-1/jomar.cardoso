@@ -278,7 +278,35 @@ public class SaintTest {
         Golpear golpear = new Golpear(saga, seiya);
         assertEquals(golpear, saga.getProximoMovimento());
     }
+    
+    @Test
+    public void IncrementarQTD() throws Exception{
+        int qtdTotal = Saint.getQtdSaints();
+        Saint june = new BronzeSaint("June", "Camaleão");
+        Saint misty = new SilverSaint("Misty", "Lagarto");
+        Saint shun = new BronzeSaint("Shun", "Andrômeda");
+        assertEquals(3+qtdTotal, Saint.getQtdSaints());
+    }
+    
+    @Test
+    public void IncrementarQTDMasNemTodosReferenciamSaint() throws Exception{
+        int qtdTotal = Saint.getQtdSaints();
+        BronzeSaint june = new BronzeSaint("June", "Camaleão");
+        Saint misty = new SilverSaint("Misty", "Lagarto");
+        Saint shun = new BronzeSaint("Shun", "Andrômeda");
+        assertEquals(3+qtdTotal, Saint.getQtdSaints());
+    }
 
+    @Test
+    public void atribuirId() throws Exception{
+        int qtdTotal = Saint.getQtdSaints();
+        BronzeSaint june = new BronzeSaint("June", "Camaleão");
+        Saint misty = new SilverSaint("Misty", "Lagarto");
+        Saint shun = new BronzeSaint("Shun", "Andrômeda");
+        assertEquals(1+qtdTotal, june.getId());
+        assertEquals(2+qtdTotal, misty.getId());
+        assertEquals(3+qtdTotal, shun.getId());
+    }
 }
 
 

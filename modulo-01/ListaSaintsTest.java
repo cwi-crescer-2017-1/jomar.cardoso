@@ -439,7 +439,7 @@ public class ListaSaintsTest {
         String quebraLinha = System.getProperty("line.separator");
         String esperado = "June,84.5,,BRONZE,VIVO,FEMININO,false" + quebraLinha + "Dohko,10.0,Libra,OURO,VIVO,NAO_INFORMADO,true";
         assertEquals(esperado, lista.getCSV());
-    }
-
+    }    
+    
 }
 

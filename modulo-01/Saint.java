@@ -18,12 +18,17 @@ public abstract class Saint {
         this.nome = nome;
         this.armadura = armadura;
         Saint.qtdSaints++;
+        this.id = Saint.qtdSaints;
         /*int valorCategoria = this.armadura.getCategoria().getValor();
         this.qtdSentidosDespertados += valorCategoria;*/
     }
     
     public static int getQtdSaints() {
         return Saint.qtdSaints;
+    }
+    
+    public int getId() {
+        return this.id;
     }
 
     public void vestirArmadura() {
@@ -141,6 +146,6 @@ public abstract class Saint {
     public void golpear(Saint golpeado) {
         this.adicionarMovimento(new Golpear(this, golpeado));
     }
-
+    
 }
 
