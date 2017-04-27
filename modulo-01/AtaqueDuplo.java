@@ -2,7 +2,6 @@
 public class AtaqueDuplo extends Golpear implements Movimento
 {  
     public AtaqueDuplo(Saint golpeador, Saint golpeado, Sorteador dado) {
-    //public AtaqueDuplo(Saint golpeador, Saint golpeado) {
         super(golpeador, golpeado);        
         int chance = dado.sortear();
         if(chance < 3) {

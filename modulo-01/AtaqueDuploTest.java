@@ -17,11 +17,10 @@ public class AtaqueDuploTest
         golpear.executar();
         assertEquals(60.0, seiya.getVida(), 0.01);
         assertEquals(100.0, shiryu.getVida(), 0.01);
-    }
-    
+    }    
     
     @Test
-    public void golpearBronzeSemArmaduraVestida() throws Exception {
+    public void ataqueDuploBronzeSemArmaduraVestida() throws Exception {
         Saint seiya = new BronzeSaint("Seiya", "Pégaso");
         Saint shiryu = new BronzeSaint("Shiryu", "Dragão");
         shiryu.aprenderGolpe(new Golpe("Cólera do Dragão", 10));
@@ -33,7 +32,7 @@ public class AtaqueDuploTest
     }
 
     @Test
-    public void golpearSilverComArmaduraVestida() throws Exception {
+    public void ataqueDuploSilverComArmaduraVestida() throws Exception {
         Saint seiya = new BronzeSaint("Seiya", "Pégaso");
         Saint misty = new SilverSaint("Misty", "Lagarto");
         misty.aprenderGolpe(new Golpe("Golpe do Lagarto", 10));
@@ -46,7 +45,7 @@ public class AtaqueDuploTest
     }
 
     @Test
-    public void golpearSilverSemArmaduraVestida() throws Exception {
+    public void ataqueDuploSilverSemArmaduraVestida() throws Exception {
         Saint seiya = new BronzeSaint("Seiya", "Pégaso");
         Saint misty = new SilverSaint("Misty", "Lagarto");
         misty.aprenderGolpe(new Golpe("Golpe do Lagarto", 10));
@@ -58,7 +57,7 @@ public class AtaqueDuploTest
     }
 
     @Test
-    public void golpearGoldComArmaduraVestida() throws Exception {
+    public void ataqueDuploGoldComArmaduraVestida() throws Exception {
         Saint seiya = new BronzeSaint("Seiya", "Pégaso");
         Saint aldebaran = new GoldSaint("Aldebaran", "Touro");
         aldebaran.aprenderGolpe(new Golpe("Grande Chifre", 10));
@@ -71,7 +70,7 @@ public class AtaqueDuploTest
     }
 
     @Test
-    public void golpearGoldSemArmaduraVestida() throws Exception {
+    public void ataqueDuploGoldSemArmaduraVestida() throws Exception {
         Saint seiya = new BronzeSaint("Seiya", "Pégaso");
         Saint aldebaran = new GoldSaint("Aldebaran", "Touro");
         aldebaran.aprenderGolpe(new Golpe("Grande Chifre", 40));

@@ -21,7 +21,7 @@ public class ContraAtaqueTest
    }
    
    @Test
-   public void contraAtaqueNaoFuncionouContraBronzeComArmadura() throws Exception{
+   public void contraAtaqueErradoNaoFuncionouContraBronzeComArmadura() throws Exception{
        Saint seiya = new BronzeSaint("Seiya", "Pégaso");
         Saint shiryu = new BronzeSaint("Shiryu", "Dragão");
         shiryu.aprenderGolpe(new Golpe("Cólera do Dragão", 10));
@@ -34,7 +34,7 @@ public class ContraAtaqueTest
    }
    
    @Test
-   public void ataqueDuploBronzeSemArmaduraVestida() throws Exception {
+   public void contraAtaqueErradoBronzeSemArmaduraVestida() throws Exception {
         Saint seiya = new BronzeSaint("Seiya", "Pégaso");
         Saint shiryu = new BronzeSaint("Shiryu", "Dragão");
         shiryu.aprenderGolpe(new Golpe("Cólera do Dragão", 10));
@@ -46,7 +46,7 @@ public class ContraAtaqueTest
     }
     
      @Test
-    public void ataqueDuploSilverComArmaduraVestida() throws Exception {
+    public void contraAtaqueErradoSilverComArmaduraVestida() throws Exception {
         Saint seiya = new BronzeSaint("Seiya", "Pégaso");
         Saint misty = new SilverSaint("Misty", "Lagarto");
         misty.aprenderGolpe(new Golpe("Golpe do Lagarto", 10));
@@ -59,7 +59,7 @@ public class ContraAtaqueTest
     }
 
     @Test
-    public void ataqueDuploSilverSemArmaduraVestida() throws Exception {
+    public void contraAtaqueErradoSilverSemArmaduraVestida() throws Exception {
         Saint seiya = new BronzeSaint("Seiya", "Pégaso");
         Saint misty = new SilverSaint("Misty", "Lagarto");
         misty.aprenderGolpe(new Golpe("Golpe do Lagarto", 10));
@@ -71,7 +71,7 @@ public class ContraAtaqueTest
     }
 
     @Test
-    public void ataqueDuploGoldComArmaduraVestida() throws Exception {
+    public void contraAtaqueErradoGoldComArmaduraVestida() throws Exception {
         Saint seiya = new BronzeSaint("Seiya", "Pégaso");
         Saint aldebaran = new GoldSaint("Aldebaran", "Touro");
         aldebaran.aprenderGolpe(new Golpe("Grande Chifre", 10));
@@ -84,7 +84,7 @@ public class ContraAtaqueTest
     }
 
     @Test
-    public void ataqueDuploGoldSemArmaduraVestida() throws Exception {
+    public void contraAtaqueErradoGoldSemArmaduraVestida() throws Exception {
         Saint seiya = new BronzeSaint("Seiya", "Pégaso");
         Saint aldebaran = new GoldSaint("Aldebaran", "Touro");
         aldebaran.aprenderGolpe(new Golpe("Grande Chifre", 40));
