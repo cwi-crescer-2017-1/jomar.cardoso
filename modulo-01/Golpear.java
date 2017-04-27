@@ -12,15 +12,19 @@ public class Golpear implements Movimento {
     public void executar() {
         Golpe golpe = this.golpeador.getProximoGolpe();  
         double dano = calcularDano(golpe);
-        this.golpeado.perderVida(dano);
+        causarDano(dano);
     }
     
-    public double calcularDano(Golpe golpe) {
+    public double calcularDano(Golpe golpe) {        
         double danoCalculado = golpe.getFatorDano() * this.multiplicadorDano;       
         if (golpeador.getArmaduraVestida()) {
             danoCalculado *= 1 + this.golpeador.getArmadura().getCategoria().getValor();
         }
          return danoCalculado;
+    }
+    
+    public void causarDano(double dano) {
+        this.golpeado.perderVida(dano);
     }
     
     public boolean equals(Object outro) {
