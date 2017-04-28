@@ -1,16 +1,17 @@
 import java.util.ArrayList;
-public class ExercitoDeSaints
+public abstract class ExercitoDeSaints 
 {
-    protected ArrayList<Saint> listaBronze, listaPrata, listaOuro = new ArrayList<>();
+    protected ArrayList<Saint> listaBronze, listaPrata, listaOuro, ordemDeBatalha = new ArrayList<>();
+    protected int totalSaints;
     
-    public void alistar(Saint saint){
-        Categoria categoria = saint.getArmadura().getCategoria();
-        if(categoria.equals(Categoria.BRONZE)) {
-            this.listaBronze.add(saint);
-        } else if(categoria.equals(Categoria.PRATA)) {
-            this.listaPrata.add(saint);
-        } else {
-            this.listaOuro.add(saint);
+    public abstract void alistar(Saint saint);
+    
+    public Saint getProximoSaint() {
+        if(this.ordemDeBatalha.size() != 0) {
+            Saint saint = this.ordemDeBatalha.get(0);
+            this.ordemDeBatalha.remove(0);
+            return saint;
         }
+        return null;
     }
 }

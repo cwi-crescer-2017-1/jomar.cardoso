@@ -1,33 +1,21 @@
-
-/**
- * Write a description of class ExercitoQueAtacaEmOrdemHierarquica here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-public class ExercitoQueAtacaEmOrdemHierarquica
-{
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class ExercitoQueAtacaEmOrdemHierarquica
-     */
-    public ExercitoQueAtacaEmOrdemHierarquica()
-    {
-        // initialise instance variables
-        x = 0;
+public class ExercitoQueAtacaEmOrdemHierarquica extends ExercitoDeSaints
+{   
+    public void alistar(Saint saint){
+        Categoria categoria = saint.getArmadura().getCategoria();
+        if(categoria.equals(Categoria.BRONZE)) {
+            this.ordemDeBatalha.add(0, saint);
+        } else if(categoria.equals(Categoria.PRATA)) {
+            for(int i = 0 ; i < ordemDeBatalha.size() ; i++) {
+                if(ordemDeBatalha.get(i).getArmadura().getCategoria().equals(Categoria.OURO)) {
+                    this.ordemDeBatalha.add(i, saint);
+                    return;
+                }
+            }
+            this.ordemDeBatalha.add(saint);
+        } else {
+            this.ordemDeBatalha.add(saint);
+        }
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
+    
+    
 }
