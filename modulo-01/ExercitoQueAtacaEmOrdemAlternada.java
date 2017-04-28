@@ -1,33 +1,23 @@
-
-/**
- * Write a description of class ExercitoQueAtacaEmOrdemAlternada here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-public class ExercitoQueAtacaEmOrdemAlternada
+public class ExercitoQueAtacaEmOrdemAlternada extends ExercitoDeSaints
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class ExercitoQueAtacaEmOrdemAlternada
-     */
-    public ExercitoQueAtacaEmOrdemAlternada()
-    {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
+    protected int categoriaDesejada = 0;
+    
+    public Saint getProximoSaint() {
+        if(this.ordemDeBatalha.size() != 0) {
+            categoriaDesejada = (categoriaDesejada + 1) % 3;
+            for(int i=0; i<3; i++) {
+                for(int j=0; j < ordemDeBatalha.size(); j++) {
+                    if(categoriaDesejada == this.ordemDeBatalha.get(j).getArmadura().getCategoria().getValor()) {
+                        categoriaDesejada = (categoriaDesejada + 1) % 3;
+                        Saint saint = ordemDeBatalha.get(j);
+                        ordemDeBatalha.remove(j);
+                        return saint;
+                    }
+                }
+                categoriaDesejada = (categoriaDesejada + 1) % 3;
+            }        
+        }
+        return null;
+   }
 }
+//testar
