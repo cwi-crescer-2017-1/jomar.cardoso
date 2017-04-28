@@ -1,21 +1,12 @@
 public class ExercitoQueAtacaEmOrdemHierarquica extends ExercitoDeSaints
 {   
-    public void alistar(Saint saint){
-        Categoria categoria = saint.getArmadura().getCategoria();
-        if(categoria.equals(Categoria.BRONZE)) {
-            this.ordemDeBatalha.add(0, saint);
-        } else if(categoria.equals(Categoria.PRATA)) {
-            for(int i = 0 ; i < ordemDeBatalha.size() ; i++) {
-                if(ordemDeBatalha.get(i).getArmadura().getCategoria().equals(Categoria.OURO)) {
-                    this.ordemDeBatalha.add(i, saint);
-                    return;
-                }
-            }
-            this.ordemDeBatalha.add(saint);
-        } else {
-            this.ordemDeBatalha.add(saint);
+    
+    public Saint getProximoSaint() {
+        if(this.ordemDeBatalha.size() != 0) {
+            Saint saint = this.ordemDeBatalha.get(0);
+            this.ordemDeBatalha.remove(0);
+            return saint;
         }
+        return null;
     }
-    
-    
 }

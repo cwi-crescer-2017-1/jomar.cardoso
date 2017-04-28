@@ -1,17 +1,26 @@
 import java.util.ArrayList;
 public abstract class ExercitoDeSaints 
 {
-    protected ArrayList<Saint> listaBronze, listaPrata, listaOuro, ordemDeBatalha = new ArrayList<>();
+    protected ArrayList<Saint> ordemDeBatalha = new ArrayList<>();
     protected int totalSaints;
     
-    public abstract void alistar(Saint saint);
     
-    public Saint getProximoSaint() {
-        if(this.ordemDeBatalha.size() != 0) {
-            Saint saint = this.ordemDeBatalha.get(0);
-            this.ordemDeBatalha.remove(0);
-            return saint;
+        public void alistar(Saint saint){
+        Categoria categoria = saint.getArmadura().getCategoria();
+        if(categoria.equals(Categoria.BRONZE)) {
+            this.ordemDeBatalha.add(0, saint);
+        } else if(categoria.equals(Categoria.PRATA)) {
+            for(int i = 0 ; i < ordemDeBatalha.size() ; i++) {
+                if(ordemDeBatalha.get(i).getArmadura().getCategoria().equals(Categoria.OURO)) {
+                    this.ordemDeBatalha.add(i, saint);
+                    return;
+                }
+            }
+            this.ordemDeBatalha.add(saint);
+        } else {
+            this.ordemDeBatalha.add(saint);
         }
-        return null;
     }
+    
+    public abstract Saint getProximoSaint();
 }
