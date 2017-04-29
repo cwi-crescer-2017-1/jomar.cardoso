@@ -7,8 +7,8 @@ public class ExercitoQueAtacaEmOrdemAlternada extends ExercitoDeSaints
             categoriaDesejada = (categoriaDesejada + 1) % 3;
             for(int i=0; i<3; i++) {
                 for(int j=0; j < ordemDeBatalha.size(); j++) {
-                    if(categoriaDesejada == this.ordemDeBatalha.get(j).getArmadura().getCategoria().getValor()) {
-                        categoriaDesejada = (categoriaDesejada + 1) % 3;
+                    if(categoriaDesejada == this.ordemDeBatalha.get(j).getArmadura().getCategoria().getValor() % 3) {
+                        //categoriaDesejada = (categoriaDesejada + 1) % 3;
                         Saint saint = ordemDeBatalha.get(j);
                         ordemDeBatalha.remove(j);
                         return saint;

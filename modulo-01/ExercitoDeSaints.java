@@ -2,8 +2,6 @@ import java.util.ArrayList;
 public abstract class ExercitoDeSaints 
 {
     protected ArrayList<Saint> ordemDeBatalha = new ArrayList<>();
-    protected int totalSaints;
-    
     
         public void alistar(Saint saint){
         Categoria categoria = saint.getArmadura().getCategoria();
