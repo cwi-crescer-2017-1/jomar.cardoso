@@ -12,6 +12,7 @@ public abstract class Saint {
     protected int qtdSentidosDespertados;
     private int acumuladorProximoGolpe = 0, acumuladorProximoMovimento = 0;
     private ArrayList<Movimento> movimentos = new ArrayList<>();
+    private int qtdMovimentos = 0; //gambia criada no GuerraEntreExercitos
     private static int qtdSaints = 0, acumuladorQtdSaints = 0;
 
     protected Saint(String nome, Armadura armadura) throws Exception {
@@ -141,6 +142,7 @@ public abstract class Saint {
 
     public void adicionarMovimento(Movimento movimento) {
         this.movimentos.add(movimento);
+        this.qtdMovimentos++; //gambia criada no GuerraEntreExercitos
     }
 
     public Movimento getProximoMovimento() {
@@ -155,5 +157,8 @@ public abstract class Saint {
         this.adicionarMovimento(new Golpear(this, golpeado));
     }
 
+    public int getQtdMovimentos() {
+        return this.qtdMovimentos;
+    }
 }
 

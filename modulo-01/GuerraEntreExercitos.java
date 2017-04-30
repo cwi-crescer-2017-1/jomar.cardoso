@@ -13,6 +13,14 @@ public class GuerraEntreExercitos
         Saint saint2 = this.exercito2.getProximoSaint();
         do {
             Batalha batalha = new Batalha(saint1, saint2);
+            //gambia provisório criada pois o movimentos Golpear não sabe quem vai atacar
+            if(saint1.getQtdMovimentos() == 0) {
+                saint1.golpear(saint2);
+            }
+            if(saint2.getQtdMovimentos() == 0) {
+                saint2.golpear(saint1);
+            }   
+            //fim da gambia provisória
             batalha.iniciar();
             if(saint1.getStatus() == Status.MORTO) {
                 vitoriasExercito2++;
