@@ -287,24 +287,27 @@ public class SaintTest {
 
     @Test
     public void criarUmSaintQtdSaintsDeveTerUmAMais() throws Exception {
+        int qtdAtual = Saint.getQtdSaints();
         Saint shun = new BronzeSaint("Shun", "Andrômeda");
-        assertEquals(1, Saint.getQtdSaints());
+        assertEquals(1, Saint.getQtdSaints()-qtdAtual);
     }
 
     @Test
     public void criarDoisSaintQtdSaintsDeveTerDoisAMais() throws Exception {
+        int qtdAtual = Saint.getQtdSaints();
         new BronzeSaint("Shun", "Andrômeda");
         new SilverSaint("Marin", "Águia");
-        assertEquals(2, Saint.getQtdSaints());
+        assertEquals(2, Saint.getQtdSaints()-qtdAtual);
     }
 
     @Test
     public void criarDuzentosSaintsQtdSaintsDeveTerDuzentosAMais() throws Exception {
+        int qtdAtual = Saint.getQtdSaints();
         final int quantidade = 200;
         for (int i = 0; i < quantidade; i++) {
             new BronzeSaint("Bronze " + i, "Constelação " + i);
         }
-        assertEquals(quantidade, Saint.getQtdSaints());
+        assertEquals(quantidade, Saint.getQtdSaints()-qtdAtual);
     }
 
     @Test
