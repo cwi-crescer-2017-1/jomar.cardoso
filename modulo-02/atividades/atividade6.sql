@@ -123,12 +123,15 @@ SELECT * FROM Pedido
 SELECT * FROM PedidoItem
 SELECT * FROM Produto
 
-CREATE VIEW vwPedidos_2016 AS
-SELECT * FROM Pedido P WHERE DATEPART(YEAR, P.DataPedido) = 2016;
+CREATE OR ALTER VIEW vwPedidos_2016 AS
+SELECT * FROM Pedido P WHERE DATEPART(YEAR, P.DataPedido) = 2016 AND P.IDPedido = 13;
 
-CREATE VIEW vwSumValorPedidos AS
-SELECT Pei.IDProduto, SUM(Pe.ValorPedido) AS Total FROM PedidoItem PeI 
-LEFT JOIN vwPedidos_2016 Pe	ON Pe.IDPedido = PeI.IDPedido GROUP BY PeI.IDProduto
+CREATE OR ALTER VIEW vwSumValorPedidos AS
+SELECT	Pei.IDProduto, 
+		SUM(Pr.PrecoVenda*Pei.Quantidade) - SUM(Pr.PrecoCusto*Pei.Quantidade) AS Total FROM PedidoItem PeI 
+INNER JOIN vwPedidos_2016 Pe	ON Pe.IDPedido = PeI.IDPedido
+INNER JOIN Produto Pr ON Pr.IDProduto = PeI.IDProduto
+ GROUP BY PeI.IDProduto
 
 
 SELECT TOP 30 *
