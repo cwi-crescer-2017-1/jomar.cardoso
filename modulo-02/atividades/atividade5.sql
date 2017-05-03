@@ -58,17 +58,18 @@ BEGIN TRANSACTION
 GO
 UPDATE Cidade
 SET Nome = Nome + '*'
-WHERE Nome IN (SELECT Nome, UF
+WHERE Nome+UF IN (SELECT Nome+UF
 	FROM Cidade
 	GROUP BY Nome, UF
 	HAVING COUNT(1) > 1)
-AND UF IN 
-
+AND IDCidade IN
+	(SELECT MAX(IDCidade)
+	FROM Cidade
+	GROUP BY Nome, UF
+	HAVING COUNT(1) > 1)
+COMMIT
 ROLLBACK
 GO
-
-SELECT * FROM CIDADE
-
 
 /*
 Explicação adicional - VIEW
