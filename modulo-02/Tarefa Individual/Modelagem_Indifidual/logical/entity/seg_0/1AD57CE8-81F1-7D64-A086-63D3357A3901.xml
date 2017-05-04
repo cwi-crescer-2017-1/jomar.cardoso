@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="1AD57CE8-81F1-7D64-A086-63D3357A3901" name="Pessoa">
+<createdBy>Jomar</createdBy>
+<createdTime>2017-05-04 13:14:27 UTC</createdTime>
+<ownerDesignName>Modelagem_Indifidual</ownerDesignName>
+<engineerTo>
+<item key="F6881AB6-C98C-ACBA-4459-3D9EC4741E14" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDPessoa" id="A23EE41B-199E-F121-CB70-6C78710A68D2">
+<createdBy>Jomar</createdBy>
+<createdTime>2017-05-04 13:20:36 UTC</createdTime>
+<ownerDesignName>Modelagem_Indifidual</ownerDesignName>
+<engineerTo>
+<item key="F6881AB6-C98C-ACBA-4459-3D9EC4741E14" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nome" id="A0698B53-92B1-D8DD-E002-F19EB16EFB5A">
+<createdBy>Jomar</createdBy>
+<createdTime>2017-05-04 13:20:38 UTC</createdTime>
+<ownerDesignName>Modelagem_Indifidual</ownerDesignName>
+<engineerTo>
+<item key="F6881AB6-C98C-ACBA-4459-3D9EC4741E14" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="E08A697B-66A9-2AFA-4FB1-3446A6C782C7" name="Pessoa PK">
+<createdBy>Jomar</createdBy>
+<createdTime>2017-05-04 13:21:04 UTC</createdTime>
+<ownerDesignName>Modelagem_Indifidual</ownerDesignName>
+<engineerTo>
+<item key="F6881AB6-C98C-ACBA-4459-3D9EC4741E14" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>A23EE41B-199E-F121-CB70-6C78710A68D2</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
