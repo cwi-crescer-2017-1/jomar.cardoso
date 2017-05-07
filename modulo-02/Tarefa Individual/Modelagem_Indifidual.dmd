@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="Modelagem_Indifidual" id="4C4D05B2-C616-760A-2DE5-E98CE018952A" version="3.5">
-<createdBy>Jomar</createdBy>
-<createdTime>2017-05-04 13:14:13 UTC</createdTime>
-<ownerDesignName>Modelagem_Indifidual</ownerDesignName>
-<capitalNames>false</capitalNames>
-<designId>4C4D05B2-C616-760A-2DE5-E98CE018952A</designId>
-</OSDM_Design>
