@@ -12,7 +12,7 @@ body .clear-fix {
 }
 
 body > .container {
-  width: 702px;
+  width: 660px;
   margin: auto;
 }
 
@@ -61,6 +61,9 @@ body > .container > .article > .col > .noticia h2{
   color: #c4170c;
   font-size: 16px;
   font-stretch: condensed;
+  margin: 0;
+  text-shadow: -0.8px 0.8px rgb(217, 112, 105);
+  line-height: 18px;
 }
 
 body > .container > .article > .col > .noticia > h6 {
@@ -68,6 +71,7 @@ body > .container > .article > .col > .noticia > h6 {
   font-size: 9px;
   font-weight: normal;
   font-stretch: expanded;
+  margin: 15px 0;
 }
 
 body > .container > .article > .col > .noticia > p {
