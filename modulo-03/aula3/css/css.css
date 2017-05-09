@@ -1,0 +1,40 @@
+body {
+  font-family: "Arial", Arial, sans-serif;
+}
+
+.foto {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translatex(-50%) translateY(-50%);
+}
+
+.foto img {
+  float: left;
+}
+
+h1 {
+  margin: 0;
+}
+
+.caixa {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0, 191, 255, 0.5);
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  color: white;
+}
+
+img {
+  margin: 0;
+}
+
+.silvio-ipsum {
+  display: none;
+}
+
+.caixa:hover .silvio-ipsum {
+  display: block;
+}
