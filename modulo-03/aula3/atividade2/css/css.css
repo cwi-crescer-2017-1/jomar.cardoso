@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: 0;
+}
+
+.container {
+
+}
+
+.container .banner {
+
+}
+
+.container .banner .navbar {
+
+}
+
+.container .banner .navbar ul {
+
+}
+
+.container .banner .navbar  li {
+  display: inline-block;
+  color: black;
+}
