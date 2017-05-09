@@ -1,5 +1,4 @@
 body {
-  background-color: #fafafa;
   margin: 0;
   font-family: 'Open Sans', sans-serif;
 }
@@ -8,19 +7,18 @@ body .clear-fix {
   content: "";
   display: block;
   clear: both;
-  font-size: 9px;
 }
 
 body > .container {
-  width: 660px;
+  width: 960px;
   margin: auto;
 }
 
 body > .container > .header {
   background-color: #c4170c;
-  height: 37px;
-  border-bottom: 1px solid rgb(217, 112, 105);
-  padding-top: 9px;
+  height: 56px;
+  border-bottom: 2px solid rgb(217, 112, 105);
+  padding-top: 18px;
   box-sizing: border-box;
 }
 
@@ -28,8 +26,8 @@ body > .container > .header h1{
   color: white;
   text-align: center;
   font-weight: 600;
-  font-size: 12px;
   margin: 0;
+  font-size: 18px;
 }
 
 body > .container > .article {
@@ -39,36 +37,39 @@ body > .container > .article {
 body > .container > .article > .col {
   float: left;
   width: 50%;
-  box-sizing: border-box;  
+  box-sizing: border-box;
+  background-color: #fafafa;
 }
 
 body > .container > .article > .col-left {
-  padding: 15px 10px 10px 43px;
+  padding: 15px 1.6% 10px 6.5%;
 }
 
 body > .container > .article > .col-right {
-  padding: 15px 43px 10px 10px;
+  padding: 15px 6.5% 10px 1.6%;
 }
 
 body > .container > .article > .col > .noticia {
   border: 1px solid rgb(238, 238,238);
-  padding: 18px 22px;
+  padding: 18px 6.5%;
   margin-bottom: 20px;
   background-color: white;
 }
 
 body > .container > .article > .col > .noticia h2{
   color: #c4170c;
-  font-size: 16px;
+  font-size: 28px;
   font-stretch: condensed;
-  margin: 0;
+  /*falta aqui diminuir o espaçamento e aumentar a letra ========== */
+  margin: 0 0 6px 0;
   text-shadow: -0.8px 0.8px rgb(217, 112, 105);
-  line-height: 18px;
+  line-height: 26px;
+  font-family: 'Calibri', sans-serif;
 }
 
 body > .container > .article > .col > .noticia > h6 {
   color: #bbb;
-  font-size: 9px;
+  font-size: 13px;
   font-weight: normal;
   font-stretch: expanded;
   margin: 15px 0;
@@ -76,16 +77,28 @@ body > .container > .article > .col > .noticia > h6 {
 
 body > .container > .article > .col > .noticia > p {
 	color: #333;
+  font-size: 13px;
+  line-height: 20px;
 }
 
-body > .container > .article > .col > .noticia > h2 + p:first-letter, h6 + p:first-letter {
-  font-size: 350%;
+body > .container > .article > .col > .noticia > br + p:first-letter
+, img + p:first-letter {
+  font-size: 325%;
   color: #c4170c;
   float: left;
-  line-height: 32px;
+  line-height: 40px;
   padding-right: 6px;
 }
 
 body > .container > .article > .col > .noticia > .footer {
+  font-size: 11px;
   text-align: right;
+  color: rgb(238, 238,238);
+}
+
+body > .container > .article > .col > .noticia > img {
+  float: right;
+  width: 30%;
+  margin-top: 20px;
+  margin-left: 1em;
 }
