@@ -1,0 +1,87 @@
+body {
+  background-color: #fafafa;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body .clear-fix {
+  content: "";
+  display: block;
+  clear: both;
+  font-size: 9px;
+}
+
+body > .container {
+  width: 702px;
+  margin: auto;
+}
+
+body > .container > .header {
+  background-color: #c4170c;
+  height: 37px;
+  border-bottom: 1px solid rgb(217, 112, 105);
+  padding-top: 9px;
+  box-sizing: border-box;
+}
+
+body > .container > .header h1{
+  color: white;
+  text-align: center;
+  font-weight: 600;
+  font-size: 12px;
+  margin: 0;
+}
+
+body > .container > .article {
+
+}
+
+body > .container > .article > .col {
+  float: left;
+  width: 50%;
+  box-sizing: border-box;  
+}
+
+body > .container > .article > .col-left {
+  padding: 15px 10px 10px 43px;
+}
+
+body > .container > .article > .col-right {
+  padding: 15px 43px 10px 10px;
+}
+
+body > .container > .article > .col > .noticia {
+  border: 1px solid rgb(238, 238,238);
+  padding: 18px 22px;
+  margin-bottom: 20px;
+  background-color: white;
+}
+
+body > .container > .article > .col > .noticia h2{
+  color: #c4170c;
+  font-size: 16px;
+  font-stretch: condensed;
+}
+
+body > .container > .article > .col > .noticia > h6 {
+  color: #bbb;
+  font-size: 9px;
+  font-weight: normal;
+  font-stretch: expanded;
+}
+
+body > .container > .article > .col > .noticia > p {
+	color: #333;
+}
+
+body > .container > .article > .col > .noticia > h2 + p:first-letter, h6 + p:first-letter {
+  font-size: 350%;
+  color: #c4170c;
+  float: left;
+  line-height: 32px;
+  padding-right: 6px;
+}
+
+body > .container > .article > .col > .noticia > .footer {
+  text-align: right;
+}
