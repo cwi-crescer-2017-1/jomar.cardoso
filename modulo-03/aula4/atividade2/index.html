@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Form</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container">
+    <form action="">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-12">
+              <h1>Formulário de Cadastro</h1>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="nome-completo">Nome Completo</label>
+          </div>
+          <div class="col-md-6">
+            <label for="email">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <input type="text" class="form-control" placeholder="Ex: Jomar Antônio Cardoso">
+          </div>
+          <div class="col-md-6">
+            <input type="email" class="form-control" placeholder="jomar.cardoso@cwi.combr">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="data-nascimento">Data de Nascimento</label>
+          </div>
+          <div class="col-md-6">
+            <label for="estado">Estado</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <input type="date" class="form-control" >
+          </div>
+          <div class="col-md-6">
+            <select name="estado" id="" class="form-control">
+              <option value="rio-grande-do-sul">Rio Grande do Sul</option>
+              <option value="bahia">Bahia</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="cidade">Cidade</label>
+          </div>
+          <div class="col-md-6">Sexo</div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <input type="text" class="form-control" >
+          </div>
+          <div class="col-md-6">
+            <select name="" class="form-control" >
+              <option value="masculino">Masculino</option>
+              <option value="feminino">Feminino</option>
+            </select>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-12 text-right">
+            <button id="submit"type="submit" class="btn btn-primary"><strong>Enviar</strong></button>
+            <button type="clear" class="btn btn-default"><strong>Limpar</strong></button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
