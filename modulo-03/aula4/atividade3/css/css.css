@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Dancing Script', cursive;
+  font-size: 28px;
+}
+
+.container .titulo div h1 {
+  font-size: 60px;
+  font-weight: 900;
+}
+
+.container form {
+  margin-top: 40px;
+}
+
+.container form .item input[type=checkbox] {
+  display: none;
+}
+
+.container form .item input[type=checkbox] + label:before {
+  content: "";
+  width: 22px;
+  height: 22px;
+  border: 3px solid blue;
+  border-radius: 2px;
+  position: relative;
+  float: left;
+  margin-right: 20px;
+  margin-top: 10px;
+  transition-duration: .4s;
+}
+
+.container form .item input[type=checkbox]:checked + label:before {
+  border-color: green;
+  transform: rotate(405deg);
+  border-top: none;
+  border-left: none;
+  width: 11px;
+  margin-right: 31px;
+}
+
+.container form .item input[type=checkbox]:checked + label{
+  color: #bbb;
+  font-style: italic;
+  text-decoration: line-through;
+}
+
+.container form .item hr{
+  border-top: 2px solid #ccc;
+}
