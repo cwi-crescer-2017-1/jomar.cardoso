@@ -8,7 +8,8 @@ body {
   /*background-image: url(img/fundo.jpg);*/
   background-position: center top;
   background-repeat: no-repeat;
-  background-size: 80%;
+  background-size: 1600px auto;
+  background-attachment: fixed;
 }
 
 .clear-fix {
@@ -48,7 +49,7 @@ body {
 
 .container .corpo {
   background-color: #ddd;
-  padding: 16px
+  padding: 16px;
 }
 
 .container .nome-pagina {

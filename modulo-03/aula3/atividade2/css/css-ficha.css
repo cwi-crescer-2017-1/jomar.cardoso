@@ -1,11 +1,15 @@
 .container .corpo .imagem{
   float: left;
-    margin-right: 16px;
+    margin-right: 26px;
     width: 260px;
 }
 
 .container .corpo .imagem img {
   width: 100%;
+}
+
+.container .corpo .texto {
+  font-size: 15px;
 }
 
 .container .corpo .texto span {
