@@ -1,28 +1,69 @@
-body {
-  margin: 0;
-}
-
 * {
   box-sizing: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+  /*background-image: url(img/fundo.jpg);*/
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 80%;
+}
+
+.clear-fix {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .container {
-
-}
-
-.container .banner {
-
+  width: 700px;
+  margin: 0 auto;
 }
 
 .container .banner .navbar {
-
+  width: 500px;
+  margin: 250px auto 0;
+  background-color: rgba(160, 160, 160, 0.6);
+  border: 1px solid #bbb;
+  border-radius: 8px ;
 }
 
 .container .banner .navbar ul {
-
+  margin: 0;
 }
 
-.container .banner .navbar  li {
+.container .banner .navbar ul li {
   display: inline-block;
-  color: black;
+}
+
+.container .banner .navbar ul li a {
+  text-decoration: none;
+  font-weight: 700;
+  line-height: 50px;
+  padding-right: 48px;
+  color: white;
+}
+
+.container .corpo {
+  background-color: #ddd;
+  padding: 16px
+}
+
+.container .nome-pagina {
+  margin-top: 60px;
+  background-color: #555;
+  padding: 0 0 0 20px;
+}
+
+.container .nome-pagina h1{
+  color: white;
+  margin: 0;
+  line-height: 78px;
+}
+
+.container .corpo .linha-cinza {
+  background-color: #888;
+  height: 2px;
 }
