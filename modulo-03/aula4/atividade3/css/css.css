@@ -25,7 +25,7 @@ body {
   width: 22px;
   height: 22px;
   border: 3px solid blue;
-  border-radius: 2px;
+  border-radius: 3px;
   position: relative;
   float: left;
   margin-right: 20px;
@@ -33,6 +33,9 @@ body {
   transition-duration: .4s;
 }
 
+.container .form-group .item label {
+    transition-duration: .4s;
+}
 .container form .item input[type=checkbox]:checked + label:before {
   border-color: green;
   transform: rotate(405deg);
@@ -40,6 +43,7 @@ body {
   border-left: none;
   width: 11px;
   margin-right: 31px;
+  border-radius: 0 0 3px 0 ;
 }
 
 .container form .item input[type=checkbox]:checked + label{
@@ -50,4 +54,6 @@ body {
 
 .container form .item hr{
   border-top: 2px solid #ccc;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
