@@ -67,41 +67,73 @@ function mediaDeEpisodios(series) {
 console.log(mediaDeEpisodios(series))
 
 /*
-Exercício 4
-
-Eu sou um ator de séries?
-
-Crie uma função chamada procurarPorNome(series, nome) que recebe um array de séries e um nome e caso esse nome possua no elenco das séries, retorna true.
-
+Exercício 4: Eu sou um ator de séries?
+Crie uma função chamada procurarPorNome(series, nome) que recebe um array de séries e um nome e
+caso esse nome possua no elenco das séries, retorna true.
 Exemplo:
-
-filtrarSeriesPorAno(series, 2017); // retorna um array com todas as séries com ano de estreia igual ou maior que 2017.
 Dica: No campo nome da função experimente passar seu próprio nome.
+*/
+console.log("===EXERCICIO 4===")
 
-Exercicio 5
+function procurarPorNome(series, nome) {
+  var boolea = false
+  series.forEach(function(serie){
+    for(ator of serie.elenco) {
+      // console.log(ator)
+      if(ator === nome) {
+        //  console.log(ator)
+        //  console.log(typeof boolea)
+         boolea = true
+      }
+    }
+  })
+  return boolea
+}
+if(procurarPorNome(series, 'Jomar Cardoso')) {
+  console.log('Jomar Cardoso está em algum elenco')
+}
+if(procurarPorNome(series, 'Christopher Michel')) {
+  console.log('Christopher Michel está em algum elenco')
+}
+if(!procurarPorNome(series, 'Pompom')) {
+  console.log('Pompom não está em elenco algum')
+}
 
-Mascada em Serie
+/*
+Exercicio 5: Mascada em Serie
+Uma serie tem seu elenco e diretor(es), mas para ela acontecer, eles devem ser pagos.
+Crie uma função chamada mascadaEmSerie que retornará o valor total do salário a ser pago por mês para determinada serie.
+ Para isso, suponha que os Big-Bosses, os Diretores, ganhem R$ 100.000; Enquanto os operarios os peões o pessoal do elenco ganha R$ 40.000;
+*/
 
-Uma serie tem seu elenco e diretor(es), mas para ela acontecer, eles devem ser pagos. Crie uma função chamada mascadaEmSerie que retornará o valor total do salário a ser pago por mês para determinada serie. Para isso, suponha que os Big-Bosses, os Diretores, ganhem R$ 100.000; Enquanto os operarios os peões o pessoal do elenco ganha R$ 40.000;
+console.log("===EXERCICIO 5===")
+function mascadaEmSerie(series) {
+  var mascada
+  series.forEach(function(serie, index){
+    console.log(serie.titulo, 'salario total:', ((serie.elenco.length*40000) + (serie.diretor.length*100000)))
+  })
+}
+mascadaEmSerie(series)
 
-Exercicio 6
-
-Buscas!
-
-A - Não sei o que quero assitir, mas quero ver CAOS! Escreva uma função chamada queroGenero que retorne um array, com os títulos dos filmes que são correspondentes com o genero do parâmetro.
-
+/*
+Exercicio 6: Buscas!
+A - Não sei o que quero assitir, mas quero ver CAOS! Escreva uma função chamada queroGenero que
+ retorne um array, com os títulos dos filmes que são correspondentes com o genero do parâmetro.
 Exemplo:
-
 queroGenero("Caos"); // Retorna ["Bernardo The Master of the Wizards", "10 Days Why"]
-B - Sei exatamente o que quero assisitir! Escreva uma função chamada queroTitulo que retorne um array, com os títulos dos filmes que tem título semelhante ao passado
-
+B - Sei exatamente o que quero assisitir! Escreva uma função chamada queroTitulo que
+retorne um array, com os títulos dos filmes que tem título semelhante ao passado
 Exemplo:
-
 queroTitulo("The"); // Retorna ["The Walking Dead", "Bernardo The Master of the Wizards"]
 E ai, tudo tranquilo até agora? Manjando dos paranauês? Tem os dom?
-
 Vamos começar a dificultar um pouco mais.
+*/
 
+console.log("===EXERCICIO 6===")
+
+
+
+/*
 Exercicio 7
 
 Creditos
