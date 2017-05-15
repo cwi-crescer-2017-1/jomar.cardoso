@@ -120,6 +120,7 @@ function fiboSum(n) {
 	}
 	return a
 }
+
 function fibo(n) {
     var x = 0
 		var y = 1
@@ -129,7 +130,7 @@ function fibo(n) {
 		}
 		return x;
 }
-console.log(fiboSum(5))
+console.log(fiboSum(100))
 console.log(fiboSum(7))
 
 /*
@@ -168,3 +169,13 @@ function ordenar(p){
 }
 
 console.log(queroCafe(3.14, [ 5.16, 2.12, 1.15, 3.11, 17.5 ]))
+
+
+
+
+
+
+
+
+
+//
