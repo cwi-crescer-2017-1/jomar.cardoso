@@ -1,4 +1,6 @@
-
+function novoPersonagem(persona, nome, casa) {
+  persona = new Personagem(nome, casa)
+}
 
 var arrayCasas = [
 greyjoy = new Casa('Casa Greyjoy', 'Lula', 'Nós não semeamos!'),
@@ -39,11 +41,15 @@ function adicionarNasCasas(arrayCasas, arrayPersonagens) {
 }
 adicionarNasCasas(arrayCasas, arrayPersonagens)
 
-  // jonSnow.associaCasa(stark)
-// stark.adicionaMembro(jonSnow)
+jonSnow.setNome = 'João das Neves'
+
+var jomar
+
+novoPersonagem(jomar, 'Jomar', stark)
 
 console.log(stark)
 console.log(jonSnow)
+console.log('UHUUUUUU',jomar)
 console.log(arrayCasas)
 console.log(arrayPersonagens)
 console.log(stark.membros)
