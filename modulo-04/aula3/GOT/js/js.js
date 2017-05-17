@@ -132,7 +132,6 @@ Dica: utilize o elemento progress
 
 
 
-
 // function novoPersonagem(persona, nome, casa) {
 //   persona = new Personagem(nome, casa)
 // }
@@ -188,3 +187,10 @@ Dica: utilize o elemento progress
 // console.log(arrayCasas)
 // console.log(arrayPersonagens)
 // console.log(stark.membros)
+
+
+fetch('https://api.got.show/api/characters').
+then(response => response.json())
+  .then(char => {
+    console.log(char)
+  })
