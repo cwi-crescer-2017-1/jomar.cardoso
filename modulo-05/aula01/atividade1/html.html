@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="aula1">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://code.angularjs.org/1.6.4/angular.js"></script>
+  <script src="js/js.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div ng-controller="dados-pokemon">
+    <div >
+      <input type="text" ng-model="pokemon.nome">    
+    </div>
+    <div>
+      <h1>{{pokemon.nome}}</h1>
+    </div>
+    <div>
+      <ul>
+        <li ng-repeat="pokemon in pokemons">
+          {{pokemon.nome}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
