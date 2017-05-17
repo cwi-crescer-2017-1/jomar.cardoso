@@ -6,7 +6,10 @@
 body {
   margin: 0;
   background-color: #111;
-      font-family: "Game-of-Thrones", Game-of-Thrones, serif;
+}
+
+h1, h2, h3, nav {
+  font-family: "Game-of-Thrones", Game-of-Thrones, serif;
 }
 
 * {
@@ -19,7 +22,7 @@ body {
   clear: both;
 }
 
-.container {
+.corpo-fixo {
   width: 1200px;
   margin: auto;
   background-color: #fcfcfc;
@@ -31,6 +34,7 @@ header {
     filter: brightness(.9) grayscale(.3);
     position: relative;
     height: 454px;
+    border-bottom: 2px solid black;
 }
 
 header .banner{
@@ -90,4 +94,24 @@ nav ul li .nav-bar a{
 
 article {
   background-color: yellow;
+}
+
+section {
+  padding-top: 20px;
+}
+
+section .detalhes {
+  display: none;
+}
+
+section .detalhes h3 {
+  font-size: 16px;
+}
+
+#botao-pesquisar:visited .detalhes{
+  display: block;
+}
+
+#detalhes-nome {
+  text-align: center;
 }
