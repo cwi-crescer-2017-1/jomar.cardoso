@@ -1,3 +1,31 @@
+var got = angular.module('got', []);
+console.log(got);
+
+function chamar(url){
+    fetch(url)
+    .then(response => response.json())
+    .then(json => {
+      console.log(json)    
+      todosPersonagens =json
+    })
+  }
+var todosPersonagens
+chamar('https://api.got.show/api/characters/')
+
+
+
+
+
+
+got.controller('detalhes', ['$scope', function($scope){
+  $scope.nomes = []
+  todosPersonagens.name.forEach(n => {
+    console.log(n)
+  })
+}]);
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
   let url = 'https://anapioficeandfire.com/api/characters/'
   // let url = 'https://www.anapioficeandfire.com/api/characters?name='
@@ -76,17 +104,5 @@ seus colegas!
       console.log(titulo)
     })
   }
+})
 
-
-
-
-
-  var got = angular.module('got', []);
-
-  aula1.controller('filtra-pokemon', ['$scope', function($scope){
-    fetch('https://api.got.show/api/characters').
-    then(response => response.json())
-      .then(char => {
-        console.log(char)
-      })
-  })

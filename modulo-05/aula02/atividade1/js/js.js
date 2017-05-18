@@ -21,10 +21,6 @@ aula1.controller('imprime-datas', ['$scope', function($scope){
     toString($scope.data)
     var separado = $scope.data.split('/')
     console.log($scope.data)
-    resultado = 0
-    resultado = 
-    resultado = (separado[0] * 43200000)*separado[1]*(separado[2]-1970)
-    console.log(separado)
-    console.log(resultado)
+    
   }
 }]);
