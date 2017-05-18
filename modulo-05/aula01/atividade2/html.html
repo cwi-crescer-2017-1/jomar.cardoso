@@ -22,7 +22,7 @@
       <div class="col-md-12 pesquisa">
         <form action="" class="form-group">
           <label for="filtra-pokemon" >Filtrar por nome: </label>
-          <input class="form-control" type="text" ng-model="filtro">
+          <input class="form-control" type="text" ng-model="filtro.nome">
         </form>
       </div>
     </div>
@@ -39,7 +39,7 @@
             <td>{{pokemon.tipo}}</td>
           </tr>
         </table>
-        <p>{{filtro}}</p>
+        <p>{{filtro.nome}}</p>
       </div>
     </div>
   </div>

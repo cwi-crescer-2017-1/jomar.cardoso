@@ -7,17 +7,12 @@ aula1.controller('filtra-pokemon', ['$scope', function($scope){
     pikachu = {nome: 'Pikachu', tipo: 'Raio'},
     charmander = {nome: 'Charmander', tipo: 'Fogo'},
     squartle = {nome: 'Squartle', tipo: 'Água'},
+    bulbasauro = {nome: 'Bulbasauro', tipo: 'Folha'},
+    machop = {nome: 'Machop', tipo: 'Físico'},
+    arbok = {nome: 'Arbok', tipo: 'Tóxico'},
+    miau = {nome: 'Miau', tipo: 'Físico'},
+    articuno = {nome:'Articuno', tipo: 'Frio'},
+    machamp = {nome: 'Machamp', tipo: 'Físico'},
+    psyduck = {nome: 'Psy Duck', tipo: 'Mental'}
   ]
 }]);
-
-// url = 'http://pokeapi.co/api/v2/ability/34/'
-//
-// function lista(url){
-//   fetch(url)
-//     .then(response => response.json())
-//     .then(p => {
-//       console.log(p)
-//       return p
-//     })
-// }
-// console.log(lista(url))
