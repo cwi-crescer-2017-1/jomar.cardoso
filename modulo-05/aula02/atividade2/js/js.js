@@ -1,19 +1,5 @@
 var aula = angular.module('aula', []);
 
-// app.filter('firstType',function(){
-//   return function(input, type){
-//     var results = [];
-//     for(var i in input){
-//       var name = input[i];
-//         if(name[0]==type)
-//             results.push(name);
-//     }
-//     return results;
-//   };
-// });
-
-
-
 aula.filter('mascada', function(){
   return  function(nome){
 

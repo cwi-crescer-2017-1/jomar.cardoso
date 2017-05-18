@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #0099cc;
+}
+
+.container {
+  width: 400px;
+  margin-top: 20vh;
+  background-color: white;
+  /*transform: scaleX(-50%);*/
+}
+
+.divisao {
+  background-color: #ccc;
+  height: 2px;
+  margin-bottom: 14px;
+}
+
+.container .row .header {
+  text-align: center;
+}
+
+.container .row .pesquisa label {
+  /*padding-right: 10px;*/
+}
