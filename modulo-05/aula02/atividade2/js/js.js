@@ -1,12 +1,8 @@
 var aula = angular.module('aula', []);
 
 aula.filter('mascada', function(){
-  return  function(nome){
+  return nome => nome.replace('Nunes', '$Nunes$')
 
-      return nome.replace('Nunes', '$Nunes$')
-
-    return nome
-  }
 })
 
 aula.controller('mostra-mascada', function($scope){
