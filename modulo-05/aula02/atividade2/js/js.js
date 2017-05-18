@@ -12,13 +12,13 @@ var aula = angular.module('aula', []);
 //   };
 // });
 
+
+
 aula.filter('mascada', function(){
   return  function(nome){
-    if(nome === 'Nunes'){
-      // return '$Nunes$'
+
       return nome.replace('Nunes', '$Nunes$')
 
-    }
     return nome
   }
 })
