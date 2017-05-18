@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="aula1">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="js/js.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="css/css.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container" ng-controller="imprime-datas">
+    <div class="row">
+      <div class="col-md-12 header">
+        <h1>Busca data</h1>
+      </div>
+    </div>
+    <div class="col-md-10 col-md-offset-1 divisao"></div>
+    <div class="row" >
+      <div class="col-md-12 pesquisa">
+
+          <label for="filtra-pokemon" >Data: </label>
+          <input class="form-control" type="text" ng-model="data" value="1288323623006">
+          <br>
+          <button  class="form-control" ng-click="geraData()">Buscar</button>
+      </div>
+    </div>
+    <br>
+    <div class="col-md-12 divisao"></div>
+    <div class="row">
+      <div class="col-md-12 resultado">
+        <p>{{}}</p>  
+        <span>{{data | date:'medium'}}</span><br>      
+      </div>
+    </div>
+  </div>
+</body>
+</html>
