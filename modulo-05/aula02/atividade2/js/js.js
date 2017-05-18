@@ -1,7 +1,7 @@
 var aula = angular.module('aula', []);
 
 aula.filter('mascada', function(){
-  return nome => nome.replace('Nunes', '$Nunes$')
+  return nome => nome.replace(/Nunes/i, '$'+nome+'$')
 
 })
 
