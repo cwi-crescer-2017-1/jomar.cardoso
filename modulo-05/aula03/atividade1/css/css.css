@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #0099cc;
+}
+
+.container {
+  width: 600px;
+  margin-top: 5vh;
+  background-color: white;
+  /*transform: scaleX(-50%);*/
+}
+
+.divisao {
+  background-color: #ccc;
+  height: 2px;
+  margin-bottom: 14px;
+  margin-top: 14px;
+  display: block;
+}
+
+.container .row .header {
+  text-align: center;
+}
+
+
+
+.table {
+  margin-bottom:0;
+}
+
+.form-control {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  height: 24px;
+}
+
+.form-group {
+  margin-bottom: 4px;
+}
