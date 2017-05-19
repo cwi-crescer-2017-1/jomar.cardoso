@@ -22,27 +22,22 @@ h1, h2, h3, nav {
   clear: both;
 }
 
-.corpo-fixo {
-  width: 1200px;
+.container {
+  width: 960px;
   margin: auto;
   background-color: #fcfcfc;
 }
 
 header {
     background-image: url(../img/casas1.jpg);
+    background-repeat: no-repeat;
     background-size: cover;
     filter: brightness(.9) grayscale(.3);
     position: relative;
-    height: 454px;
-    border-bottom: 2px solid black;
+    height: 220px;
 }
 
-header .banner{
-  height: 260px;
-  position: relative;
-}
-
-header .banner .titulo {
+header .titulo {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -50,7 +45,7 @@ header .banner .titulo {
   background-color: rgba(0, 0, 0, .6);
 }
 
-header .banner .titulo h1 {
+header .titulo h1 {
     margin: 0;
     text-align: center;
     color: #fcfcfc;
@@ -61,57 +56,83 @@ header .banner .titulo h1 {
 
 nav {
   background-color: #111;
-  border-bottom: 1px solid #111;
-  border-top: 1px solid #111;
+  /*border-bottom: 1px solid #111;
+  border-top: 1px solid #111;*/
+  position: relative;
 }
 
 nav ul {
   margin: 0;
   padding: 0;
+  font-size: 0;
 }
 
-nav ul li {
+nav ul li.nav-bar {
+  width: 11.111111%; /*futuramente mexer aqui*/
   display: inline-block;
-  width: 10.8%;
   text-align: center;
 }
 
-nav ul li .nav-bar {
-  width: 100%;
-}
-
-nav ul li .nav-bar:hover {
+nav ul li.nav-bar:hover {
   background-color: #020202;
 }
 
+nav .bandeira {
+  position: absolute;
+  height: 150px;
+  width: 11.111111%; /*futuramente mexer aqui*/
+  background-size: 920%; /*futuramente mexer aqui: fiz isso para pegar a imagem no tamanho que eu precisava*/
+  background-image: url(../img/casas1.jpg);
+}
 
-nav ul li .nav-bar a{
+nav .bandeira-stark{
+  background-position: 0 200px;
+}
+
+nav .bandeira-arryn{
+  left: 11.111111%; /*futuramente mexer aqui*/
+  background-position: -110px 200px;
+}
+
+nav .bandeira-tully{
+  left: 22.222222222%; /*futuramente mexer aqui*/
+  background-position: -220px 200px;
+}
+
+nav .bandeira-greyjoy{
+  left: 33.333333333%; /*futuramente mexer aqui*/
+  background-position: -330px 200px;
+}
+
+nav .bandeira-lannister{
+  left: 44.44444444444%; /*futuramente mexer aqui*/
+  background-position: -438px 200px;
+}
+
+nav .bandeira-baratheon{
+  left: 55.555555555%; /*futuramente mexer aqui*/
+  background-position: -548px 200px;
+}
+
+nav .bandeira-tyrell{
+  left: 66.66666666666%; /*futuramente mexer aqui*/
+  background-position: -654px 200px;
+}
+
+nav .bandeira-martell{
+  left: 77.77777777777%; /*futuramente mexer aqui*/
+  background-position: -762px 200px;
+}
+
+nav .bandeira-targaryen{
+  left: 88.888888888888%; /*futuramente mexer aqui*/
+  background-position: -870px 200px;
+  width: 11.115%; /*futuramente mexer aqui*/
+}
+
+nav ul li.nav-bar a{
   text-decoration: none;
-  font-size: 12px;
+  font-size: 10px;
   line-height: 44px;
   color: #fcfcfc;
-}
-
-article {
-  background-color: yellow;
-}
-
-section {
-  padding-top: 20px;
-}
-
-section .detalhes {
-  display: none;
-}
-
-section .detalhes h3 {
-  font-size: 16px;
-}
-
-#botao-pesquisar:visited .detalhes{
-  display: block;
-}
-
-#detalhes-nome {
-  text-align: center;
 }

@@ -1,0 +1,117 @@
+@font-face {
+    font-family: Game-of-Thrones;
+    src: url(../font/Game-of-Thrones.ttf);
+}
+
+body {
+  margin: 0;
+  background-color: #111;
+}
+
+h1, h2, h3, nav {
+  font-family: "Game-of-Thrones", Game-of-Thrones, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.clear-fix{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.corpo-fixo {
+  width: 1200px;
+  margin: auto;
+  background-color: #fcfcfc;
+}
+
+header {
+    background-image: url(../img/casas1.jpg);
+    background-size: cover;
+    filter: brightness(.9) grayscale(.3);
+    position: relative;
+    height: 454px;
+    border-bottom: 2px solid black;
+}
+
+header .banner{
+  height: 260px;
+  position: relative;
+}
+
+header .banner .titulo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .6);
+}
+
+header .banner .titulo h1 {
+    margin: 0;
+    text-align: center;
+    color: #fcfcfc;
+    text-shadow: 2px 2px black;
+    font-size: 38px;
+    line-height: 60px;
+}
+
+nav {
+  background-color: #111;
+  border-bottom: 1px solid #111;
+  border-top: 1px solid #111;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  width: 10.8%;
+  text-align: center;
+}
+
+nav ul li .nav-bar {
+  width: 100%;
+}
+
+nav ul li .nav-bar:hover {
+  background-color: #020202;
+}
+
+
+nav ul li .nav-bar a{
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 44px;
+  color: #fcfcfc;
+}
+
+article {
+  background-color: yellow;
+}
+
+section {
+  padding-top: 20px;
+}
+
+section .detalhes {
+  display: none;
+}
+
+section .detalhes h3 {
+  font-size: 16px;
+}
+
+#botao-pesquisar:visited .detalhes{
+  display: block;
+}
+
+#detalhes-nome {
+  text-align: center;
+}
