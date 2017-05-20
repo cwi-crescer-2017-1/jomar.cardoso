@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #0099cc;
+}
+
+.container {
+  margin-top: 1vh;
+  background-color: white;
+  /*transform: scaleX(-50%);*/
+}
+
+.divisao {
+  background-color: #ccc;
+  height: 2px;
+  margin-bottom: 14px;
+  margin-top: 14px;
+  display: block;
+}
+
+.titulo {
+  text-align: center;
+}
+
+.btn-alterar {
+  margin-top: 25px;
+}
+
+button {
+  width: 100%
+}
+
+.container .row .aulas {
+  border-right: 2px solid #ccc;
+}
