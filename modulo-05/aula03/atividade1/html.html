@@ -20,40 +20,19 @@
     <div class="col-md-10 col-md-offset-1 divisao"></div>
     <div class="row">
       <div class="col-md-12">
-        <form novalidate name="formInstrutores" ng-submit="incluir(novoInstrutor)">        
-            <div class="col-md-6 form-group">
-              <label>Nome</label> <input class="form-control" type="text" name="nome" ng-model="novoInstrutor.nome">
-            </div>
-            <div class="col-md-6 form-group">
-              <label>Sobrenome</label> <input class="form-control" type="text" name="sobrenome"ng-model="novoInstrutor.sobrenone">
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>Idade</label> <input class="form-control" type="number" name="idade" ng-model="novoInstrutor.idade">
-              </div>
-              <div class="form-group">
-                <label for="jaDeuAula">Já deu aula?</label><input type="checkbox" class="form-control" name="jaDeuAula"ng-model="jaDeuAula">
-              </div>
-            </div>
-            <div class="col-md-8">
-              <div class="form-group">
-                <label>Email</label> <input class="form-control" type="email" name="email" ng-model="novoInstrutor.email">
-              </div>
-              <div class="form-group">
-                <label for="">Aula</label>
-                <select name="aula" id="repeatSelect" ng-model="novoInstrutor.aula" class="form-control">
-                  <option ng-repeat="aula in aulas" value="{{aula}}">{{aula}}</option>
-                </select> 
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12 text-right">
-                <button class="btn btn-primary" type="submit">Adicionar</button>
-              </div>
-              
-            </div>
-
-          
+        <form novalidate name="formInstrutores" ng-submit="incluir(novoInstrutor)" class="">
+          <label>Nome</label> <input required name="nome" ng-model="novoInstrutor.nome" ng-minlength="3" ng-maxlength="20" class="form-control form-group" type="text">
+          <label>Sobrenome</label> <input name="sobrenome" ng-model="novoInstrutor.sobrenome" ng-maxlength="30" class="form-control form-group" type="text" >
+          <label>Idade</label> <input required class="form-control form-group" type="number" name="idade" ng-model="novoInstrutor.idade">
+          <div class="checkbox"><label for="jaDeuAula"><input type="checkbox" name="jaDeuAula"ng-model="novoInstrutor.jaDeuAula">Já deu aula?</label></div>
+          <label>Email</label> <input required class="form-control form-group" type="email" name="email" ng-model="novoInstrutor.email">
+          <label for="">Aula</label>
+          <select name="aula" id="repeatSelect" ng-model="novoInstrutor.aula" class="form-control form-group">
+            <option ng-repeat="aula in aulas" value="{{aula}}">{{aula}}</option>
+          </select>
+          <div class="col-md-12 text-right">
+            <button class="btn btn-primary" type="submit">Adicionar</button>
+          </div>
         </form>
       </div>
     </div>
@@ -66,6 +45,7 @@
             <th>Sobrenome</th>
             <th>Idade</th>
             <th>Email</th>
+            <th>Deu aula?</th>
             <th>Aula</th>
           </tr>
           <tr ng-repeat="instrutor in instrutores">
@@ -73,6 +53,7 @@
             <td>{{instrutor.sobrenome}}</td>
             <td>{{instrutor.idade}}</td>
             <td>{{instrutor.email}}</td>
+            <td>{{instrutor.jaDeuAula | trueFalse}}</td>
             <td>{{instrutor.aula}}</td>
           </tr>
         </table>
