@@ -49,6 +49,19 @@ img {
   font-weight: bold;
 }
 
+.btn.btn-xs.excluir,
+.btn.btn-xs.editar {
+  padding: 1px;
+  width: 50px;
+}
+
+.botoes-tabela-aulas {
+  width: 122px;
+}
+
+span.destacar {
+  font-weight: bold;
+}
 
 .ng-pristine.ng-untouched.ng-valid.ng-empty {
 }
@@ -74,7 +87,7 @@ img {
 
 
 
-
+.ng-invalid.ng-valid-maxlength.ng-touched.ng-dirty.ng-valid-parse.ng-empty.ng-invalid-required.ng-valid-minlength,
 .ng-valid-maxlength.ng-dirty.ng-valid-parse.ng-touched.ng-empty.ng-valid.ng-valid-minlength,
 .ng-pristine.ng-empty.ng-invalid.ng-invalid-required.ng-touched {
   border-color: #8a6d3b;
@@ -82,9 +95,11 @@ img {
   background-color: #fcf8e3;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          before: "uhu";
 }
 
-.ng-valid-maxlength.ng-dirty.ng-valid-parse.ng-touched.ng-empty.ng-valid.ng-valid-minlength,
+.ng-invalid.ng-valid-maxlength.ng-touched.ng-dirty.ng-valid-parse.ng-empty.ng-invalid-required.ng-valid-minlength:focus,
+.ng-valid-maxlength.ng-dirty.ng-valid-parse.ng-touched.ng-empty.ng-valid.ng-valid-minlength:focus,
 .ng-pristine.ng-empty.ng-invalid.ng-invalid-required.ng-touched:focus {
   border-color: #66512c;
   color: #8a6d3b;
@@ -97,7 +112,7 @@ img {
 
 
 
-
+.ng-invalid.ng-touched.ng-not-empty.ng-dirty.ng-invalid-email,
 .ng-dirty.ng-touched.ng-not-empty.ng-valid-parse.ng-valid-required.ng-valid-minlength.ng-invalid.ng-invalid-maxlength,
 .ng-invalid.ng-not-empty.ng-dirty.ng-invalid-email.ng-valid-required.ng-touched:focus,
 .ng-invalid.ng-not-empty.ng-dirty.ng-invalid-minlength.ng-touched {
@@ -108,6 +123,7 @@ img {
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 }
 
+.ng-invalid.ng-touched.ng-not-empty.ng-dirty.ng-invalid-email:focus,
 .ng-dirty.ng-touched.ng-not-empty.ng-valid-parse.ng-valid-required.ng-valid-minlength.ng-invalid.ng-invalid-maxlength:focus,
 .ng-invalid.ng-not-empty.ng-dirty.ng-invalid-email.ng-valid-required.ng-touched:focus,
 .ng-invalid.ng-not-empty.ng-dirty.ng-invalid-minlength.ng-touched:focus {

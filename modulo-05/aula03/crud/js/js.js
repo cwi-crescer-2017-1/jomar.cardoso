@@ -11,6 +11,34 @@ aula.controller('controller-aulas', function($scope){
     id: null,
     nome: "",
   }
+
+  // $scope.novaMensagem = function() {
+  //   console.log()
+  //   $scope.mensagem = angular.fromJson(formAlterarAula)
+  // }
+  //
+
+  //
+  $scope.verificaSubmitAlterarAula = function(){
+    $scope.tamanhoMininoInvalido = false;
+    $scope.campoRequerido = false;
+    $scope.tamanhoMaximoInvalido
+    console.log($scope.formAlterarAula)
+    //verificar se tem erro no campo requerido
+    if($scope.formAlterarAula.$error.required) {
+      $scope.campoRequerido = true;
+    }
+    //verificar se tem erro no tamanho mínimo
+    if($scope.formAlterarAula.$error.minlength) {
+      $scope.tamanhoMinimoInvalido = true;
+    }
+    //verificar se tem erro no tamanho máximo
+    if($scope.formAlterarAula.$error.maxlength) {
+      $scope.tamanhoMaximoInvalido = true;
+    }
+
+  }
+
   $scope.armazenaid = function(id) {
     console.log(id)
     $scope.aulaAlterada.id = id
@@ -74,6 +102,44 @@ aula.controller('controller-aulas', function($scope){
 aula.controller('controller-instrutores', function($scope){
   $scope.instrutores = instrutores;
   $scope.aulas = aulas
+  $scope.campoRequerido = false
+
+  $scope.verificaSubmitNovoInstrutor = function(){
+    $scope.tamanhoMininoInvalido = false;
+    $scope.campoRequerido = false;
+    $scope.tamanhoMaximoInvalido = false;
+    $scope.emailInvalido = false;
+    console.log($scope.formNovoInstrutor)
+    //verificar se tem erro no campo requerido
+    if($scope.formNovoInstrutor.$error.required) {
+      $scope.campoRequerido = true;
+    }
+    //verificar se tem erro no tamanho mínimo
+    if($scope.formNovoInstrutor.$error.minlength) {
+      $scope.tamanhoMinimoInvalido = true;
+    }
+    //verificar se tem erro no tamanho máximo
+    if($scope.formNovoInstrutor.$error.maxlength) {
+      $scope.tamanhoMaximoInvalido = true;
+    }
+    if($scope.formNovoInstrutor.$error.email) {
+      console.log('email invalido')
+      $scope.emailInvalido = true;
+      console.log($scope.emailInvalido)
+    }
+  }
+
+  $scope.verificarCamposRequeridos = function() {
+    console.log('verificando campo requeridos')
+    let retorno = ''
+    if($scope.formNovoInstrutor.$error.required) {
+      for(r of $scope.formNovoInstrutor.$error.required){
+        retorno = retorno.concat(' ',r.$name)
+      }
+    }
+
+    return retorno
+  }
 
   $scope.incluirInstrutor = function (novoInstrutor) {
     if($scope.formNovoInstrutor.$invalid){
