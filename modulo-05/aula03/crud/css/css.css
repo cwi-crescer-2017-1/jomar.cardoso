@@ -50,94 +50,70 @@ img {
 }
 
 
-.ng-valid .help-block,
-.ng-valid .control-label,
-.ng-valid .radio,
-.ng-valid .checkbox,
-.ng-valid .radio-inline,
-.ng-valid .checkbox-inline,
-.ng-valid.radio label,
-.ng-valid.checkbox label,
-.ng-valid.radio-inline label,
-.ng-valid.checkbox-inline label {
-  color: #3c763d;
+.ng-pristine.ng-untouched.ng-valid.ng-empty {
 }
-.ng-valid .form-control {
+
+.ng-not-empty.ng-dirty.ng-valid-number.ng-valid.ng-valid-required.ng-touched,
+.form-control.ng-not-empty.ng-dirty.ng-valid-parse.ng-valid.ng-touched{
   border-color: #3c763d;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-}
-.ng-valid .form-control:focus {
-  border-color: #2b542c;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #67b168;
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #67b168;
-}
-.ng-valid .input-group-addon {
   color: #3c763d;
   background-color: #dff0d8;
-  border-color: #3c763d;
-}
-.ng-valid .form-control-feedback {
-  color: #3c763d;
-}
-.has-warning .help-block,
-.has-warning .control-label,
-.has-warning .radio,
-.has-warning .checkbox,
-.has-warning .radio-inline,
-.has-warning .checkbox-inline,
-.has-warning.radio label,
-.has-warning.checkbox label,
-.has-warning.radio-inline label,
-.has-warning.checkbox-inline label {
-  color: #8a6d3b;
-}
-.has-warning .form-control {
-  border-color: #8a6d3b;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 }
-.has-warning .form-control:focus {
+
+.ng-not-empty.ng-dirty.ng-valid-parse.ng-valid.ng-touched:focus{
+  border-color: #2b542c;
+  color: #3c763d;
+  background-color: #dff0d8;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #67b168;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #67b168;
+
+}
+
+
+
+
+
+.ng-valid-maxlength.ng-dirty.ng-valid-parse.ng-touched.ng-empty.ng-valid.ng-valid-minlength,
+.ng-pristine.ng-empty.ng-invalid.ng-invalid-required.ng-touched {
+  border-color: #8a6d3b;
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+.ng-valid-maxlength.ng-dirty.ng-valid-parse.ng-touched.ng-empty.ng-valid.ng-valid-minlength,
+.ng-pristine.ng-empty.ng-invalid.ng-invalid-required.ng-touched:focus {
   border-color: #66512c;
+  color: #8a6d3b;
+  background-color: #fcf8e3;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #c0a16b;
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #c0a16b;
 }
-.has-warning .input-group-addon {
-  color: #8a6d3b;
-  background-color: #fcf8e3;
-  border-color: #8a6d3b;
-}
-.has-warning .form-control-feedback {
-  color: #8a6d3b;
-}
 
-.ng-invalid .help-block,
-.ng-invalid .control-label,
-.ng-invalid .radio,
-.ng-invalid .checkbox,
-.ng-invalid .radio-inline,
-.ng-invalid .checkbox-inline,
-.ng-invalid.radio label,
-.ng-invalid.checkbox label,
-.ng-invalid.radio-inline label,
-.ng-invalid.checkbox-inline label {
-  color: #a94442;
-}
-.ng-invalid .form-control {
+
+
+
+
+
+.ng-dirty.ng-touched.ng-not-empty.ng-valid-parse.ng-valid-required.ng-valid-minlength.ng-invalid.ng-invalid-maxlength,
+.ng-invalid.ng-not-empty.ng-dirty.ng-invalid-email.ng-valid-required.ng-touched:focus,
+.ng-invalid.ng-not-empty.ng-dirty.ng-invalid-minlength.ng-touched {
   border-color: #a94442;
+  color: #a94442;
+  background-color: #f2dede;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 }
-.ng-invalid .form-control:focus {
+
+.ng-dirty.ng-touched.ng-not-empty.ng-valid-parse.ng-valid-required.ng-valid-minlength.ng-invalid.ng-invalid-maxlength:focus,
+.ng-invalid.ng-not-empty.ng-dirty.ng-invalid-email.ng-valid-required.ng-touched:focus,
+.ng-invalid.ng-not-empty.ng-dirty.ng-invalid-minlength.ng-touched:focus {
   border-color: #843534;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
-}
-.ng-invalid .input-group-addon {
   color: #a94442;
   background-color: #f2dede;
-  border-color: #a94442;
-}
-.ng-invalid .form-control-feedback {
-  color: #a94442;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
 }

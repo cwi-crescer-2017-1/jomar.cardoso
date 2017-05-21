@@ -20,26 +20,9 @@
         <div class="divisao col-md-10 col-md-offset-1"></div>
 <!-- ############################################## AULAS ########################################################### -->
         <div class="col-md-6 aulas" ng-controller="controller-aulas">
-          <div class="row"> <!-- ============= FORM INCLUIR AULAS ================ -->
+          <div class="row"> <!-- ============= FORM INCLUIR ALTERAR AULAS ================ -->
             <div class="col-md-12">
-              <h2>Incluir Aula</h2>
-              <form novalidate class="" name="formNovaAula" ng-submit="incluirAula(novaAula)">
-                <div class="row">
-                  <div class="form-group col-md-6">
-                    <label for="nome" class="control-label">Nome</label>
-                    <input type="text" name="nome" ng-model="novaAula.nome" ng-minlength="3" ng-maxlength="20" class="form-control" autofocus>
-                  </div>
-                  <div class="form-group form-group col-md-3 col-md-offset-3">
-                    <button type="submit" class="btn btn-primary">Cadastrar</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div> <!-- ============= FORM INCLUIR AULAS ================ -->
-          <hr>
-          <div class="row"> <!-- ============= FORM ALTERAR AULAS ================ -->
-            <div class="col-md-12">
-              <h2>Alterar Aula</h2>
+              <h2>Incluir ou Alterar Aula</h2>
               <form novalidate  name="formAlterarAula" ng-submit="alterarAula(aulaAlterada)">
                 <div class="row">
                   <div class="form-group col-md-4">
@@ -47,8 +30,8 @@
                     <input type="number" name="id" ng-model="aulaAlterada.id" class="form-control">
                   </div>
                   <div class="form-group col-md-5">
-                    <label for="nome" class="control-label">Novo nome</label>
-                    <input type="text" name="nome" ng-model="aulaAlterada.nome" ng-minlength="3" ng-maxlength="20" class="form-control">
+                    <label for="aula-alterar-nome" class="control-label">Novo nome</label>
+                    <input type="text" name="nome" ng-model="aulaAlterada.nome" ng-minlength="3" ng-maxlength="20" class="form-control" id="aula-alterar-nome" required>
                   </div>
                   <div class="form-group col-md-3">
                     <button type="submit" class="btn btn-warning">Aterar</button>
@@ -56,7 +39,7 @@
                 </div>
               </form>
             </div>
-          </div> <!-- ============= FORM ALTERAR AULAS ================ -->
+          </div> <!-- ============= FORM INCLUIR ALTERAR AULAS ================ -->
           <hr>
           <div class="row"> <!-- ============= FORM EXCLUIR AULAS ================ -->
             <div class="col-md-12">
@@ -126,7 +109,7 @@
                 <div class="form-group">
                   <label for="email" class="col-sm-3 control-label">Email</label>
                   <div class="col-sm-9">
-                    <input type="email" name="email" class="form-control" ng-model="novoInstrutor.email">
+                    <input type="email" name="email" class="form-control" ng-model="novoInstrutor.email" required>
                   </div>
                 </div>
                 <div class="form-group">

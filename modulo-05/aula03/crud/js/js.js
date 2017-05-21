@@ -6,6 +6,7 @@ aula.filter('lpad2', () => numero => numero.toString().padStart(2, '0'))
 
 aula.controller('controller-aulas', function($scope){
   $scope.aulas = aulas
+  $scope.instrutores = instrutores
   $scope.aulaAlterada = {
     id: null,
     nome: "",
@@ -15,17 +16,6 @@ aula.controller('controller-aulas', function($scope){
     $scope.aulaAlterada.id = id
   }
 
-  $scope.incluirAula = function (novaAula) {
-    if($scope.formNovaAula.$invalid){
-      return
-    }
-    novaAula.id = $scope.aulas.length
-    $scope.aulas.push(angular.copy(novaAula))
-    $scope.novaAula = {}
-  }
-
-
-
   $scope.alterarAula = function (aulaAlterada) {
     if($scope.formAlterarAula.$invalid){
       console.log('form invalido')
@@ -34,27 +24,47 @@ aula.controller('controller-aulas', function($scope){
     if(aulaAlterada.id === null) {
       aulaAlterada.id = $scope.aulas.length
       $scope.aulas.push(angular.copy(aulaAlterada))
-      $scope.aulaAlterada = {}
-      for(aula of $scope.aulas) {
-        if(aula.id === aulaAlterada.id){
-          aula.nome = aulaAlterada.nome
-        }
+      $scope.aulaAlterada = {
+        id: null,
+        nome: "",
       }
       return
     }
+    for(aula of $scope.aulas) {
+      if(aula.id === aulaAlterada.id){
+        aula.nome = aulaAlterada.nome
+      }
+    }
+    $scope.aulaAlterada = {
+      id: null,
+      nome: "",
+    }
     // console.log($scope.aulas.filter( a => a.id === aulaAlterada.id))
     // objeto = $scope.aulas.filter( a => a.id === aulaAlterada.id)
-    $scope.aulas[aulaAlterada.id].nome = aulaAlterada.nome
-    $scope.aulaAlterada = {}
+
 
   }
   $scope.excluirAula = function (aulaExcluida) {
     if($scope.formExcluirAula.$invalid){
+      console.log('form invalido')
       return
     }
     for(i=0; i<$scope.aulas.length; i++) {
       if($scope.aulas[i].id === aulaExcluida.id) {
+        for(instrutor of instrutores) {
+          for(j=0; j<instrutor.aula.length; j++){
+            if(instrutor.aula[j].id === aulaExcluida.id){
+              console.log('instrutor vinculado')
+              return
+            }
+          }
+        }
         $scope.aulas.splice(i, 1)
+      }
+      if($scope.aulas.length === aulaExcluida.id) {
+        console.log('ultimo item excluido')
+        $scope.aulaExcluida = {}
+        return
       }
       $scope.aulas[i].id = i;
     }
@@ -72,7 +82,7 @@ aula.controller('controller-instrutores', function($scope){
     novoInstrutor.id = $scope.instrutores.length
     $scope.instrutores.push(angular.copy(novoInstrutor))
     $scope.novoInstrutor = {}
-    
+
   }
   $scope.alterarAula = function (aulaAlterada) {
     if($scope.formAlterarAula.$invalid){
