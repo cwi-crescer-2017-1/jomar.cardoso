@@ -73,6 +73,7 @@ aula.controller('controller-aulas', function($scope){
 
   }
   $scope.excluirAula = function (aulaExcluida) {
+    $scope.aulaVinculada = false;
     if($scope.formExcluirAula.$invalid){
       console.log('form invalido')
       return
@@ -83,6 +84,8 @@ aula.controller('controller-aulas', function($scope){
           for(j=0; j<instrutor.aula.length; j++){
             if(instrutor.aula[j].id === aulaExcluida.id){
               console.log('instrutor vinculado')
+              $scope.aulaExcluida = {}
+              $scope.aulaVinculada = true;
               return
             }
           }
@@ -137,12 +140,12 @@ aula.controller('controller-instrutores', function($scope){
         retorno = retorno.concat(' ',r.$name)
       }
     }
-
     return retorno
   }
 
   $scope.incluirInstrutor = function (novoInstrutor) {
     if($scope.formNovoInstrutor.$invalid){
+      $('.owl-carousel').trigger('replace.owl.carousel', $('.owl-carousel'));
       return
     }
     novoInstrutor.id = $scope.instrutores.length
@@ -152,6 +155,7 @@ aula.controller('controller-instrutores', function($scope){
   }
   $scope.alterarAula = function (aulaAlterada) {
     if($scope.formAlterarAula.$invalid){
+      $('.owl-carousel').trigger('replace.owl.carousel', $('.owl-carousel'));
       return
     }
     // console.log($scope.aulas.filter( a => a.id === aulaAlterada.id))
@@ -162,6 +166,7 @@ aula.controller('controller-instrutores', function($scope){
       }
     }
   }
+  $('.owl-carousel').trigger('replace.owl.carousel', $('.owl-carousel'));
 })
 
 let aulas = [

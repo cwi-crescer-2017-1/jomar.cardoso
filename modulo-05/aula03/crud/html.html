@@ -62,6 +62,7 @@
                   </div>
                 </div>
               </form>
+              <p class="bg-danger" ng-show="aulaVinculada">Aula vinculada</p>
             </div>
           </div> <!-- ============= FORM EXCLUIR AULAS ================ -->
           <hr>
@@ -161,7 +162,7 @@
           <div class="row"> <!-- =========== LISTA INSTRUTORES ============= -->
             <div class="col-md-12">
               <h2>Instrutores</h2>
-              <div class="owl-carousel owl-theme">
+              <div class="owl-carousel owl-theme" onRefreshed="wow()">
                 <div class="item" ng-repeat="instrutor in instrutores | orderBy: 'nome'">
                   <div class="row">
                     <div class="col-md-5">

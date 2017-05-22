@@ -19,6 +19,8 @@ $(document).ready(function(){
   //    $('.owl-carousel').trigger('destroy.owl.carousel');
   //    $(".owl-carousel").owlCarousel();
   // })
-
+  function wow(){
+    $('.owl-carousel').owlCarousel()
+  }
 
 });
