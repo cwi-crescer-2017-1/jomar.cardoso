@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #0099cc;
+}
+
+.container {
+  margin-top: 1vh;
+  background-color: white;
+  /*transform: scaleX(-50%);*/
+}
+
+.divisao {
+  background-color: #ccc;
+  height: 2px;
+  margin-bottom: 14px;
+  margin-top: 14px;
+  display: block;
+}
+
+.titulo {
+  text-align: center;
+}
+
+.aulas form .btn {
+  margin-top: 25px;
+}
+
+button {
+  width: 100%
+}
+
+.container .row .aulas {
+  border-right: 2px solid #ccc;
+}
+
+.imagem {
+  width: 200px;
+}
+
+img {
+  width: 100%;
+}
+
+.owl-carousel .item span {
+  font-weight: bold;
+}
+
+.btn.btn-xs.excluir,
+.btn.btn-xs.editar {
+  padding: 1px;
+  width: 50px;
+}
+
+.botoes-tabela-aulas {
+  width: 122px;
+}
+
+span.destacar {
+  font-weight: bold;
+}
+
+.ng-pristine.ng-untouched.ng-valid.ng-empty {
+}
+
+input:-webkit-autofill,
+.ng-valid-minlength.ng-valid-maxlength.ng-not-empty.ng-dirty.ng-valid-parse.ng-valid.ng-valid-required.ng-touched,
+.ng-valid-maxlength.ng-dirty.ng-valid-parse.ng-touched.ng-valid-minlength.ng-not-empty.ng-valid.ng-valid-required,
+.ng-not-empty.ng-dirty.ng-valid-required.ng-valid.ng-valid-email.ng-touched,
+.ng-not-empty.ng-dirty.ng-valid-number.ng-valid.ng-valid-required.ng-touched,
+.form-control.ng-not-empty.ng-dirty.ng-valid-parse.ng-valid.ng-touched{
+  border-color: #3c763d;
+  color: #3c763d;
+  background-color: #dff0d8;
+}
+
+textarea:-webkit-autofill, select:-webkit-autofill,
+.ng-valid-maxlength.ng-dirty.ng-valid-parse.ng-touched.ng-valid-minlength.ng-not-empty.ng-valid.ng-valid-required:focus,
+.ng-not-empty.ng-dirty.ng-valid-required.ng-valid.ng-valid-email.ng-touched:focus,
+.ng-valid-minlength.ng-valid-maxlength.ng-not-empty.ng-dirty.ng-valid-parse.ng-valid.ng-valid-required.ng-touched:focus,
+.ng-not-empty.ng-dirty.ng-valid-number.ng-valid.ng-valid-required.ng-touched:focus,
+.ng-not-empty.ng-dirty.ng-valid-parse.ng-valid.ng-touched:focus{
+  border-color: #2b542c;
+  color: #3c763d;
+  background-color: #dff0d8;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #67b168;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #67b168;
+
+}
+
+
+
+
+.ng-invalid.ng-valid-maxlength.ng-touched.ng-dirty.ng-valid-parse.ng-empty.ng-invalid-required.ng-valid-minlength,
+.ng-valid-maxlength.ng-dirty.ng-valid-parse.ng-touched.ng-empty.ng-valid.ng-valid-minlength,
+.ng-pristine.ng-empty.ng-invalid.ng-invalid-required.ng-touched {
+  border-color: #8a6d3b;
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+.ng-invalid.ng-valid-maxlength.ng-touched.ng-dirty.ng-valid-parse.ng-empty.ng-invalid-required.ng-valid-minlength:focus,
+.ng-valid-maxlength.ng-dirty.ng-valid-parse.ng-touched.ng-empty.ng-valid.ng-valid-minlength:focus,
+.ng-pristine.ng-empty.ng-invalid.ng-invalid-required.ng-touched:focus {
+  border-color: #66512c;
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #c0a16b;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #c0a16b;
+}
+
+
+
+
+
+.ng-invalid.ng-touched.ng-not-empty.ng-dirty.ng-invalid-email,
+.ng-dirty.ng-touched.ng-not-empty.ng-valid-parse.ng-valid-required.ng-valid-minlength.ng-invalid.ng-invalid-maxlength,
+.ng-invalid.ng-not-empty.ng-dirty.ng-invalid-email.ng-valid-required.ng-touched:focus,
+.ng-invalid.ng-not-empty.ng-dirty.ng-invalid-minlength.ng-touched {
+  border-color: #a94442;
+  color: #a94442;
+  background-color: #f2dede;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+.ng-invalid.ng-touched.ng-not-empty.ng-dirty.ng-invalid-email:focus,
+.ng-dirty.ng-touched.ng-not-empty.ng-valid-parse.ng-valid-required.ng-valid-minlength.ng-invalid.ng-invalid-maxlength:focus,
+.ng-invalid.ng-not-empty.ng-dirty.ng-invalid-email.ng-valid-required.ng-touched:focus,
+.ng-invalid.ng-not-empty.ng-dirty.ng-invalid-minlength.ng-touched:focus {
+  border-color: #843534;
+  color: #a94442;
+  background-color: #f2dede;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+}
