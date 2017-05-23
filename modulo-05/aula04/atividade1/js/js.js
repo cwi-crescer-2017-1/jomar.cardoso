@@ -1,10 +1,42 @@
-var aula = angular.module('aula', []);
+var aula = angular.module('aula', ['ngRoute']);
+
+
+aula.config(function ($routeProvider) {
+
+  $routeProvider
+    .when('/aulas', {
+      controller: 'controller-aulas',
+      templateUrl: 'aulas.html'
+    })
+    .when('/instrutores', {
+      controller: 'controller-instrutores',
+      templateUrl: 'instrutores.html'
+    })
+    .otherwise({
+      redirectTo: '/aulas'
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 aula.filter('trueFalse', () => nome => !!nome ? 'sim' : 'não')
-
 aula.filter('lpad2', () => numero => numero.toString().padStart(2, '0'))
 
 aula.controller('controller-aulas', function($scope){
+  $scope.controller = 'controller-aulas'
   $scope.aulas = aulas
   $scope.instrutores = instrutores
   $scope.aulaAlterada = {
@@ -103,6 +135,7 @@ aula.controller('controller-aulas', function($scope){
 });
 
 aula.controller('controller-instrutores', function($scope){
+  $scope.controller = 'controller-instrutores'
   $scope.instrutores = instrutores;
   $scope.aulas = aulas
   $scope.campoRequerido = false

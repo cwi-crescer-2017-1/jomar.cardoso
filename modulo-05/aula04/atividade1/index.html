@@ -6,8 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/vendors/owl.carousel.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-  <script src="js/js.js" charset="utf-8"></script>
   <link rel="stylesheet" href="css/vendors/owl.theme.default.css">
   <link rel="stylesheet" href="css/css.css">
   <title>Crud</title>
@@ -18,181 +16,21 @@
       <div class="col-md-12">
         <h1 class="titulo">CRUD</h1>
         <div class="divisao col-md-10 col-md-offset-1"></div>
-<!-- ############################################## AULAS ########################################################### -->
-        <div class="col-md-6 aulas" ng-controller="controller-aulas">
-          <div class="row"> <!-- ============= FORM INCLUIR ALTERAR AULAS ================ -->
-            <div class="col-md-12">
-              <h2>Incluir ou Alterar Aula</h2>
-              <form novalidate  name="formAlterarAula" ng-submit="alterarAula(aulaAlterada)">
-                <div class="row">
-                  <div class="form-group col-md-4">
-                    <label for="id">ID</label>
-                    <input type="number" name="id" ng-model="aulaAlterada.id" class="form-control">
-                  </div>
-                  <div class="form-group col-md-5">
-                    <label for="aula-alterar-nome" class="control-label">Novo nome</label>
-                    <input type="text" name="nome" ng-model="aulaAlterada.nome" ng-minlength="3" ng-maxlength="20" class="form-control" id="aula-alterar-nome" required>
-                  </div>
-                  <div class="form-group col-md-3">
-                    <button type="submit" class="btn btn-warning" ng-click="verificaSubmitAlterarAula()">Aterar</button>
-                  </div>
-                </div>
-              </form>
-              <p class="error" ng-show="tamanhoMinimoInvalido" class="bg-danger"><span class="destacar">Nome</span> necessita no mínimo 3 letras</p>
-              <p ng-show="campoRequerido" class="bg-danger">Preencha o <span class="destacar">nome</span></p>
-              <p ng-show="tamanhoMaximoInvalido" class="bg-danger"><span class="destacar">Nome</span>pode ter no máximo 20 letras</p>
-              <br>
-              <!-- <pre>{{formAlterarAula | json}}</pre> -->
-              <!-- <button type="button" ng-click="novaMensagem()">asdf</button> -->
-              <!-- <p>{{mensagem}}</p> -->
-            </div>
-          </div> <!-- ============= FORM INCLUIR ALTERAR AULAS ================ -->
-          <hr>
-          <div class="row"> <!-- ============= FORM EXCLUIR AULAS ================ -->
-            <div class="col-md-12">
-              <h2>Excluir Aula</h2>
-              <form novalidate class="" name="formExcluirAula" ng-submit="excluirAula(aulaExcluida)">
-                <div class="row">
-                  <div class="form-group col-md-6">
-                    <label for="id">ID</label>
-                    <input type="number" name="id" ng-model="aulaExcluida.id" class="form-control">
-                  </div>
-                  <div class="form-group col-md-3 col-md-offset-3">
-                    <button type="submit" class="btn btn-danger">Excluir</button>
-                  </div>
-                </div>
-              </form>
-              <p class="bg-danger" ng-show="aulaVinculada">Aula vinculada</p>
-            </div>
-          </div> <!-- ============= FORM EXCLUIR AULAS ================ -->
-          <hr>
-          <div class="row"> <!-- =========== TABELA AULAS ============= -->
-            <div class="col-md-12">
-              <h2>Tabela Aulas</h2>
-              <table class="table table-striped table-bordered table-hover responsive-table">
-                <tr>
-                  <th>ID</th>
-                  <th>Nome</th>
-                  <th></th>
-                </tr>
-                <tr ng-repeat="aula in aulas | orderBy: 'nome'">
-                  <td>{{aula.id | lpad2}}</td>
-                  <td>{{aula.nome}}</td>
-                  <td class="botoes-tabela-aulas">
-                    <button type="button" id="editar-aula{{aula.id}}" name="nome-{{aula.id}}" ng-value="{{aula.id}}" class="btn btn-xs editar" ng-click="armazenaid(name)" >editar</button>
-                    <button type="button" id="excluir-aula-{{aula.id}}" name="nome-{{aula.id}}" ng-value="{{aula.id}}" class="btn btn-xs editar" ng-click="armazenaid(name)" >excluir</button>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div> <!-- =========== TABELA AULAS ============= -->
-        </div>
-<!-- ############################################# AULAS ####################################################### -->
-<!-- ############################################# INSTRUTORES ####################################################### -->
-        <div class="col-md-6 instrutores" ng-controller="controller-instrutores">
-          <div class="row"> <!-- =========== NOVO INSTRUTOR ============= -->
-            <div class="col-md-12">
-              <h2>Novo Instrutor</h2>
-              <form novalidate class="form-horizontal" name="formNovoInstrutor" ng-submit="incluirInstrutor(novoInstrutor)">
-                <div class="form-group">
-                  <label for="nome" class="col-sm-3 control-label">Nome</label>
-                  <div class="col-sm-9">
-                    <input type="text" name="nome" ng-model="novoInstrutor.nome" ng-minlength="3" ng-maxlength="20" class="form-control" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="sobrenome" class="col-sm-3 control-label" ng-model="novoIntrutor.sobrenome" ng-maxlength="30">Sobrenome</label>
-                  <div class="col-sm-9">
-                    <input type="text" name="sobrenome" value="" class="form-control" ng-model="novoInstrutor.sobrenome">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="idade" class="col-sm-3 control-label">Idade</label>
-                  <div class="col-sm-2">
-                    <input type="number" name="idade" value="" class="form-control" ng-model="novoInstrutor.idade" required>
-                  </div>
-                  <div class="checkbox col-sm-3">
-                    <label class="control-label">
-                      <input type="checkbox" name="lecionando" value="" ng-model="novoInstrutor.lecionando"> Lecionando?
-                    </label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="email" class="col-sm-3 control-label">Email</label>
-                  <div class="col-sm-9">
-                    <input type="email" name="email" class="form-control" ng-model="novoInstrutor.email" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="foto" class="col-sm-3 control-label">Foto</label>
-                  <div class="col-md-9">
-                    <input type="file" name="foto" value="" accept="image/*">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="row">
-                    <label for="" class=" col-sm-7 control-label">Aulas que ministra</label>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div ng-repeat="aula in aulas" class="checkbox col-md-6">
-                        <label class="control-label">
-                          <input type="checkbox" name="{{aula.nome}}" >{{aula.nome}}
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-3 col-md-offset-9">
-                    <button type="submit" class="btn btn-primary" ng-click="verificaSubmitNovoInstrutor()">Cadastrar</button>
-                  </div>
-                </div>
-              </form>
-              <br>
-              <p class="bg-danger" ng-show="tamanhoMinimoInvalido"><span class="destacar">Nome</span> necessita no mínimo 3 letras</p>
-              <p class="bg-danger" ng-show="tamanhoMaximoInvalido"><span class="destacar">Nome</span> máximo 20 letras</p>
-              <p class="bg-danger" ng-show="campoRequerido">Os campos <span class="destacar">{{verificarCamposRequeridos()}}</span> são requeridos</p>
-              <p ng-show="emailInvalido" class="bg-danger"><span class="destacar">Email</span> inválido</p>
-              <br>
-              <!-- <pre>{{formNovoInstrutor | json}}</pre> -->
-            </div>
-          </div> <!-- =========== NOVO INSTRUTOR ============= -->
-          <hr>
-          <div class="row"> <!-- =========== LISTA INSTRUTORES ============= -->
-            <div class="col-md-12">
-              <h2>Instrutores</h2>
-              <div class="owl-carousel owl-theme" onRefreshed="wow()">
-                <div class="item" ng-repeat="instrutor in instrutores | orderBy: 'nome'">
-                  <div class="row">
-                    <div class="col-md-5">
-                      <img ng-src="{{instrutor.urlFoto}}" alt="img/alt.jpg">
-                    </div>
-                    <div class="col-md-7">
-                      <div class=""><span>ID: </span>{{instrutor.id}}</div>
-                      <div class=""><span>Nome: </span>{{instrutor.nome}}</div>
-                      <div class=""><span>Sobrenome: </span>{{instrutor.sobrenome}}</div>
-                      <div class=""><span>Idade: </span>{{instrutor.idade}}</div>
-                      <div class=""><span>Email: </span>{{instrutor.email}}</div>
-                      <div class=""><span>Lecionando: </span>{{instrutor.lecionando | trueFalse}}</div>
-                      <div class="" ng-repeat="a in instrutor.aula | orderBy: 'nome'">
-                        <div class=""><span>Aula: </span>{{a.id | lpad2}} {{a.nome}}</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> <!-- =========== LISTA INSTRUTORES ============= -->
-        </div>
-<!-- ############################################# INSTRUTORES ####################################################### -->
+
+        <ng-view></ng-view>
       </div>
     </div>
   </div>
-  <script src="js/vendors/jquery-3.2.1.min.js" charset="utf-8"></script>
+
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="js/vendors/jquery-3.2.1.min.js" charset="utf-8"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
+
   <script src="js/js-visual.js" charset="utf-8"></script>
   <script src="js/vendors/owl.carousel.min.js" charset="utf-8"></script>
+  <script src="js/js.js" charset="utf-8"></script>
 </body>
 </html>
 

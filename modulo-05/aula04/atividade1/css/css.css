@@ -11,6 +11,7 @@ body {
   margin-top: 1vh;
   background-color: white;
   /*transform: scaleX(-50%);*/
+  width: 550px;
 }
 
 .divisao {
@@ -33,9 +34,6 @@ button {
   width: 100%
 }
 
-.container .row .aulas {
-  border-right: 2px solid #ccc;
-}
 
 .imagem {
   width: 200px;

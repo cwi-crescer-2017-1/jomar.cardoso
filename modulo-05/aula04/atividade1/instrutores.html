@@ -1,0 +1,104 @@
+<!-- ############################################# INSTRUTORES ####################################################### -->
+        <nav>
+          <ul class="nav nav-tabs">
+            <li role="presentation"><a href="#!/aulas">aulas</a></li>
+            <li role="presentation" class="active"><a href="#!/instrutores">funcionários</a></li>
+          </ul>
+        </nav>
+        <div class="col-md-12 instrutores" ng-controller="controller-instrutores">
+          <div class="row"> <!-- =========== NOVO INSTRUTOR ============= -->
+            <div class="col-md-12">
+              <h2>Novo Instrutor</h2>
+              <form novalidate class="form-horizontal" name="formNovoInstrutor" ng-submit="incluirInstrutor(novoInstrutor)">
+                <div class="form-group">
+                  <label for="nome" class="col-sm-3 control-label">Nome</label>
+                  <div class="col-sm-9">
+                    <input type="text" name="nome" ng-model="novoInstrutor.nome" ng-minlength="3" ng-maxlength="20" class="form-control" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="sobrenome" class="col-sm-3 control-label" ng-model="novoIntrutor.sobrenome" ng-maxlength="30">Sobrenome</label>
+                  <div class="col-sm-9">
+                    <input type="text" name="sobrenome" value="" class="form-control" ng-model="novoInstrutor.sobrenome">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="idade" class="col-sm-3 control-label">Idade</label>
+                  <div class="col-sm-2">
+                    <input type="number" name="idade" value="" class="form-control" ng-model="novoInstrutor.idade" required>
+                  </div>
+                  <div class="checkbox col-sm-3">
+                    <label class="control-label">
+                      <input type="checkbox" name="lecionando" value="" ng-model="novoInstrutor.lecionando"> Lecionando?
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="email" class="col-sm-3 control-label">Email</label>
+                  <div class="col-sm-9">
+                    <input type="email" name="email" class="form-control" ng-model="novoInstrutor.email" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="foto" class="col-sm-3 control-label">Foto</label>
+                  <div class="col-md-9">
+                    <input type="file" name="foto" value="" accept="image/*">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <label for="" class=" col-sm-7 control-label">Aulas que ministra</label>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div ng-repeat="aula in aulas" class="checkbox col-md-6">
+                        <label class="control-label">
+                          <input type="checkbox" name="{{aula.nome}}" >{{aula.nome}}
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3 col-md-offset-9">
+                    <button type="submit" class="btn btn-primary" ng-click="verificaSubmitNovoInstrutor()">Cadastrar</button>
+                  </div>
+                </div>
+              </form>
+              <br>
+              <p class="bg-danger" ng-show="tamanhoMinimoInvalido"><span class="destacar">Nome</span> necessita no mínimo 3 letras</p>
+              <p class="bg-danger" ng-show="tamanhoMaximoInvalido"><span class="destacar">Nome</span> máximo 20 letras</p>
+              <p class="bg-danger" ng-show="campoRequerido">Os campos <span class="destacar">{{verificarCamposRequeridos()}}</span> são requeridos</p>
+              <p ng-show="emailInvalido" class="bg-danger"><span class="destacar">Email</span> inválido</p>
+              <br>
+              <!-- <pre>{{formNovoInstrutor | json}}</pre> -->
+            </div>
+          </div> <!-- =========== NOVO INSTRUTOR ============= -->
+          <hr>
+          <div class="row"> <!-- =========== LISTA INSTRUTORES ============= -->
+            <div class="col-md-12">
+              <h2>Instrutores</h2>
+              <div class="owl-carousel owl-theme" onRefreshed="wow()">
+                <div class="item" ng-repeat="instrutor in instrutores | orderBy: 'nome'">
+                  <div class="row">
+                    <div class="col-md-5">
+                      <img ng-src="{{instrutor.urlFoto}}" alt="img/alt.jpg">
+                    </div>
+                    <div class="col-md-7">
+                      <div class=""><span>ID: </span>{{instrutor.id}}</div>
+                      <div class=""><span>Nome: </span>{{instrutor.nome}}</div>
+                      <div class=""><span>Sobrenome: </span>{{instrutor.sobrenome}}</div>
+                      <div class=""><span>Idade: </span>{{instrutor.idade}}</div>
+                      <div class=""><span>Email: </span>{{instrutor.email}}</div>
+                      <div class=""><span>Lecionando: </span>{{instrutor.lecionando | trueFalse}}</div>
+                      <div class="" ng-repeat="a in instrutor.aula | orderBy: 'nome'">
+                        <div class=""><span>Aula: </span>{{a.id | lpad2}} {{a.nome}}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> <!-- =========== LISTA INSTRUTORES ============= -->
+        </div>
+<!-- ############################################# INSTRUTORES ####################################################### -->
