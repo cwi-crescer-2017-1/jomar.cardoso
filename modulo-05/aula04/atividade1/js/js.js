@@ -1,6 +1,5 @@
 var app = angular.module('app', ['ngRoute']);
 
-
 app.config(function ($routeProvider) {
   $routeProvider
     .when('/aulas', {
@@ -21,7 +20,7 @@ app.filter('trueFalse', () => nome => !!nome ? 'sim' : 'não')
 app.filter('lpad2', () => numero => numero.toString().padStart(2, '0'))
 
 // #################################### CONTROLLER AULAS ###################################################
-app.controller('controller-aulas', function($scope, servicesAulas){
+app.controller('controller-aulas', function($scope, $routeParams, servicesAulas){
   $scope.aulas = servicesAulas.list();
   $scope.aulaAlterada = {id: null, nome: ""} 
   $scope.armazenaid = id => $scope.aulaAlterada.id = servicesAulas.armazenaId(id)  

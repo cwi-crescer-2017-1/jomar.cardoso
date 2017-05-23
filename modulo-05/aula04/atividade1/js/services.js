@@ -1,4 +1,11 @@
-app.factory('servicesAulas', function(){
+app.factory('servicesAulas', function($http){
+
+  let urlBase = 'http://localhost:3000';
+
+  // retornar todas as aulas
+  function getTodasAulas() {
+    return $http.get(urlBase + '/aula');
+  };
 
   let aulas = [
     {id: 0, nome: 'Orientação a objetos'},
@@ -12,9 +19,9 @@ app.factory('servicesAulas', function(){
     id = id;
     return id
   }
-  function getTodasAulas(){
-    return aulas;
-  }
+  // function getTodasAulas(){
+  //   return aulas;
+  // }
   function verificaSubmit(formAlterarAula){
     let tamanhoMininoInvalido = false;
     let campoRequerido = false;

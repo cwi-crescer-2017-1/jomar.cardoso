@@ -24,33 +24,15 @@
                   </div>
                 </div>
               </form>
-              <p class="error" ng-show="tamanhoMinimoInvalido" class="bg-danger"><span class="destacar">Nome</span> necessita no mínimo 3 letras</p>
-              <p ng-show="campoRequerido" class="bg-danger">Preencha o <span class="destacar">nome</span></p>
-              <p ng-show="tamanhoMaximoInvalido" class="bg-danger"><span class="destacar">Nome</span>pode ter no máximo 20 letras</p>
+              <p class="error" ng-show="errosForm.tamanhoMinimoInvalido" class="bg-danger"><span class="destacar">Nome</span> necessita no mínimo 3 letras</p>
+              <p ng-show="errosForm.campoRequerido" class="bg-danger">Preencha o <span class="destacar">nome</span></p>
+              <p ng-show="errosForm.tamanhoMaximoInvalido" class="bg-danger"><span class="destacar">Nome</span>pode ter no máximo 20 letras</p>
               <br>
               <!-- <pre>{{formAlterarAula | json}}</pre> -->
               <!-- <button type="button" ng-click="novaMensagem()">asdf</button> -->
               <!-- <p>{{mensagem}}</p> -->
             </div>
           </div> <!-- ============= FORM INCLUIR ALTERAR AULAS ================ -->
-          <hr>
-          <div class="row"> <!-- ============= FORM EXCLUIR AULAS ================ -->
-            <div class="col-md-12">
-              <h2>Excluir Aula</h2>
-              <form novalidate class="" name="formExcluirAula" ng-submit="excluirAula(aulaExcluida)">
-                <div class="row">
-                  <div class="form-group col-md-6">
-                    <label for="id">ID</label>
-                    <input type="number" name="id" ng-model="aulaExcluida.id" class="form-control">
-                  </div>
-                  <div class="form-group col-md-3 col-md-offset-3">
-                    <button type="submit" class="btn btn-danger">Excluir</button>
-                  </div>
-                </div>
-              </form>
-              <p class="bg-danger" ng-show="aulaVinculada">Aula vinculada</p>
-            </div>
-          </div> <!-- ============= FORM EXCLUIR AULAS ================ -->
           <hr>
           <div class="row"> <!-- =========== TABELA AULAS ============= -->
             <div class="col-md-12">
@@ -66,7 +48,7 @@
                   <td>{{aula.nome}}</td>
                   <td class="botoes-tabela-aulas">
                     <button type="button" id="editar-aula{{aula.id}}" name="nome-{{aula.id}}" ng-value="aula.id" class="btn btn-xs editar" ng-click="armazenaid(aula.id)" >editar</button>
-                    <button type="button" id="excluir-aula-{{aula.id}}" name="nome-{{aula.id}}" ng-value="aula.id" class="btn btn-xs editar" ng-click="armazenaid(aula.id)" >excluir</button>
+                    <button type="button" id="excluir-aula-{{aula.id}}" name="nome-{{aula.id}}" ng-value="aula.id" class="btn btn-xs editar" ng-click="excluirAula(aula)" >excluir</button>
                   </td>
                 </tr>
               </table>
