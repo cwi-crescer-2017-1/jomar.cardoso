@@ -15,11 +15,67 @@ app.factory('servicesAulas', function(){
   function getTodasAulas(){
     return aulas;
   }
-  
+  function verificaSubmit(formAlterarAula){
+    let tamanhoMininoInvalido = false;
+    let campoRequerido = false;
+    let tamanhoMaximoInvalido = false;
+    //verificar se tem erro no campo requerido
+    if(formAlterarAula.$error.required) {
+      campoRequerido = true;
+    }
+    //verificar se tem erro no tamanho mínimo
+    if(formAlterarAula.$error.minlength) {
+      tamanhoMinimoInvalido = true;
+    }
+    //verificar se tem erro no tamanho máximo
+    if(formAlterarAula.$error.maxlength) {
+      tamanhoMaximoInvalido = true;
+    }
+    errosForm = {tamanhoMaximoInvalido, tamanhoMininoInvalido, campoRequerido}
+    console.log(errosForm)
+    return errosForm
+  }  
+  //incluir
+  function incluirAula(formAlterarAula, aulaAlterada){
+     console.log(formAlterarAula)
+    if(formAlterarAula.$invalid){
+      console.log('form invalido')
+      return
+    }   
+    if(aulaAlterada.id === null) {
+      aulaAlterada.id = aulas.length
+      aulas.push(angular.copy(aulaAlterada))
+      aulaAlterada = {
+        id: null,
+        nome: "",
+      }      
+      return aulaAlterada
+    }
+    for(aula of aulas) {
+      if(aula.id === aulaAlterada.id){
+        aula.nome = aulaAlterada.nome
+      }
+    }
+    aulaAlterada = {
+      id: null,
+      nome: "",
+    }
+    return aulaAlterada
+  }
+  // excluir aula
+  function excluirAula(aulaExcluida) {
+    // aulas = aulas.filter(aula => aula.id !== aulaExcluida.id);
+  console.log('aula excluida',aulaExcluida)
+  aulas.splice(aulaExcluida.id, 1)
+  return aulaExcluida = {}  
+  }
 
   return {
     list: getTodasAulas,
-    armazenaId: getId
+    armazenaId: getId,
+    verificaForms: verificaSubmit,
+    incluirAula: incluirAula,
+    excluirAula: excluirAula
   };
 
 });
