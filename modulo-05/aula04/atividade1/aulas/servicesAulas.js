@@ -1,27 +1,21 @@
 app.factory('servicesAulas', function($http){
 
-  let urlBase = 'http://localhost:3000';
+  let urlBase = 'http://localhost:3000/aula';
 
   // retornar todas as aulas
   function getTodasAulas() {
-    return $http.get(urlBase + '/aula');
-  };
-
-  let aulas = [
-    {id: 0, nome: 'Orientação a objetos'},
-    {id: 1, nome: 'Banco de Dados'},
-    {id: 2, nome: 'HTML/CSS'},
-    {id: 3, nome: 'Javascript'},
-    {id: 4, nome: 'AngularJS'}
-  ];
-
-  function getId(id) {
-    id = id;
-    return id
+    return $http.get(urlBase)
   }
-  // function getTodasAulas(){
-  //   return aulas;
-  // }
+
+  // incluir aula
+  function incluirAula(aulaAlterada){
+    return $http.post(urlBase, aulaAlterada)
+  }
+  //alterar aula
+  function alterarAula(aulaAlterada) {
+    return $http.put(urlBase+'/'+aulaAlterada.id, aulaAlterada)
+  }
+  //verifica erros do form aula
   function verificaSubmit(formAlterarAula){
     let tamanhoMininoInvalido = false;
     let campoRequerido = false;
@@ -41,48 +35,22 @@ app.factory('servicesAulas', function($http){
     errosForm = {tamanhoMaximoInvalido, tamanhoMininoInvalido, campoRequerido}
     console.log(errosForm)
     return errosForm
-  }  
-  //incluir
-  function incluirAula(formAlterarAula, aulaAlterada){
-     console.log(formAlterarAula)
-    if(formAlterarAula.$invalid){
-      console.log('form invalido')
-      return
-    }   
-    if(aulaAlterada.id === null) {
-      aulaAlterada.id = aulas.length
-      aulas.push(angular.copy(aulaAlterada))
-      aulaAlterada = {
-        id: null,
-        nome: "",
-      }      
-      return aulaAlterada
-    }
-    for(aula of aulas) {
-      if(aula.id === aulaAlterada.id){
-        aula.nome = aulaAlterada.nome
-      }
-    }
-    aulaAlterada = {
-      id: null,
-      nome: "",
-    }
-    return aulaAlterada
   }
   // excluir aula
   function excluirAula(aulaExcluida) {
-    // aulas = aulas.filter(aula => aula.id !== aulaExcluida.id);
-  console.log('aula excluida',aulaExcluida)
-  aulas.splice(aulaExcluida.id, 1)
-  return aulaExcluida = {}  
+  return $http.delete(urlBase+'/'+aulaExcluida.id)
   }
-
+  //buscarPorId
+  function buscarPorId(id) {
+    return $http.get(urlBase+'/'+id)
+  }
   return {
     list: getTodasAulas,
-    armazenaId: getId,
     verificaForms: verificaSubmit,
     incluirAula: incluirAula,
-    excluirAula: excluirAula
+    excluirAula: excluirAula,
+    alterarAula: alterarAula,
+    buscarPorId: buscarPorId,
   };
 
 });

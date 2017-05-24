@@ -2,7 +2,7 @@
         <nav>
           <ul class="nav nav-tabs">
             <li role="presentation" class="active"><a href="#!/aulas">aulas</a></li>
-            <li role="presentation"><a href="#!/instrutores">funcionários</a></li>
+            <li role="presentation"><a href="#!/instrutores">instrutores</a></li>
           </ul>
         </nav>
         <div class="col-md-12 aulas" ng-controller="controller-aulas">
@@ -43,11 +43,11 @@
                   <th>Nome</th>
                   <th></th>
                 </tr>
-                <tr ng-repeat="aula in aulas | orderBy: 'nome'">
+                <tr ng-repeat="aula in aulas">
                   <td>{{aula.id | lpad2}}</td>
                   <td>{{aula.nome}}</td>
                   <td class="botoes-tabela-aulas">
-                    <button type="button" id="editar-aula{{aula.id}}" name="nome-{{aula.id}}" ng-value="aula.id" class="btn btn-xs editar" ng-click="armazenaid(aula.id)" >editar</button>
+                    <button type="button" id="editar-aula{{aula.id}}" name="nome-{{aula.id}}" ng-value="aula.id" class="btn btn-xs editar" ng-click="definirId(aula.id)" >editar</button>
                     <button type="button" id="excluir-aula-{{aula.id}}" name="nome-{{aula.id}}" ng-value="aula.id" class="btn btn-xs editar" ng-click="excluirAula(aula)" >excluir</button>
                   </td>
                 </tr>

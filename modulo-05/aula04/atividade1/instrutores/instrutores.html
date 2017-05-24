@@ -2,7 +2,7 @@
         <nav>
           <ul class="nav nav-tabs">
             <li role="presentation"><a href="#!/aulas">aulas</a></li>
-            <li role="presentation" class="active"><a href="#!/instrutores">funcionários</a></li>
+            <li role="presentation" class="active"><a href="#!/instrutores">instrutores</a></li>
           </ul>
         </nav>
         <div class="col-md-12 instrutores" ng-controller="controller-instrutores">
@@ -79,7 +79,7 @@
             <div class="col-md-12">
               <h2>Instrutores</h2>
               <div class="owl-carousel owl-theme" onRefreshed="wow()">
-                <div class="item" ng-repeat="instrutor in instrutores | orderBy: 'nome'">
+                <div class="item" ng-repeat="instrutor in instrutores">
                   <div class="row">
                     <div class="col-md-5">
                       <img ng-src="{{instrutor.urlFoto}}" alt="img/alt.jpg">
@@ -91,8 +91,8 @@
                       <div class=""><span>Idade: </span>{{instrutor.idade}}</div>
                       <div class=""><span>Email: </span>{{instrutor.email}}</div>
                       <div class=""><span>Lecionando: </span>{{instrutor.lecionando | trueFalse}}</div>
-                      <div class="" ng-repeat="a in instrutor.aula | orderBy: 'nome'">
-                        <div class=""><span>Aula: </span>{{a.id | lpad2}} {{a.nome}}</div>
+                      <div class="" ng-repeat="a in instrutor.aula">
+                        <div class=""><span>Aula: </span>{{a | lpad2}} {{a}}</div>
                       </div>
                     </div>
                   </div>
