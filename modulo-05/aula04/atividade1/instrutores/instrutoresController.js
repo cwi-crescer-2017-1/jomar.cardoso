@@ -1,12 +1,16 @@
 app.controller('controller-instrutores', function($scope, instrutoresServices, servicesAulas){
   $scope.instrutores = {}
+  $scope.aulas = {}
+  $scope.nomeAula = nomeAula
   $scope.incluir = incluir()
   listar()
   $scope.buscarNomeAulaPorId = buscarNomeAulaPorId
 
   // function listar() {
   //   let promise = instrutoresServices.listar()
-  //   promise.then( response => response.data)
+  //   promise.then( response => {
+  //     $scope.instrutores = response.data
+  //     return response.data})
   //     .then( object => {
   //       console.log(object)
   //       for(instrutor of object) {
@@ -17,24 +21,37 @@ app.controller('controller-instrutores', function($scope, instrutoresServices, s
   //         }
   //       }
   //     })
-  //
+  
   //     console.log(response)
-  //     $scope.instrutores = response.data
+      
   //     console.log($scope.instrutores)
   //   }
 
-
   function listar() {
-    instrutoresServices.listar()
-    .then( response => {
-      $scope.instrutores = response.data
-      console.log(response.data)
-    })
-    servicesAulas.list()
-    .then( response => {
-      $scope.aulas = response.data
-      console.log(response.data)
-    })
+    let promise = instrutoresServices.listar()
+    promise.then( response => $scope.instrutores = response.data)
+      let promise2 = servicesAulas.list()
+      promise2.then(response => $scope.aulas = response.data)    
+  }
+
+  function nomeAula(id) {
+    return ($scope.aulas.filter(a => a.id === id)[0].nome)
+    console.log($scope.aulas)
+  }
+
+  // function listar() {
+  //   instrutoresServices.listar()
+  //   .then( response => {
+  //     $scope.instrutores = response.data
+  //     console.log(response.data)
+  //   })
+  //   servicesAulas.list()
+  //   .then( response => {
+  //     $scope.aulas = response.data
+  //     // console.log(response.data)
+  //   })
+   
+
 
     // .then(() =>{
     //   for(instrutor of instrutor) {
@@ -43,7 +60,11 @@ app.controller('controller-instrutores', function($scope, instrutoresServices, s
     //     }
       // }
     // })
-  }
+  // }
+  // //  function nomeAulas(id) {
+  //   //  console.log($scope.aulas)
+  //     // return $scope.aulas.filter(id => aulas.id === id)
+  //   }
 
   function buscarNomeAulaPorId(id) {
     let promise = servicesAulas.buscarPorId(id)

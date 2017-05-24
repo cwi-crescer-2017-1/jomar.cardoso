@@ -92,7 +92,7 @@
                       <div class=""><span>Email: </span>{{instrutor.email}}</div>
                       <div class=""><span>Lecionando: </span>{{instrutor.lecionando | trueFalse}}</div>
                       <div class="" ng-repeat="a in instrutor.aula">
-                        <div class=""><span>Aula: </span>{{a | lpad2}} {{a}}</div>
+                        <div class=""><span>Aula: </span>{{a | lpad2}} {{nomeAula(a)}}</div>
                       </div>
                     </div>
                   </div>
