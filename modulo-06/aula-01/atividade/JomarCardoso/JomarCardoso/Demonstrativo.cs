@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace atividade_03
+namespace JomarCardoso
 {
     public class Demonstrativo
     {
@@ -31,4 +31,16 @@ namespace atividade_03
             TotalLiquido = totalLiquido;
             Fgts = fgts;
         }
+
+        public double SalarioBase { get; set; }
+        public double HrsConvencao { get; set; }
+        public HorasCalculadas HorasExtras { get; set; }
+        public HorasCalculadas HorasDescontadas { get; set; }
+        public double TotalProventos{ get; set; }
+        public Desconto Inss { get; set; }
+        public Desconto Irrf { get; set; }
+        public double TotalDescontos { get; set; }
+        public double TotalLiquido { get; set; }
+        public Desconto Fgts { get; set; }
     }
+}

@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace atividade_03
+namespace JomarCardoso
 {
-    class Desconto
+    class Program
     {
+        public static void Main(string[] args)
+        {
+
+        }
     }
 }
