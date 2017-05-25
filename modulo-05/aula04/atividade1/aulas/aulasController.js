@@ -14,7 +14,7 @@ app.controller('controller-aulas', function($scope, servicesAulas){
   }
   //incluir/alterar Aula
   function alterarAula(aulaAlterada) {
-    if(formAlterarAula.$invalid){
+    if($scope.formAlterarAula.$invalid){
       return
     }
     let promise = {}
