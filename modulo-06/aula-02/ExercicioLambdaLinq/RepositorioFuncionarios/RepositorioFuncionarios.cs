@@ -106,19 +106,36 @@ namespace Repositorio
 
         public IList<Funcionario> BuscarPorTurno(params TurnoTrabalho[] turnos)
         {
-            var turno = turnos.Select(t => t);
             return Funcionarios.Where(f => turnos.Contains(f.TurnoTrabalho)).ToList();
             throw new NotImplementedException();
-        }        
+        }
 
         public IList<Funcionario> FiltrarPorIdadeAproximada(int idade)
         {
 
+            return Funcionarios.Where(f =>
+            {
+                if ( (this.CalcularIdade(f.DataNascimento)) <= (idade+5)
+                    && (this.CalcularIdade(f.DataNascimento)) >= (idade-5))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+               
+            }
+            ).ToList() ;
             throw new NotImplementedException();
         }
 
         private int CalcularIdade(DateTime dataNascimento)
         {
+            var hoje = DateTime.Today;
+            var funcionarioIdade = hoje.Year - dataNascimento.Year;
+            if (dataNascimento > (hoje.AddYears(-funcionarioIdade))) funcionarioIdade--;
+            return funcionarioIdade;
             throw new NotImplementedException();
         }
 
