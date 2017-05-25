@@ -1,6 +1,0 @@
-C:\Users\jomar.cardoso\Documents\git\jomar.cardoso\modulo-06\aula-01\atividade-01\Demo1\Demo1\bin\Debug\Demo1.exe.config
-C:\Users\jomar.cardoso\Documents\git\jomar.cardoso\modulo-06\aula-01\atividade-01\Demo1\Demo1\bin\Debug\Demo1.exe
-C:\Users\jomar.cardoso\Documents\git\jomar.cardoso\modulo-06\aula-01\atividade-01\Demo1\Demo1\bin\Debug\Demo1.pdb
-C:\Users\jomar.cardoso\Documents\git\jomar.cardoso\modulo-06\aula-01\atividade-01\Demo1\Demo1\obj\Debug\Demo1.csprojResolveAssemblyReference.cache
-C:\Users\jomar.cardoso\Documents\git\jomar.cardoso\modulo-06\aula-01\atividade-01\Demo1\Demo1\obj\Debug\Demo1.exe
-C:\Users\jomar.cardoso\Documents\git\jomar.cardoso\modulo-06\aula-01\atividade-01\Demo1\Demo1\obj\Debug\Demo1.pdb

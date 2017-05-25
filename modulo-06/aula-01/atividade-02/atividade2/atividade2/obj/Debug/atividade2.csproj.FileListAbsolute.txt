@@ -1,6 +1,0 @@
-C:\Users\jomar.cardoso\Documents\git\jomar.cardoso\modulo-06\aula-01\atividade-02\atividade2\atividade2\bin\Debug\atividade2.exe.config
-C:\Users\jomar.cardoso\Documents\git\jomar.cardoso\modulo-06\aula-01\atividade-02\atividade2\atividade2\bin\Debug\atividade2.exe
-C:\Users\jomar.cardoso\Documents\git\jomar.cardoso\modulo-06\aula-01\atividade-02\atividade2\atividade2\bin\Debug\atividade2.pdb
-C:\Users\jomar.cardoso\Documents\git\jomar.cardoso\modulo-06\aula-01\atividade-02\atividade2\atividade2\obj\Debug\atividade2.csprojResolveAssemblyReference.cache
-C:\Users\jomar.cardoso\Documents\git\jomar.cardoso\modulo-06\aula-01\atividade-02\atividade2\atividade2\obj\Debug\atividade2.exe
-C:\Users\jomar.cardoso\Documents\git\jomar.cardoso\modulo-06\aula-01\atividade-02\atividade2\atividade2\obj\Debug\atividade2.pdb
