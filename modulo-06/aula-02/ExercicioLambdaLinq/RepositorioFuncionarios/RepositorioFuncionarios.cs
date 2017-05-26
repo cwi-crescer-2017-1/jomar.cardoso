@@ -123,8 +123,7 @@ namespace Repositorio
                 else
                 {
                     return false;
-                }
-               
+                }               
             }
             ).ToList() ;
             throw new NotImplementedException();
@@ -141,6 +140,18 @@ namespace Repositorio
 
         public double SalarioMedio(TurnoTrabalho? turno = null)
         {
+            if (turno != null)
+            {
+                return Funcionarios
+                    .Where(f => f.TurnoTrabalho.Equals(turno))
+                    .Select(t => t.Cargo.Salario)
+                    .Sum() / Funcionarios.Where(f => f.TurnoTrabalho.Equals(turno)).ToList().Count;
+            } else
+            {
+                return Funcionarios
+                    .Select(t => t.Cargo.Salario)
+                    .Sum() / Funcionarios.Count;
+            }
             throw new NotImplementedException();
         }
 
