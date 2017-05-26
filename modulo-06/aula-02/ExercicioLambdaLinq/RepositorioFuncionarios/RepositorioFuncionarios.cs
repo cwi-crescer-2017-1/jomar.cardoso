@@ -173,21 +173,36 @@ namespace Repositorio
 
         public IList<dynamic> QuantidadeFuncionariosPorTurno()
         {
-            IList<dynamic> retorno = new List<dynamic>();
-                
-                retorno.Add(
-                    from Funcionario in Funcionarios
-                    group Funcionario by Funcionario.TurnoTrabalho into Turno
-                    orderby Turno.Key
-                    select Turno);
-
-                return retorno;
+            return this.Funcionarios
+                       .GroupBy(funcionario => funcionario.TurnoTrabalho)
+                       .OrderBy(turno => turno.Key)
+                       .Select(grupo =>
+                       (dynamic)new
+                       {
+                           Turno = grupo.Key,
+                           Quantidade = grupo.Count()
+                       }).ToList();
 
             throw new NotImplementedException();
         }
 
         public dynamic FuncionarioMaisComplexo()
         {
+            CultureInfo ptCulture = new CultureInfo("pt-BR");
+            CultureInfo entCulture = new CultureInfo("en-US");
+
+            return this.Funcionarios
+                    .Where(f => f.Cargo.Titulo != "Desenvolvedor Júnior" && f.TurnoTrabalho != TurnoTrabalho.Tarde)
+                    .OrderByDescending(f => Regex.Replace(f.Nome, "aouieyAOUIEY", "").Length)
+                    .Select(f =>
+                    new
+                    {
+                        Nome = f.Nome,
+                        DataNascimento = f.DataNascimento.ToString("dd/MM/yyyy"),
+                        SalarioRS = f.Cargo.Salario.ToString("C", ptCulture),
+                        SalarioUS = f.Cargo.Salario.ToString("C", entCulture),
+                        QuantidadeMesmoCargo = this.Funcionarios.Count(c => c.Cargo.Equals(f.Cargo))
+                    }).First();
             throw new NotImplementedException();
         }
     }
