@@ -1,0 +1,29 @@
+LISTA COM TODOS HEROIS
+GET 
+url: http://localhost:60709/api/herois
+
+LISTA COM TODOS HEROIS EM XML ou JSON
+GET 
+url: http://localhost:60709/api/herois
+Header:
+key Accept, Value text/xml
+key Accept, Value application/json
+
+INCLUIR NOVO HERÓI
+POST
+url: http://localhost:60709/api/herois
+Header: 
+key Content-Type, value application/json
+Body:
+{
+    "Nome": "Batima",
+    "Poder": {
+      "Nome": "Kame Hame Haaaaaa",
+      "Dano": 2000
+    }
+ }
+ 
+ BUSCAR POR ID
+ GET
+ http://localhost:60709/api/herois?id=2
+ 
