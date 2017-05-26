@@ -173,6 +173,16 @@ namespace Repositorio
 
         public IList<dynamic> QuantidadeFuncionariosPorTurno()
         {
+            IList<dynamic> retorno = new List<dynamic>();
+                
+                retorno.Add(
+                    from Funcionario in Funcionarios
+                    group Funcionario by Funcionario.TurnoTrabalho into Turno
+                    orderby Turno.Key
+                    select Turno);
+
+                return retorno;
+
             throw new NotImplementedException();
         }
 
