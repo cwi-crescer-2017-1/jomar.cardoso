@@ -1,0 +1,13 @@
+VS Studio 2017
+10.0.100.102\cwitmp\vs2017offline\vs_setup.exe
+instalar: ASP.NET, C#, FRAMEWORK .NET
+
+CORS:
+
+1. No: ferramentos / Gerenciador de Pacotes Nuget / Nuget Package Mangager Console: Install-Package Microsoft.AspNet.WebApi.Cors
+
+2. Na classe `WebApiConfig.cs` adicionar a seguinte linha (em qualquer trecho do método Register): config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+
+POSTMAN
+Colocar extensão Postman no Chrome para testar GET e POST.
+

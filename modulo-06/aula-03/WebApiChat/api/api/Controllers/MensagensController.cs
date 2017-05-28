@@ -8,9 +8,10 @@ using System.Web.Http;
 
 namespace api.Controllers
 {
-    public class ChatController : ApiController
+    public class MensagensController : ApiController
     {
-        public static List<Mensagem> ListaMensagens = new List<Mensagem>();
+        public static List<Mensagem> ListaMensagens = new List<Mensagem>() {new Mensagem(new Usuario(), new DateTime(2017-04-05), "sadasdf") };
+
         public static int contador = 0;
         public static object @lock = 1;
 

@@ -1,25 +1,37 @@
-modulo.factory("heroisService", function ($http) {
+chat.factory("chatService", function ($http) {
+
+    urlBaseMensagens = 'http://localhost:59385/api/mensagens'
+    urlBaseUsuarios = 'http://localhost:59385/api/usuarios'
+    
     return ({
-        obterHerois: obterHerois,
-        enviarHeroi: enviarHeroi
+        obterUsuario: obterUsuario,
+        obterTodasMensagens: obterTodasMensagens,
+        obterMensagem: obterMensagem,
+        enviarMensagem: enviarMensagem
     });
 
-    function obterHerois() {
-        return $http.get("http://localhost:24206/api/herois");
+    function obterUsuario(id) {
+        return $http.get(urlBaseUsuarios+'/?id='+id);
     }
 
-    function enviarHeroi() {
+    function obterTodasMensagens() {
+        return $http.get(urlBaseMensagens);
+    }
+
+    function obterMensagem(id) {
+        return $http.get(urlBaseMensagens);
+    }
+
+    function enviarMensagem(mensagem) {
         return $http({
             method: "post",
-            url: "http://localhost:24206/api/herois",
+            url: urlBaseMensagens,
             data: {
-                "Id": 0,
-                "Nome": "Giovani",
-                "Poder": {
-                    "Nome": "Threads",
-                    "Dano": 9999
+                "Remetente": mensagem.remetente,
+                "Conteudo": mensagem.conteudo,
+                "HoraEnvio": "mensagem.horaMensagem"
                 }
-            }
-        });
+            
+        })
     }
 });

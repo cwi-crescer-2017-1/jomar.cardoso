@@ -17,9 +17,8 @@ key Content-Type, value application/json
 Body: raw
 {
     "Nome": "Batima",
-    "Poder": {
-      "Nome": "Kame Hame Haaaaaa",
-      "Dano": 2000
+    "HoraEnvio": "2017-04-05",
+    "Conteudo": "asdfasdfasdf"	
     }
  }
  

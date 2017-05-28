@@ -7,6 +7,16 @@ namespace api.Models
 {
     public class Mensagem
     {
+        public Mensagem()
+        {
+
+        }
+        public Mensagem(Usuario remetente, DateTime horaEnvio, string conteudo)
+        {
+            Remente = remetente;
+            HoraEnvio = horaEnvio;
+            Conteudo = conteudo;
+        }
         public int Id { get; set; }
         public Usuario Remente { get; set; }
         public DateTime HoraEnvio { get; set; }
