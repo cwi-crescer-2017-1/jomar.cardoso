@@ -1,6 +1,5 @@
-chat.factory("chatService", function ($http) {
-
-    urlBaseMensagens = 'http://localhost:59385/api/mensagens'
+chat.factory('mensagemService', function($http){
+        urlBaseMensagens = 'http://localhost:59385/api/mensagens'
     urlBaseUsuarios = 'http://localhost:59385/api/usuarios'
     
     return ({
@@ -33,4 +32,4 @@ chat.factory("chatService", function ($http) {
             
         })
     }
-});
+})

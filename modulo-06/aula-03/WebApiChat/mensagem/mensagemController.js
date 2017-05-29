@@ -1,7 +1,5 @@
-var chat = angular.module('chat', []);
-
-chat.controller('chatController', function ($scope, chatService) {
-    $scope.obterHorario = obterHorario
+chat.controller('mensagemController', function($scope, $routeParams, mensagemService){
+     $scope.obterHorario = obterHorario
     $scope.usaurioLogado
     $scope.usuarios = [{}]
     $scope.mensagens = []
@@ -17,7 +15,7 @@ chat.controller('chatController', function ($scope, chatService) {
                 return $scope.usuarios[i]
             }
         }
-        chatService
+        mensagemService
         .obterUsuario(id)
         .then(response =>  {
             console.log(response.data)
@@ -27,7 +25,7 @@ chat.controller('chatController', function ($scope, chatService) {
     }
 
     function obterTodasMensagens() {
-        chatService
+        mensagemService
         .obterTodasMensagens()
         .then(response => {
             $scope.mensagens = response.data;
@@ -35,9 +33,8 @@ chat.controller('chatController', function ($scope, chatService) {
     }
 
     function enviarMensagem(novaMensagem) {
-        debugger
         novaMensagem.remetente = 2;
-        chatService
+        mensagemService
         .enviarMensagem(novaMensagem)
         .then(response => {
             obterTodasMensagens()
@@ -49,5 +46,4 @@ chat.controller('chatController', function ($scope, chatService) {
         // let dataFormatada = horario.replace(/T(\d{2})\:(\d{2})\:(\d{2})/), 
         //  let dataFormatada = $scope.dataDigitada.replace(/(\d{2})\/(\d{2})\/(\d{4})/, '$2.$1.$3');
     }
-});
-
+})
