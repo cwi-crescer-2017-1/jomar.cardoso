@@ -2,15 +2,22 @@ chat.factory('loginService', function($http){
 
 
 urlBaseUsuarios = 'http://localhost:59385/api/usuarios'
-    let urlBase = 'http://localhost:61239/Api/Usuario';
 
   function obterUsuario() {
     return $http.get(urlBase);
   };
 
-  function adicionarUsuario(usuario) {
-    return $http.post(urlBase, usuario);
-  };
+  function adicionarUsuario(mensagem) {
+        return $http({
+            method: "post",
+            url: urlBaseUsuarios,
+            data: {
+                "Nome": usuario.remetente,
+                "UrlFoto": mensagusuario.UrlFoto
+              }
+            
+        })
+    }
 
   return {
     obterUsuario: obterUsuario,

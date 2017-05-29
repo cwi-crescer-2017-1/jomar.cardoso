@@ -11,9 +11,8 @@ namespace api.Models
         {
 
         }
-        public Mensagem(int remetente, DateTime horaEnvio, string conteudo)
+        public Mensagem(DateTime horaEnvio, string conteudo)
         {
-            IdRemetente = remetente;
             HoraEnvio = horaEnvio;
             Conteudo = conteudo;
         }

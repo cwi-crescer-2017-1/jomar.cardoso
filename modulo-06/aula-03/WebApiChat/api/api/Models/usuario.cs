@@ -7,14 +7,15 @@ namespace api.Models
 {
     public class Usuario
     {
+        public static int ContId = 0;
         public Usuario()
         {
 
         }
-        public Usuario(int id, string nome, string urlFoto)
+        public Usuario(string nome, string urlFoto)
         {
             Nome = nome;
-            Id = id;
+            Id = ++Usuario.ContId;
             UrlFoto = urlFoto;
         }
         public int Id { get; set; }
