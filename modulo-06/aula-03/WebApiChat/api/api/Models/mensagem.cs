@@ -11,14 +11,14 @@ namespace api.Models
         {
 
         }
-        public Mensagem(Usuario remetente, DateTime horaEnvio, string conteudo)
+        public Mensagem(int remetente, DateTime horaEnvio, string conteudo)
         {
-            Remente = remetente;
+            IdRemetente = remetente;
             HoraEnvio = horaEnvio;
             Conteudo = conteudo;
         }
         public int Id { get; set; }
-        public Usuario Remente { get; set; }
+        public int IdRemetente { get; set; }
         public DateTime HoraEnvio { get; set; }
         public string Conteudo { get; set; }
     }

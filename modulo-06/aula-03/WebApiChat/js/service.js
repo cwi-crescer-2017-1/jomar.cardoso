@@ -27,9 +27,8 @@ chat.factory("chatService", function ($http) {
             method: "post",
             url: urlBaseMensagens,
             data: {
-                "Remetente": mensagem.remetente,
-                "Conteudo": mensagem.conteudo,
-                "HoraEnvio": "mensagem.horaMensagem"
+                "IdRemetente": mensagem.remetente,
+                "Conteudo": mensagem.conteudo
                 }
             
         })

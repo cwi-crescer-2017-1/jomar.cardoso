@@ -10,11 +10,15 @@ namespace api.Controllers
 {
     public class MensagensController : ApiController
     {
-        public static List<Mensagem> ListaMensagens = new List<Mensagem>() {new Mensagem(new Usuario(), new DateTime(2017-04-05), "sadasdf") };
+        public static List<Mensagem> ListaMensagens = new List<Mensagem>();
 
         public static int contador = 0;
         public static object @lock = 1;
 
+        public int Id { get; set; }
+        public int IdUsuario { get; set; }
+        public DateTime HoraEnvio { get; set; }
+        public string Conteudo { get; set; }
 
         public IEnumerable<Mensagem> Get()
         {
@@ -33,6 +37,7 @@ namespace api.Controllers
                 {
                     ListaMensagens.Add(mensagem);
                     mensagem.Id = contador++;
+                    mensagem.HoraEnvio = DateTime.Now;
                 }
                 return Ok(mensagem);
             }

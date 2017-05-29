@@ -11,10 +11,11 @@ namespace api.Models
         {
 
         }
-        public Usuario(int id, string nome)
+        public Usuario(int id, string nome, string urlFoto)
         {
             Nome = nome;
             Id = id;
+            UrlFoto = urlFoto;
         }
         public int Id { get; set; }
         public string Nome { get; set; }

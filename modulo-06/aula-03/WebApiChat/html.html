@@ -13,13 +13,13 @@
         <div class="col-xs-12 col-md-offset-2 col-md-8 col-lg-8 col-lg-offset-2">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <span class="glyphicon glyphicon-comment"></span> Comments
+                    <span class="glyphicon glyphicon-comment"></span> {{usaurioLogado}}
                     <div class="btn-group pull-right">
                         <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                             <span class="glyphicon glyphicon-chevron-down"></span>
                         </button>
                         <ul class="dropdown-menu slidedown">
-                            <li><a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-refresh">
+                            <li><span class="glyphicon glyphicon-refresh">
                             </span>Refresh</a></li>
                             <li><a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-ok-sign">
                             </span>Available</a></li>
@@ -34,22 +34,51 @@
                     </div>
                 </div>
                 <div class="panel-body body-panel">
-                    <ul class="chat">
+                    <ul class="chat" ng-repeat="mensagem in mensagens">
                         <li class="left clearfix"><span class="chat-img pull-left">
-                            <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+                            <div class="avatar" style="background-image: url({{obterUsuario(mensagem.IdRemetente).UrlFoto}})">
+                                <!--<img src="{{usuario.UrlFoto}}" alt="User Avatar" class="img-circle" />-->
+                            </div>                            
                         </span>
                             <div class="chat-body clearfix">
                                 <div class="header">
-                                    <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
-                                        <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
+                                    <strong class="primary-font">{{obterUsuario(mensagem.IdRemetente).UrlFoto.Nome}}</strong> <small class="pull-right text-muted">
+                                        <span class="glyphicon glyphicon-time"></span>{{obterHorario(mensagem.HoraEnvio)}}</small>
                                 </div>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                    dolor, quis ullamcorper ligula sodales.
+                                    {{mensagem.Conteudo}}
                                 </p>
                             </div>
                         </li>
-                        <li class="right clearfix"><span class="chat-img pull-right">
+                        
+                    </ul>
+                </div>
+                <div class="panel-footer clearfix">
+                    <form name="formNovaMensagem" ng-submit="enviarMensagem(novaMensagem)">
+                        <textarea class="form-control" rows="3" name="conteudo" ng-model="novaMensagem.conteudo"></textarea>
+                        <span class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-xs-12" style="margin-top: 10px">
+                            <button  type="submit" class="btn btn-warning btn-lg btn-block" id="btn-chat">Send</button>
+                        </span>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>   
+        <p>{{usuario}}</p>
+        <p ng-repeat="mensagem in mensagens">{{mensagem}}</p>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="js/js.js"></script>
+<script src="js/controller.js"></script>
+<script src="js/service.js"></script>
+
+</body>
+</html>
+
+                    <!--<li class="right clearfix"><span class="chat-img pull-right">
                             <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
                         </span>
                             <div class="chat-body clearfix">
@@ -90,30 +119,4 @@
                                     dolor, quis ullamcorper ligula sodales.
                                 </p>
                             </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="panel-footer clearfix">
-                    <form name="formNovaMensagem" ng-submit="enviarMensagem(novaMensagem)">
-                        <textarea class="form-control" rows="3" name="conteudo" ng-model="novaMensagem.conteudo"></textarea>
-                        <span class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-xs-12" style="margin-top: 10px">
-                            <button  type="submit" class="btn btn-warning btn-lg btn-block" id="btn-chat">Send</button>
-                        </span>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div>   
-        <p>{{usuario}}</p>
-        <p ng-repeat="mensagem in mensagens">{{mensagem}}</p>
-    </div>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-<script src="js/js.js"></script>
-<script src="js/controller.js"></script>
-<script src="js/service.js"></script>
-
-</body>
-</html>
+                        </li>-->

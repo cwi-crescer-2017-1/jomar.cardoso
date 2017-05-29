@@ -10,7 +10,9 @@ namespace api.Controllers
 {
     public class UsuariosController : ApiController
     {
-        public static List<Usuario> ListaUsuarios = new List<Usuario>() {new Usuario(1, "Rocky"), new Usuario(2, "Mr. T")};
+        public static List<Usuario> ListaUsuarios = new List<Usuario>() {
+            new Usuario(1, "Rocky", "http://www.buscadaexcelencia.com.br/wp-content/uploads/2013/01/rocky-5.jpg"),
+            new Usuario(2, "Mr. T", "https://images-na.ssl-images-amazon.com/images/M/MV5BMTQ5Nzg2MTgwMl5BMl5BanBnXkFtZTcwNTA0NjcxMw@@._V1_UY317_CR0,0,214,317_AL_.jpg")};
 
         public IEnumerable<Usuario> get(int? id = null)
         {
