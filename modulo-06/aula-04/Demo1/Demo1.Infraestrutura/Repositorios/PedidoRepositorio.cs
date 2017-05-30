@@ -1,0 +1,127 @@
+﻿using Demo1.Dominio.Entidades;
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Demo1.Infraestrutura.Repositorios
+{
+    public class PedidoRepositorio : IPedidoRepositorio
+    {
+        string stringConexao =
+                        @"Server=13.65.101.67;
+                        User Id=jomar.cardoso;
+                        Password=123456;
+                        Database=aluno02db";
+        public void Alterar(Pedido pedido)
+        {
+            throw new NotImplementedException();
+        }        
+        public void Criar(Pedido pedido)
+        {
+            using (var conexao = new SqlConnection(stringConexao))
+            {
+                // realizar o insert do Pedido
+                using (var comando = conexao.CreateCommand())
+                {
+                    comando.CommandText =
+                        @"INSERT INTO Pedido (Id, NomeCliente)
+                        VALUES(@id, @nomeCliente)";
+
+                    comando.Parameters.AddWithValue("@id", pedido.Id);
+                    comando.Parameters.AddWithValue("@nomeCliente", pedido.NomeCliente);
+
+                    comando.ExecuteNonQuery();
+                }
+                // obter o ultimo id do pedido (SELECT @@IDENTITY)
+                using (var comando = conexao.CreateCommand())
+                {
+                    comando.CommandText = "SELECT @@IDENTITY";
+                }
+            }            
+            // para cada item do pedido, realizar o insert do ItemPedido
+            // obter o ultimo id do ItemPedido (SELECT @@IDENTITY)
+        }
+
+        public void Excluir(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Pedido> Listar()
+        {
+            var pedidos = new List<Pedido>();
+
+            using (var conexao = new SqlConnection(stringConexao))
+            {
+                conexao.Open();
+                using (var comando = conexao.CreateCommand())
+                {
+                    comando.CommandText =
+                        "SELECT Id, NomeCliente " +
+                        "FROM Pedido";
+
+                    var dataReader = comando.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        var pedido = new Pedido();
+
+                        pedido.Id = (int)dataReader["Id"];
+                        pedido.NomeCliente = (string)dataReader["NomeCliente"];
+                        
+
+                        pedidos.Add(pedido);
+                    }
+                }
+                
+                using (var comando2 = conexao.CreateCommand())
+                {
+                    foreach (var pedido in pedidos)
+                    {
+                        comando2.CommandText =
+                        @"SELECT IPo.Id, IPo.ProdutoId, IPo.Quantidade " +
+                        " FROM Pedido Ped " +
+                        " INNER JOIN ItemPedido IPo ON Ped.Id = IPo.PedidoId " +
+                        " WHERE Ped.Id = @id ";
+
+                        comando2.Parameters.AddWithValue("@id", pedido.Id);
+
+                        var dataReader2 = comando2.ExecuteReader();
+                        while (dataReader2.Read())
+                        {
+                            var itemPedido = new ItemPedido();
+                            itemPedido.Id = (int)dataReader2["Id"];
+                            itemPedido.ProdutoId = (int)dataReader2["ProdutoId"];
+                            itemPedido.Quantidade = (int)dataReader2["Quantidade"];
+                            pedido.Itens.Add(itemPedido);
+                        }
+                    }                    
+                }
+            }
+
+            return pedidos;
+        }
+
+        public Pedido Obter(int id)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
+
+
+/*
+ * CREATE TABLE Pedido (
+	Id INT IDENTITY(1,1) NOT NULL CONSTRAINT [PK_Pedido] PRIMARY KEY,
+	NomeCliente VARCHAR(256) NOT NULL,
+);
+
+CREATE TABLE ItemPedido (
+	Id INT IDENTITY(1,1) NOT NULL CONSTRAINT [PK_ItemPedido] PRIMARY KEY,
+	PedidoId INT NOT NULL CONSTRAINT [FK_ItemPedio_Pedido] FOREIGN KEY REFERENCES Pedido(Id),
+	ProdutoId INT NOT NULL CONSTRAINT [FK_ItemPedio_Produto] FOREIGN KEY REFERENCES Produto(Id),
+	Quantidade INT NOT NULL
+);*/
+ 
