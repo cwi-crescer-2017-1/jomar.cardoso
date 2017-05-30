@@ -77,10 +77,11 @@ namespace Demo1.Infraestrutura.Repositorios
                     {
                         comando.CommandText =
                             @"UPDATE Produto
-                            SET Estoque = Estoque - 2
+                            SET Estoque = Estoque - @remover
                             WHERE Id = @idproduto";
 
                         comando.Parameters.AddWithValue("@idproduto", item.ProdutoId);
+                        comando.Parameters.AddWithValue("@remover", item.Quantidade);
 
                         comando.ExecuteNonQuery();
                     }
