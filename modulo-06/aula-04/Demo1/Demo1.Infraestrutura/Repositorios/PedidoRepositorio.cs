@@ -18,7 +18,8 @@ namespace Demo1.Infraestrutura.Repositorios
         public void Alterar(Pedido pedido)
         {
             throw new NotImplementedException();
-        }        
+        }      
+        // INSERIR NO BANCO
         public void Criar(Pedido pedido)
         {
             using (var conexao = new SqlConnection(stringConexao))
@@ -27,10 +28,9 @@ namespace Demo1.Infraestrutura.Repositorios
                 using (var comando = conexao.CreateCommand())
                 {
                     comando.CommandText =
-                        @"INSERT INTO Pedido (Id, NomeCliente)
-                        VALUES(@id, @nomeCliente)";
+                        @"INSERT INTO Pedido (NomeCliente)
+                        VALUES(@nomeCliente)";
 
-                    comando.Parameters.AddWithValue("@id", pedido.Id);
                     comando.Parameters.AddWithValue("@nomeCliente", pedido.NomeCliente);
 
                     comando.ExecuteNonQuery();
@@ -39,12 +39,35 @@ namespace Demo1.Infraestrutura.Repositorios
                 using (var comando = conexao.CreateCommand())
                 {
                     comando.CommandText = "SELECT @@IDENTITY";
+                    var result = (decimal)comando.ExecuteScalar();
+                    pedido.Id = (int)result;
                 }
             }            
             // para cada item do pedido, realizar o insert do ItemPedido
             using (var conexao = new SqlConnection(stringConexao))
             {
+                foreach (var item in pedido.Itens)
+                {
+                    using (var comando = conexao.CreateCommand())
+                    {
+                        comando.CommandText =
+                            @"INSERT INTO ItemPedido (IdPedido, IdProduto, Quantidade)" +
+                            " VALUES(@idPedido, @idProduto, @quantidade";
 
+                        comando.Parameters.AddWithValue("@idPedido", pedido.Id);
+                        comando.Parameters.AddWithValue("@idProduto", item.ProdutoId);
+                        comando.Parameters.AddWithValue("@quantidade", item.Quantidade);
+
+                        comando.ExecuteNonQuery();
+                    }
+                    using (var comando = conexao.CreateCommand())
+                    {
+                        comando.CommandText = "SELECT @@IDENTITY";
+
+                        var result = (decimal)comando.ExecuteScalar();
+                        item.Id = (int)result;
+                    }
+                }
             }
             // obter o ultimo id do ItemPedido (SELECT @@IDENTITY)
         }
@@ -53,7 +76,7 @@ namespace Demo1.Infraestrutura.Repositorios
         {
             throw new NotImplementedException();
         }
-
+        // BUSCAR DO BANCO
         public IEnumerable<Pedido> Listar()
         {
             var pedidos = new List<Pedido>();

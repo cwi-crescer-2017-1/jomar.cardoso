@@ -18,7 +18,6 @@ namespace Demo1.Dominio.Entidades
 
             if (string.IsNullOrWhiteSpace(NomeCliente))
                 mensagens.Add("Nome deve ser informado");
-
             return mensagens.Count() == 0;
         }
     }    

@@ -27,10 +27,11 @@ namespace Demo1.WebApi.Controllers
         // POST api/<controller>
         public IHttpActionResult Post(Pedido pedido)
         {
-            var mensagens = new List<string>();
+            //var mensagens = new List<string>();
 
-            if (!pedido.Validar(out mensagens))
-                return BadRequest(string.Join(".", mensagens.ToArray()));
+           // if (!pedido.Validar(out mensagens))
+             //   return BadRequest(string.Join(".", mensagens.ToArray()));
+
 
             _pedidoRepositorio.Criar(pedido);
 
