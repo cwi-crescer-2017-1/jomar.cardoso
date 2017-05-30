@@ -74,9 +74,12 @@ namespace Demo1.Infraestrutura.Repositorios
 
                         pedidos.Add(pedido);
                     }
-                }
-                
-                using (var comando2 = conexao.CreateCommand())
+                }     
+            }
+            using(var conexao2 = new SqlConnection(stringConexao))
+            {
+                conexao2.Open();
+                using (var comando2 = conexao2.CreateCommand())
                 {
                     foreach (var pedido in pedidos)
                     {
@@ -97,10 +100,9 @@ namespace Demo1.Infraestrutura.Repositorios
                             itemPedido.Quantidade = (int)dataReader2["Quantidade"];
                             pedido.Itens.Add(itemPedido);
                         }
-                    }                    
+                    }
                 }
             }
-
             return pedidos;
         }
 
