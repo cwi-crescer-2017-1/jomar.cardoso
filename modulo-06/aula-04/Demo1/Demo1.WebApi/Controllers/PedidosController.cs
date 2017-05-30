@@ -27,15 +27,27 @@ namespace Demo1.WebApi.Controllers
         // POST api/<controller>
         public IHttpActionResult Post(Pedido pedido)
         {
-            //var mensagens = new List<string>();
+            var mensagens = new List<string>();
 
-           // if (!pedido.Validar(out mensagens))
-             //   return BadRequest(string.Join(".", mensagens.ToArray()));
-
-
+            if (!pedido.Validar(out mensagens))
+                return BadRequest(string.Join(".", mensagens.ToArray()));
+            if (!this.ValidarPedido(pedido, out mensagens))
+                return BadRequest(string.Join(".", mensagens.ToArray()));
             _pedidoRepositorio.Criar(pedido);
 
             return Ok(pedido);
+        }
+
+        public bool ValidarPedido(Pedido pedido, out List<string> mensagens)
+        {
+            mensagens = new List<string>();
+            ProdutoRepositorio getProduto = new ProdutoRepositorio();
+            foreach (var item in pedido.Itens)
+            {
+                if (item.Quantidade > getProduto.Obter(item.Id).Estoque)
+                    mensagens.Add("estoque insuficiente");
+            }
+            return mensagens.Count() == 0;
         }
 
         // PUT api/<controller>/5
