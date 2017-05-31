@@ -9,10 +9,12 @@ using System.Web.Http;
 
 namespace EditoraCrescer.Api.Controllers
 {
+    
     public class AutoresController : ApiController
     {
         private AutorRepositorio repositorio = new AutorRepositorio();
 
+        [HttpGet]
         public IHttpActionResult Get()
         {
             return Ok(repositorio.Obter());
@@ -26,6 +28,11 @@ namespace EditoraCrescer.Api.Controllers
         {
             repositorio.Excluir(id);
             return Ok();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
         }
     }
 }
