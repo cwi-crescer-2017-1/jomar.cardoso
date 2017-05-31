@@ -8,14 +8,13 @@ using System.Threading.Tasks;
 
 namespace EditoraCrescer.Mappings
 {
-    public class AutorMap : EntityTypeConfiguration<Autor>
+    public class RevisorMap : EntityTypeConfiguration<Revisor>
     {
-        public AutorMap()
+           public RevisorMap()
         {
             HasKey(x => x.Id);
-
-            ToTable("Autores");
-            Property(p => p.Nome).HasMaxLength(300);
+            ToTable("Revisores");
+            Property(p => p.Nome).HasMaxLength(300);            
         }
     }
 }

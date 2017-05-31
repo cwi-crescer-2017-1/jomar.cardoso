@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,5 +16,9 @@ namespace EditoraCrescer.Entidades
         public DateTime DataPublicacao { get; set; }
         public int IdAutor { get; set; }
         public Autor Autor { get; set; }
+        public int IdRevisor { get; set; }
+        [ForeignKey("IdRevisor")]
+        public Revisor Revisor { get; set; }
+        public DateTime DataRevisao { get; set; }
     }
 }

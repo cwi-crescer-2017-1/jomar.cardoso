@@ -16,13 +16,15 @@ namespace EditoraCrescer
 
         }
 
-        public DbSet<Autor> Autores { get; set; }
-        public DbSet<Livro> Livros { get; set; }
+        public DbSet<Autor> Autor { get; set; }
+        public DbSet<Livro> Livro { get; set; }
+        public DbSet<Revisor> Revisor { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new AutorMap());
             modelBuilder.Configurations.Add(new LivroMap());
+            modelBuilder.Configurations.Add(new RevisorMap());
         }
     }
 }

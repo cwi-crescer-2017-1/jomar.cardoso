@@ -50,18 +50,37 @@
     <Compile Include="Contexto.cs" />
     <Compile Include="Entidades\Autor.cs" />
     <Compile Include="Entidades\Livro.cs" />
+    <Compile Include="Entidades\Revisor.cs" />
     <Compile Include="Mappings\AutorMap.cs" />
     <Compile Include="Mappings\LivroMap.cs" />
+    <Compile Include="Mappings\RevisorMap.cs" />
     <Compile Include="Migrations\201705301950575_CriacaoDoBanco.cs" />
     <Compile Include="Migrations\201705301950575_CriacaoDoBanco.Designer.cs">
       <DependentUpon>201705301950575_CriacaoDoBanco.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705310452026_CriacaoDoBancoRevisor.cs" />
+    <Compile Include="Migrations\201705310452026_CriacaoDoBancoRevisor.Designer.cs">
+      <DependentUpon>201705310452026_CriacaoDoBancoRevisor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705310531442_CriacaoFKRevisor.cs" />
+    <Compile Include="Migrations\201705310531442_CriacaoFKRevisor.Designer.cs">
+      <DependentUpon>201705310531442_CriacaoFKRevisor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorios\AutorRepositorio.cs" />
+    <Compile Include="Repositorios\LivroRepositorio.cs" />
+    <Compile Include="Repositorios\RevisorRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201705301950575_CriacaoDoBanco.resx">
       <DependentUpon>201705301950575_CriacaoDoBanco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705310452026_CriacaoDoBancoRevisor.resx">
+      <DependentUpon>201705310452026_CriacaoDoBancoRevisor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705310531442_CriacaoFKRevisor.resx">
+      <DependentUpon>201705310531442_CriacaoFKRevisor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
