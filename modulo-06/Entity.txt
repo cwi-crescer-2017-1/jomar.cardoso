@@ -1,3 +1,9 @@
+[EnableCors("*", "*", "*")]
+
+
+
+
+
 Criar projeto chamado EditoraCrescer.Infraesturtura (do tipo "Class Library")
 
 * `$ Install-Package EntityFramework`
