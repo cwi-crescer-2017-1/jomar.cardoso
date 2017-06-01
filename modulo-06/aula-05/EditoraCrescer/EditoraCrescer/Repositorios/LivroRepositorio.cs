@@ -11,10 +11,16 @@ namespace EditoraCrescer.Repositorios
     {
         private Contexto contexto = new Contexto();
 
-        public List<Livro> Obter()
+        public List<dynamic> Obter()
         {
-            return contexto.Livro.
-                ToList();
+            return contexto.Livro
+                .Select(l => new {
+                    Isbn = l.Isbn,
+                    Titulo = l.Titulo,
+                    Capa = l.Capa,
+                    NomeAutor = l.Autor.Nome,
+                    Genero = l.Genero})
+                .ToList<dynamic>();
         }
 
         public object Obter(int isbn)
@@ -23,11 +29,30 @@ namespace EditoraCrescer.Repositorios
             return livro;
         }
 
-        public List<Livro> Obter(string genero)
+        public List<dynamic> Obter(string genero)
+        {            
+            return 
+                contexto.Livro.Where(l => l.Genero.Contains(genero))
+                .Select(l => new {
+                    Isbn = l.Isbn,
+                    Titulo = l.Titulo,
+                    Capa = l.Capa,
+                    NomeAutor = l.Autor.Nome,
+                    Genero = l.Genero})
+                .ToList<dynamic>();
+        }
+
+        public List<dynamic> ObterLancamentos()
         {
-            List<Livro> livros = new List<Livro>();
-            livros = contexto.Livro.Where(l => l.Genero.Contains(genero)).ToList();
-            return livros;
+            return contexto.Livro.Where(l => l.DataPublicacao >= 
+                System.Data.Entity.DbFunctions.AddDays(DateTime.Now, -7))
+                    .Select(l => new {
+                        Isbn = l.Isbn,
+                        Titulo = l.Titulo,
+                        Capa = l.Capa,
+                        NomeAutor = l.Autor.Nome,
+                        Genero = l.Genero})
+            .ToList<dynamic>();
         }
 
         public void Incluir(Livro livro)
@@ -45,19 +70,18 @@ namespace EditoraCrescer.Repositorios
 
         public Livro alterar(int isbn, Livro livroAlterado)
         {
-
-           // var livro = contexto.Livro.FirstOrDefault(l => l.Isbn == isbn);
             contexto.Entry(livroAlterado).State = System.Data.Entity.EntityState.Modified;
             contexto.SaveChanges();
             return livroAlterado;
         }
 
-        public void Excluir(int id)
+        public Livro Excluir(int isbn)
         {
-            var livro = new Livro { Isbn = id };
+            var livro = new Livro { Isbn = isbn };
             contexto.Livro.Attach(livro);
             contexto.Livro.Remove(livro);
             contexto.SaveChanges();
+            return livro;
         }
 
         public bool validar(int isbn, Livro livro, out List<string> mensagens)

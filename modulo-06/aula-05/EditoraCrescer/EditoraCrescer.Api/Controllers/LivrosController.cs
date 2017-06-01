@@ -29,6 +29,14 @@ namespace EditoraCrescer.Api.Controllers
         {
             return Ok(repositorio.Obter(genero));
         }
+
+        [HttpGet]
+        [Route("lancamentos")]
+        public IHttpActionResult GetLancamentos()
+        {
+            return Ok(repositorio.ObterLancamentos());
+        }
+
         [HttpPost]
         public IHttpActionResult Post(Livro livro)
         {
@@ -46,10 +54,12 @@ namespace EditoraCrescer.Api.Controllers
             repositorio.alterar(isbn, livro);            
             return Ok(livro);
         }
-        public IHttpActionResult Delete(int id)
-        {
-            repositorio.Excluir(id);
-            return Ok();
+
+        [HttpDelete]
+        [Route("{isbn}")]
+        public IHttpActionResult Delete(int isbn)
+        {           
+            return Ok(repositorio.Excluir(isbn));
         }
     }
 }
