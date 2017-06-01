@@ -16,10 +16,21 @@ namespace EditoraCrescer.Repositorios
             return contexto.Revisor.ToList();
         }
 
+        public List<Revisor> Obter(int id)
+        {
+            return contexto.Revisor.Where(r => r.Id == id).ToList();
+        }
+
         public void Incluir(Revisor revisor)
         {
             contexto.Revisor.Add(revisor);
             contexto.SaveChanges();
+        }
+        public Revisor alterar(int isbn, Revisor revisor)
+        {
+            contexto.Entry(revisor).State = System.Data.Entity.EntityState.Modified;
+            contexto.SaveChanges();
+            return revisor;
         }
         public void Excluir(int id)
         {
@@ -27,6 +38,18 @@ namespace EditoraCrescer.Repositorios
             contexto.Revisor.Attach(revisor);
             contexto.Revisor.Remove(revisor);
             contexto.SaveChanges();
+        }
+        public bool validar(int id, Revisor revisor, out List<string> mensagens)
+        {
+            mensagens = new List<string>();
+            //verificar id com id do revisor
+            if (revisor.Id != id)
+                mensagens.Add("id invalido");
+            //verificar se tem revisor com esta isbn
+            if (contexto.Revisor.Count(l => l.Id == id) == 0)
+                mensagens.Add("Não encontrado");
+            var teste = mensagens.Count() != 0;
+            return mensagens.Count() != 0;
         }
     }
 }
