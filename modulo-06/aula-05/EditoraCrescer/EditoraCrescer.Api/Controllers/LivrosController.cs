@@ -61,5 +61,10 @@ namespace EditoraCrescer.Api.Controllers
         {           
             return Ok(repositorio.Excluir(isbn));
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+        }
     }
 }
