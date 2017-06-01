@@ -8,6 +8,8 @@ chat.controller('mensagemController', function($scope, $routeParams, mensagemSer
     $scope.obterUsuario = obterUsuario
     window.setInterval(function() {obterTodasMensagens()}, 1000);
 
+    
+
 
     function obterUsuario(id) {
         var i;

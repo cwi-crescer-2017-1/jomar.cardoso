@@ -1,0 +1,63 @@
+* {
+    box-sizing: border-box;
+}
+
+.clearfix{
+  content: "";
+  clear: both;
+}
+
+.container {
+    background-color: #dfdfdf;
+}
+
+.livros-em-destaque {
+
+}
+.livros-em-destaque .livro-destaque {
+    border: 1px solid #aaa;
+    width: 13%;
+    float: left;
+    margin-left: 5px;
+}
+
+.livros-em-destaque .livro-destaque .capa-livro{
+    margin: 3px;
+    height: 150px;
+    border: 1px solid #aaa;
+}
+
+.livros-em-destaque .destaques-rotulo {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.livros-em-destaque .destaques-rotulo h2 {
+    margin: 0;
+}
+
+.livros-publicados {
+
+}
+
+.livros-publicados .livro {
+    border: 1px solid #aaa;
+    padding: 6px;
+}
+
+.livros-publicados .livro .livro-capa {
+    border: 1px solid #aaa;
+    width: 100%;
+    overflow: hidden;
+}
+
+.livros-publicados .livro .livro-capa img{
+    width: 100%;
+}
+
+.livros-publicados .livro .livro-dados {
+
+}
+
+.livros-publicados .livro .livro-dados span{
+    font-weight: 700;
+}

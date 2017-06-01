@@ -44,14 +44,12 @@ namespace EditoraCrescer.Repositorios
 
         public List<dynamic> ObterLancamentos()
         {
-            return contexto.Livro.Where(l => l.DataPublicacao >= 
-                System.Data.Entity.DbFunctions.AddDays(DateTime.Now, -7))
+            return contexto.Livro.OrderByDescending(l => l.DataPublicacao).Take(7)
                     .Select(l => new {
                         Isbn = l.Isbn,
                         Titulo = l.Titulo,
                         Capa = l.Capa,
-                        NomeAutor = l.Autor.Nome,
-                        Genero = l.Genero})
+                        Descricao = l.Descricao})
             .ToList<dynamic>();
         }
 

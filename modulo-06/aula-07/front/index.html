@@ -1,0 +1,53 @@
+<html ng-app="biblioteca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets.css">
+    <title>Biblioteca</title>
+</head>
+<body ng-controller="livrosController">
+    <div class="container"> 
+        <div class="row">
+            <div class="titulo-pagina col-md-12">
+                <h1 class="text-center">BIBLIOTECA</h1>
+            </div>
+        </div>
+        <div class="livros-em-destaque text-center row">
+            <div class="col-md-12 clearfix">
+                <ul ng-repeat="livroDestaque in livrosDestaque" class="list-unstyled list-inline">
+                    <li class="livro-destaque">
+                        <div class="capa-livro"> 
+                            <img src="livroDestaque.Capa" alt="">
+                        </div>
+                        <div>
+                            <h3>{{livroDestaque.Titulo}}</h3>
+                            <p>{{livroDestaque.Descricao}}</p>
+                        </div>
+                    </li>
+                </ul>                
+              </div>
+            <div class="col-md-12 destaques-rotulo">
+                <h2 class="">Destaques da semana</h2>
+            </div>            
+        </div>
+        <div class="livros-publicados row" ng-reapeat="livroPublicado in livrosPublicados"> 
+            <div class="livro col-md-2">
+                <div class="livro-capa">                    
+                    <img src="http://3.bp.blogspot.com/-z3avROfQODs/UbNxJQMDV4I/AAAAAAAAAkw/DxWj1MCvGFQ/s1600/ecapa.jpg" alt="">         
+                </div>
+                <h4>{{livroPublicado.Titulo}}</h4>
+                <div class="livro-dados"><span>Autor: </span>{{livroPublicado.Autor}}</div>
+                <div class="livro-dados"><span>Gênero: </span>{{livroPublicado.Genero}}</div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.6.4/angular-locale_pt-br.min.js"></script>
+    <script src="script.js"></script>
+    <script src="livros/livrosController.js"></script>
+    <script src="livros/livrosService.js"></script>
+</body>
+</html>
