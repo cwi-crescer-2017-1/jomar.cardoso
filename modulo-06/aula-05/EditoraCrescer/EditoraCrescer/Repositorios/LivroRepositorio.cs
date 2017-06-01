@@ -63,8 +63,6 @@ namespace EditoraCrescer.Repositorios
         public bool validar(int isbn, Livro livro, out List<string> mensagens)
         {
             mensagens = new List<string>();
-            //if (contexto.Livro.Count(l => livro.Isbn == isbn) > 0)
-
             //verificar isbn com isbn do livro
             if (livro.Isbn != isbn)
              mensagens.Add("isbn invalido");

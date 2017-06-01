@@ -20,5 +20,6 @@ namespace EditoraCrescer.Entidades
         [ForeignKey("IdRevisor")]
         public Revisor Revisor { get; set; }
         public DateTime DataRevisao { get; set; } = DateTime.Now;
+        public string Capa { get; set; }
     }
 }

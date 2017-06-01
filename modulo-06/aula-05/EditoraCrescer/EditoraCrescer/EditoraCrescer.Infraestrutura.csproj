@@ -66,6 +66,10 @@
     <Compile Include="Migrations\201705310531442_CriacaoFKRevisor.Designer.cs">
       <DependentUpon>201705310531442_CriacaoFKRevisor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705312338009_adicionarColunaCapaEmTabelaLivro.cs" />
+    <Compile Include="Migrations\201705312338009_adicionarColunaCapaEmTabelaLivro.Designer.cs">
+      <DependentUpon>201705312338009_adicionarColunaCapaEmTabelaLivro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\AutorRepositorio.cs" />
@@ -81,6 +85,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705310531442_CriacaoFKRevisor.resx">
       <DependentUpon>201705310531442_CriacaoFKRevisor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705312338009_adicionarColunaCapaEmTabelaLivro.resx">
+      <DependentUpon>201705312338009_adicionarColunaCapaEmTabelaLivro.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
