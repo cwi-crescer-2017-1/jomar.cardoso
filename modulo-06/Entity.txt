@@ -1,0 +1,10 @@
+Criar projeto chamado EditoraCrescer.Infraesturtura (do tipo "Class Library")
+
+* `$ Install-Package EntityFramework`
+* Criar Contexto
+
+* `$ Enable-Migrations`
+
+* `$ Add-Migration (nome)`
+
+* `$ Update-Database`
