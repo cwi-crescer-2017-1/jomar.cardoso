@@ -33,52 +33,12 @@
         </div>
     </div>
     <!-- ######################################################### ng view ##########################################################-->
-    <div class="container">          
-        <div class="livros-em-destaque text-center row">            
-            <div class="livros-em-destaque-col clearfix">
-                    <div class="livro-destaque" ng-repeat="livroDestaque in livrosDestaque">
-                        <div class="capa-livro"> 
-                            <img src="http://3.bp.blogspot.com/-z3avROfQODs/UbNxJQMDV4I/AAAAAAAAAkw/DxWj1MCvGFQ/s1600/ecapa.jpg" alt="">
-                        </div>
-                        <div>
-                            <h4>{{livroDestaque.Titulo}}</h4>
-                            <p>{{livroDestaque.Descricao}}</p>
-                        </div>
-                    </div>
-               
-              </div>
-            <div class="col-md-12 destaques-rotulo">
-                <h2 class="text-center">Destaques da semana</h2>
-            </div>            
-        </div>    
+    <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <h3>Os Últimos Lançamentos</h3>
-            </div>
-        </div>    
-        <div class="corpo-pagina row">
-            <div class="livros-publicados col-md-10 col-md-offset-1"> 
-                <div class="livro col-md-3" ng-repeat="livroPublicado in livrosPublicados">
-                    <div>
-                        <div class="livro-capa">                    
-                            <img src="http://3.bp.blogspot.com/-z3avROfQODs/UbNxJQMDV4I/AAAAAAAAAkw/DxWj1MCvGFQ/s1600/ecapa.jpg" alt="">         
-                        </div>
-                        <h4 class="text-center">{{livroPublicado.Titulo}}</h4>
-                        <div class="livro-dados"><span>Autor: </span>{{livroPublicado.Autor.Nome}}</div>
-                        <div class="livro-dados"><span>Gênero: </span>{{livroPublicado.Genero}}</div>
-                    </div>
+            <div class="col-md-6 col-md-offset-3">
+                <div class="row">
+                    <h1>{{livroDetalhado.Titulo}}</h1>
                 </div>
-            </div>
-        </div>
-        <div class="guia-paginas text-center row">
-            <div class="col-md-2 col-md-offset-3">
-                <button class="btn btn-default" ng-click="paginaAnterior(paginaAtual)">Página Anterior</button>
-            </div>
-            <div class="col-md-2">
-                <h5 class="h5">Página: {{paginaAtual}}<h5>
-            </div>
-            <div class="col-md-2">
-                <button class="btn btn-default" ng-click="proximaPagina(paginaAtual)">Próxima Página</button>
             </div>
         </div>
     </div>

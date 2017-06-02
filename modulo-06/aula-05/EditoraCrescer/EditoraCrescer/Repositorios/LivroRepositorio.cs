@@ -23,10 +23,25 @@ namespace EditoraCrescer.Repositorios
                 .ToList<dynamic>();
         }
 
-        public object Obter(int isbn)
+        public Livro Obter(int isbn)
         {
             var livro = contexto.Livro.FirstOrDefault(l => l.Isbn == isbn);
             return livro;
+        }
+
+        public List<dynamic> ObterPublicados(int quantidadePular, int quantidadeTrazer)
+        {
+            return contexto.Livro
+                .OrderByDescending(l => l.DataPublicacao)
+                .Skip(quantidadePular)
+                .Take(quantidadeTrazer)
+                .Select(l => new {
+                    Isbn = l.Isbn,
+                    Capa = l.Capa,
+                    Titulo = l.Titulo,
+                    Autor = l.Autor,
+                    Genero = l.Genero })
+                .ToList<dynamic>();
         }
 
         public List<dynamic> Obter(string genero)

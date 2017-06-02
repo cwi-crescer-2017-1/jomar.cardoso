@@ -2,37 +2,74 @@
     box-sizing: border-box;
 }
 
-.clearfix{
-  content: "";
-  clear: both;
+body {
+    background-color: #efefef;
 }
 
+
 .container {
-    background-color: #dfdfdf;
+    
 }
 
 .livros-em-destaque {
-
+    background-color: #FF6347;
+    margin-bottom: 15px;
 }
-.livros-em-destaque .livro-destaque {
-    border: 1px solid #aaa;
-    width: 13%;
+
+.livros-em-destaque > .livros-em-destaque-col{
+    padding: 10px 50px;
+}
+.livros-em-destaque .livro-destaque {    
+    width: 13.5%;
+    height: 240px;
     float: left;
-    margin-left: 5px;
+    margin: 4px;
+    border: 1px solid #ddd;
+    background-color: white;
 }
 
 .livros-em-destaque .livro-destaque .capa-livro{
-    margin: 3px;
     height: 150px;
-    border: 1px solid #aaa;
+    border: 1px solid #ccc;
+    overflow: hidden;    
 }
 
-.livros-em-destaque .destaques-rotulo {
-    background-color: rgba(0, 0, 0, 0.5);
+.destaques-rotulo {
+    background-color: black;
+    line-height: 38px;
+    height: 38px;
+    color: white;
+    z-index: 1;
 }
 
-.livros-em-destaque .destaques-rotulo h2 {
-    margin: 0;
+.destaques-rotulo h2 {
+    margin: 7 0 0 0;
+        font-size: 24px;
+}
+
+.livros-em-destaque .capa-livro img {
+    width: 100%;
+    z-index: 2;
+}
+
+.banner {
+    height: 100px;
+    color: black;
+    background-color: #B22222;
+}
+.banner h1 {
+    margin-top: 20px;
+    font-size: 60px;
+    font-family: 'Barrio', cursive;
+}
+
+.banner img {
+    width: 100%;
+    position: absolute;
+}
+
+.banner .esquerda{
+    transform: scaleX(-1);
 }
 
 .livros-publicados {
@@ -40,13 +77,17 @@
 }
 
 .livros-publicados .livro {
-    border: 1px solid #aaa;
+    padding: 6px;
+}
+
+.livros-publicados .livro > div {
+    border: 1px solid #ddd;
+    background-color: white;
     padding: 6px;
 }
 
 .livros-publicados .livro .livro-capa {
     border: 1px solid #aaa;
-    width: 100%;
     overflow: hidden;
 }
 
@@ -60,4 +101,8 @@
 
 .livros-publicados .livro .livro-dados span{
     font-weight: 700;
+}
+
+.guia-paginas {
+    margin: 25px;
 }

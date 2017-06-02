@@ -15,6 +15,13 @@ namespace EditoraCrescer.Api.Controllers
         {
             return Ok(repositorio.Obter());            
         }
+
+        [HttpGet]
+        public IHttpActionResult GetPublicados(int quantidadePular, int quantidadeTrazer)
+        {
+            var livros = repositorio.ObterPublicados(quantidadePular, quantidadeTrazer);
+            return Ok(new { dados = livros });
+        }
     
         [HttpGet]
         [Route("{isbn:int}")]
