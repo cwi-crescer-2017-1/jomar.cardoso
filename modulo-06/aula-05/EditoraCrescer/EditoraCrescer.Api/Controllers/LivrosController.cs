@@ -22,12 +22,14 @@ namespace EditoraCrescer.Api.Controllers
             var livros = repositorio.ObterPublicados(quantidadePular, quantidadeTrazer);
             return Ok(new { dados = livros });
         }
-    
-        [HttpGet]
+
         [Route("{isbn:int}")]
+        [HttpGet]
+        
         public IHttpActionResult Get(int isbn)
         {
-            return Ok(repositorio.Obter(isbn));
+            var livro = repositorio.Obter(isbn);
+            return Ok(livro);
         }
 
         [HttpGet]

@@ -1,27 +1,27 @@
-biblioteca.controller('livrosController', function($scope, livrosService){
+biblioteca.controller('livrosController', function($scope, livrosService, authService){
+    $scope.logout = authService.logout;
     $scope.livrosDestaque
     $scope.livrosPublicados
     $scope.proximaPagina = proximaPagina
     $scope.paginaAnterior = paginaAnterior
     $scope.parametros =  {
         quantidadePular: 0,
-        quantidadeTrazer: 16     
+        quantidadeTrazer: 8     
     }
-    $scope.paginaAtual = 1;    
+    $scope.paginaAtual = 1;   
+    $scope.livroDetalhado = livroDetalhado
     buscarLancamentos()
     buscarPublicados()
 
     function proximaPagina(paginaAtual) {
         $scope.paginaAtual ++;
-        $scope.parametros.quantidadePular = $scope.parametros.quantidadeTrazer
-        $scope.parametros.quantidadeTrazer += 16        
+        $scope.parametros.quantidadePular += 8       
         buscarPublicados()        
     }
 
     function paginaAnterior(paginaAtual) {
         $scope.paginaAtual --;
-        $scope.parametros.quantidadeTrazer = $scope.parametros.quantidadePular
-        $scope.parametros.quantidadePular -= 16        
+        $scope.parametros.quantidadePular -= 8     
         buscarPublicados()        
     }    
 
@@ -40,22 +40,12 @@ biblioteca.controller('livrosController', function($scope, livrosService){
             console.log(response.data.dados)
             $scope.livrosPublicados = response.data.dados
         })
-    }    
+    }     
 
-    function buscarPublicados() {
-        parametros = $scope.parametros
-        livrosService.buscarPublicados(parametros)
-        .then(response => {
-            console.log(response.data.dados)
-            $scope.livrosPublicados = response.data.dados
-        })
-    }    
+    
 
-    $scope.livroDetalhado
-    $scope.buscarLivroDetalhado = buscarLivroDetalhado
-    function buscarLivroDetalhado(Isbn) {
-        Isbn = 3
-        livrosService.buscar
+    function livroDetalhado(isbn) {
+        livrosService.livroDetalhado(isbn)
     }
 })
 

@@ -1,4 +1,4 @@
-biblioteca.factory('livrosService', function($http){
+biblioteca.factory('livrosService', function($http, $location){
 
     urlBase = 'http://localhost:54896/api/livros'
 
@@ -13,17 +13,13 @@ biblioteca.factory('livrosService', function($http){
           params: parametros
         })
     }
-    function buscarDetalhado(Isbn) {
-        return $http({
-            url: urlBase+'/'+Isbn,
-            method: 'GET',
-            params: Isbn
-        })
+    function livroDetalhado (isbn) {
+        $location.path('/detalhado'+'/'+isbn)
     }
-    
+
     return {
         buscarLancamentos: buscarLancamentos,
         buscarPublicados: buscarPublicados,
-        buscarDetalhado: buscarDetalhado
+        livroDetalhado: livroDetalhado
     }
 })

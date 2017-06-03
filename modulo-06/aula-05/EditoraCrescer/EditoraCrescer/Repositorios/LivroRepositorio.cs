@@ -23,10 +23,20 @@ namespace EditoraCrescer.Repositorios
                 .ToList<dynamic>();
         }
 
-        public Livro Obter(int isbn)
+        public dynamic Obter(int isbn)
         {
-            var livro = contexto.Livro.FirstOrDefault(l => l.Isbn == isbn);
-            return livro;
+            var livro = contexto.Livro.Where(l => l.Isbn == isbn)
+                .Select(l => new {
+                    Isbn = l.Isbn,
+                    Capa = l.Capa,
+                    Titulo = l.Titulo,
+                    Autor = l.Autor,
+                    Genero = l.Genero,
+                    Descricao = l.Descricao
+                })
+                .ToList<dynamic>();
+
+            return livro[0];
         }
 
         public List<dynamic> ObterPublicados(int quantidadePular, int quantidadeTrazer)
@@ -60,22 +70,18 @@ namespace EditoraCrescer.Repositorios
         public List<dynamic> ObterLancamentos()
         {
             return contexto.Livro.OrderByDescending(l => l.DataPublicacao).Take(7)
-                    .Select(l => new {
-                        Isbn = l.Isbn,
-                        Titulo = l.Titulo,
-                        Capa = l.Capa,
-                        Descricao = l.Descricao})
-            .ToList<dynamic>();
+                .Select(l => new {
+                    Isbn = l.Isbn,
+                    Capa = l.Capa,
+                    Titulo = l.Titulo,
+                    Autor = l.Autor,
+                    Genero = l.Genero})
+                .ToList<dynamic>();
         }
 
         public void Incluir(Livro livro)
         {
-            if (livro.IdAutor == 0)
-            {
-                var repositorioAutor = new AutorRepositorio();
-                repositorioAutor.Incluir(livro.Autor);
-            }   
-            contexto.Livro.Add(livro);
+            contexto.Livro.Add(livro); 
             contexto.SaveChanges();
         }
 

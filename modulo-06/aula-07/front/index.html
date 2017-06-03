@@ -6,22 +6,22 @@
     <link href="https://fonts.googleapis.com/css?family=Barrio" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="stylesheets.css">
-    <title>Editoa CWI</title>
+    <title>Editora CWI</title>
 </head>
-<body ng-controller="livrosController">
+<body>
     <div class="container-fluid">   
         <div class="row">
             <div class="col-md-12">
                 <div class="banner row">
             <div class="col-md-12">
                 <div class="col-md-4">
-                    <!--<img class="esquerda" src="img/livros.png" alt="">-->
-                </div>
-                <div class="titulo-pagina col-md-4">
                     <h1 class="text-center">Editora CWI</h1>
                 </div>
+                <div class="titulo-pagina col-md-4">
+                    
+                </div>
                 <div class="col-md-4">
-                    <!--<img src="img/livros.png" alt="">-->
+                    <a href="#!/" ng-click="logout()">Logout</a>
                 </div>
             </div>
         </div>
@@ -33,55 +33,7 @@
         </div>
     </div>
     <!-- ######################################################### ng view ##########################################################-->
-    <div class="container">          
-        <div class="livros-em-destaque text-center row">            
-            <div class="livros-em-destaque-col clearfix">
-                    <div class="livro-destaque" ng-repeat="livroDestaque in livrosDestaque">
-                        <div class="capa-livro"> 
-                            <img src="http://3.bp.blogspot.com/-z3avROfQODs/UbNxJQMDV4I/AAAAAAAAAkw/DxWj1MCvGFQ/s1600/ecapa.jpg" alt="">
-                        </div>
-                        <div>
-                            <h4>{{livroDestaque.Titulo}}</h4>
-                            <p>{{livroDestaque.Descricao}}</p>
-                        </div>
-                    </div>
-               
-              </div>
-            <div class="col-md-12 destaques-rotulo">
-                <h2 class="text-center">Destaques da semana</h2>
-            </div>            
-        </div>    
-        <div class="row">
-            <div class="col-md-12">
-                <h3>Os Últimos Lançamentos</h3>
-            </div>
-        </div>    
-        <div class="corpo-pagina row">
-            <div class="livros-publicados col-md-10 col-md-offset-1"> 
-                <div class="livro col-md-3" ng-repeat="livroPublicado in livrosPublicados">
-                    <div>
-                        <div class="livro-capa">                    
-                            <img src="http://3.bp.blogspot.com/-z3avROfQODs/UbNxJQMDV4I/AAAAAAAAAkw/DxWj1MCvGFQ/s1600/ecapa.jpg" alt="">         
-                        </div>
-                        <h4 class="text-center">{{livroPublicado.Titulo}}</h4>
-                        <div class="livro-dados"><span>Autor: </span>{{livroPublicado.Autor.Nome}}</div>
-                        <div class="livro-dados"><span>Gênero: </span>{{livroPublicado.Genero}}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="guia-paginas text-center row">
-            <div class="col-md-2 col-md-offset-3">
-                <button class="btn btn-default" ng-click="paginaAnterior(paginaAtual)">Página Anterior</button>
-            </div>
-            <div class="col-md-2">
-                <h5 class="h5">Página: {{paginaAtual}}<h5>
-            </div>
-            <div class="col-md-2">
-                <button class="btn btn-default" ng-click="proximaPagina(paginaAtual)">Próxima Página</button>
-            </div>
-        </div>
-    </div>
+    <ng-view>   </ng-view>
     <!-- ######################################################### ng view ##########################################################-->
     <div class="container-fluid">   
         <div class="row">
@@ -97,11 +49,18 @@
             </div>
         </div>        
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.6.4/angular-locale_pt-br.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js" type="text/javascript"></script>
     <script src="script.js"></script>
+    <!-- Autenticação -->
+<script src="https://rawgit.com/cwi-crescer-2017-1/instrutores/master/modulo-05-angularjs/auth/auth.module.js" type="text/javascript"></script>
+    <!--<script src="auth.module.js"></script>-->
     <script src="livros/livrosController.js"></script>
     <script src="livros/livrosService.js"></script>
+    <script src="livrosDetalhado/livrosDetalhadoController.js"></script>
+    <script src="livrosDetalhado/livrosDetalhadoService.js"></script>
+    <script src="login/loginController.js"></script>
+    <script src="menu/menuController.js"></script>
 </body>
 </html>
