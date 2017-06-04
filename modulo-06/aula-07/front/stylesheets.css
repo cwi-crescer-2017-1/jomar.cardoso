@@ -60,6 +60,7 @@ body {
     margin-top: 20px;
     font-size: 60px;
     font-family: 'Barrio', cursive;
+    color: black;
 }
 
 .banner img {
@@ -83,11 +84,13 @@ body {
     border: 1px solid #ddd;
     background-color: white;
     padding: 6px;
+    height: 430px;
 }
 
 .livros-publicados .livro .livro-capa {
     border: 1px solid #aaa;
     overflow: hidden;
+    height: 300px;
 }
 
 .livros-publicados .livro .livro-capa img{
@@ -104,4 +107,15 @@ body {
 
 .guia-paginas {
     margin: 25px;
+}
+
+.usuarioLogado,  .usuarioLogado a{
+    padding-top: 22px;
+    color: black;
+    line-height: 20px;
+}
+
+.usuarioLogado span {
+    font-weight: bold;
+
 }

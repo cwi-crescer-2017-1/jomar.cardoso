@@ -8,20 +8,31 @@
     <link rel="stylesheet" href="stylesheets.css">
     <title>Editora CWI</title>
 </head>
-<body>
+<body ng-controller="indexController">
     <div class="container-fluid">   
         <div class="row">
             <div class="col-md-12">
                 <div class="banner row">
             <div class="col-md-12">
                 <div class="col-md-4">
-                    <h1 class="text-center">Editora CWI</h1>
+                    <a href="#!/"><h1 class="text-right">Editora CWI</h1></a>
                 </div>
                 <div class="titulo-pagina col-md-4">
-                    
                 </div>
-                <div class="col-md-4">
-                    <a href="#!/" ng-click="logout()">Logout</a>
+                <div class="col-md-2 usuarioLogado text-center" ng-show="usuarioIndexLogado">
+                    <div class="col-md-8 col-md-offset-2">
+                        <a href="#!/menu">Olá {{nomeIndexLogado}}
+                        <div><span>Bem vindo</span> </div></a>                                           
+                        <a href="#!/" ng-click="logout()"><p class="text-right">Sair</p></a>
+                    </div>
+                </div>
+                <div class="col-md-2 usuarioLogado text-center" ng-show="!usuarioIndexLogado">
+                    <div class="col-md-8 col-md-offset-2">
+                        <a href="#!/login">
+                            <div><span>Olá</span> </div>                                           
+                            <p>Entre ou Cadastre-se</p>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -43,19 +54,22 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="banner row">
-            <div class="col-md-12">
-            </div>
-        </div>
+                    <div class="col-md-8 col-md-offset-2 text-center" style="padding-top: 20px;">
+                        Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito paradis? Toma um mé que o mundo vai girarzis! Praesent malesuada urna nisi, quis volutpat erat hendrerit non. Nam vulputate dapibus. Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis. Não sou faixa preta cumpadi, sou preto inteiris, inteiris.
+                    </div>
+                </div>
             </div>
         </div>        
     </div>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" type="text/javascript"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js" type="text/javascript"></script>
-    <script src="script.js"></script>
+    <script src="module.js"></script>
+    <script src="route.js"></script>
     <!-- Autenticação -->
-<script src="https://rawgit.com/cwi-crescer-2017-1/instrutores/master/modulo-05-angularjs/auth/auth.module.js" type="text/javascript"></script>
-    <!--<script src="auth.module.js"></script>-->
+    <!--<script src="https://rawgit.com/cwi-crescer-2017-1/instrutores/master/modulo-05-angularjs/auth/auth.module.js" type="text/javascript"></script>-->
+    <script src="auth.module.js"></script>
+    <script src="index/indexController.js"></script>
     <script src="livros/livrosController.js"></script>
     <script src="livros/livrosService.js"></script>
     <script src="livrosDetalhado/livrosDetalhadoController.js"></script>

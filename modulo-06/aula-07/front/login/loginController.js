@@ -6,8 +6,7 @@ angular.module('biblioteca').controller('loginController', function ($scope, aut
       .then(
         function (response) {
           console.log(response);
-          alert('Login com sucesso!');
-
+          $scope.verificarLogin()     
         },
         function (response) {
           console.log(response);
