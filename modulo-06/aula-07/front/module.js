@@ -14,7 +14,10 @@ angular.module('biblioteca').constant('authConfig', {
     urlPrivado: '/',
 
     // Opcional - URL da aplicação para onde será redirecionado (se for informado) após o LOGOUT
-    urlLogout: '/'
+    urlLogout: '/',
+
+    // Url para livros
+    urlLivros: 'http://localhost:54896/api/livros'
 });
 
 

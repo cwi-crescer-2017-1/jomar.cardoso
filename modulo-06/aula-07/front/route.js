@@ -21,7 +21,25 @@ biblioteca.config(function($routeProvider){
             }
         }
     })
+    .when('/crud/:operacao', {
+        controller: 'crudController',
+        templateUrl: 'crud/crud.html',
+        resolve: {
+            autenticado: function (authService) {
+                return authService.isAutenticadoPromise()
+            }
+        }
+    })
+    .when('/revisor', {
+        controller: 'revisorController',
+        templateUrl: 'revisor/revisor.html',
+        resolve: {
+            autenticado: function (authService) {
+                return authService.possuiPermissaoPromise('Revisor')
+            }
+        }
+    })
     .otherwise({
-        redirectTo: '/livros'
+        redirectTo: '/'
     })
 })

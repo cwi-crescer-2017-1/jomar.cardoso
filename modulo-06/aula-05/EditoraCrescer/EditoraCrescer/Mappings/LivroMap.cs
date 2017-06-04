@@ -16,9 +16,9 @@ namespace EditoraCrescer.Mappings
 
             HasKey(x => x.Isbn);
 
-            HasRequired(x => x.Autor)
-                .WithMany()
-                .HasForeignKey(x => x.IdAutor);
+            //HasRequired(x => x.Autor)
+            //    .WithMany()
+            //    .HasForeignKey(x => x.IdAutor);
 
             //HasRequired(y => y.Revisor)
             //    .WithMany()

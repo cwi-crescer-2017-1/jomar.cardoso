@@ -1,25 +1,22 @@
-biblioteca.factory('livrosService', function($http, $location){
+biblioteca.factory('livrosService', function($http, $location, authConfig){
 
-    urlBase = 'http://localhost:54896/api/livros'
-
+    let urlLivros = authConfig.urlLivros
+  
     function buscarLancamentos() {
-        return $http.get(urlBase+"/lancamentos")
+        return $http.get(urlLivros+"/lancamentos")
     }
     function buscarPublicados(parametros) {
         console.log(parametros)
          return $http({
-          url: urlBase,
+          url: urlLivros,
           method: 'GET',
           params: parametros
         })
     }
-    function livroDetalhado (isbn) {
-        $location.path('/detalhado'+'/'+isbn)
-    }
+
 
     return {
         buscarLancamentos: buscarLancamentos,
-        buscarPublicados: buscarPublicados,
-        livroDetalhado: livroDetalhado
+        buscarPublicados: buscarPublicados
     }
 })

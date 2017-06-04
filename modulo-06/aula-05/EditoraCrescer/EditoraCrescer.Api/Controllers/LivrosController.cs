@@ -46,6 +46,13 @@ namespace EditoraCrescer.Api.Controllers
             return Ok(repositorio.ObterLancamentos());
         }
 
+        [HttpGet]
+        [Route("naopublicados")]
+        public IHttpActionResult GetNaoPublicados()
+        {
+            return Ok(repositorio.ObterNaoPublicados());
+        }
+
         [HttpPost]
         public IHttpActionResult Post(Livro livro)
         {

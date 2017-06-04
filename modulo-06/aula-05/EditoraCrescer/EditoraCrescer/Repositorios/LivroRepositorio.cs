@@ -30,8 +30,10 @@ namespace EditoraCrescer.Repositorios
                     Isbn = l.Isbn,
                     Capa = l.Capa,
                     Titulo = l.Titulo,
+                    IdAutor = l.IdAutor,
                     Autor = l.Autor,
                     Genero = l.Genero,
+                    DataPublicacao = l.DataPublicacao,
                     Descricao = l.Descricao
                 })
                 .ToList<dynamic>();
@@ -69,13 +71,23 @@ namespace EditoraCrescer.Repositorios
 
         public List<dynamic> ObterLancamentos()
         {
-            return contexto.Livro.OrderByDescending(l => l.DataPublicacao).Take(7)
+            return contexto.Livro.OrderByDescending(l => l.Isbn).Take(7)
                 .Select(l => new {
                     Isbn = l.Isbn,
                     Capa = l.Capa,
                     Titulo = l.Titulo,
                     Autor = l.Autor,
                     Genero = l.Genero})
+                .ToList<dynamic>();
+        }
+
+        public List<dynamic> ObterNaoPublicados()
+        {
+            return contexto.Livro.Where(l => l.DataRevisao == null)
+                .Select(l => new {
+                    Isbn = l.Isbn,
+                    Titulo = l.Titulo
+                })
                 .ToList<dynamic>();
         }
 

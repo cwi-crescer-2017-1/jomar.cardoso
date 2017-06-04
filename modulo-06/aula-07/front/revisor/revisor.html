@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <h2 class="text-center">Livros Não Revisados</h2>
+            <ul>
+                <li ng-repeat="livro in livrosNaoRevisados" ng-click="livroDetalhado(livro.Isbn)"><p>{{livro.Titulo}}</p></li>
+            </ul>
+        </div>
+    </div>
+</div>

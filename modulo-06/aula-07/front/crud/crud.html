@@ -1,14 +1,47 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset2">
-            <h2 class="text-center">Cadastrar Livro</h2>
-            <form novalidate name="novoLivro">
+        <div class="col-md-6 col-md-offset-3">
+            <h2 class="text-center" ng-if="operacao == 1">Cadastrar Livro</h2>
+            <h2 class="text-center" ng-if="operacao == 2">Editar Livro</h2>
+            <form novalidate ng-if="operacao == 2">
+                <div class="row">
+                    <div class="form-group col-md-8">
+                        <label for="isbn">Isbn</label>
+                        <input type="text" class="form-control " name="isbn" ng-model="livro.Isbn">                   
+                    </div>
+                    <div class="form-group col-md-2 col-md-offset-2">
+                        <button class="btn btn-default text-right"  ng-click="buscar(livro.Isbn)" style="margin-top: 25px">Buscar</button>
+                    </div>      
+                </div>  
+            </form>
+            <form novalidate name="novoLivro" ng-submit="criar(livro)">        
                 <div class="form-group">
                     <label for="titulo">Titulo</label>
-                    <input type="text" class="form-control" name="titulo" ng-model="livro.titulo">
+                    <input type="text" class="form-control" name="titulo" ng-model="livro.Titulo">
                 </div>
                 <div class="form-group">
                     <label for="autor">Autor</label>                    
+                    <input type="number" class="form-control" name="autor" ng-model="livro.IdAutor">
+                </div>
+                <div class="form-group">
+                    <label for="genero">Gênero</label>                    
+                    <input type="text" class="form-control" name="genero" ng-model="livro.Genero">
+                </div>
+                <div class="form-group">
+                    <label for="capa">Capa</label>                    
+                    <input type="text" class="form-control" name="capa" ng-model="livro.Capa" placeholder="apenas url">
+                </div>
+                <div class="form-group">
+                    <label for="data-publicacao">Data Publicação</label>                    
+                    <input type="date" class="form-control" name="data-publicacao" ng-model="livro.DataPublicacao" >
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descrição</label>                    
+                    <textarea type="text" class="form-control" name="descricao" ng-model="livro.Descricao" rows="7"></textarea>
+                </div>
+                <div class="form-group text-right">
+                    <button type="submit" class="btn btn-lg btn-primary" ng-if="operacao == 1">Criar</button>
+                    <button type="submit" class="btn btn-lg btn-warning" ng-if="operacao == 2">Editar</button>
                 </div>
             </form>
         </div>

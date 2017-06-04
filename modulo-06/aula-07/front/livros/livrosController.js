@@ -9,7 +9,7 @@ biblioteca.controller('livrosController', function($scope, livrosService, authSe
         quantidadeTrazer: 8     
     }
     $scope.paginaAtual = 1;   
-    $scope.livroDetalhado = livroDetalhado
+    
     buscarLancamentos()
     buscarPublicados()
 
@@ -44,9 +44,7 @@ biblioteca.controller('livrosController', function($scope, livrosService, authSe
 
     
 
-    function livroDetalhado(isbn) {
-        livrosService.livroDetalhado(isbn)
-    }
+
 })
 
 

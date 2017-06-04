@@ -1,6 +1,6 @@
 biblioteca.controller('menuController', function($scope, authService){
     $scope.usuarioLogado = authService.isAutenticado()
-    $scope.usuarioColaborador = authService.possuiPermissao('Colaborador')
-    $scope.usuarioAdministrador = authService.possuiPermissao('Administrador')
+    $scope.usuarioPublicador = authService.possuiPermissao('Publicador')
+    $scope.usuarioRevisor = authService.possuiPermissao('Revisor')
     console.log($scope.usuarioLogado)
 })

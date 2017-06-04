@@ -25,7 +25,7 @@
         </div>    
         <div class="corpo-pagina row">
             <div class="livros-publicados col-md-10 col-md-offset-1"> 
-                <div class="livro col-md-3" ng-repeat="livroPublicado in livrosPublicados">
+                <div class="livro col-md-3" ng-repeat="livroPublicado in livrosPublicados" ng-click="livroDetalhado(livroPublicado.Isbn)">
                     <div>
                         <div class="livro-capa">                    
                             <img ng-src="{{livroPublicado.Capa}}" alt="">         

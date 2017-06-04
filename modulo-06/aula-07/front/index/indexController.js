@@ -1,8 +1,9 @@
-angular.module('biblioteca').controller('indexController', function ($scope, authService) {
+angular.module('biblioteca').controller('indexController', function ($scope, authService, indexService) {
     $scope.usuarioIndexLogado = authService.isAutenticado()
     $scope.nomeIndexLogado
     $scope.logout = logout 
     $scope.verificarLogin = verificarLogin
+    $scope.livroDetalhado = livroDetalhado
     authService.isAutenticado()
 
     verificarLogin()
@@ -18,4 +19,7 @@ angular.module('biblioteca').controller('indexController', function ($scope, aut
         $scope.usuarioIndexLogado = authService.isAutenticado()
     }
     
+    function livroDetalhado(isbn) {
+        indexService.livroDetalhado(isbn)
+    }
 });

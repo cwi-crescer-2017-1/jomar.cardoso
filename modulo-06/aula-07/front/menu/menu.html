@@ -1,13 +1,15 @@
 <div class="container" ng-show="usuarioLogado">
     <div class="row">
-        <h2 class="text-center">Menu Usuario</h2>
-        <ul>
-            <li>Incluir Livro</li>
-            <li>Editar Livro</li>
-            <li>Excluir Livro</li>
-            <li ng-show="usuarioColaborador">Você é o cara</li>
-            <li ng-show="usuarioAdministrador">Você é o cara²</li>
-        </ul>
+        <div class="col-md-4 col-md-offset-4">
+            <h2 class="text-center">Menu Usuario</h2>
+            <ul class="list-unstyled itens-menu">
+                <li><a href="#!/crud/1">Incluir Livro</a></li>
+                <li><a href="#!/crud/2">Editar Livro</a></li>
+                <li>Excluir Livro</li>
+                <li ng-show="usuarioPublicador">Publicar Livro</li>
+                <li ng-show="usuarioRevisor"><a href="#!/revisor">Revisar Livro</a></li>
+            </ul>
+        </div>
     </div>
 </div>
 <!--<div class="container">
