@@ -31,7 +31,7 @@ namespace EditoraCrescer.Entidades
             if (!string.IsNullOrWhiteSpace(senha))
                 Senha = CriptografarSenha(senha);
             Permissoes = new List<Permissao>();
-            //AtribuirPermissoes("Colaborador");
+            AtribuirPermissoes("Colaborador");
         }
 
         public string ResetarSenha()
@@ -64,11 +64,11 @@ namespace EditoraCrescer.Entidades
             return CriptografarSenha(senha) == Senha;
         }
 
-        //public void AtribuirPermissoes(params string[] nomes)
-        //{
-        //    foreach (var nome in nomes)
-        //        Permissoes.Add(new Permissao(nome));
-        //}
+        public void AtribuirPermissoes(params string[] nomes)
+        {
+            foreach (var nome in nomes)
+                Permissoes.Add(new Permissao(nome));
+        }
 
         public override bool Validar()
         {

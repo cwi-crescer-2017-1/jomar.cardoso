@@ -9,11 +9,10 @@ namespace EditoraCrescer.Entidades
     public class Permissao
     {
         public string Nome { get; private set; }
-        public int Id { get; set; }
-        public List<Usuario> Uuarios { get; private set; }
 
-        public Permissao()
+        public Permissao(string nome)
         {
+            Nome = nome;
         }
     }
 }

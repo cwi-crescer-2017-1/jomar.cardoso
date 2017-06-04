@@ -7,13 +7,13 @@ namespace EditoraCrescer.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class tabelaUsuarios : IMigrationMetadata
+    public sealed partial class AddMigrationrestaurando : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(tabelaUsuarios));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddMigrationrestaurando));
         
         string IMigrationMetadata.Id
         {
-            get { return "201706042100048_tabelaUsuarios"; }
+            get { return "201706042144503_Add-Migration restaurando"; }
         }
         
         string IMigrationMetadata.Source

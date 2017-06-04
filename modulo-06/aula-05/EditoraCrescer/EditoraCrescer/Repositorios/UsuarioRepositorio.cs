@@ -17,12 +17,12 @@ namespace EditoraCrescer.Repositorios
 
             // Z2lvdmFuaUBjd2kuY29tLmJyOjEyMzQ1Ng==
             var usrRevisor = new Usuario("Jomar Revisor", "jomarrevisor@cwi.com.br", "123456");
-            //usrRevisor.AtribuirPermissoes("Revisor");
+            usrRevisor.AtribuirPermissoes("Revisor");
             _usuarios.Add(usrRevisor.Email, usrRevisor);
 
             // Z2lvdmFuaUBjd2kuY29tLmJyOjEyMzQ1Ng==
             var usrPublicador = new Usuario("Jomar Publicador", "jomarpublicador@cwi.com.br", "123456");
-            //usrPublicador.AtribuirPermissoes("Publicador");
+            usrPublicador.AtribuirPermissoes("Publicador");
             _usuarios.Add(usrPublicador.Email, usrPublicador);
         }
 

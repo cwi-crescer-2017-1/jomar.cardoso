@@ -56,9 +56,7 @@
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Mappings\AutorMap.cs" />
     <Compile Include="Mappings\LivroMap.cs" />
-    <Compile Include="Mappings\PermissaoMap.cs" />
     <Compile Include="Mappings\RevisorMap.cs" />
-    <Compile Include="Mappings\UsuarioMap.cs" />
     <Compile Include="Migrations\201705301950575_CriacaoDoBanco.cs" />
     <Compile Include="Migrations\201705301950575_CriacaoDoBanco.Designer.cs">
       <DependentUpon>201705301950575_CriacaoDoBanco.cs</DependentUpon>
@@ -86,6 +84,10 @@
     <Compile Include="Migrations\201706040706308_dataRevisaoNull.cs" />
     <Compile Include="Migrations\201706040706308_dataRevisaoNull.Designer.cs">
       <DependentUpon>201706040706308_dataRevisaoNull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706042144503_Add-Migration restaurando.cs" />
+    <Compile Include="Migrations\201706042144503_Add-Migration restaurando.Designer.cs">
+      <DependentUpon>201706042144503_Add-Migration restaurando.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706040706308_dataRevisaoNull.resx">
       <DependentUpon>201706040706308_dataRevisaoNull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706042144503_Add-Migration restaurando.resx">
+      <DependentUpon>201706042144503_Add-Migration restaurando.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
