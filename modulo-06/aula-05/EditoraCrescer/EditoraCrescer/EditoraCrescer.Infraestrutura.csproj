@@ -49,11 +49,16 @@
   <ItemGroup>
     <Compile Include="Contexto.cs" />
     <Compile Include="Entidades\Autor.cs" />
+    <Compile Include="Entidades\EntidadeBasica.cs" />
     <Compile Include="Entidades\Livro.cs" />
+    <Compile Include="Entidades\Permissao.cs" />
     <Compile Include="Entidades\Revisor.cs" />
+    <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Mappings\AutorMap.cs" />
     <Compile Include="Mappings\LivroMap.cs" />
+    <Compile Include="Mappings\PermissaoMap.cs" />
     <Compile Include="Mappings\RevisorMap.cs" />
+    <Compile Include="Mappings\UsuarioMap.cs" />
     <Compile Include="Migrations\201705301950575_CriacaoDoBanco.cs" />
     <Compile Include="Migrations\201705301950575_CriacaoDoBanco.Designer.cs">
       <DependentUpon>201705301950575_CriacaoDoBanco.cs</DependentUpon>
@@ -87,6 +92,8 @@
     <Compile Include="Repositorios\AutorRepositorio.cs" />
     <Compile Include="Repositorios\LivroRepositorio.cs" />
     <Compile Include="Repositorios\RevisorRepositorio.cs" />
+    <Compile Include="Repositorios\UsuarioRepositorio.cs" />
+    <Compile Include="Servicos\EmailService.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201705301950575_CriacaoDoBanco.resx">

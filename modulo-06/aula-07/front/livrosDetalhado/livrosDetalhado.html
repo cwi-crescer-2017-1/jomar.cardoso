@@ -12,7 +12,10 @@
                 <p style="font-size: 16px;">{{livroDetalhado.Descricao}}</p>    
             </div>   
             <h3 class="livroDetalhado-dados text-left"><span>Gênero: </span>{{livroDetalhado.Genero}}</h3>
-        </div>
+            <div ng-show="usuarioRevisor" class="col-md-offset-6">
+                <button type="button" class="text-right btn btn-success" ng-click="revisar(livroDetalhado.Isbn)">Confirmar Revisão</button>
+            </div>
+        </div>        
     </div>
 </div>
 <!-- ######################################################### ng view ##########################################################-->

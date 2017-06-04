@@ -72,6 +72,7 @@ namespace EditoraCrescer.Repositorios
         public List<dynamic> ObterLancamentos()
         {
             return contexto.Livro.OrderByDescending(l => l.Isbn).Take(7)
+                .Where(l => l.DataRevisao != null)
                 .Select(l => new {
                     Isbn = l.Isbn,
                     Capa = l.Capa,
@@ -101,9 +102,18 @@ namespace EditoraCrescer.Repositorios
 
         public Livro alterar(int isbn, Livro livroAlterado)
         {
+            livroAlterado.DataRevisao = null;
             contexto.Entry(livroAlterado).State = System.Data.Entity.EntityState.Modified;
             contexto.SaveChanges();
             return livroAlterado;
+        }
+
+        public Livro Revisar(int isbn)
+        {
+            var livro = contexto.Livro.FirstOrDefault(l => l.Isbn == isbn);
+            livro.DataRevisao = DateTime.Now;
+            contexto.SaveChanges();
+            return livro;
         }
 
         public Livro Excluir(int isbn)

@@ -19,7 +19,7 @@
                 </div>
                 <div class="titulo-pagina col-md-4">
                 </div>
-                <div class="col-md-2 usuarioLogado text-center" ng-show="usuarioIndexLogado">                    
+                <div class="col-md-2 usuarioLogado text-center" ng-show="usuarioLogado">                    
                     <div class="user col-md-4"></div>
                     <div class="col-md-8">
                         <a href="#!/menu">Olá {{nomeIndexLogado}}
@@ -27,7 +27,7 @@
                         <a href="#!/" ng-click="logout()"><p class="text-right">Sair</p></a>
                     </div>
                 </div>
-                <div class="col-md-2 usuarioLogado text-center" ng-show="!usuarioIndexLogado">
+                <div class="col-md-2 usuarioLogado text-center" ng-show="!usuarioLogado">
                     <div class="col-md-8 col-md-offset-2">
                         <a href="#!/login">
                             <div><span>Olá</span> </div>                                           

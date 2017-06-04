@@ -71,12 +71,20 @@ namespace EditoraCrescer.Api.Controllers
             return Ok(livro);
         }
 
+        [HttpPut]
+        [Route("revisar/{isbn}")]
+        public IHttpActionResult Revisar(int isbn)
+        {
+            repositorio.Revisar(isbn);
+            return Ok();
+        }
+
         [HttpDelete]
         [Route("{isbn}")]
         public IHttpActionResult Delete(int isbn)
         {           
             return Ok(repositorio.Excluir(isbn));
-        }
+        }        
 
         protected override void Dispose(bool disposing)
         {
