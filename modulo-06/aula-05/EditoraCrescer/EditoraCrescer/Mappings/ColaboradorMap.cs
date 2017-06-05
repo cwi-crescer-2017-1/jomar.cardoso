@@ -15,7 +15,12 @@ namespace EditoraCrescer.Mappings
             HasKey(x => x.Id);
             
             ToTable("Colaboradores");
-
+            HasMany(x => x.PermissoesColaborador).WithMany().Map(x =>
+            {
+                x.MapLeftKey("IdUsuario");
+                x.MapRightKey("IdPermissao");
+                x.ToTable("ColaboradorPermissao");
+            });
         }
     }
 }

@@ -45,7 +45,7 @@ namespace EditoraCrescer.Api.Controllers
                 var colaborador = new Colaborador(model.Nome, model.Email, model.Senha);
                 if (colaborador.Validar())
                 {
-                   // _colaboradorRepositorio.Criar(colaborador);
+                   _colaboradorRepositorio.Criar(colaborador);
                 }
                 else
                 {

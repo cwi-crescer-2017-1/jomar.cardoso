@@ -20,7 +20,7 @@ namespace EditoraCrescer.Entidades
         // Construtor padrão para o Entity Framework
         public Colaborador()
         {
-            this.PermissoesColaborador = new HashSet<PermissaoColaborador>();
+            //this.PermissoesColaborador = new HashSet<PermissaoColaborador>();
         }
 
         public Colaborador(string nome, string email, string senha)

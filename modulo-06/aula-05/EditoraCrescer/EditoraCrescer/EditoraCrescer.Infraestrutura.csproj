@@ -101,6 +101,10 @@
     <Compile Include="Migrations\201706050458234_colaboradorPermissoes.Designer.cs">
       <DependentUpon>201706050458234_colaboradorPermissoes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706050556536_fixNtoN.cs" />
+    <Compile Include="Migrations\201706050556536_fixNtoN.Designer.cs">
+      <DependentUpon>201706050556536_fixNtoN.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\AutorRepositorio.cs" />
@@ -140,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706050458234_colaboradorPermissoes.resx">
       <DependentUpon>201706050458234_colaboradorPermissoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706050556536_fixNtoN.resx">
+      <DependentUpon>201706050556536_fixNtoN.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

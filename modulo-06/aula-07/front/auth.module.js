@@ -28,6 +28,7 @@ angular.module('auth').factory('authService', function (authConfig, $http, $q, $
 
     $http({
       url: urlUsuario+'/colaborador',
+      //url: urlUsuario+'/usuario',
       method: 'GET',
       headers: headerAuth
     }).then(

@@ -14,7 +14,7 @@ namespace EditoraCrescer.Entidades
 
         public PermissaoColaborador()
         {
-            this.Colaboradores = new HashSet<Colaborador>();
+            //this.Colaboradores = new HashSet<Colaborador>();
         }
 
         public PermissaoColaborador(string nome)
