@@ -89,21 +89,9 @@
     <Compile Include="Migrations\201706040706308_dataRevisaoNull.Designer.cs">
       <DependentUpon>201706040706308_dataRevisaoNull.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706042144503_Add-Migration restaurando.cs" />
-    <Compile Include="Migrations\201706042144503_Add-Migration restaurando.Designer.cs">
-      <DependentUpon>201706042144503_Add-Migration restaurando.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706042256525_colaborador.cs" />
-    <Compile Include="Migrations\201706042256525_colaborador.Designer.cs">
-      <DependentUpon>201706042256525_colaborador.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706050458234_colaboradorPermissoes.cs" />
-    <Compile Include="Migrations\201706050458234_colaboradorPermissoes.Designer.cs">
-      <DependentUpon>201706050458234_colaboradorPermissoes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706050556536_fixNtoN.cs" />
-    <Compile Include="Migrations\201706050556536_fixNtoN.Designer.cs">
-      <DependentUpon>201706050556536_fixNtoN.cs</DependentUpon>
+    <Compile Include="Migrations\201706051723056_colaboradoreses.cs" />
+    <Compile Include="Migrations\201706051723056_colaboradoreses.Designer.cs">
+      <DependentUpon>201706051723056_colaboradoreses.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -136,17 +124,8 @@
     <EmbeddedResource Include="Migrations\201706040706308_dataRevisaoNull.resx">
       <DependentUpon>201706040706308_dataRevisaoNull.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706042144503_Add-Migration restaurando.resx">
-      <DependentUpon>201706042144503_Add-Migration restaurando.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706042256525_colaborador.resx">
-      <DependentUpon>201706042256525_colaborador.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706050458234_colaboradorPermissoes.resx">
-      <DependentUpon>201706050458234_colaboradorPermissoes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706050556536_fixNtoN.resx">
-      <DependentUpon>201706050556536_fixNtoN.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706051723056_colaboradoreses.resx">
+      <DependentUpon>201706051723056_colaboradoreses.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
