@@ -49,13 +49,17 @@
   <ItemGroup>
     <Compile Include="Contexto.cs" />
     <Compile Include="Entidades\Autor.cs" />
+    <Compile Include="Entidades\Colaborador.cs" />
     <Compile Include="Entidades\EntidadeBasica.cs" />
     <Compile Include="Entidades\Livro.cs" />
+    <Compile Include="Entidades\PermissaoColaborador .cs" />
     <Compile Include="Entidades\Permissao.cs" />
     <Compile Include="Entidades\Revisor.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Mappings\AutorMap.cs" />
+    <Compile Include="Mappings\ColaboradorMap.cs" />
     <Compile Include="Mappings\LivroMap.cs" />
+    <Compile Include="Mappings\PermissaoColaboradorMap.cs" />
     <Compile Include="Mappings\RevisorMap.cs" />
     <Compile Include="Migrations\201705301950575_CriacaoDoBanco.cs" />
     <Compile Include="Migrations\201705301950575_CriacaoDoBanco.Designer.cs">
@@ -89,9 +93,18 @@
     <Compile Include="Migrations\201706042144503_Add-Migration restaurando.Designer.cs">
       <DependentUpon>201706042144503_Add-Migration restaurando.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706042256525_colaborador.cs" />
+    <Compile Include="Migrations\201706042256525_colaborador.Designer.cs">
+      <DependentUpon>201706042256525_colaborador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706050458234_colaboradorPermissoes.cs" />
+    <Compile Include="Migrations\201706050458234_colaboradorPermissoes.Designer.cs">
+      <DependentUpon>201706050458234_colaboradorPermissoes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\AutorRepositorio.cs" />
+    <Compile Include="Repositorios\ColaboradorRepositorio.cs" />
     <Compile Include="Repositorios\LivroRepositorio.cs" />
     <Compile Include="Repositorios\RevisorRepositorio.cs" />
     <Compile Include="Repositorios\UsuarioRepositorio.cs" />
@@ -121,6 +134,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706042144503_Add-Migration restaurando.resx">
       <DependentUpon>201706042144503_Add-Migration restaurando.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706042256525_colaborador.resx">
+      <DependentUpon>201706042256525_colaborador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706050458234_colaboradorPermissoes.resx">
+      <DependentUpon>201706050458234_colaboradorPermissoes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

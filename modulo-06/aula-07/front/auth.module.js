@@ -27,7 +27,7 @@ angular.module('auth').factory('authService', function (authConfig, $http, $q, $
     let headerAuth = montarHeader(usuario);
 
     $http({
-      url: urlUsuario+'/usuario',
+      url: urlUsuario+'/colaborador',
       method: 'GET',
       headers: headerAuth
     }).then(

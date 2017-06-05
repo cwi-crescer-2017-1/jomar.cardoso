@@ -97,9 +97,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BasicAuthorizationAttribute.cs" />
+    <Compile Include="App_Start\ColaboradorAtributoAutorizacao.cs" />
     <Compile Include="App_Start\MeuAtributoAutorizacao.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AutoresController.cs" />
+    <Compile Include="Controllers\ColaboradorController.cs" />
     <Compile Include="Controllers\ControllerBasica.cs" />
     <Compile Include="Controllers\LivrosController.cs" />
     <Compile Include="Controllers\RevisoresController.cs" />
@@ -107,6 +109,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\RegistrarColaboradorModel.cs" />
     <Compile Include="Models\RegistrarUsuarioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

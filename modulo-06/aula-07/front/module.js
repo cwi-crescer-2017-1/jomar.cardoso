@@ -4,8 +4,8 @@ var biblioteca = angular.module('biblioteca', ['ngRoute', 'auth']);
 angular.module('biblioteca').constant('authConfig', {
 
     // Obrigatória - URL da API que retorna o usuário
-    urlUsuario: 'http://localhost:54896/api/acessos',
-    //urlUsuario: 'http://localhost:3000/api/acessos/usuario',
+    //urlUsuario: 'http://localhost:54896/api/acessos',
+    urlUsuario: 'http://localhost:54896/api/acesso',
 
     // Obrigatória - URL da aplicação que possui o formulário de login
     urlLogin: '/login',
