@@ -9,17 +9,17 @@ namespace Locadora.Dominio.Entidades
 {
     public class Pedido
     {
-        public int Id { get; set; }
-        public Cliente Cliente { get; set; }
-        public Produto Produto { get; set; }
-        public Pacote Pacote { get; set; }
+        public int Id { get; private set; }
+        public Cliente Cliente { get; private set; }
+        public Produto Produto { get; private set; }
+        public Pacote Pacote { get; private set; }
         //public PedidoOpcional PedidoOpcionais { get; set; }
-        public List<Opcional> Opcionais { get; set; }
-        public DateTime DataPedido { get; set; }
-        public DateTime DataEntregaPrevista { get; set; }
-        public DateTime? DataEntregaRealizada { get; set; }
-        public decimal Valor { get; set; }
-        public decimal ValorTotal { get; set; }
+        public List<Opcional> Opcionais { get; private set; }
+        public DateTime DataPedido { get; private set; }
+        public DateTime DataEntregaPrevista { get; private set; }
+        public DateTime? DataEntregaRealizada { get; private set; }
+        public decimal Valor { get; private set; }
+        public decimal ValorTotal { get; private set; }
     }
 
     //public decimal CalcularTotal()

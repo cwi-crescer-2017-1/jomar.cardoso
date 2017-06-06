@@ -7,27 +7,28 @@ using System.Threading.Tasks;
 
 namespace Locadora.Infraestrutura.Repositorios
 {
-    public class UsuarioRepositorio
+    public class ClienteRepositorio
     {
-        static readonly Dictionary<string, Usuario> _usuarios = new Dictionary<string, Usuario>();
+        static readonly Dictionary<string, Cliente> _clientes = new Dictionary<string, Cliente>();
 
-        public UsuarioRepositorio()
+
+        public ClienteRepositorio()
         {
 
         }
 
         public void Criar(Usuario usuario)
         {
-            
+
         }
 
         public void Alterar(Usuario usuario)
         {
-            
+
         }
         public void Excluir(Usuario usuario)
         {
-            
+
         }
 
         public IEnumerable<Usuario> Listar()
@@ -38,6 +39,11 @@ namespace Locadora.Infraestrutura.Repositorios
         public Usuario Obter(string email)
         {
             return null;
+        }
+
+        public void Criar(Cliente cliente)
+        {
+            throw new NotImplementedException();
         }
     }
 }

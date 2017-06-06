@@ -12,13 +12,12 @@ namespace Locadora.Dominio.Entidades
         static readonly char[] _caracteresNovaSenha = "abcdefghijklmnopqrstuvzwyz1234567890*-_".ToCharArray();
         static readonly int _numeroCaracteresNovaSenha = 10;
 
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        public string Login { get; set; }
-        public string Senha { get; set; }
-        public bool Gerente { get; set; }
+        public int Id { get; private set; }
+        public string Nome { get; private set; }
+        public string Login { get; private set; }
+        public string Senha { get; private set; }
+        public bool Gerente { get; private set; }
 
-        // Construtor padrão para o Entity Framework
         protected Usuario()
         {
         }
@@ -74,7 +73,7 @@ namespace Locadora.Dominio.Entidades
             if (string.IsNullOrWhiteSpace(Nome))
                 Mensagens.Add("Nome é inválido.");
 
-            if (string.IsNullOrWhiteSpace(Email))
+            if (string.IsNullOrWhiteSpace(Login))
                 Mensagens.Add("Email é inválido.");
 
             if (string.IsNullOrWhiteSpace(Senha))
