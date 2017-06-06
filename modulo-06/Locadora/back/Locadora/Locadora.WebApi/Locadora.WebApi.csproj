@@ -96,7 +96,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\UsuarioAtributoAutorizacao.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\ItensController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -113,10 +117,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Dominio\Locadora.Dominio.csproj">
+      <Project>{7bd1a581-7457-4331-862d-cabc2f533db2}</Project>
+      <Name>Locadora.Dominio</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Locadora.Infraestrutura\Locadora.Infraestrutura.csproj">
       <Project>{ca5a561d-a75b-47f1-99c2-be621fc200a5}</Project>
       <Name>Locadora.Infraestrutura</Name>
