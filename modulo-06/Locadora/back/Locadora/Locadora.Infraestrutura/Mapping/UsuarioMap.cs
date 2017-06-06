@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Locadora.Mapping
+namespace Locadora.Infraestrutura.Mapping
 {
     class UsuarioMap : EntityTypeConfiguration<Usuario>
     {
@@ -17,6 +17,7 @@ namespace Locadora.Mapping
             Property(x => x.Nome).HasMaxLength(50);
             Property(x => x.Login).HasMaxLength(50);
             Property(x => x.Senha).HasMaxLength(50);
+
         }
     }
 }

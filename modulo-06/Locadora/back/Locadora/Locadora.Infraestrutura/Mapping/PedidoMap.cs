@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Locadora.Mapping
+namespace Locadora.Infraestrutura.Mapping
 {
     class PedidoMap : EntityTypeConfiguration<Pedido>
     {
@@ -15,17 +15,23 @@ namespace Locadora.Mapping
             ToTable("Pedido");
             HasKey(x => x.Id);
             HasRequired(x => x.Cliente)
-                            .WithMany()
-                            .HasForeignKey(x => x.Id_Cliente);
+                .WithMany()
+                 .Map(x => x.MapKey("IdCliente"));
             HasRequired(x => x.Produto)
-                            .WithMany()
-                            .HasForeignKey(x => x.Id_Produto);
+                 .WithMany()
+                 .Map(x => x.MapKey("IdProduto"));
             HasOptional(x => x.Pacote)
-                            .WithMany()
-                            .HasForeignKey(x => x.Id_Pacote);
-            //HasOptional(x => x.Opcional)
-            //                .WithMany()
-            //                .HasForeignKey(x => x.Id_Opcional);
+                .WithMany()
+                .Map(x => x.MapKey("IdPacote"));
+            HasMany(x => x.Opcionais)
+                .WithMany()
+                .Map(x =>
+                {
+                    x.MapLeftKey("IdPedido");
+                    x.MapRightKey("IdOpcional");
+                    x.ToTable("PedidoOpcional");
+                }
+            );
         }
     }
 }

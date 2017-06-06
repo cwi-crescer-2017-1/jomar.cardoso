@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Locadora.Mapping
+namespace Locadora.Infraestrutura.Mapping
 {
     class PacoteMap : EntityTypeConfiguration<Pacote>
     {
@@ -15,7 +15,7 @@ namespace Locadora.Mapping
             ToTable("Pacote");
             HasKey(x => x.Id);
             Property(x => x.Nome).HasMaxLength(50);
-            Property(x => x.Descricao).HasMaxLength(50);
+            Property(x => x.Descricao).HasMaxLength(511);
         }
     }
 }

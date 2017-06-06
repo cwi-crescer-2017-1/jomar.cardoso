@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dominio.Entidades
+namespace Locadora.Infraestrutura.Repositorios
 {
-    public class Opcional : Item
+    public class UsuarioRepositorio
     {
-        
     }
 }
