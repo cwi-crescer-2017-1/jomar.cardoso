@@ -70,9 +70,9 @@
     <Compile Include="Mapping\PedidoOpcionalMap.cs" />
     <Compile Include="Mapping\ProdutoMap.cs" />
     <Compile Include="Mapping\UsuarioMap.cs" />
-    <Compile Include="Migrations\201706060356486_CriarTodasTabelas.cs" />
-    <Compile Include="Migrations\201706060356486_CriarTodasTabelas.Designer.cs">
-      <DependentUpon>201706060356486_CriarTodasTabelas.cs</DependentUpon>
+    <Compile Include="Migrations\201706062028309_CriarTodasTabelasPaaaaaaaaaaaaaaaaaaa.cs" />
+    <Compile Include="Migrations\201706062028309_CriarTodasTabelasPaaaaaaaaaaaaaaaaaaa.Designer.cs">
+      <DependentUpon>201706062028309_CriarTodasTabelasPaaaaaaaaaaaaaaaaaaa.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\UsuarioModel.cs" />
@@ -90,8 +90,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706060356486_CriarTodasTabelas.resx">
-      <DependentUpon>201706060356486_CriarTodasTabelas.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706062028309_CriarTodasTabelasPaaaaaaaaaaaaaaaaaaa.resx">
+      <DependentUpon>201706062028309_CriarTodasTabelasPaaaaaaaaaaaaaaaaaaa.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,4 @@
-﻿using Dominio.Entidades;
+﻿using Locadora.Dominio.Entidades;
 using Locadora.Infraestrutura.Mapping;
 using System;
 using System.Collections.Generic;
@@ -23,7 +23,7 @@ namespace Locadora.Infraestrutura
         public DbSet<Produto> Produto { get; set; }
         public DbSet<Opcional> Opcional { get; set; }
         public DbSet<Pacote> Pacote { get; set; }
-        public DbSet<Pacote> PedidoOpcional { get; set; }
+        //public DbSet<Pacote> PedidoOpcional { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
          {
             modelBuilder.Configurations.Add(new ClienteMap());
@@ -32,7 +32,7 @@ namespace Locadora.Infraestrutura
             modelBuilder.Configurations.Add(new ProdutoMap());
             modelBuilder.Configurations.Add(new OpcionalMap());
             modelBuilder.Configurations.Add(new PacoteMap());
-            modelBuilder.Configurations.Add(new PedidoOpcionalMap());
+            //modelBuilder.Configurations.Add(new PedidoOpcionalMap());
         }
      }
 }

@@ -3,7 +3,7 @@ namespace Locadora.Infraestrutura.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CriarTodasTabelas : DbMigration
+    public partial class CriarTodasTabelasPaaaaaaaaaaaaaaaaaaa : DbMigration
     {
         public override void Up()
         {
@@ -12,11 +12,12 @@ namespace Locadora.Infraestrutura.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Nome = c.String(maxLength: 50),
-                        Cpf = c.String(maxLength: 30),
-                        Endereco = c.String(maxLength: 50),
+                        Nome = c.String(nullable: false, maxLength: 50),
+                        Cpf = c.String(nullable: false, maxLength: 30),
+                        Endereco = c.String(nullable: false, maxLength: 50),
                         Genero = c.Int(nullable: false),
                         DataNascimento = c.DateTime(nullable: false),
+                        MyProperty = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -36,22 +37,22 @@ namespace Locadora.Infraestrutura.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Id_Cliente = c.Int(nullable: false),
-                        Id_Produto = c.Int(nullable: false),
-                        Id_Pacote = c.Int(),
                         DataPedido = c.DateTime(nullable: false),
                         DataEntregaPrevista = c.DateTime(nullable: false),
                         DataEntregaRealizada = c.DateTime(),
                         Valor = c.Decimal(nullable: false, precision: 18, scale: 2),
                         ValorTotal = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        IdCliente = c.Int(nullable: false),
+                        IdPacote = c.Int(),
+                        IdProduto = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Cliente", t => t.Id_Cliente, cascadeDelete: true)
-                .ForeignKey("dbo.Pacote", t => t.Id_Pacote)
-                .ForeignKey("dbo.Produto", t => t.Id_Produto, cascadeDelete: true)
-                .Index(t => t.Id_Cliente)
-                .Index(t => t.Id_Produto)
-                .Index(t => t.Id_Pacote);
+                .ForeignKey("dbo.Cliente", t => t.IdCliente, cascadeDelete: true)
+                .ForeignKey("dbo.Pacote", t => t.IdPacote)
+                .ForeignKey("dbo.Produto", t => t.IdProduto, cascadeDelete: true)
+                .Index(t => t.IdCliente)
+                .Index(t => t.IdPacote)
+                .Index(t => t.IdProduto);
             
             CreateTable(
                 "dbo.Pacote",
@@ -60,7 +61,7 @@ namespace Locadora.Infraestrutura.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Nome = c.String(maxLength: 50),
                         Valor = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        Descricao = c.String(maxLength: 50),
+                        Descricao = c.String(maxLength: 511),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -81,15 +82,15 @@ namespace Locadora.Infraestrutura.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Nome = c.String(maxLength: 50),
-                        Login = c.String(maxLength: 50),
-                        Senha = c.String(maxLength: 50),
+                        Nome = c.String(nullable: false, maxLength: 50),
+                        Login = c.String(nullable: false, maxLength: 50),
+                        Senha = c.String(nullable: false, maxLength: 50),
                         Gerente = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.PedidoOpcional",
+                "dbo.PedidoOpcionals",
                 c => new
                     {
                         Pedido_Id = c.Int(nullable: false),
@@ -105,17 +106,17 @@ namespace Locadora.Infraestrutura.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.Pedido", "Id_Produto", "dbo.Produto");
-            DropForeignKey("dbo.Pedido", "Id_Pacote", "dbo.Pacote");
-            DropForeignKey("dbo.PedidoOpcional", "Opcional_Id", "dbo.Opcional");
-            DropForeignKey("dbo.PedidoOpcional", "Pedido_Id", "dbo.Pedido");
-            DropForeignKey("dbo.Pedido", "Id_Cliente", "dbo.Cliente");
-            DropIndex("dbo.PedidoOpcional", new[] { "Opcional_Id" });
-            DropIndex("dbo.PedidoOpcional", new[] { "Pedido_Id" });
-            DropIndex("dbo.Pedido", new[] { "Id_Pacote" });
-            DropIndex("dbo.Pedido", new[] { "Id_Produto" });
-            DropIndex("dbo.Pedido", new[] { "Id_Cliente" });
-            DropTable("dbo.PedidoOpcional");
+            DropForeignKey("dbo.Pedido", "IdProduto", "dbo.Produto");
+            DropForeignKey("dbo.Pedido", "IdPacote", "dbo.Pacote");
+            DropForeignKey("dbo.PedidoOpcionals", "Opcional_Id", "dbo.Opcional");
+            DropForeignKey("dbo.PedidoOpcionals", "Pedido_Id", "dbo.Pedido");
+            DropForeignKey("dbo.Pedido", "IdCliente", "dbo.Cliente");
+            DropIndex("dbo.PedidoOpcionals", new[] { "Opcional_Id" });
+            DropIndex("dbo.PedidoOpcionals", new[] { "Pedido_Id" });
+            DropIndex("dbo.Pedido", new[] { "IdProduto" });
+            DropIndex("dbo.Pedido", new[] { "IdPacote" });
+            DropIndex("dbo.Pedido", new[] { "IdCliente" });
+            DropTable("dbo.PedidoOpcionals");
             DropTable("dbo.Usuario");
             DropTable("dbo.Produto");
             DropTable("dbo.Pacote");

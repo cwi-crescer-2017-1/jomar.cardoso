@@ -1,4 +1,5 @@
-﻿using Locadora.Infraestrutura.Models;
+﻿using Locadora.Api.App_Start;
+using Locadora.Infraestrutura.Models;
 using Locadora.Infraestrutura.Repositorios;
 using System;
 using System.Collections.Generic;
@@ -9,74 +10,74 @@ using System.Web.Http;
 
 namespace Locadora.Api.Controllers
 {
-    // Permite usuário não autenticados acessarem a controller
-    [AllowAnonymous]
-    [RoutePrefix("api/acessos")]
-    public class UsuarioController : ControllerBasica
-    {
-        readonly UsuarioRepositorio _usuarioRepositorio;
+    //// Permite usuário não autenticados acessarem a controller
+    //[AllowAnonymous]
+    //[RoutePrefix("api/acessos")]
+    //public class UsuarioController : ControllerBasica
+    //{
+    //    readonly UsuarioRepositorio _usuarioRepositorio;
 
-        public UsuarioController()
-        {
-            _usuarioRepositorio = new UsuarioRepositorio();
-        }
+    //    public UsuarioController()
+    //    {
+    //        _usuarioRepositorio = new UsuarioRepositorio();
+    //    }
 
-        [HttpPost, Route("registrar")]
-        public HttpResponseMessage Registrar([FromBody]RegistrarUsuarioModel model)
-        {
-            if (_usuarioRepositorio.Obter(model.Email) == null)
-            {
-                var usuario = new Usuario(model.Nome, model.Email, model.Senha);
+    //    [HttpPost, Route("registrar")]
+    //    public HttpResponseMessage Registrar([FromBody]RegistrarUsuarioModel model)
+    //    {
+    //        if (_usuarioRepositorio.Obter(model.Email) == null)
+    //        {
+    //            var usuario = new Usuario(model.Nome, model.Email, model.Senha);
 
-                if (usuario.Validar())
-                {
-                    _usuarioRepositorio.Criar(usuario);
-                }
-                else
-                {
-                    return ResponderErro(usuario.Mensagens);
-                }
-            }
-            else
-            {
-                return ResponderErro("Usuário já existe.");
-            }
+    //            if (usuario.Validar())
+    //            {
+    //                _usuarioRepositorio.Criar(usuario);
+    //            }
+    //            else
+    //            {
+    //                return ResponderErro(usuario.Mensagens);
+    //            }
+    //        }
+    //        else
+    //        {
+    //            return ResponderErro("Usuário já existe.");
+    //        }
 
-            return ResponderOK();
-        }
+    //        return ResponderOK();
+    //    }
 
-        [HttpPost, Route("resetarsenha")]
-        public HttpResponseMessage ResetarSenha(string email)
-        {
-            var usuario = _usuarioRepositorio.Obter(email);
-            if (usuario == null)
-                return ResponderErro(new string[] { "Usuário não encontrado." });
+    //    [HttpPost, Route("resetarsenha")]
+    //    public HttpResponseMessage ResetarSenha(string email)
+    //    {
+    //        var usuario = _usuarioRepositorio.Obter(email);
+    //        if (usuario == null)
+    //            return ResponderErro(new string[] { "Usuário não encontrado." });
 
-            var novaSenha = usuario.ResetarSenha();
+    //        var novaSenha = usuario.ResetarSenha();
 
-            if (usuario.Validar())
-            {
-                _usuarioRepositorio.Alterar(usuario);
-                // EmailService.Enviar(usuario.Email, "Crescer 2017-1", $"Olá! sua senha foi alterada para: {novaSenha}");
-            }
-            else
-                return ResponderErro(usuario.Mensagens);
+    //        if (usuario.Validar())
+    //        {
+    //            _usuarioRepositorio.Alterar(usuario);
+    //            // EmailService.Enviar(usuario.Email, "Crescer 2017-1", $"Olá! sua senha foi alterada para: {novaSenha}");
+    //        }
+    //        else
+    //            return ResponderErro(usuario.Mensagens);
 
-            return ResponderOK();
-        }
+    //        return ResponderOK();
+    //    }
 
-        // Exige que o usuário se autentique
-        [BasicAuthorization]
-        [HttpGet, Route("usuario")]
-        public HttpResponseMessage Obter()
-        {
-            // só pode obter as informações do usuário corrente (logado, autenticado)
-            var usuario = _usuarioRepositorio.Obter(Thread.CurrentPrincipal.Identity.Name);
+    //    // Exige que o usuário se autentique
+    //    [UsuarioAtributoAutorizacao]
+    //    [HttpGet, Route("usuario")]
+    //    public HttpResponseMessage Obter()
+    //    {
+    //        // só pode obter as informações do usuário corrente (logado, autenticado)
+    //        var usuario = _usuarioRepositorio.Obter(Thread.CurrentPrincipal.Identity.Name);
 
-            if (usuario == null)
-                return ResponderErro("Usuário não encontrado.");
+    //        if (usuario == null)
+    //            return ResponderErro("Usuário não encontrado.");
 
-            return ResponderOK(new { usuario.Nome, usuario.Permissoes, usuario.Email });
-        }
-    }
+    //        return ResponderOK(new { usuario.Nome, usuario.Permissoes, usuario.Email });
+    //    }
+    //}
 }

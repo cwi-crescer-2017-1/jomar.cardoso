@@ -1,4 +1,4 @@
-﻿using Dominio.Entidades;
+﻿using Locadora.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
@@ -14,10 +14,15 @@ namespace Locadora.Infraestrutura.Mapping
         {
             ToTable("Usuario");
             HasKey(x => x.Id);
-            Property(x => x.Nome).HasMaxLength(50);
-            Property(x => x.Login).HasMaxLength(50);
-            Property(x => x.Senha).HasMaxLength(50);
-
+            Property(x => x.Nome)
+                .HasMaxLength(50)
+                .IsRequired();
+            Property(x => x.Login)
+                .HasMaxLength(50)
+                .IsRequired();
+            Property(x => x.Senha)
+                .HasMaxLength(50)
+                .IsRequired();;
         }
     }
 }

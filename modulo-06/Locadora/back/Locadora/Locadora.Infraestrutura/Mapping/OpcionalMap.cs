@@ -1,4 +1,4 @@
-﻿using Dominio.Entidades;
+﻿using Locadora.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;

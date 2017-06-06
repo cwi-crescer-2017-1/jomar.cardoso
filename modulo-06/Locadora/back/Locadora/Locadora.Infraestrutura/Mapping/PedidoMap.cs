@@ -1,4 +1,4 @@
-﻿using Dominio.Entidades;
+﻿using Locadora.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
@@ -23,15 +23,15 @@ namespace Locadora.Infraestrutura.Mapping
             HasOptional(x => x.Pacote)
                 .WithMany()
                 .Map(x => x.MapKey("IdPacote"));
-            HasMany(x => x.Opcionais)
-                .WithMany()
-                .Map(x =>
-                {
-                    x.MapLeftKey("IdPedido");
-                    x.MapRightKey("IdOpcional");
-                    x.ToTable("PedidoOpcional");
-                }
-            );
+            //HasMany(x => x.Opcionais)
+            //    .WithMany()
+            //    .Map(x =>
+            //    {
+            //        x.MapLeftKey("IdPedido");
+            //        x.MapRightKey("IdOpcional");
+            //        x.ToTable("PedidoOpcional");
+            //    }
+            //);
         }
     }
 }

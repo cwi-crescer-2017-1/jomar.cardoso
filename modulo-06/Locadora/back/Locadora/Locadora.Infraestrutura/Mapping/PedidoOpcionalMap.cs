@@ -10,16 +10,16 @@ namespace Locadora.Infraestrutura.Mapping
 {
     public class PedidoOpcionalMap : EntityTypeConfiguration<PedidoOpcional>
     {
-        public PedidoOpcionalMap()
-        {
-            ToTable("PedidoOpcional");
-            HasKey(x => x.Id);
-            HasRequired(x => x.Pedido)
-                .WithMany()
-                .Map(x => x.MapKey("IdPedido"));
-            HasRequired(x => x.Opcional)
-                .WithMany()
-                .Map(x => x.MapKey("IdOpcional"));
-        }
+        //public PedidoOpcionalMap()
+        //{
+        //    ToTable("PedidoOpcional");
+        //    HasKey(x => x.Id);
+        //    HasRequired(x => x.Pedido)
+        //        .WithMany()
+        //        .Map(x => x.MapKey("IdPedido"));
+        //    HasRequired(x => x.Opcional)
+        //        .WithMany()
+        //        .Map(x => x.MapKey("IdOpcional"));
+        //}
     }
 }
