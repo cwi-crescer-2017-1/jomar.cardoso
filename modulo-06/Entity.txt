@@ -1,7 +1,10 @@
-[EnableCors("*", "*", "*")]
+
+Install-Package Microsoft.AspNet.WebApi.Cors
+config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
 
 
-
+Dentro da Solução há vários projetos e para eles se verem deve-se clicar com botão direito na Referências e
+atribuir as outra Referências
 
 
 Criar projeto chamado EditoraCrescer.Infraesturtura (do tipo "Class Library")
