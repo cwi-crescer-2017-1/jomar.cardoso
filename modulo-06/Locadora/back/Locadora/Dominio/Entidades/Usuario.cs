@@ -11,9 +11,6 @@ namespace Locadora.Dominio.Entidades
     {
         static readonly char[] _caracteresNovaSenha = "abcdefghijklmnopqrstuvzwyz1234567890*-_".ToCharArray();
         static readonly int _numeroCaracteresNovaSenha = 10;
-        private string v1;
-        private string v2;
-        private bool v3;
 
         public int Id { get; private set; }
         public string Nome { get; private set; }
@@ -61,6 +58,7 @@ namespace Locadora.Dominio.Entidades
 
         public bool ValidarSenha(string senha)
         {
+            var superCao = CriptografarSenha(senha);
             return CriptografarSenha(senha) == Senha;
         }
 

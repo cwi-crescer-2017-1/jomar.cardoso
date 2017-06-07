@@ -101,7 +101,11 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\ControllerBasica.cs" />
+    <Compile Include="Controllers\IItensController.cs" />
+    <Compile Include="Controllers\OpcionaisController.cs" />
+    <Compile Include="Controllers\PacotesController.cs" />
     <Compile Include="Controllers\PedidosController.cs" />
+    <Compile Include="Controllers\ProdutosController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

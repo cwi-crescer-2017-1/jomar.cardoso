@@ -7,7 +7,7 @@ using Locadora.Dominio.Entidades;
 
 namespace Locadora.Infraestrutura.Repositorios
 {
-    class ProdutoRepositorio : ItemRepositorio
+    public class ProdutoRepositorio : ItemRepositorio
     {
         public override Item Obter(int id)
         {

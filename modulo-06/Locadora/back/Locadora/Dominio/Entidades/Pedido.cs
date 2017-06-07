@@ -16,10 +16,9 @@ namespace Locadora.Dominio.Entidades
         public List<Opcional> Opcionais { get; private set; }
         public DateTime DataPedido { get; private set; }
         public DateTime DataEntregaPrevista { get; private set; }
-        public DateTime DataEntregaRealizada { get; private set; }
+        public DateTime? DataEntregaRealizada { get; private set; }
         public decimal Valor { get; private set; }
-        //public decimal Multa { get; private set; }
-        public decimal ValorTotal { get; private set; }
+        public decimal ValorTotal { get; private set; } 
 
         protected Pedido()
         {
@@ -66,7 +65,7 @@ namespace Locadora.Dominio.Entidades
             DataEntregaRealizada = DateTime.Now;
             if(DataEntregaPrevista < DataEntregaRealizada)
             {
-                var diasExcedidos = Convert.ToInt32(DataEntregaRealizada.Subtract(DataEntregaPrevista).TotalDays);
+                var diasExcedidos = Convert.ToInt32(DataEntregaRealizada.Value.Subtract(DataEntregaPrevista).TotalDays);
                 ValorTotal = Valor + CalcularValor(diasExcedidos);
             }
         }

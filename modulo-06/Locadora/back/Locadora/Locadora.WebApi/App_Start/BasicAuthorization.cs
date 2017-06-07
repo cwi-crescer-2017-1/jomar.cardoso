@@ -30,7 +30,7 @@ namespace Locadora.Api.App_Start
             {
                 // responde para o cliente como não autorizado
                 var dnsHost = actionContext.Request.RequestUri.DnsSafeHost;
-                actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized);
+                actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized, "Usuário não logado");
                 actionContext.Response.Headers.Add("WWW-Authenticate", string.Format("Basic realm=\"{0}\"", dnsHost));
                 return;
             }
