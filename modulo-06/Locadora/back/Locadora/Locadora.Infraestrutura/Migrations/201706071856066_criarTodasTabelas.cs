@@ -3,7 +3,7 @@ namespace Locadora.Infraestrutura.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CriarTodasTabelasPaaaaaaaaaaaaaaaaaaa : DbMigration
+    public partial class criarTodasTabelas : DbMigration
     {
         public override void Up()
         {
@@ -17,7 +17,6 @@ namespace Locadora.Infraestrutura.Migrations
                         Endereco = c.String(nullable: false, maxLength: 50),
                         Genero = c.Int(nullable: false),
                         DataNascimento = c.DateTime(nullable: false),
-                        MyProperty = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -70,7 +69,6 @@ namespace Locadora.Infraestrutura.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        TipoFesta = c.Int(nullable: false),
                         Nome = c.String(maxLength: 50),
                         Valor = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Descricao = c.String(maxLength: 50),

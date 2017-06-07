@@ -1,17 +1,5 @@
-select * from usuario
-
-insert into usuario (Nome, Login, Senha, Gerente) values ('Jomar', 'jomar', '123456', 0)
-update usuario
-set Senha = '22217149fbeb7b991712fb94859b2d3e'
-where id=1
-
-insert into usuario (Nome, Login, Senha, Gerente) values ('Gerente', 'gerente', '123456', 1)
-update usuario
-set Senha = '3902c0df5d25ffb8106b777c84f207b4'
-where id=2
-
-select * from Produto
-
+insert into usuario (Nome, Login, Senha, Gerente) values ('Jomar', 'jomar', '22217149fbeb7b991712fb94859b2d3e', 0)
+insert into usuario (Nome, Login, Senha, Gerente) values ('Gerente', 'gerente', '3902c0df5d25ffb8106b777c84f207b4', 1)
 insert into produto (nome, valor, descricao) values ('Casamento 1', 1000, 'chique demais 1')
 insert into produto (nome, valor, descricao) values ('Casamento 2', 2000, 'chique demais 2')
 insert into produto (nome, valor, descricao) values ('Casamento 3', 3000, 'chique demais 3')
@@ -25,15 +13,29 @@ insert into produto (nome, valor, descricao) values ('Formatura 2', 2000, 'chiqu
 insert into produto (nome, valor, descricao) values ('Formatura 3', 3000, 'chique demais 3')
 insert into produto (nome, valor, descricao) values ('Formatura 4', 4000, 'chique demais 4')
 insert into produto (nome, valor, descricao) values ('Formatura 5', 5000, 'chique demais 5')
+insert into opcional (nome, valor, descricao) values ('Cama Elástica', 300, 'com proteção')
+insert into opcional (nome, valor, descricao) values ('Churrasqueira Controle Remoto', 2000, 'TA PEGANDO FOGO BIXO')
+insert into opcional (nome, valor, descricao) values ('Dançarinos de Tango', 800, 'Zé e Bergamotina')
+insert into opcional (nome, valor, descricao) values ('Dançarinos de Balada', 800, 'Jó, Raissa e Camila')
+insert into opcional (nome, valor, descricao) values ('Fotografo', 900, 'Foto Moraes')
+insert into opcional (nome, valor, descricao) values ('Garçons', 2200, 'Trages: vermelho, preto, azul, verde e branco')
+insert into opcional (nome, valor, descricao) values ('Imitador', 500, 'Michael Jackson, Homem Aranha, Lula')
+insert into opcional (nome, valor, descricao) values ('Palhaço', 600, 'Adulto e Infantil')
+insert into opcional (nome, valor, descricao) values ('Pirotecnico', 1300, 'Engole fogo, gospe fogo, dança no fogo, pega fogo, apaga fogo')
+insert into opcional (nome, valor, descricao) values ('Decoração', 3300, 'Nossa equipe decora a festa para você não ter este traablho')
+insert into opcional (nome, valor, descricao) values ('Iluminação Piscante', 600, 'Do Moderno ao Retrô')
+insert into opcional (nome, valor, descricao) values ('Atores', 600, 'Atores bonitos e descolados para parecer que sua festa é legal.')
+insert into Pacote (nome, valor, descricao) values ('Projeto X', 3300, 'Decoração e Dançarinos de Balada')
+insert into Pacote (nome, valor, descricao) values ('Super Projeto X', 3300, 'Decoração, Dançarinos de Balada e Pirotécnico')
+insert into Pacote (nome, valor, descricao) values ('Hiper Projeto X', 3300, 'Decoração, Dançarinos de Balada, Pirotécnico e Iluminação')
+insert into Pacote (nome, valor, descricao) values ('Mega Projeto X', 3300, 'Decoração, Dançarinos de Balada, Pirotécnico, Iluminação e Atores')
+insert into Pacote (nome, valor, descricao) values ('Power Projeto X', 3300, 'Decoração, Dançarinos de Balada, Pirotécnico, Iluminação,  Atores e Churrasqueira Controle Remoto')
+insert into Pacote (nome, valor, descricao) values ('Luxo', 3300, 'Decoração e Fotógrafo')
+insert into Pacote (nome, valor, descricao) values ('Super Luxo', 3300, 'Decoração, Fotógrafo e Dançarinos de Tango')
+insert into Pacote (nome, valor, descricao) values ('Hiper Luxo', 3300, 'Decoração, Fotógrafo, Dançarinos de Tango e Garçons')
+insert into Pacote (nome, valor, descricao) values ('Criança Feliz', 3300, 'Decoração e Fotógrafo')
+insert into Pacote (nome, valor, descricao) values ('Super Criança Feliz', 3300, 'Decoração, Fotógrafo e Palhaço')
+insert into Pacote (nome, valor, descricao) values ('Hiper Criança Feliz', 3300, 'Decoração, Fotógrafo, Palhaço e Imitador')
+insert into Pacote (nome, valor, descricao) values ('Mega Criança Feliz', 3300, 'Decoração, Fotógrafo, Palhaço, Imitador, Cama Elástica')
 
-select * from opcional
-insert into produto (nome, valor, descricao) values ('Cama Elástica', 300, 'chique demais 1')
-insert into produto (nome, valor, descricao) values ('Churrasqueira Controle Remoto', 2000, 'chique demais 2')
-insert into produto (nome, valor, descricao) values ('Dançarinos de Tango', 800, 'chique demais 3')
-insert into produto (nome, valor, descricao) values ('Fotografo', 900, 'chique demais 1')
-insert into produto (nome, valor, descricao) values ('Garçons', 2200, 'chique demais 2')
-insert into produto (nome, valor, descricao) values ('Imitador', 500, 'chique demais 3')
-insert into produto (nome, valor, descricao) values ('Palhaço', 600, 'chique demais 4')
-insert into produto (nome, valor, descricao) values ('Pirotecnico', 1300, 'chique demais 5')
-insert into produto (nome, valor, descricao) values ('Decoração', 3300, 'chique demais 1')
 

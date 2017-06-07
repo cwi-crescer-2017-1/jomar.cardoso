@@ -15,7 +15,7 @@ namespace Locadora.Infraestrutura.Mapping
             ToTable("Opcional");
             HasKey(x => x.Id);
             Property(x => x.Nome).HasMaxLength(50);
-            Property(x => x.Descricao).HasMaxLength(50);
+            Property(x => x.Descricao).HasMaxLength(511);
         }
     }
 }

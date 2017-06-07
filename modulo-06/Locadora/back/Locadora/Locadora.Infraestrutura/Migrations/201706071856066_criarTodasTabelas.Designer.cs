@@ -7,13 +7,13 @@ namespace Locadora.Infraestrutura.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class colunaurlfotoremover : IMigrationMetadata
+    public sealed partial class criarTodasTabelas : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(colunaurlfotoremover));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(criarTodasTabelas));
         
         string IMigrationMetadata.Id
         {
-            get { return "201706071747059_colunaurlfotoremover"; }
+            get { return "201706071856066_criarTodasTabelas"; }
         }
         
         string IMigrationMetadata.Source

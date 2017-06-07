@@ -7,13 +7,13 @@ namespace Locadora.Infraestrutura.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class colunaurlfoto : IMigrationMetadata
+    public sealed partial class ajusteopcional : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(colunaurlfoto));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ajusteopcional));
         
         string IMigrationMetadata.Id
         {
-            get { return "201706071717562_colunaurlfoto"; }
+            get { return "201706071948407_ajusteopcional"; }
         }
         
         string IMigrationMetadata.Source

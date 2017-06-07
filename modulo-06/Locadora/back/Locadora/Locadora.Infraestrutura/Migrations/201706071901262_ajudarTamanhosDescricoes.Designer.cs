@@ -7,13 +7,13 @@ namespace Locadora.Infraestrutura.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class droptipo : IMigrationMetadata
+    public sealed partial class ajudarTamanhosDescricoes : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(droptipo));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ajudarTamanhosDescricoes));
         
         string IMigrationMetadata.Id
         {
-            get { return "201706071713503_droptipo"; }
+            get { return "201706071901262_ajudarTamanhosDescricoes"; }
         }
         
         string IMigrationMetadata.Source

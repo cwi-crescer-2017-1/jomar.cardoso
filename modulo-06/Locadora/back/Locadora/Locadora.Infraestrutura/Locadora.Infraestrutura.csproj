@@ -70,21 +70,17 @@
     <Compile Include="Mapping\PedidoOpcionalMap.cs" />
     <Compile Include="Mapping\ProdutoMap.cs" />
     <Compile Include="Mapping\UsuarioMap.cs" />
-    <Compile Include="Migrations\201706062028309_CriarTodasTabelasPaaaaaaaaaaaaaaaaaaa.cs" />
-    <Compile Include="Migrations\201706062028309_CriarTodasTabelasPaaaaaaaaaaaaaaaaaaa.Designer.cs">
-      <DependentUpon>201706062028309_CriarTodasTabelasPaaaaaaaaaaaaaaaaaaa.cs</DependentUpon>
+    <Compile Include="Migrations\201706071856066_criarTodasTabelas.cs" />
+    <Compile Include="Migrations\201706071856066_criarTodasTabelas.Designer.cs">
+      <DependentUpon>201706071856066_criarTodasTabelas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706071713503_droptipo.cs" />
-    <Compile Include="Migrations\201706071713503_droptipo.Designer.cs">
-      <DependentUpon>201706071713503_droptipo.cs</DependentUpon>
+    <Compile Include="Migrations\201706071901262_ajudarTamanhosDescricoes.cs" />
+    <Compile Include="Migrations\201706071901262_ajudarTamanhosDescricoes.Designer.cs">
+      <DependentUpon>201706071901262_ajudarTamanhosDescricoes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706071717562_colunaurlfoto.cs" />
-    <Compile Include="Migrations\201706071717562_colunaurlfoto.Designer.cs">
-      <DependentUpon>201706071717562_colunaurlfoto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706071747059_colunaurlfotoremover.cs" />
-    <Compile Include="Migrations\201706071747059_colunaurlfotoremover.Designer.cs">
-      <DependentUpon>201706071747059_colunaurlfotoremover.cs</DependentUpon>
+    <Compile Include="Migrations\201706071948407_ajusteopcional.cs" />
+    <Compile Include="Migrations\201706071948407_ajusteopcional.Designer.cs">
+      <DependentUpon>201706071948407_ajusteopcional.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -107,17 +103,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706062028309_CriarTodasTabelasPaaaaaaaaaaaaaaaaaaa.resx">
-      <DependentUpon>201706062028309_CriarTodasTabelasPaaaaaaaaaaaaaaaaaaa.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706071856066_criarTodasTabelas.resx">
+      <DependentUpon>201706071856066_criarTodasTabelas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706071713503_droptipo.resx">
-      <DependentUpon>201706071713503_droptipo.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706071901262_ajudarTamanhosDescricoes.resx">
+      <DependentUpon>201706071901262_ajudarTamanhosDescricoes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706071717562_colunaurlfoto.resx">
-      <DependentUpon>201706071717562_colunaurlfoto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706071747059_colunaurlfotoremover.resx">
-      <DependentUpon>201706071747059_colunaurlfotoremover.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706071948407_ajusteopcional.resx">
+      <DependentUpon>201706071948407_ajusteopcional.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

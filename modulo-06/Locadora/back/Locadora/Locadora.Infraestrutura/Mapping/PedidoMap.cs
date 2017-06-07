@@ -23,15 +23,15 @@ namespace Locadora.Infraestrutura.Mapping
             HasOptional(x => x.Pacote)
                 .WithMany()
                 .Map(x => x.MapKey("IdPacote"));
-            //HasMany(x => x.Opcionais)
-            //    .WithMany()
-            //    .Map(x =>
-            //    {
-            //        x.MapLeftKey("IdPedido");
-            //        x.MapRightKey("IdOpcional");
-            //        x.ToTable("PedidoOpcional");
-            //    }
-            //);
+            HasMany(x => x.Opcionais)
+                .WithMany()
+                .Map(x =>
+                {
+                    x.MapLeftKey("IdPedido");
+                    x.MapRightKey("IdOpcional");
+                    x.ToTable("PedidoOpcional");
+                }
+            );
         }
     }
 }

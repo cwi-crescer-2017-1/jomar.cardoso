@@ -8,6 +8,6 @@ namespace Locadora.Dominio.Entidades
 {
     public class Opcional : Item
     {
-        public List<Pedido> Pedidos { get; private set; }
+       // public List<Pedido> Pedidos { get; private set; }
     }
 }
