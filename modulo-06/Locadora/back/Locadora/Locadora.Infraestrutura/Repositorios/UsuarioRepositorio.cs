@@ -7,37 +7,24 @@ using System.Threading.Tasks;
 
 namespace Locadora.Infraestrutura.Repositorios
 {
-    public class UsuarioRepositorio
+    public class UsuarioRepositorio : IDisposable
     {
         static readonly Dictionary<string, Usuario> _usuarios = new Dictionary<string, Usuario>();
+        private Contexto contexto = new Contexto();
 
         public UsuarioRepositorio()
         {
 
         }
 
-        public void Criar(Usuario usuario)
+        public Usuario Obter(string login)
         {
-            
+            return contexto.Usuario.Where(x => x.Login == login).FirstOrDefault();
         }
 
-        public void Alterar(Usuario usuario)
+        public void Dispose()
         {
-            
-        }
-        public void Excluir(Usuario usuario)
-        {
-            
-        }
-
-        public IEnumerable<Usuario> Listar()
-        {
-            return null;
-        }
-
-        public Usuario Obter(string email)
-        {
-            return null;
+            ((IDisposable)contexto).Dispose();
         }
     }
 }

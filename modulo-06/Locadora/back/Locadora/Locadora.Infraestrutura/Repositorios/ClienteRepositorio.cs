@@ -2,48 +2,57 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Locadora.Infraestrutura.Repositorios
 {
-    public class ClienteRepositorio
+    public class ClienteRepositorio : IDisposable
     {
-        static readonly Dictionary<string, Cliente> _clientes = new Dictionary<string, Cliente>();
+        private Contexto contexto = new Contexto();
 
-
-        public ClienteRepositorio()
+        public List<Cliente> Obter()
         {
-
+            return contexto.Cliente.ToList();
         }
 
-        public void Criar(Usuario usuario)
+        public Cliente Obter(int id)
         {
-
+            return contexto.Cliente.Where(x => x.Id == id).FirstOrDefault();
         }
 
-        public void Alterar(Usuario usuario)
+        public Cliente ObterCpf(string cpf)
         {
-
-        }
-        public void Excluir(Usuario usuario)
-        {
-
+            return contexto.Cliente.Where(x => x.Cpf == cpf).FirstOrDefault();
         }
 
-        public IEnumerable<Usuario> Listar()
+        public List<Pedido> ObterLocacoes(int id)
         {
-            return null;
+            var cliente = Obter(id);
+            return contexto.Pedido
+                .Include(x => x.Cliente)
+                .Include(x => x.Produto)
+                .Include(x => x.Pacote)                
+                .Include(x => x.Opcionais)                
+                .Where(x => x.Cliente == cliente).ToList();
         }
 
-        public Usuario Obter(string email)
+        public Cliente Criar(Cliente cliente)
         {
-            return null;
+            contexto.Cliente.Add(cliente);
+            contexto.SaveChanges();
+            return cliente;
         }
 
-        public void Criar(Cliente cliente)
+        private bool VerificaExistencia(int id)
         {
-            throw new NotImplementedException();
+            return contexto.Cliente.Count(x => x.Id == id) == 1;
+        }
+
+        public void Dispose()
+        {
+            ((IDisposable)contexto).Dispose();
         }
     }
 }
