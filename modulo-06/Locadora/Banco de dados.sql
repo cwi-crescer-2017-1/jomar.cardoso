@@ -39,3 +39,4 @@ insert into Pacote (nome, valor, descricao) values ('Hiper Criança Feliz', 3300,
 insert into Pacote (nome, valor, descricao) values ('Mega Criança Feliz', 3300, 'Decoração, Fotógrafo, Palhaço, Imitador, Cama Elástica')
 
 
+select * from cliente

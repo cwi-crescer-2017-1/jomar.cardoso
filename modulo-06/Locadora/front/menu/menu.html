@@ -1,0 +1,17 @@
+<div class="container" ng-show="usuarioLogado">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <h2 class="text-center">Menu</h2>
+            <ul class="list-unstyled itens-menu">
+
+                <li><a href="#!/crud/1">Gerar Orçamento</a></li>
+                <li><a href="#!/crud/2">Confirmar Locação</a></li>
+                <!--<li>Excluir Livro</li>-->
+                <li ng-show="usuarioGerente"><a href="#!/gerente">Gerar Relatório</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--<div class="container">
+    <h2 class="warning">Apenas Usuário logado tem acesso.</h2>
+</div>-->
