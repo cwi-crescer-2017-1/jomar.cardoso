@@ -7,24 +7,68 @@ using System.Threading.Tasks;
 
 namespace Locadora.Dominio.Entidades
 {
-    public class Pedido
+    public class Pedido : EntidadeBasica
     {
         public int Id { get; private set; }
         public Cliente Cliente { get; private set; }
         public Produto Produto { get; private set; }
         public Pacote Pacote { get; private set; }
-        //public PedidoOpcional PedidoOpcionais { get; set; }
         public List<Opcional> Opcionais { get; private set; }
         public DateTime DataPedido { get; private set; }
         public DateTime DataEntregaPrevista { get; private set; }
-        public DateTime? DataEntregaRealizada { get; private set; }
+        public DateTime DataEntregaRealizada { get; private set; }
         public decimal Valor { get; private set; }
+        //public decimal Multa { get; private set; }
         public decimal ValorTotal { get; private set; }
+
+        protected Pedido()
+        {
+        }
+
+        public Pedido(Cliente cliente, Produto produto, Pacote pacote, List<Opcional> opcionais, int diasAlugado) 
+        {
+            Cliente = cliente;
+            Produto = produto;
+            Pacote = pacote;
+            Opcionais = opcionais;
+            DataPedido = DateTime.Now;
+            DataEntregaPrevista = DataPedido.AddDays(diasAlugado);
+            Valor = CalcularValor(produto, pacote, opcionais, diasAlugado);
+        }
+
+        public decimal CalcularValor(Produto produto, Pacote pacote, List<Opcional> opcionais, int diasAlugado)
+        {
+            return (
+                produto.Valor + 
+                pacote.Valor + 
+                opcionais.Sum(x => x.Valor)
+                ) * diasAlugado;
+        }
+
+        public decimal CalcularValor(int diasAlugado)
+        {
+            return CalcularValor(Produto, Pacote, Opcionais, diasAlugado);
+        }
+
+        public override bool Validar()
+        {
+            Mensagens.Clear();
+            if (Cliente == null)
+                Mensagens.Add("Cliente não informado.");
+            if (Produto == null)
+                Mensagens.Add("Produto não informado.");            
+            if (DataEntregaPrevista <= DateTime.Now)
+                Mensagens.Add("Data de devolução menor que a data atual.");
+            return Mensagens.Count == 0;
+        }
+        public void devolver()
+        {
+            DataEntregaRealizada = DateTime.Now;
+            if(DataEntregaPrevista < DataEntregaRealizada)
+            {
+                var diasExcedidos = Convert.ToInt32(DataEntregaRealizada.Subtract(DataEntregaPrevista).TotalDays);
+                ValorTotal = Valor + CalcularValor(diasExcedidos);
+            }
+        }
     }
-
-    //public decimal CalcularTotal()
-    //{
-
-    //    return 10.1;
-    //}
 }

@@ -8,6 +8,5 @@ namespace Locadora.Dominio.Entidades
 {
     public class Pacote : Item
     {
-
     }
 }

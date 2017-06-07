@@ -8,6 +8,5 @@ namespace Locadora.Dominio.Entidades
 {
     public class Produto : Item
     {
-        public Festa TipoFesta { get; private set; }
     }
 }

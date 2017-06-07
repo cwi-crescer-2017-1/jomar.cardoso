@@ -8,10 +8,10 @@ namespace Locadora.Dominio.Entidades
 {
     public enum Festa
      {   
-         INFANTIL = 0,
-         DEBUTANTE = 1,
-         CASAMENTO = 2,
-         FORMATURA = 3,
-         ADULTA = 4
+         //INFANTIL = 0,
+         //DEBUTANTE = 1,
+         //CASAMENTO = 2,
+         //FORMATURA = 3,
+         //ADULTA = 4
      }
 }
