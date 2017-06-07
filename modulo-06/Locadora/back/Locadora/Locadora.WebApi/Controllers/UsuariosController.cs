@@ -12,7 +12,7 @@ using System.Web.Http;
 
 namespace Locadora.Api.Controllers
 {
-    [AllowAnonymous]
+    [BasicAuthorization]
     [RoutePrefix("api/usuarios")]
     public class UsuarioController : ControllerBasica
     {
@@ -23,33 +23,6 @@ namespace Locadora.Api.Controllers
             _usuarioRepositorio = new UsuarioRepositorio();
         }
 
-        //[HttpPost, Route("registrar")]
-        //public HttpResponseMessage Registrar([FromBody]RegistrarUsuarioModel model)
-        //{
-        //    if (_usuarioRepositorio.Obter(model.Login) == null)
-        //    {
-        //        var usuario = new Usuario(model.Nome, model.Login, model.Senha, model.Gerente);
-
-        //        if (usuario.Validar())
-        //        {
-        //            _usuarioRepositorio.Criar(usuario);
-        //        }
-        //        else
-        //        {
-        //            return ResponderErro(usuario.Mensagens);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        return ResponderErro("Usuário já existe.");
-        //    }
-        //    return ResponderOK();
-        //}
-
-
-
-        // Exige que o usuário se autentique
-        [UsuarioAtributoAutorizacao]
         [HttpGet, Route("usuario")]
         public HttpResponseMessage Obter()
         {
