@@ -11,6 +11,9 @@ namespace Locadora.Dominio.Entidades
     {
         static readonly char[] _caracteresNovaSenha = "abcdefghijklmnopqrstuvzwyz1234567890*-_".ToCharArray();
         static readonly int _numeroCaracteresNovaSenha = 10;
+        private string v1;
+        private string v2;
+        private bool v3;
 
         public int Id { get; private set; }
         public string Nome { get; private set; }
@@ -70,11 +73,11 @@ namespace Locadora.Dominio.Entidades
         {
             Mensagens.Clear();
 
-            if (string.IsNullOrWhiteSpace(Nome))
+            if (Nome == "")
                 Mensagens.Add("Nome é inválido.");
 
             if (string.IsNullOrWhiteSpace(Login))
-                Mensagens.Add("Email é inválido.");
+                Mensagens.Add("Login é inválido.");
 
             if (string.IsNullOrWhiteSpace(Senha))
                 Mensagens.Add("Senha é inválido.");

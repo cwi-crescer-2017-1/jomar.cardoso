@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locadora.Infraestrutura", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locadora.WebApi", "Locadora.WebApi\Locadora.WebApi.csproj", "{512C21AB-0D6E-4C54-B1D4-2C9BB497EEF8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locadora.Testes", "Locadora.Testes\Locadora.Testes.csproj", "{C68FBE15-A163-4ECB-AC20-63156D6D4100}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{512C21AB-0D6E-4C54-B1D4-2C9BB497EEF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{512C21AB-0D6E-4C54-B1D4-2C9BB497EEF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{512C21AB-0D6E-4C54-B1D4-2C9BB497EEF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C68FBE15-A163-4ECB-AC20-63156D6D4100}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C68FBE15-A163-4ECB-AC20-63156D6D4100}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C68FBE15-A163-4ECB-AC20-63156D6D4100}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C68FBE15-A163-4ECB-AC20-63156D6D4100}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
