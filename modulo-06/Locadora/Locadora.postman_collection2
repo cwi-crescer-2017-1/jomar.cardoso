@@ -1,0 +1,297 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Locadora",
+		"_postman_id": "b95d31fb-b7eb-b1f4-80f5-2618befb1bea",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Teste Buscar Usuario Gerente",
+			"request": {
+				"url": "http://localhost:63124/api/usuarios/usuario",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic Z2VyZW50ZToxMjM0NTY=",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "http://localhost:63124/api/usuarios/usuario"
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Usuario não Gerente",
+			"request": {
+				"url": "http://localhost:63124/api/usuarios/usuario",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic am9tYXI6MTIzNDU2",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "http://localhost:63124/api/usuarios/usuario"
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Produs comAutorização",
+			"request": {
+				"url": "http://localhost:63124/api/produtos",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic am9tYXI6MTIzNDU2",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "http://localhost:63124/api/produtos"
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Produtos com Autorização",
+			"request": {
+				"url": "http://localhost:63124/api/produtos",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "http://localhost:63124/api/produtos"
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Produto Por Id",
+			"request": {
+				"url": "http://localhost:63124/api/produtos/4",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic am9tYXI6MTIzNDU2",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "http://localhost:63124/api/produtos/4"
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Produto Sem Estar Logado",
+			"request": {
+				"url": "http://localhost:63124/api/produtos/4",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic Og==",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "http://localhost:63124/api/produtos/4"
+			},
+			"response": []
+		},
+		{
+			"name": "Obter Todos Pacotes",
+			"request": {
+				"url": "http://localhost:63124/api/pacotes",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic am9tYXI6MTIzNDU2",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "http://localhost:63124/api/pacotes"
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Pacote Por Id",
+			"request": {
+				"url": "http://localhost:63124/api/pacotes/5",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic Z2VyZW50ZToxMjM0NTY=",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "http://localhost:63124/api/pacotes/5"
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Apenas Um Opcional",
+			"request": {
+				"url": "http://localhost:63124/api/opcionais/5",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic Z2VyZW50ZToxMjM0NTY=",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "http://localhost:63124/api/opcionais/5"
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Todos Opcionais",
+			"request": {
+				"url": "http://localhost:63124/api/opcionais",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic Z2VyZW50ZToxMjM0NTY=",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "http://localhost:63124/api/opcionais"
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Funcionario",
+			"request": {
+				"url": "http://localhost:63124/api/clientes/registrar",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic Z2VyZW50ZToxMjM0NTY=",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Nome\": \"Tim Burton\",\n\t\"Endereco\": \"Rua Das Margaridas 300 Sapiranga RS\",\n\t\"Cpf\": \"03957528965\",\n\t\"DataNascimento\": \"1980-04-23T18:25:43.511\",\n\t\"Genero\": 2\n}"
+				},
+				"description": "http://localhost:63124/api/clientes/registrar"
+			},
+			"response": []
+		},
+		{
+			"name": "Com Cpf Repetido",
+			"request": {
+				"url": "http://localhost:63124/api/clientes/registrar",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic Z2VyZW50ZToxMjM0NTY=",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Nome\": \"Jorge\",\n\t\"Endereco\": \"Rua Lídia Closs 22 Sapiranga RS\",\n\t\"Cpf\": \"03957528965\",\n\t\"DataNascimento\": \"1980-04-23T18:25:43.511\",\n\t\"Genero\": 2\n}"
+				},
+				"description": "http://localhost:63124/api/clientes/registrar"
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Cliente CPF Inválido",
+			"request": {
+				"url": "http://localhost:63124/api/clientes/registrar",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic Z2VyZW50ZToxMjM0NTY=",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Nome\": \"Luka\",\n\t\"Endereco\": \"Rua Rolante 242 Sapiranga RS\",\n\t\"Cpf\": \"3957456965\",\n\t\"DataNascimento\": \"1990-04-23T18:25:43.511\",\n\t\"Genero\": 1\n}"
+				},
+				"description": "http://localhost:63124/api/clientes/registrar"
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar outro Cliente",
+			"request": {
+				"url": "http://localhost:63124/api/clientes/registrar",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic Z2VyZW50ZToxMjM0NTY=",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Nome\": \"Chaves\",\n\t\"Endereco\": \"Rua do Papa 2 Sapiranga RS\",\n\t\"Cpf\": \"09761560003\",\n\t\"DataNascimento\": \"1994-05-05T18:25:43.511\",\n\t\"Genero\": 0\n}"
+				},
+				"description": "http://localhost:63124/api/clientes/registrar"
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Cliente Por Id",
+			"request": {
+				"url": "http://localhost:63124/api/clientes/2",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic Z2VyZW50ZToxMjM0NTY=",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "http://localhost:63124/api/clientes/2"
+			},
+			"response": []
+		}
+	]
+}

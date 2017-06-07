@@ -35,7 +35,7 @@ namespace Locadora.Api.Controllers
             if (cliente == null)
                 return ResponderErro("Cliente não encontrado.");
 
-            return ResponderOK(new { cliente });
+            return ResponderOK(new { cliente.Nome, cliente.Cpf, cliente.DataNascimento, cliente.Endereco, cliente.Genero });
         }
 
         [HttpGet, Route("{cpf}")]
@@ -59,10 +59,11 @@ namespace Locadora.Api.Controllers
         {
             if (clienteRepositorio.ObterCpf(model.Cpf) == null)
             {
-                var cliente = new Cliente(model.Nome, model.Endereco, model.Cpf, model.DataNascimento, model.Genero);
+                var cliente = new Cliente(model.Nome, model.Cpf, model.Endereco, model.DataNascimento, model.Genero);
                 if (cliente.Validar())
                 {
                     clienteRepositorio.Criar(cliente);
+                    return ResponderOK(new { cliente.Nome, cliente.Cpf, cliente.DataNascimento, cliente.Endereco, cliente.Genero });
                 }
                 else
                 {
@@ -73,7 +74,6 @@ namespace Locadora.Api.Controllers
             {
                 return ResponderErro("Cliente já cadastrado.");
             }
-            return ResponderOK();
         }
     }
 }

@@ -1,0 +1,501 @@
+{
+	"id": "b95d31fb-b7eb-b1f4-80f5-2618befb1bea",
+	"name": "Locadora",
+	"description": "",
+	"order": [
+		"14c11df0-7f94-0a4f-ac6b-5f0753d3a513",
+		"dc65d15d-c5bc-1110-1094-841cf0cf2c72",
+		"c8daf9ba-02c1-dafc-ebab-d53753d512e8",
+		"3c725063-74ea-8247-57cf-88b31445a699",
+		"b63375e9-78dc-7f8e-f613-a71289447527",
+		"8ec6c1e1-cde1-ec1f-f61c-257ea145f9dd",
+		"3f313bdb-ef8a-4694-08b0-f0d07204e1cd",
+		"53cd83e3-bd43-0dbc-edb0-aca312c39f88",
+		"aa3160df-bdcc-7548-9fd1-7c24853ea48d",
+		"d59b5790-0b3c-94b1-5439-edaf9063ef63",
+		"f05fc04f-db31-c6ef-bbed-9415dbd520a7",
+		"6a56ee96-1f54-6d1a-f7e9-db4194a4e30d",
+		"a97d96fd-0508-b581-95ee-be0ca31c2527",
+		"9514b94a-5c99-10eb-a174-cd7a4ed9e331",
+		"503c274e-0b8f-8dd9-1d51-da4d1421ca5c"
+	],
+	"folders": [],
+	"timestamp": 1496858223966,
+	"owner": "",
+	"public": false,
+	"requests": [
+		{
+			"id": "14c11df0-7f94-0a4f-ac6b-5f0753d3a513",
+			"headers": "Authorization: Basic Z2VyZW50ZToxMjM0NTY=\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Basic Z2VyZW50ZToxMjM0NTY=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:63124/api/usuarios/usuario",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "b95d31fb-b7eb-b1f4-80f5-2618befb1bea",
+			"data": null,
+			"dataMode": "params",
+			"name": "Teste Buscar Usuario Gerente",
+			"description": "http://localhost:63124/api/usuarios/usuario",
+			"descriptionFormat": "html",
+			"time": 1496858223965,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "3c725063-74ea-8247-57cf-88b31445a699",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:63124/api/produtos",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "b95d31fb-b7eb-b1f4-80f5-2618befb1bea",
+			"data": null,
+			"dataMode": "params",
+			"name": "Buscar Produtos com Autorização",
+			"description": "http://localhost:63124/api/produtos",
+			"descriptionFormat": "html",
+			"time": 1496860518591,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "3f313bdb-ef8a-4694-08b0-f0d07204e1cd",
+			"headers": "Authorization: Basic am9tYXI6MTIzNDU2\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Basic am9tYXI6MTIzNDU2",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:63124/api/pacotes",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "b95d31fb-b7eb-b1f4-80f5-2618befb1bea",
+			"data": null,
+			"dataMode": "params",
+			"name": "Obter Todos Pacotes",
+			"description": "http://localhost:63124/api/pacotes",
+			"descriptionFormat": "html",
+			"time": 1496864557543,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "503c274e-0b8f-8dd9-1d51-da4d1421ca5c",
+			"headers": "Authorization: Basic Z2VyZW50ZToxMjM0NTY=\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Basic Z2VyZW50ZToxMjM0NTY=",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:63124/api/clientes/2",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "b95d31fb-b7eb-b1f4-80f5-2618befb1bea",
+			"data": null,
+			"dataMode": "params",
+			"name": "Buscar Cliente Por Id",
+			"description": "http://localhost:63124/api/clientes/2",
+			"descriptionFormat": "html",
+			"time": 1496868670299,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "53cd83e3-bd43-0dbc-edb0-aca312c39f88",
+			"headers": "Authorization: Basic Z2VyZW50ZToxMjM0NTY=\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Basic Z2VyZW50ZToxMjM0NTY=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:63124/api/pacotes/5",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "b95d31fb-b7eb-b1f4-80f5-2618befb1bea",
+			"data": null,
+			"dataMode": "params",
+			"name": "Buscar Pacote Por Id",
+			"description": "http://localhost:63124/api/pacotes/5",
+			"descriptionFormat": "html",
+			"time": 1496864630596,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "6a56ee96-1f54-6d1a-f7e9-db4194a4e30d",
+			"headers": "Authorization: Basic Z2VyZW50ZToxMjM0NTY=\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Basic Z2VyZW50ZToxMjM0NTY=",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:63124/api/clientes/registrar",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1496866870691,
+			"name": "Com Cpf Repetido",
+			"description": "http://localhost:63124/api/clientes/registrar",
+			"collectionId": "b95d31fb-b7eb-b1f4-80f5-2618befb1bea",
+			"responses": [],
+			"rawModeData": "{\n\t\"Nome\": \"Jorge\",\n\t\"Endereco\": \"Rua Lídia Closs 22 Sapiranga RS\",\n\t\"Cpf\": \"03957528965\",\n\t\"DataNascimento\": \"1980-04-23T18:25:43.511\",\n\t\"Genero\": 2\n}"
+		},
+		{
+			"id": "8ec6c1e1-cde1-ec1f-f61c-257ea145f9dd",
+			"headers": "Authorization: Basic Og==\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Basic Og==",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:63124/api/produtos/4",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "b95d31fb-b7eb-b1f4-80f5-2618befb1bea",
+			"data": null,
+			"dataMode": "params",
+			"name": "Buscar Produto Sem Estar Logado",
+			"description": "http://localhost:63124/api/produtos/4",
+			"descriptionFormat": "html",
+			"time": 1496864048822,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "9514b94a-5c99-10eb-a174-cd7a4ed9e331",
+			"headers": "Content-Type: application/json\nAuthorization: Basic Z2VyZW50ZToxMjM0NTY=\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic Z2VyZW50ZToxMjM0NTY=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:63124/api/clientes/registrar",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "b95d31fb-b7eb-b1f4-80f5-2618befb1bea",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Cadastrar outro Cliente",
+			"description": "http://localhost:63124/api/clientes/registrar",
+			"descriptionFormat": "html",
+			"time": 1496867810031,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"Nome\": \"Chaves\",\n\t\"Endereco\": \"Rua do Papa 2 Sapiranga RS\",\n\t\"Cpf\": \"09761560003\",\n\t\"DataNascimento\": \"1994-05-05T18:25:43.511\",\n\t\"Genero\": 0\n}"
+		},
+		{
+			"id": "a97d96fd-0508-b581-95ee-be0ca31c2527",
+			"headers": "Authorization: Basic Z2VyZW50ZToxMjM0NTY=\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Basic Z2VyZW50ZToxMjM0NTY=",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:63124/api/clientes/registrar",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "b95d31fb-b7eb-b1f4-80f5-2618befb1bea",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Cadastrar Cliente CPF Inválido",
+			"description": "http://localhost:63124/api/clientes/registrar",
+			"descriptionFormat": "html",
+			"time": 1496867003901,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"Nome\": \"Luka\",\n\t\"Endereco\": \"Rua Rolante 242 Sapiranga RS\",\n\t\"Cpf\": \"3957456965\",\n\t\"DataNascimento\": \"1990-04-23T18:25:43.511\",\n\t\"Genero\": 1\n}"
+		},
+		{
+			"id": "aa3160df-bdcc-7548-9fd1-7c24853ea48d",
+			"headers": "Authorization: Basic Z2VyZW50ZToxMjM0NTY=\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Basic Z2VyZW50ZToxMjM0NTY=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:63124/api/opcionais/5",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "b95d31fb-b7eb-b1f4-80f5-2618befb1bea",
+			"data": null,
+			"dataMode": "params",
+			"name": "Buscar Apenas Um Opcional",
+			"description": "http://localhost:63124/api/opcionais/5",
+			"descriptionFormat": "html",
+			"time": 1496865063141,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "b63375e9-78dc-7f8e-f613-a71289447527",
+			"headers": "Authorization: Basic am9tYXI6MTIzNDU2\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Basic am9tYXI6MTIzNDU2",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:63124/api/produtos/4",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1496864012544,
+			"name": "Buscar Produto Por Id",
+			"description": "http://localhost:63124/api/produtos/4",
+			"collectionId": "b95d31fb-b7eb-b1f4-80f5-2618befb1bea",
+			"responses": []
+		},
+		{
+			"id": "c8daf9ba-02c1-dafc-ebab-d53753d512e8",
+			"headers": "Authorization: Basic am9tYXI6MTIzNDU2\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Basic am9tYXI6MTIzNDU2",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:63124/api/produtos",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "b95d31fb-b7eb-b1f4-80f5-2618befb1bea",
+			"data": null,
+			"dataMode": "params",
+			"name": "Buscar Produs comAutorização",
+			"description": "http://localhost:63124/api/produtos",
+			"descriptionFormat": "html",
+			"time": 1496860495667,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "d59b5790-0b3c-94b1-5439-edaf9063ef63",
+			"headers": "Authorization: Basic Z2VyZW50ZToxMjM0NTY=\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Basic Z2VyZW50ZToxMjM0NTY=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:63124/api/opcionais",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "b95d31fb-b7eb-b1f4-80f5-2618befb1bea",
+			"data": null,
+			"dataMode": "params",
+			"name": "Buscar Todos Opcionais",
+			"description": "http://localhost:63124/api/opcionais",
+			"descriptionFormat": "html",
+			"time": 1496865104752,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "dc65d15d-c5bc-1110-1094-841cf0cf2c72",
+			"headers": "Authorization: Basic am9tYXI6MTIzNDU2\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Basic am9tYXI6MTIzNDU2",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:63124/api/usuarios/usuario",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "b95d31fb-b7eb-b1f4-80f5-2618befb1bea",
+			"data": null,
+			"dataMode": "params",
+			"name": "Buscar Usuario não Gerente",
+			"description": "http://localhost:63124/api/usuarios/usuario",
+			"descriptionFormat": "html",
+			"time": 1496858246377,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "f05fc04f-db31-c6ef-bbed-9415dbd520a7",
+			"headers": "Authorization: Basic Z2VyZW50ZToxMjM0NTY=\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Basic Z2VyZW50ZToxMjM0NTY=",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:63124/api/clientes/registrar",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "b95d31fb-b7eb-b1f4-80f5-2618befb1bea",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Cadastrar Funcionario",
+			"description": "http://localhost:63124/api/clientes/registrar",
+			"descriptionFormat": "html",
+			"time": 1496866790720,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"Nome\": \"Tim Burton\",\n\t\"Endereco\": \"Rua Das Margaridas 300 Sapiranga RS\",\n\t\"Cpf\": \"03957528965\",\n\t\"DataNascimento\": \"1980-04-23T18:25:43.511\",\n\t\"Genero\": 2\n}"
+		}
+	]
+}

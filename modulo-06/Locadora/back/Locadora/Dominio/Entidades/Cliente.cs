@@ -38,9 +38,11 @@ namespace Locadora.Dominio.Entidades
             if (string.IsNullOrWhiteSpace(Endereco))
                 Mensagens.Add("Endereco é inválido.");
 
-            if(Cpf.Length != 12)
-                Mensagens.Add("Cpf é inválido, digite apenas 12 dígitos sem ponto ou traço");
-
+            if (Cpf.Length != 11)
+            {
+                var valor = Cpf.Length;
+                Mensagens.Add("Cpf é inválido, digite apenas 11 dígitos sem ponto ou traço");
+            }
             return Mensagens.Count == 0;
         }
 

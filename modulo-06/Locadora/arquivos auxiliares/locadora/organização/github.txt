@@ -1,0 +1,348 @@
+https://github.com/cwi-crescer-2017-1/william.goncalves
+https://github.com/cwi-crescer-2017-1/rafael.barizon
+https://github.com/cwi-crescer-2017-1/luis.robinson
+https://github.com/cwi-crescer-2017-1/rafael.barreto
+https://github.com/cwi-crescer-2017-1/lucas.gaspar.
+https://github.com/cwi-crescer-2017-1/joao.silva
+
+
+
++namespace LocacaoDeFestasCrescer.Api
+ +{
+ +    public static class WebApiConfig
+ +    {
+ +        public static void Register(HttpConfiguration config)
+ +        {
+ +            // Web API configuration and services
+ +            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+
+
+ Modulo-06-C#-dotNet/LocacaoDeFestasCrescer/LocacaoDeFestasCrescer.Api/Web.config
+@@ -0,0 +1,50 @@
+ +<?xml version="1.0" encoding="utf-8"?>
+ +<!--
+ +  For more information on how to configure your ASP.NET application, please visit
+ +  https://go.microsoft.com/fwlink/?LinkId=301879
+ +  -->
+ +<configuration>
+ +  <connectionStrings>
+ +    <add name="ExemploEFSP" connectionString="Server=191.232.191.228;User Id=jomar.cardoso;Password=123456;Database=aluno02db" providerName="System.Data.SqlClient" />
+ +  </connectionStrings>
+
+
+
+
++using System;
+ +using System.Collections.Generic;
+ +using System.Linq;
+ +using System.Web.Http;
+ +
+ +namespace LocacaoDeFestasCrescer.Dominio
+ +{
+ +    public static class WebApiConfig
+ +    {
+ +        public static void Register(HttpConfiguration config)
+ +        {
+ +            
+ +            // Rotas da API da Web
+ +            config.MapHttpAttributeRoutes();
+ +
+ +            config.Routes.MapHttpRoute(
+ +                name: "DefaultApi",
+ +                routeTemplate: "api/{controller}/{id}",
+ +                defaults: new { id = RouteParameter.Optional }
+ +            );
+ +        }
+ +    }
+ +}
+
+
+
+
+
+
++using System;
+ +using System.Collections.Generic;
+ +using System.Linq;
+ +using System.Web;
+ +
+ +namespace LocacaoDeFestasCrescer.Dominio.Entidades
+ +{
+ +    public class Cliente
+ +    {
+ +        public int Id { get; set; }
+ +        public string Nome { get; set; }
+ +        public string Cpf { get; set; }
+ +        public string Endereco { get; set; }
+ +        public Genero Genero { get; set; }
+ +        public DateTime DataNascimento { get; set; }
+ +    }
+ +}
+
+
+
+
+
++namespace LocacaoDeFestasCrescer.Dominio.Entidades
+ +{
+ +    public enum Genero
+ +    {
+ +        Masculino = 1,
+ +        Feminino = 2,
+ +        NaoDeterminado = 0
+ +    }
+ +    
+ +} 
+
+
++using System;
+ +using System.Collections.Generic;
+ +using System.Linq;
+ +using System.Web;
+ +
+ +namespace LocacaoDeFestasCrescer.Dominio.Entidades
+ +{
+ +    public class Operador
+ +    {
+ +        public int Id { get; set; }
+ +        public string Nome { get; set; }
+ +        public string Usuario { get; set; }
+ +        public string Senha { get; set; }
+ +        public bool Gerente { get; set; }
+ +    }
+ +} 
+
+
+
+
+
++using System;
+ +using System.Collections.Generic;
+ +using System.Linq;
+ +using System.Web;
+ +
+ +namespace LocacaoDeFestasCrescer.Dominio.Entidades
+ +{
+ +    public class Pedido
+ +    {
+ +        public int Id { get; set; }
+ +        public int Id_Cliente { get; set; }
+ +        public Cliente Cliente { get; set; }
+ +        public int Id_Produto { get; set; }
+ +        public Produto Produto { get; set; }
+ +        public int? Id_ProdutoPacote { get; set; }
+ +        public ProdutoPacote ProdutoPacote { get; set; }
+ +        public int? Id_ProdutoOpcional { get; set; }
+ +        public ProdutoOpcional ProdutoOpcional { get; set; }
+ +        public DateTime DataPedido { get; set; }
+ +        public DateTime DataEntregaPrevista { get; set; }
+ +        public DateTime? DataEntregaReal { get; set; }
+ +        public decimal ValorTotal { get; set; }
+ +        public decimal ValorTotalReal { get; set; }
+ +    }
+ +} 
+
+
+
+
+
++using System;
+ +using System.Collections.Generic;
+ +using System.Linq;
+ +using System.Web;
+ +
+ +namespace LocacaoDeFestasCrescer.Dominio.Entidades
+ +{
+ +    public class Produto
+ +    {
+ +        public int Id { get; set; }
+ +        public Festa Festa { get; set; }
+ +        public decimal Valor { get; set; }
+ +    }
+ +} 
+
+
+
+
+
++<?xml version="1.0" encoding="utf-8"?>
+ +<!--
+ +  For more information on how to configure your ASP.NET application, please visit
+ +  https://go.microsoft.com/fwlink/?LinkId=301879
+ +  -->
+ +<configuration>
+ +  <connectionStrings>
+ +    <add name="ExemploEFSP" connectionString="Server=191.232.191.228;User Id=rafael.barizon;Password=123456;Database=aluno05db" providerName="System.Data.SqlClient" />
+ +  </connectionStrings>
+ +  <appSettings></appSettings>
+
+
+
+
+
++using LocacaoDeFestasCrescer.Dominio.Entidades;
+ +using System;
+ +using System.Collections.Generic;
+ +using System.Data.Entity;
+ +using System.Linq;
+ +using System.Web;
+ +
+ +namespace LocacaoDeFestasCrescer.Infraestrutura
+ +{
+ +    public class Contexto: DbContext
+ +    {
+ +        public Contexto() : base("name=ExemploEFSP")
+ +        { }
+ +
+ +        public DbSet<Cliente> Clientes { get; set; }
+ +        public DbSet<Operador> Operadores { get; set; }
+ +        public DbSet<Produto> Produtos { get; set; }
+ +        public DbSet<ProdutoOpcional> ProdutosOpcionais { get; set; }
+ +        public DbSet<ProdutoPacote> ProdutosPacotes { get; set; }
+ +        public DbSet<Pedido> Pedidos { get; set; }
+ +
+ +
+ +        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+ +        {
+ +            modelBuilder.Configurations.Add(new ClienteMap());
+ +            modelBuilder.Configurations.Add(new OperadorMap());
+ +            modelBuilder.Configurations.Add(new ProdutoMap());
+ +            modelBuilder.Configurations.Add(new ProdutoOpcionalMap());
+ +            modelBuilder.Configurations.Add(new ProdutoPacoteMap());
+ +            modelBuilder.Configurations.Add(new PedidoMap());
+ +        }
+ +    }
+ +} 
+
+
+
+
++using LocacaoDeFestasCrescer.Dominio.Entidades;
+ +using System.Data.Entity.ModelConfiguration;
+ +
+ +namespace LocacaoDeFestasCrescer.Infraestrutura
+ +{
+ +    internal class ClienteMap : EntityTypeConfiguration<Cliente>
+ +    {
+ +        public ClienteMap()
+ +        {
+ +            ToTable("Clientes");
+ +            HasKey(x => x.Id);
+ +
+ +            Property(x => x.Nome).HasMaxLength(100);
+ +        }
+ +    }
+ +} 
+
+
+
+
++using LocacaoDeFestasCrescer.Dominio.Entidades;
+ +using System.Data.Entity.ModelConfiguration;
+ +
+ +namespace LocacaoDeFestasCrescer.Infraestrutura
+ +{
+ +    internal class OperadorMap : EntityTypeConfiguration<Operador>
+ +    {
+ +        public OperadorMap()
+ +        {
+ +            ToTable("Operadores");
+ +            HasKey(x => x.Id);
+ +            Property(x => x.Nome).HasMaxLength(100);
+ +            Property(x => x.Usuario).HasMaxLength(15);
+ +        }
+ +    }
+ +} 
+
+
+
+
++using LocacaoDeFestasCrescer.Dominio.Entidades;
+ +using System.Data.Entity.ModelConfiguration;
+ +
+ +namespace LocacaoDeFestasCrescer.Infraestrutura
+ +{
+ +    internal class PedidoMap : EntityTypeConfiguration<Pedido>
+ +    {
+ +        public PedidoMap()
+ +        {
+ +            ToTable("Pedidos");
+ +            HasKey(x => x.Id);
+ +            //CLIENTE
+ +            HasRequired(x => x.Cliente)
+ +                .WithMany()
+ +                .HasForeignKey(x => x.Id_Cliente);
+ +            //PRODUTO
+ +            HasRequired(x => x.Produto)
+ +                .WithMany()
+ +                .HasForeignKey(x => x.Id_Produto);
+ +            //PACOTE
+ +            HasOptional(x => x.ProdutoPacote)
+ +                .WithMany()
+ +                .HasForeignKey(x => x.Id_ProdutoPacote);
+ +            //OPCIONAL
+ +            HasOptional(x => x.ProdutoOpcional)
+ +                .WithMany()
+ +                .HasForeignKey(x => x.Id_ProdutoOpcional);
+ +        }
+ +    }
+ +} 
+
+
+
+
+
+
++using LocacaoDeFestasCrescer.Dominio.Entidades;
+ +using System.Data.Entity.ModelConfiguration;
+ +
+ +namespace LocacaoDeFestasCrescer.Infraestrutura
+ +{
+ +    internal class ProdutoMap : EntityTypeConfiguration<Produto>
+ +    {
+ +        public ProdutoMap()
+ +        {
+ +            ToTable("Produtos");
+ +            HasKey(x => x.Id);
+ +        }
+ +    }
+ +} 
+
+
+
+
+
++using LocacaoDeFestasCrescer.Dominio.Entidades;
+ +using System.Data.Entity.ModelConfiguration;
+ +
+ +namespace LocacaoDeFestasCrescer.Infraestrutura
+ +{
+ +    internal class ProdutoOpcionalMap : EntityTypeConfiguration<ProdutoOpcional>
+ +    {
+ +        public ProdutoOpcionalMap()
+ +        {
+ +            ToTable("ProdutosOpcionais");
+ +            HasKey(x => x.Id);
+ +        }
+ +    }
+ +} 
+
+
+
+
++using LocacaoDeFestasCrescer.Dominio.Entidades;
+ +using System.Data.Entity.ModelConfiguration;
+ +
+ +namespace LocacaoDeFestasCrescer.Infraestrutura
+ +{
+ +    internal class ProdutoPacoteMap : EntityTypeConfiguration<ProdutoPacote>
+ +    {
+ +        public ProdutoPacoteMap()
+ +        {
+ +            ToTable("ProdutosPacotes");
+ +            HasKey(x => x.Id);
+ +        }
+ +    }
+ +} 
+
+
