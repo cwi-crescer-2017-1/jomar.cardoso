@@ -1,44 +1,36 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">    
-
-
-
-                public int Id { get; private set; }
-        public string Nome { get; private set; }
-        public string Cpf { get; private set; }
-        public string Endereco { get; private set; }
-        public Genero Genero { get; private set; }
-        public DateTime DataNascimento { get; private set; }
-
-
-            <form novalidate name="novoCliente" ng-submit="cadastrar(pedido)">
+            <h2 class="text-center" >Cadastrar Cliente</h2>
+            <form novalidate name="novoCliente" ng-submit="cadastrar(cliente)">
                 <div class="form-group">
-                    <label for="produto">Nome</label>                    
-                    <select name="produto" class="form-control" ng-model="pedido.IdProduto" >
-                        <option value="" ng-repeat="produto in produtos">{{cliente.Nome}}</option>
-                    </select>
-                    <input type="text" class="form-control">
+                    <label>Nome</label>                    
+                    <input type="text" class="form-control" ng-model="cliente.Nome">
                 </div>
                 <div class="form-group">
-                    <label for="pacote">Opcional</label>                    
-                    <select name="pacote" class="form-control" ng-model="pedido.IdPacote" >
-                        <option value="" ng-repeat="pacote in pacotes">{{pacote.Nome}}</option>
+                    <label>CPF</label>                    
+                    <input type="text" class="form-control" ng-model="cliente.Cpf">
+                </div>
+                <div class="form-group">
+                    <label>Endereço</label>                    
+                    <input type="text" class="form-control" ng-model="cliente.Endereco">
+                </div>
+                <div class="form-group">
+                    <label for="pacote">Sexo</label>                    
+                    <select name="pacote" class="form-control" ng-model="cliente.Genero" >
+                        <option value="0">Não Informado</option>
+                        <option value="2">Masculino</option>
+                        <option value="1">Feminino</option>                       
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="opcional">Opcional</label>                    
-                    <select name="opcional" class="form-control" ng-model="pedido.IdOpcional" >
-                        <option value="" ng-repeat="opcional in opcionais">{{opcional.Nome}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="data-publicacao">Dias de Locação</label>                    
-                    <input type="number" class="form-control" name="data-publicacao" ng-model="pedido.DiasAlugado" >
+                    <label>Data de Nascimento</label>                    
+                    <input type="date" class="form-control" ng-model="cliente.DataNascimento">
                 </div>
                 <div class="form-group text-right">
-                    <button type="submit" class="btn btn-lg btn-primary" ng-if="operacao == 1">Criar</button>
-                    <button type="submit" class="btn btn-lg btn-warning" ng-if="operacao == 2">Editar</button>
+                    <button type="submit" class="btn btn-lg btn-primary">Cadastrar</button>
+                    <!--<button type="submit" class="btn btn-lg btn-primary" ng-if="operacao == 1">Criar</button>
+                    <button type="submit" class="btn btn-lg btn-warning" ng-if="operacao == 2">Editar</button>-->
                 </div>
             </form>
         </div>

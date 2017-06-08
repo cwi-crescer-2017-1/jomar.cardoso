@@ -1,15 +1,15 @@
-biblioteca.factory('crudService', function (authConfig, $http, $location) {
+biblioteca.factory('clienteService', function (authConfig, $http, $location) {
 
     let urlclientes = authConfig.urlclientes
 
     function cadastrar(cliente){
         return $http({
-            url: urlclientes,
+            url: urlclientes+'/registrar',
             method: 'POST',
             data: cliente
         })
     }
-    
+
     return {
         cadastrar: cadastrar
     }
