@@ -9,7 +9,7 @@ biblioteca.factory('crudService', function (authConfig, $http, $location) {
 
     function criar(pedido) {
         return $http({
-            url: urlpedidos,
+            url: urlpedidos+'/registrar',
             method: 'POST',
             data: pedido
         })

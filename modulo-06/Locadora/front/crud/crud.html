@@ -14,30 +14,29 @@
                     </div>      
                 </div>  
             </form>
-            <form novalidate name="novoPedido" ng-submit="criar(pedido)">        
+            <form novalidate name="novoPedido" ng-submit="criar(pedido)">  
                 <div class="row">
                     <div class="form-group col-md-3 col-sm-3">
                         <label for="cliente">CPF do Cliente</label>
-                        <input type="text" class="form-control" name="cliente" ng-model="pedido.CpfCliente" placeholder="obrigatório">
+                        <input type="text" class="form-control" name="cliente" ng-model="cliente.CpfCliente" placeholder="obrigatório">
                     </div>                
                     <div class="form-group col-md-2 col-sm-2">
-                        <button class="btn btn-default text-right"  ng-click="buscarCliente(pedido.CpfCliente)" style="margin-top: 25px">Buscar</button>
+                        <button type="button" class="btn btn-default text-right"  ng-click="buscarCliente(cliente.CpfCliente)" style="margin-top: 25px">Buscar</button>
                     </div>
                     <div style="margin-top: 28px; font-weight: bold; font-size: 17px" class="col-md-7 text-center col-sm-7">
                         <p>{{cliente.Nome}}</p>
                     </div> 
                 </div>
-
                 <div class="form-group">
                     <label for="produto">Produto</label>                    
-                    <select name="produto" class="form-control" ng-model="pedido.IdProduto" >
-                        <option value="" ng-repeat="produto in produtos">{{produto.Nome}}</option>
+                    <select name="produto" class="form-control"  >
+                        <option value="" ng-repeat="produto in produtos" ng-model="pedido.IdProduto">{{produto.Nome}}</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="pacote">Opcional</label>                    
-                    <select name="pacote" class="form-control" ng-model="pedido.IdPacote" >
-                        <option value="" ng-repeat="pacote in pacotes">{{pacote.Nome}}</option>
+                    <label for="pacote">Pacote</label>                    
+                    <select name="pacote" class="form-control" ng-options="pacote as pacote.Nome for pacote in pacotes"
+                        ng-model="pacote.Id">                       
                     </select>
                 </div>
                 <div class="form-group">

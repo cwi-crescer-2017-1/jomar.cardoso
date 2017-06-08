@@ -35,7 +35,7 @@ namespace Locadora.Api.Controllers
             if (cliente == null)
                 return ResponderErro("Cliente não encontrado.");
 
-            return ResponderOK(new { cliente.Nome, cliente.Cpf, cliente.DataNascimento, cliente.Endereco, cliente.Genero });
+            return ResponderOK(new { cliente.Id, cliente.Nome, cliente.Cpf, cliente.DataNascimento, cliente.Endereco, cliente.Genero });
         }
 
         [HttpGet, Route("cpf/{cpf}")]
@@ -45,7 +45,7 @@ namespace Locadora.Api.Controllers
             if (cliente == null)
                 return ResponderErro("Cliente não encontrado.");
 
-            return ResponderOK(new { cliente.Nome, cliente.Cpf, cliente.DataNascimento, cliente.Endereco, cliente.Genero });
+            return ResponderOK(new { cliente.Id, cliente.Nome, cliente.Cpf, cliente.DataNascimento, cliente.Endereco, cliente.Genero });
         }
 
         [HttpGet, Route("{id:int}/locacoes")]
