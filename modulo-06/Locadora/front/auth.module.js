@@ -16,8 +16,7 @@ angular.module('auth').factory('authService', function (authConfig, $http, $q, $
   let urlUsuario = authConfig.urlUsuario;
   let urlLogin = authConfig.urlLogin;
   let urlPrivado = authConfig.urlPrivado;
-  let urlLogout = authConfig.urlLogout;
-
+  let urlLogout = authConfig.urlLogout; 
 
   // LOGIN - Retorna PROMISE com o response (sucesso ou erro)
   function login(usuario) {
@@ -88,7 +87,8 @@ angular.module('auth').factory('authService', function (authConfig, $http, $q, $
 
   function possuiPermissao(permissao) {
     return isAutenticado() &&
-      getUsuario().Permissoes.find((p) => p.Nome === permissao);
+      //getUsuario().Permissoes.find((p) => p.Nome === permissao);
+      getUsuario().Gerente === true;
   };
 
 

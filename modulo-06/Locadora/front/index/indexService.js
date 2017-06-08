@@ -1,13 +1,13 @@
 biblioteca.factory('indexService', function($http, $location, authConfig){
 
-    let urlLivros = authConfig.urlLivros
+    let urlpedidos = authConfig.urlpedidos
   
 
-    function livroDetalhado (isbn) {
+    function pedidoDetalhado (isbn) {
         $location.path('/detalhado'+'/'+isbn)
     }
 
     return {
-        livroDetalhado: livroDetalhado
+        pedidoDetalhado: pedidoDetalhado
     }
 })

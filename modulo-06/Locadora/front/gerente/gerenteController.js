@@ -1,5 +1,5 @@
 biblioteca.controller('gerenteController', function($scope, authService, gerenteService){
-    $scope.livrosNaoRevisados
+    $scope.pedidosNaoRevisados
     $scope.buscarNaoRevisados = buscarNaoRevisados
 
     buscarNaoRevisados()
@@ -7,7 +7,7 @@ biblioteca.controller('gerenteController', function($scope, authService, gerente
         gerenteService.buscarNaoRevisados()
         .then(response => {
             console.log(response.data)
-            $scope.livrosNaoRevisados = response.data
+            $scope.pedidosNaoRevisados = response.data
         })
     }
 

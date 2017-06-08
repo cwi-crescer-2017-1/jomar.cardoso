@@ -1,9 +1,9 @@
 biblioteca.factory('gerenteService', function($http, $location, authConfig){
 
-    let urlLivros = authConfig.urlLivros
+    let urlpedidos = authConfig.urlpedidos
   
     function buscarNaoRevisados() {
-        return $http.get(urlLivros+"/naopublicados")
+        return $http.get(urlpedidos+"/naopublicados")
     }
 
 

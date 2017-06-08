@@ -10,7 +10,7 @@ namespace Locadora.Infraestrutura.Repositorios
     public abstract class ItemRepositorio : IDisposable
     {
         public Contexto contexto = new Contexto();
-        abstract public  List<Item> Obter();
+        abstract public  List<dynamic> Obter();
         abstract public Item Obter(int id);
         public void Dispose()
         {

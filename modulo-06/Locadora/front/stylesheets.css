@@ -15,15 +15,15 @@ a {
     
 }
 
-.livros-em-destaque {
+.pedidos-em-destaque {
     background-color: #FF6347;
     margin-bottom: 15px;
 }
 
-.livros-em-destaque > .livros-em-destaque-col{
+.pedidos-em-destaque > .pedidos-em-destaque-col{
     padding: 10px 50px;
 }
-.livros-em-destaque .livro-destaque {    
+.pedidos-em-destaque .pedido-destaque {    
     width: 13.5%;
     float: left;
     margin: 4px;
@@ -31,7 +31,7 @@ a {
     background-color: white;
 }
 
-.livros-em-destaque .livro-destaque .capa-livro{
+.pedidos-em-destaque .pedido-destaque .capa-pedido{
     height: 170px;
     border: 1px solid #ccc;
     overflow: hidden;    
@@ -50,7 +50,7 @@ a {
         font-size: 24px;
 }
 
-.livros-em-destaque .capa-livro img {
+.pedidos-em-destaque .capa-pedido img {
     width: 100%;
     z-index: 2;
 }
@@ -61,8 +61,8 @@ a {
     background-color: #B22222;
 }
 .banner h1 {
-    margin-top: 35px;
-    font-size: 30px;
+    margin-top: 30px;
+    font-size: 36px;
     font-family: 'Barrio', cursive;
     color: black;
 }
@@ -76,36 +76,36 @@ a {
     transform: scaleX(-1);
 }
 
-.livros-publicados {
+.pedidos-publicados {
 
 }
 
-.livros-publicados .livro {
+.pedidos-publicados .pedido {
     padding: 6px;
 }
 
-.livros-publicados .livro > div {
+.pedidos-publicados .pedido > div {
     border: 1px solid #ddd;
     background-color: white;
     padding: 6px;
     height: 430px;
 }
 
-.livros-publicados .livro .livro-capa {
+.pedidos-publicados .pedido .pedido-capa {
     border: 1px solid #aaa;
     overflow: hidden;
     height: 300px;
 }
 
-.livros-publicados .livro .livro-capa img{
+.pedidos-publicados .pedido .pedido-capa img{
     width: 100%;
 }
 
-.livros-publicados .livro .livro-dados {
+.pedidos-publicados .pedido .pedido-dados {
 
 }
 
-.livros-publicados .livro .livro-dados span{
+.pedidos-publicados .pedido .pedido-dados span{
     font-weight: 700;
 }
 

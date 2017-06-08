@@ -14,9 +14,14 @@ namespace Locadora.Infraestrutura.Repositorios
             return contexto.Opcional.Where(x => x.Id == id).FirstOrDefault();
         }
 
-        public override List<Item> Obter()
+        public override List<dynamic> Obter()
         {
-            return contexto.Opcional.ToList<Item>();
+            return contexto.Opcional
+                .Select(x => new {
+                    Id = x.Id,
+                    Nome = x.Nome
+                })
+                .ToList<dynamic>();
         }
     }
 }

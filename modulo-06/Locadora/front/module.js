@@ -11,13 +11,26 @@ angular.module('biblioteca').constant('authConfig', {
     urlLogin: '/login',
 
     // Opcional - URL da aplicação para onde será redirecionado (se for informado) após o LOGIN com sucesso
-    urlPrivado: '/login',
+    urlPrivado: '/menu',
 
     // Opcional - URL da aplicação para onde será redirecionado (se for informado) após o LOGOUT
     urlLogout: '/login',
 
-    // Url para livros
-    urlLivros: 'http://localhost:54896/api/livros'
+    //Url para pedidos
+    urlpedidos: 'http://localhost:63124/api/pedidos',
+
+    //Url para produtos
+    urlprodutos: 'http://localhost:63124/api/produtos',
+
+    //Url para produtos
+    urlpacotes: 'http://localhost:63124/api/pacotes',
+
+    //Url para produtos
+    urlopcionais: 'http://localhost:63124/api/opcionais',
+
+    //Url para clientes
+    urlclientes: 'http://localhost:63124/api/clientes'
+
 });
 
 

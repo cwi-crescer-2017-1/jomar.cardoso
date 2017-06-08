@@ -4,24 +4,33 @@ biblioteca.config(function($routeProvider){
         controller: 'loginController',
         templateUrl: 'login/login.html'
     })
-    // .when('/menu', {
-    //     controller: 'menuController',
-    //     templateUrl: 'menu/menu.html',
-    //     resolve: {
-    //         autenticado: function (authService) {
-    //             return authService.isAutenticadoPromise()
-    //         }
-    //     }
-    // })
-    // .when('/crud/:operacao', {
-    //     controller: 'crudController',
-    //     templateUrl: 'crud/crud.html',
-    //     resolve: {
-    //         autenticado: function (authService) {
-    //             return authService.isAutenticadoPromise()
-    //         }
-    //     }
-    // })
+    .when('/menu', {
+        controller: 'menuController',
+        templateUrl: 'menu/menu.html',
+        resolve: {
+            autenticado: function (authService) {
+                return authService.isAutenticadoPromise()
+            }
+        }
+    })
+    .when('/crud/:operacao', {
+        controller: 'crudController',
+        templateUrl: 'crud/crud.html',
+        resolve: {
+            autenticado: function (authService) {
+                return authService.isAutenticadoPromise()
+            }
+        }
+    })
+    .when('/cliente', {
+        controller: 'clienteController',
+        templateUrl: 'cliente/cliente.html',
+        resolve: {
+            autenticado: function (authService) {
+                return authService.isAutenticadoPromise()
+            }
+        }
+    })
     // .when('/gerente', {
     //     controller: 'gerenteController',
     //     templateUrl: 'gerente/gerente.html',
@@ -32,6 +41,6 @@ biblioteca.config(function($routeProvider){
     //     }
     // })
     .otherwise({
-        redirectTo: '/login'
+        redirectTo: '/menu'
     })
 })

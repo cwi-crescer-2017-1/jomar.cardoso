@@ -11,7 +11,7 @@ namespace Locadora
         public static void Register(HttpConfiguration config)
         {
             // Serviços e configuração da API da Web
-            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));            // Rotas da API da Web
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(

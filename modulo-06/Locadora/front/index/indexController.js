@@ -1,13 +1,13 @@
 angular.module('biblioteca').controller('indexController', function ($scope, authService, indexService) {
     $scope.usuarioLogado = authService.isAutenticado()
     $scope.usuarioPublicador = authService.possuiPermissao('Publicador')
-    $scope.usuarioRevisor = authService.possuiPermissao('Revisor')
+    $scope.usuarioGerente = authService.possuiPermissao('Gerente')
 
     $scope.usuarioLogado = authService.isAutenticado()
     $scope.nomeIndexLogado
     $scope.logout = logout 
     $scope.verificarLogin = verificarLogin
-    $scope.livroDetalhado = livroDetalhado
+    $scope.pedidoDetalhado = pedidoDetalhado
     authService.isAutenticado()
 
     verificarLogin()
@@ -17,8 +17,7 @@ angular.module('biblioteca').controller('indexController', function ($scope, aut
         if (usuarioLogado) {
             $scope.nomeIndexLogado = authService.getUsuario().Nome
         }
-        $scope.usuarioPublicador = authService.possuiPermissao('Publicador')
-        $scope.usuarioRevisor = authService.possuiPermissao('Revisor')
+        $scope.usuarioGerente = authService.possuiPermissao('Gerente')
 
     }
     function logout() {
@@ -27,7 +26,7 @@ angular.module('biblioteca').controller('indexController', function ($scope, aut
         verificarLogin()
     }
     
-    function livroDetalhado(isbn) {
-        indexService.livroDetalhado(isbn)
+    function pedidoDetalhado(isbn) {
+        indexService.pedidoDetalhado(isbn)
     }
 });

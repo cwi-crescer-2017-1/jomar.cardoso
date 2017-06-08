@@ -38,7 +38,7 @@ namespace Locadora.Api.Controllers
             return ResponderOK(new { cliente.Nome, cliente.Cpf, cliente.DataNascimento, cliente.Endereco, cliente.Genero });
         }
 
-        [HttpGet, Route("{cpf}")]
+        [HttpGet, Route("cpf/{cpf}")]
         public HttpResponseMessage ObterCpf(string cpf)
         {
             var cliente = clienteRepositorio.ObterCpf(cpf);

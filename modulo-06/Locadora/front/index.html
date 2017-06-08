@@ -13,30 +13,30 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="banner row">
-            <div class="col-md-12">
-                <div class="col-md-4">
-                    <a href="#!/"><h1 class="text-right">LOCADORA CRESCER</h1></a>
-                </div>
-                <div class="titulo-pagina col-md-4">
-                </div>
-                <div class="col-md-2 usuarioLogado text-center" ng-show="usuarioLogado">                    
-                    <div class="user col-md-4"></div>
-                    <div class="col-md-8">
-                        <a href="#!/menu">Olá {{nomeIndexLogado}}
-                        <div><span>Bem vindo</span> </div></a>                                           
-                        <a href="#!/" ng-click="logout()"><p class="text-right">Sair</p></a>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-3 col-md-offset-3 col-sm-8 col-sm-offset-1">
+                                <a href="#!/menu"><h1 class="">LOCADORA CRESCER</h1></a>
+                            </div>
+                            <div class=" usuarioLogado text-center col-md-offset-1 col-md-2  col-sm-3" ng-show="usuarioLogado">                    
+                                <div class="user col-md-4 col-sm-4"></div>
+                                <div class="col-md-8">
+                                    <a href="#!/menu">Olá {{nomeIndexLogado}}
+                                    <div><span>Bem vindo</span> </div></a>                                           
+                                    <a href="#!/" ng-click="logout()"><p class="text-right">Sair</p></a>
+                                </div>
+                            </div>
+                            <div class="col-md-2 usuarioLogado text-center" ng-show="!usuarioLogado">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <a href="#!/login">
+                                        <div><span>Olá</span> </div>                                           
+                                        <p>Entre ou Cadastre-se</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-2 usuarioLogado text-center" ng-show="!usuarioLogado">
-                    <div class="col-md-8 col-md-offset-2">
-                        <a href="#!/login">
-                            <div><span>Olá</span> </div>                                           
-                            <p>Entre ou Cadastre-se</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
             </div>
         </div>
         <div class="row">
@@ -78,5 +78,7 @@
     <script src="crud/crudController.js"></script>
     <script src="gerente/gerenteService.js"></script>
     <script src="gerente/gerenteController.js"></script>    
+    <script src="cliente/clienteService.js"></script>
+    <script src="cliente/clienteController.js"></script>
 </body>
 </html>
