@@ -1,4 +1,4 @@
-biblioteca.factory('crudService', function (authConfig, $http, $location) {
+biblioteca.factory('crudService', function (authConfig, $http, $location, validarService) {
 
     let urlpedidos = authConfig.urlpedidos
     let urlprodutos = authConfig.urlprodutos
@@ -66,43 +66,27 @@ biblioteca.factory('crudService', function (authConfig, $http, $location) {
         })
     }    
 
-
-    function verificarSubmit(novoPedido){
+    function validarFormularioPedido(form) {
         let valido = true
         let diasAlugadoInvalido = false
         let produtoInvalido = false
         let cpfInvalido = false
-        if (!novoPedido.cliente.$valid) {
+        if (!form.cliente.$valid) {
             valido = false
             cpfInvalido = true
         }
-        if (!novoPedido.produto.$valid) {
+        if (!form.produto.$valid) {
             valido = false
             produtoInvalido = true
         }
-        if (!novoPedido.diasAlugado.$valid) {
+        if (!form.diasAlugado.$valid) {
             valido = false
             diasAlugadoInvalido = true
         }
-
-
-        // //verificar se tem erro no campo requerido
-        // if(novoPedido.$error.required) {
-        // campoRequerido = true;
-        // }
-        // //verificar se tem erro no tamanho mínimo
-        // if(novoPedido.$error.minlength) {
-        // tamanhoMinimoInvalido = true;
-        // }
-        // //verificar se tem erro no tamanho máximo
-        // if(novoPedido.$error.maxlength) {
-        // tamanhoMaximoInvalido = true;
-        // }
-        //errosForm = {tamanhoMaximoInvalido, tamanhoMininoInvalido, campoRequerido}
-
         let errosForm = {valido, cpfInvalido, produtoInvalido, diasAlugadoInvalido}
         console.log(errosForm)
         return errosForm
+    
     }
 
     return {
@@ -114,7 +98,7 @@ biblioteca.factory('crudService', function (authConfig, $http, $location) {
         buscarOpcionais: buscarOpcionais,
         buscarCliente: buscarCliente,
         calcular: calcular,
-        verificarSubmit: verificarSubmit
+        validarFormularioPedido: validarFormularioPedido
     }
 })
 

@@ -18,9 +18,17 @@ namespace Locadora.Infraestrutura.Repositorios
             return contexto.Produto
                 .Select(x => new {
                     Id = x.Id,
-                    Nome = x.Nome
+                    Nome = x.Nome,
+                    Valor = x.Valor
                 })
                 .ToList<dynamic>();
+        }
+        public Produto RemoverEstoque(Produto item)
+        {
+            item.retirar();
+            contexto.Entry(item).State = System.Data.Entity.EntityState.Modified;
+            contexto.SaveChanges();
+            return item;
         }
     }
 }

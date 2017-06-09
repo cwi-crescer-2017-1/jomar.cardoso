@@ -12,6 +12,7 @@ namespace Locadora.Infraestrutura.Repositorios
         public Contexto contexto = new Contexto();
         abstract public  List<dynamic> Obter();
         abstract public Item Obter(int id);
+        //abstract public Item RemoverEstoque(Item item);
         public void Dispose()
         {
             ((IDisposable)contexto).Dispose();

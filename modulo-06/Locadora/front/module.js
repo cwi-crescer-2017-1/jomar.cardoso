@@ -1,4 +1,4 @@
-var biblioteca = angular.module('biblioteca', ['ngRoute', 'auth']);
+var biblioteca = angular.module('biblioteca', ['ngRoute', 'auth', 'validar']);
 
 // Configurações utilizadas pelo módulo de autenticação (authService)
 angular.module('biblioteca').constant('authConfig', {

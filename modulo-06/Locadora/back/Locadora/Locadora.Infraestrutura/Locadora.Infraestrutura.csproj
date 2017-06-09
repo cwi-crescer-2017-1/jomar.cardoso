@@ -70,17 +70,9 @@
     <Compile Include="Mapping\PedidoOpcionalMap.cs" />
     <Compile Include="Mapping\ProdutoMap.cs" />
     <Compile Include="Mapping\UsuarioMap.cs" />
-    <Compile Include="Migrations\201706071856066_criarTodasTabelas.cs" />
-    <Compile Include="Migrations\201706071856066_criarTodasTabelas.Designer.cs">
-      <DependentUpon>201706071856066_criarTodasTabelas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706071901262_ajudarTamanhosDescricoes.cs" />
-    <Compile Include="Migrations\201706071901262_ajudarTamanhosDescricoes.Designer.cs">
-      <DependentUpon>201706071901262_ajudarTamanhosDescricoes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706071948407_ajusteopcional.cs" />
-    <Compile Include="Migrations\201706071948407_ajusteopcional.Designer.cs">
-      <DependentUpon>201706071948407_ajusteopcional.cs</DependentUpon>
+    <Compile Include="Migrations\201706091758072_criarTabelas.cs" />
+    <Compile Include="Migrations\201706091758072_criarTabelas.Designer.cs">
+      <DependentUpon>201706091758072_criarTabelas.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -103,14 +95,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706071856066_criarTodasTabelas.resx">
-      <DependentUpon>201706071856066_criarTodasTabelas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706071901262_ajudarTamanhosDescricoes.resx">
-      <DependentUpon>201706071901262_ajudarTamanhosDescricoes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706071948407_ajusteopcional.resx">
-      <DependentUpon>201706071948407_ajusteopcional.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706091758072_criarTabelas.resx">
+      <DependentUpon>201706091758072_criarTabelas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -3,7 +3,7 @@ namespace Locadora.Infraestrutura.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class criarTodasTabelas : DbMigration
+    public partial class criarTabelas : DbMigration
     {
         public override void Up()
         {
@@ -27,7 +27,22 @@ namespace Locadora.Infraestrutura.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Nome = c.String(maxLength: 50),
                         Valor = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        Descricao = c.String(maxLength: 50),
+                        Descricao = c.String(maxLength: 511),
+                        quantidade = c.Int(nullable: false),
+                        quantidadeDisponivel = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Pacote",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Nome = c.String(maxLength: 50),
+                        Valor = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Descricao = c.String(maxLength: 511),
+                        quantidade = c.Int(nullable: false),
+                        quantidadeDisponivel = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -54,24 +69,15 @@ namespace Locadora.Infraestrutura.Migrations
                 .Index(t => t.IdProduto);
             
             CreateTable(
-                "dbo.Pacote",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Nome = c.String(maxLength: 50),
-                        Valor = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        Descricao = c.String(maxLength: 511),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
                 "dbo.Produto",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Nome = c.String(maxLength: 50),
                         Valor = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        Descricao = c.String(maxLength: 50),
+                        Descricao = c.String(maxLength: 511),
+                        quantidade = c.Int(nullable: false),
+                        quantidadeDisponivel = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -88,17 +94,17 @@ namespace Locadora.Infraestrutura.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.PedidoOpcionals",
+                "dbo.PedidoOpcional",
                 c => new
                     {
-                        Pedido_Id = c.Int(nullable: false),
-                        Opcional_Id = c.Int(nullable: false),
+                        IdPedido = c.Int(nullable: false),
+                        IdOpcional = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.Pedido_Id, t.Opcional_Id })
-                .ForeignKey("dbo.Pedido", t => t.Pedido_Id, cascadeDelete: true)
-                .ForeignKey("dbo.Opcional", t => t.Opcional_Id, cascadeDelete: true)
-                .Index(t => t.Pedido_Id)
-                .Index(t => t.Opcional_Id);
+                .PrimaryKey(t => new { t.IdPedido, t.IdOpcional })
+                .ForeignKey("dbo.Pedido", t => t.IdPedido, cascadeDelete: true)
+                .ForeignKey("dbo.Opcional", t => t.IdOpcional, cascadeDelete: true)
+                .Index(t => t.IdPedido)
+                .Index(t => t.IdOpcional);
             
         }
         
@@ -106,19 +112,19 @@ namespace Locadora.Infraestrutura.Migrations
         {
             DropForeignKey("dbo.Pedido", "IdProduto", "dbo.Produto");
             DropForeignKey("dbo.Pedido", "IdPacote", "dbo.Pacote");
-            DropForeignKey("dbo.PedidoOpcionals", "Opcional_Id", "dbo.Opcional");
-            DropForeignKey("dbo.PedidoOpcionals", "Pedido_Id", "dbo.Pedido");
+            DropForeignKey("dbo.PedidoOpcional", "IdOpcional", "dbo.Opcional");
+            DropForeignKey("dbo.PedidoOpcional", "IdPedido", "dbo.Pedido");
             DropForeignKey("dbo.Pedido", "IdCliente", "dbo.Cliente");
-            DropIndex("dbo.PedidoOpcionals", new[] { "Opcional_Id" });
-            DropIndex("dbo.PedidoOpcionals", new[] { "Pedido_Id" });
+            DropIndex("dbo.PedidoOpcional", new[] { "IdOpcional" });
+            DropIndex("dbo.PedidoOpcional", new[] { "IdPedido" });
             DropIndex("dbo.Pedido", new[] { "IdProduto" });
             DropIndex("dbo.Pedido", new[] { "IdPacote" });
             DropIndex("dbo.Pedido", new[] { "IdCliente" });
-            DropTable("dbo.PedidoOpcionals");
+            DropTable("dbo.PedidoOpcional");
             DropTable("dbo.Usuario");
             DropTable("dbo.Produto");
-            DropTable("dbo.Pacote");
             DropTable("dbo.Pedido");
+            DropTable("dbo.Pacote");
             DropTable("dbo.Opcional");
             DropTable("dbo.Cliente");
         }

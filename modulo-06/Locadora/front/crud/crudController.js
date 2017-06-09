@@ -1,4 +1,4 @@
-biblioteca.controller('crudController', function($scope, $routeParams, authService, crudService, $location){
+biblioteca.controller('crudController', function($scope, $routeParams, authService, crudService, $location, validarService){
     $scope.operacao = $routeParams.operacao;
     $scope.usuarioLogado = authService.isAutenticado()
     $scope.usuarioGerente = authService.possuiPermissao('Gerente')
@@ -17,6 +17,7 @@ biblioteca.controller('crudController', function($scope, $routeParams, authServi
     $scope.cpfInvalido = false
     $scope.produtoInvalido = false
     $scope.diasAlugadoInvalido = false
+    $scope.erroCritico = false
 
     $scope.criar = criar
     $scope.buscar = buscar
@@ -77,6 +78,19 @@ biblioteca.controller('crudController', function($scope, $routeParams, authServi
     }
 
     function criar(pedido) {
+        novoPedido = $scope.novoPedido
+        if (!validar(novoPedido)) {
+            return
+        }
+        $scope.sucesso = false;
+        pedido.IdProduto = $scope.produto.Id
+        if($scope.pacote !== undefined && $scope.pacote !== null) {
+            pedido.IdPacote = $scope.pacote.Id
+        }        
+        if($scope.listaOpcionais !== undefined && $scope.listaOpcionais !== null) {
+            console.log($scope.listaOpcionais.map(x => x.Id))
+            pedido.IdOpcional = $scope.listaOpcionais.map(x => x.Id)
+        }
         $scope.valor = false;
         pedido.IdProduto = $scope.produto.Id
         pedido.IdPacote = $scope.pacote.Id
@@ -95,7 +109,7 @@ biblioteca.controller('crudController', function($scope, $routeParams, authServi
                 zerarProduto()
                 zerarOpcional()
             }
-        }     )
+        })
     }
 
     function calcular(pedido) {
@@ -120,12 +134,16 @@ biblioteca.controller('crudController', function($scope, $routeParams, authServi
                 $scope.pedido.valor = response.data.dados.Valor
                 $scope.valor = true;
             }
+        }, response => {
+            $scope.erroCritico = true
+            //await sleep(2000)
+            $location.path('/menu')
         })       
     }
 
     function validar(novoPedido) {
         console.log(novoPedido)
-        let validacoes = crudService.verificarSubmit(novoPedido)
+        let validacoes = crudService.validarFormularioPedido(novoPedido)
         $scope.cpfInvalido = validacoes.cpfInvalido
         $scope.produtoInvalido = validacoes.produtoInvalido
         $scope.diasAlugadoInvalido = validacoes.diasAlugadoInvalido

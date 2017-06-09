@@ -19,9 +19,21 @@ namespace Locadora.Infraestrutura.Repositorios
             return contexto.Pacote
                 .Select(x => new {
                     Id = x.Id,
-                    Nome = x.Nome
+                    Nome = x.Nome,
+                    Valor = x.Valor,
+                    QuantidadeDisponivel = x.QuantidadeDisponivel,
+                    Quantidade = x.Quantidade
                 })
+                .Where(x => x.QuantidadeDisponivel > 0)
+                .Where(x => x.Quantidade > 0)
                 .ToList<dynamic>();
+        }
+        public Pacote RemoverEstoque(Pacote item)
+        {
+            item.retirar();
+            contexto.Entry(item).State = System.Data.Entity.EntityState.Modified;
+            contexto.SaveChanges();
+            return item;
         }
     }
 }

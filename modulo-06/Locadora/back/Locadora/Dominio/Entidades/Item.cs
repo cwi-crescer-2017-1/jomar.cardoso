@@ -12,6 +12,12 @@ namespace Locadora.Dominio.Entidades
         public string Nome { get; private set; }
         public decimal Valor { get; private set; }
         public string Descricao { get; private set; }
-        //public string urlFoto { get; private set; }
+        public int Quantidade { get; private set; }
+        public int QuantidadeDisponivel { get; private set; }
+
+        public void retirar()
+        {
+            QuantidadeDisponivel -= 1;
+        }
     }
 }
