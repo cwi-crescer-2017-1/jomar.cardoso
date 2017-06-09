@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+        <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
             <h2 class="text-center" ng-if="operacao == 1">Cadastrar pedido</h2>
             <h2 class="text-center" ng-if="operacao == 2">Editar pedido</h2>
             <form novalidate ng-if="operacao == 2">
@@ -16,44 +16,61 @@
             </form>
             <form novalidate name="novoPedido" ng-submit="criar(pedido)">  
                 <div class="row">
-                    <div class="form-group col-md-3 col-sm-3">
-                        <label for="cliente">CPF do Cliente</label>
-                        <input type="text" class="form-control" name="cliente" ng-model="cliente.CpfCliente" placeholder="obrigatório">
-                    </div>                
-                    <div class="form-group col-md-2 col-sm-2">
-                        <button type="button" class="btn btn-default text-right"  ng-click="buscarCliente(cliente.CpfCliente)" style="margin-top: 25px">Buscar</button>
+                    <div class="col-md-12 col-sm-12">
+                        <div class="form-group col-md-3 col-sm-3">
+                            <label for="cliente">CPF do Cliente</label>
+                            <input type="text" class="form-control" name="cliente" ng-model="cliente.CpfCliente" placeholder="obrigatório">
+                        </div>                
+                        <div class="form-group col-md-2 col-sm-2">
+                            <button type="button" class="btn btn-default text-right"  ng-click="buscarCliente(cliente.CpfCliente)" style="margin-top: 25px">Buscar</button>
+                        </div>
+                        <div style="margin-top: 28px; font-weight: bold; font-size: 17px" class="col-md-7 text-center col-sm-7">
+                            <p>{{cliente.Nome}}</p>
+                        </div> 
                     </div>
-                    <div style="margin-top: 28px; font-weight: bold; font-size: 17px" class="col-md-7 text-center col-sm-7">
-                        <p>{{cliente.Nome}}</p>
-                    </div> 
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-12 col-sm-12">
                     <label for="produto">Produto</label>                    
-                    <select name="produto" class="form-control"  >
-                        <option value="" ng-repeat="produto in produtos" ng-model="pedido.IdProduto">{{produto.Nome}}</option>
+                    <select name="produto" class="form-control" ng-options="produto as produto.Nome for produto in produtos"
+                        ng-model="produto" required>                       
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="pacote">Pacote</label>                    
-                    <select name="pacote" class="form-control" ng-options="pacote as pacote.Nome for pacote in pacotes"
-                        ng-model="pacote.Id">                       
-                    </select>
+                <div class="form-group col-md-11 col-sm-11">
+                    <label for="pacote">Pacote</label> 
+                        <select name="pacote" class="form-control" ng-options="pacote as pacote.Nome for pacote in pacotes"
+                            ng-model="pacote">                       
+                    </select>  
                 </div>
-                <div class="form-group">
+                <div class="col-md-1 col-sm-1">  
+                    <button type="button" class="btn btn-danger" style="margin-top: 25px" ng-click="zerarPacote()">X</button>
+                </div>
+                <div class="form-group col-md-11 col-sm-11">
                     <label for="opcional">Opcional</label>                    
-                    <select name="opcional" class="form-control" ng-model="pedido.IdOpcional" >
-                        <option value="" ng-repeat="opcional in opcionais">{{opcional.Nome}}</option>
+                    <select name="opcional" class="form-control" ng-options="opcional as opcional.Nome for opcional in opcionais"
+                        ng-model="opcional">                       
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="data-publicacao">Dias de Locação</label>                    
-                    <input type="number" class="form-control" name="data-publicacao" ng-model="pedido.DiasAlugado" >
+                <div class="col-md-1 col-sm-1">  
+                    <button type="button" class="btn btn-danger" style="margin-top: 25px" ng-click="zerarOpcional()">X</button>
                 </div>
-                <div class="form-group text-right">
-                    <button type="submit" class="btn btn-lg btn-primary" ng-if="operacao == 1">Criar</button>
-                    <button type="submit" class="btn btn-lg btn-warning" ng-if="operacao == 2">Editar</button>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="form-group col-md-3 col-sm-3">
+                            <label for="data-publicacao">Dias de Locação</label>                    
+                            <input type="number" class="form-control" name="data-publicacao" ng-model="pedido.DiasAlugado" >
+                        </div>                
+                        <div class="col-md-6 col-sm-6 text-center" style="margin-top: 27px">
+                            <p ng-show="sucesso">Pedido Cadastrado com Sucesso</p>
+                        </div>
+                        <div class="form-group  col-md-3 col-sm-3 text-right" style="margin-top: 15px">
+                            <button type="submit" class="btn btn-lg btn-primary" ng-if="operacao == 1">Criar</button>
+                            <button type="submit" class="btn btn-lg btn-warning" ng-if="operacao == 2">Editar</button>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+

@@ -3,11 +3,15 @@ biblioteca.controller('crudController', function($scope, $routeParams, authServi
     $scope.usuarioLogado = authService.isAutenticado()
     $scope.usuarioGerente = authService.possuiPermissao('Gerente')
     $scope.buscarCliente = buscarCliente
+    $scope.zerarPacote = zerarPacote
+    $scope.zerarProduto = zerarProduto
+    $scope.zerarOpcional = zerarOpcional
     $scope.pedido = {}
-    $scope.cliente = {}
+    $scope.cliente
     $scope.produtos = []
     $scope.pacotes = []
     $scope.Opcionais = []
+    $scope.sucesso = false;
 
     $scope.criar = criar
     $scope.buscar = buscar
@@ -15,21 +19,23 @@ biblioteca.controller('crudController', function($scope, $routeParams, authServi
     buscarPacotes()
     buscarOpcionais()
 
-    pedido = {
-        //CpfCliente: 'A Tormenta de Espadas - As Crônicas de Gelo e Fogo - Vol. 3,',
-        //IdProduto: 13,
-        //IdPacote: 'Ficção',
-        //IdOpcional: 'https://images.livrariasaraiva.com.br/imagemnet/imagem.aspx/?pro_id=4887923&qld=90&l=550&a=-1&PIM_Id=',
-        //DiasAlugado: new Date(2014,6,7),
-        //Valor: 'TERCEIRO VOLUME DA SAGA MAIS IMPORTANTE DOS ÚLTIMOS TEMPOS Enquanto os Sete Reinos estremecem com a chegada dos temíveis selvagens pela Muralha, numa maré interminável de homens, gigantes e terríveis bestas, Jon Snow, o Bastardo de Winterfell, que se encontra entre eles, divide- se entre sua consciência e o papel que é forçado a desempenhar. Robb Stark, o Jovem Lobo, vence todas as suas batalhas, mas será que ele conseguirá vencer os desafios que não se resolvem apenas com a espada? Arya continua a caminho de Correrrio, mas mesmo alguém tão destemida como ela terá grande dificuldade em ultrapassar os obstáculos que se aproximam. Na corte de Joffrey, em Porto Real, Tyrion luta pela vida, depois de ter sido gravemente ferido na Batalha da Água Negra; e Sansa, livre do compromisso com o homem que agora ocupa o Trono de Ferro, precisa lidar com as consequências de ser a segunda na linha de sucessão de Winterfell, uma vez que Bran e Rickon estariam mortos. No Leste, Daenerys Targaryen navega em direção às terras da sua infância, mas antes ela precisará apor¬tar às desprezíveis cidades dos escravagistas. Mas a menina indefesa agora é uma mulher poderosa. Quem sabe quanto tempo falta para se transformar em uma conquistadora impiedosa?'    
+    pedido = { }
+
+    function zerarPacote() {
+        $scope.pacote = {};
     }
-
-
-
+    function zerarProduto() {
+        $scope.produto = {};
+    }
+    function zerarOpcional() {
+        $scope.opcional = {};
+    }
+        
     function buscarCliente(cpf) {
         crudService.buscarCliente(cpf)
         .then(response => {
             $scope.cliente = response.data.dados
+            $scope.cliente.CpfCliente = cpf
             console.log(response.data.dados)
             $scope.pedido.IdCliente = response.data.dados.Id
         })
@@ -60,12 +66,22 @@ biblioteca.controller('crudController', function($scope, $routeParams, authServi
     }
 
     function criar(pedido) {
+        pedido.IdProduto = $scope.produto.Id
+        pedido.IdPacote = $scope.pacote.Id
+        pedido.IdOpcional = $scope.opcional.Id
         operacao = $scope.operacao
        if (operacao == 1) {
             crudService.criar(pedido)
             .then(response => {
                 console.log(response)
-                // $location.path('/detalhado'+'/'+response.data.Isbn)
+                if(response.status == 200) {
+                    $scope.sucesso = true;
+                    $scope.novoPedido = {}
+                    $scope.pedido = {}
+                    zerarPacote()
+                    zerarProduto()
+                    zerarOpcional()
+                }
             })
        }
        //console.log($scope.pedido)

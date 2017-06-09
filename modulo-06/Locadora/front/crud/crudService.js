@@ -6,7 +6,6 @@ biblioteca.factory('crudService', function (authConfig, $http, $location) {
     let urlopcionais = authConfig.urlopcionais
     let urlclientes = authConfig.urlclientes
 
-
     function criar(pedido) {
         return $http({
             url: urlpedidos+'/registrar',

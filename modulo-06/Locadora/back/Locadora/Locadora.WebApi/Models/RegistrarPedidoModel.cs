@@ -8,10 +8,10 @@ namespace Locadora.Api.Models
 {
     public class RegistrarPedidoModel
     {
-        public Cliente Cliente { get; set; }
-        public Produto Produto { get; set; }
-        public Pacote Pacote { get; set; }
-        public List<Opcional> Opcionais { get; set; }
+        public int IdCliente { get; set; }
+        public int IdProduto { get; set; }
+        public int IdPacote { get; set; }
+        public int IdOpcional { get; set; }
         public int DiasAlugado { get; set; }
     }
 }

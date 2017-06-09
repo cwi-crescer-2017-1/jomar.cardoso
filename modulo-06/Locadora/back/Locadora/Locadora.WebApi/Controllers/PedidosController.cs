@@ -36,7 +36,8 @@ namespace Locadora.Api.Controllers
         [HttpPost, Route("registrar")]
         public HttpResponseMessage Registrar([FromBody]RegistrarPedidoModel model)
         {
-            var pedido = new Pedido(model.Cliente, model.Produto, model.Pacote, model.Opcionais, model.DiasAlugado);
+            var itens = pedidoRepositorio.BuscarItens(model.IdCliente, model.IdProduto, model.IdPacote, model.IdOpcional);
+            var pedido = new Pedido((Cliente)itens[0], (Produto)itens[1], (Pacote)itens[2], new List<Opcional>() { (Opcional)itens[3]}, model.DiasAlugado);
             if (pedido.Validar())
             {
                 List<string> mensagens = null;

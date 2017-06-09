@@ -76,8 +76,39 @@ namespace Locadora.Infraestrutura.Repositorios
         public Pedido Registrar(Pedido pedido)
         {
             contexto.Pedido.Add(pedido);
+            contexto.Entry(pedido.Cliente).State = System.Data.Entity.EntityState.Unchanged;
+            contexto.Entry(pedido.Produto).State = System.Data.Entity.EntityState.Unchanged;
+            if (pedido.Pacote != null)
+            {
+                contexto.Entry(pedido.Pacote).State = System.Data.Entity.EntityState.Modified;
+            }
+            if (pedido.Opcionais != null)
+            {
+                foreach (var produtoOpcional in pedido.Opcionais)
+                {
+                    contexto.Entry(produtoOpcional).State = System.Data.Entity.EntityState.Unchanged;
+                }
+            }
             contexto.SaveChanges();
             return pedido;
         }
+
+        public List<object> BuscarItens(int idCliente, int idProduto, int idPacote, int idOpcional)
+        {
+            var itens = new List<object>();
+            var clienteRepositorio = new ClienteRepositorio();
+            var cliente = clienteRepositorio.Obter(idCliente);
+            itens.Add(cliente);
+            var produtoRepositorio = new ProdutoRepositorio();
+            var produto = produtoRepositorio.Obter(idProduto);
+            itens.Add(produto);
+            var pacoteRepositorio = new PacoteRepositorio();
+            var pacote = pacoteRepositorio.Obter(idPacote);
+            itens.Add(pacote);
+            var opcionalRepositorio = new OpcionalRepositorio();
+            var opcional = opcionalRepositorio.Obter(idOpcional);
+            itens.Add(opcional);
+            return itens;
+        } 
     }
 }

@@ -12,6 +12,7 @@ biblioteca.controller('clienteController', function($scope, authService, cliente
             if(response.status == 200) {
                 $scope.sucesso = true;
                 $scope.novoCliente = {}
+                $scope.cliente = {}
             }
         })
     }
