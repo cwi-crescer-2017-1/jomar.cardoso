@@ -14,11 +14,19 @@ biblioteca.factory('crudService', function (authConfig, $http, $location) {
         })
     }
 
+    function calcular(pedido) {
+        return $http({
+            url: urlpedidos+'/calcular',
+            method: 'POST',
+            data: pedido
+        })
+    }
+
+
     function buscar(Isbn) {
         return $http({
             url: urlpedidos+'/'+ Isbn,
-            method: 'GET',
-            headers: $localStorage.headerAuth
+            method: 'GET'
         })
     }
 
@@ -58,6 +66,45 @@ biblioteca.factory('crudService', function (authConfig, $http, $location) {
         })
     }    
 
+
+    function verificarSubmit(novoPedido){
+        let valido = true
+        let diasAlugadoInvalido = false
+        let produtoInvalido = false
+        let cpfInvalido = false
+        if (!novoPedido.cliente.$valid) {
+            valido = false
+            cpfInvalido = true
+        }
+        if (!novoPedido.produto.$valid) {
+            valido = false
+            produtoInvalido = true
+        }
+        if (!novoPedido.diasAlugado.$valid) {
+            valido = false
+            diasAlugadoInvalido = true
+        }
+
+
+        // //verificar se tem erro no campo requerido
+        // if(novoPedido.$error.required) {
+        // campoRequerido = true;
+        // }
+        // //verificar se tem erro no tamanho mínimo
+        // if(novoPedido.$error.minlength) {
+        // tamanhoMinimoInvalido = true;
+        // }
+        // //verificar se tem erro no tamanho máximo
+        // if(novoPedido.$error.maxlength) {
+        // tamanhoMaximoInvalido = true;
+        // }
+        //errosForm = {tamanhoMaximoInvalido, tamanhoMininoInvalido, campoRequerido}
+
+        let errosForm = {valido, cpfInvalido, produtoInvalido, diasAlugadoInvalido}
+        console.log(errosForm)
+        return errosForm
+    }
+
     return {
         criar: criar,
         buscar: buscar,
@@ -65,7 +112,9 @@ biblioteca.factory('crudService', function (authConfig, $http, $location) {
         buscarProdutos: buscarProdutos,
         buscarPacotes: buscarPacotes,
         buscarOpcionais: buscarOpcionais,
-        buscarCliente: buscarCliente
+        buscarCliente: buscarCliente,
+        calcular: calcular,
+        verificarSubmit: verificarSubmit
     }
 })
 

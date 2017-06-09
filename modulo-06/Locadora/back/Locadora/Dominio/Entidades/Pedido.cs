@@ -26,27 +26,41 @@ namespace Locadora.Dominio.Entidades
 
         public Pedido(Cliente cliente, Produto produto, Pacote pacote, List<Opcional> opcionais, int diasAlugado) 
         {
+            decimal valorPacote = 0;
+            List<decimal> valorOpcionais = new List<decimal>();
+            valorOpcionais.Add(0);
             Cliente = cliente;
             Produto = produto;
-            Pacote = pacote;
-            Opcionais = opcionais;
+            if (pacote != null)
+            {
+                Pacote = pacote;
+                valorPacote = pacote.Valor;
+            } 
+            if (opcionais != null)
+            {
+                Opcionais = opcionais;
+                valorOpcionais = opcionais.Select(x => x.Valor).ToList<decimal>();
+            }
+                
             DataPedido = DateTime.Now;
             DataEntregaPrevista = DataPedido.AddDays(diasAlugado);
-            Valor = CalcularValor(produto, pacote, opcionais, diasAlugado);
+            
+            
+            Valor = CalcularValor(produto, valorPacote, valorOpcionais, diasAlugado);
         }
 
-        public decimal CalcularValor(Produto produto, Pacote pacote, List<Opcional> opcionais, int diasAlugado)
+        public decimal CalcularValor(Produto produto, decimal pacote, List<decimal> opcionais, int diasAlugado)
         {
             return (
                 produto.Valor + 
-                pacote.Valor + 
-                opcionais.Sum(x => x.Valor)
+                pacote + 
+                opcionais.Sum(x => x)
                 ) * diasAlugado;
         }
 
         public decimal CalcularValor(int diasAlugado)
         {
-            return CalcularValor(Produto, Pacote, Opcionais, diasAlugado);
+            return CalcularValor(Produto, Pacote.Valor, Opcionais.Select(x => x.Valor).ToList<decimal>(), diasAlugado);
         }
 
         public override bool Validar()

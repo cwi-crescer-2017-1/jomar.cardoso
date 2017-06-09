@@ -50,17 +50,23 @@ namespace Locadora.Infraestrutura.Repositorios
             {
                 pedido.Mensagens.Add("Produto Inválido");
             }
-            var pacote = new PacoteRepositorio();
-            if (pacote.Obter(pedido.Pacote.Id) == null)
+            if(pedido.Pacote != null)
             {
-                pedido.Mensagens.Add("Pacote Inválido");
-            }
-            var opcional = new OpcionalRepositorio();
-            foreach (var opc in pedido.Opcionais)
-            {
-                if (opcional.Obter(opc.Id) == null)
+                var pacote = new PacoteRepositorio();
+                if (pacote.Obter(pedido.Pacote.Id) == null)
                 {
-                    pedido.Mensagens.Add("Opcionais Inválidos");
+                    pedido.Mensagens.Add("Pacote Inválido");
+                }
+            }
+            if(pedido.Opcionais != null)
+            {
+                var opcional = new OpcionalRepositorio();
+                foreach (var opc in pedido.Opcionais)
+                {
+                    if (opcional.Obter(opc.Id) == null)
+                    {
+                        pedido.Mensagens.Add("Opcionais Inválidos");
+                    }
                 }
             }
             return pedido;
@@ -93,7 +99,7 @@ namespace Locadora.Infraestrutura.Repositorios
             return pedido;
         }
 
-        public List<object> BuscarItens(int idCliente, int idProduto, int idPacote, int idOpcional)
+        public List<object> BuscarItens(int idCliente, int idProduto, int idPacote, int[] idOpcional)
         {
             var itens = new List<object>();
             var clienteRepositorio = new ClienteRepositorio();
@@ -102,12 +108,31 @@ namespace Locadora.Infraestrutura.Repositorios
             var produtoRepositorio = new ProdutoRepositorio();
             var produto = produtoRepositorio.Obter(idProduto);
             itens.Add(produto);
-            var pacoteRepositorio = new PacoteRepositorio();
-            var pacote = pacoteRepositorio.Obter(idPacote);
-            itens.Add(pacote);
-            var opcionalRepositorio = new OpcionalRepositorio();
-            var opcional = opcionalRepositorio.Obter(idOpcional);
-            itens.Add(opcional);
+            if (idPacote != null && idPacote != 0)
+            {
+                var pacoteRepositorio = new PacoteRepositorio();
+                var pacote = pacoteRepositorio.Obter(idPacote);
+                itens.Add(pacote);
+            }
+            else
+            {
+                itens.Add(null);
+            }
+            if (idOpcional != null && idOpcional.Length != 0)
+            {
+                var listaOpcionais = new List<Opcional>();
+                var opcionalRepositorio = new OpcionalRepositorio();
+                for (var i = 0; i < idOpcional.Length; i++)
+                {
+                    var opcional = opcionalRepositorio.Obter(idOpcional[i]);
+                    listaOpcionais.Add((Opcional)opcional);
+                }
+                itens.Add(listaOpcionais);
+            }
+            else
+            {
+                itens.Add(null);
+            }
             return itens;
         } 
     }

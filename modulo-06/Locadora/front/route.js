@@ -22,7 +22,7 @@ biblioteca.config(function($routeProvider){
             }
         }
     })
-    .when('/cliente', {
+    .when('/cliente/:operacao', {
         controller: 'clienteController',
         templateUrl: 'cliente/cliente.html',
         resolve: {

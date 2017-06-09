@@ -1,29 +1,46 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">    
-            <h2 class="text-center" >Cadastrar Cliente</h2>
+        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">    
+            <h2 class="text-center" ng-if="operacao == 1">Cadastrar Cliente</h2>
+            <h2 class="text-center" ng-if="operacao == 2">Editar Cliente</h2>
             <form novalidate name="novoCliente" ng-submit="cadastrar(cliente)">
-                <div class="form-group">
-                    <label>Nome</label>                    
-                    <input type="text" class="form-control" ng-model="cliente.Nome">
-                </div>
-                <div class="form-group">
+
+
+                <div class="form-group form-group col-md-12 col-sm-12" ng-if="operacao == 1">
                     <label>CPF</label>                    
                     <input type="text" class="form-control" ng-model="cliente.Cpf">
                 </div>
-                <div class="form-group">
+
+                <div ng-if="operacao == 2">
+                    
+                    <div class="form-group col-md-4 col-sm-4"  >
+                        <label for="cliente">CPF do Cliente</label>
+                        <input type="text" class="form-control" name="cliente" ng-model="cliente.CpfCliente" placeholder="obrigatório">
+                    </div>                
+                    <div class="form-group col-md-2 col-sm-2">
+                        <button type="button" class="btn btn-default text-right"  ng-click="buscarCliente(cliente.CpfCliente)" style="margin-top: 25px">Buscar</button>
+                    </div>
+
+                </div>
+
+
+                <div class="form-group col-md-12 col-sm-12">
+                    <label>Nome</label>                    
+                    <input type="text" class="form-control" ng-model="cliente.Nome">
+                </div>
+                <div class="form-group col-md-12 col-sm-12">
                     <label>Endereço</label>                    
                     <input type="text" class="form-control" ng-model="cliente.Endereco">
                 </div>
-                <div class="form-group">
-                    <label for="pacote">Sexo</label>                    
-                    <select name="pacote" class="form-control" ng-model="cliente.Genero" >
+                <div class="form-group col-md-12 col-sm-12" ng-if="operacao == 1">
+                    <label for="genero">Sexo</label>                    
+                    <select name="genero" class="form-control" ng-model="cliente.Genero" >
                         <option value="0">Não Informado</option>
                         <option value="2">Masculino</option>
                         <option value="1">Feminino</option>                       
                     </select>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-12 col-sm-12">
                     <label>Data de Nascimento</label>                    
                     <input type="date" class="form-control" ng-model="cliente.DataNascimento">
                 </div>
@@ -31,9 +48,8 @@
                     <p ng-show="sucesso">Cliente Cadastrado com Sucesso</p>
                 </div>
                 <div class="form-group col-md-6 col-sm-6 text-right">
-                    <button type="submit" class="btn btn-lg btn-primary">Cadastrar</button>
-                    <!--<button type="submit" class="btn btn-lg btn-primary" ng-if="operacao == 1">Criar</button>
-                    <button type="submit" class="btn btn-lg btn-warning" ng-if="operacao == 2">Editar</button>-->
+                    <button type="submit" class="btn btn-lg btn-primary" ng-if="operacao == 1">Criar</button>
+                    <button type="submit" class="btn btn-lg btn-warning" ng-if="operacao == 2">Editar</button>
                 </div>                
             </form>
         </div>

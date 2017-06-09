@@ -10,7 +10,16 @@ biblioteca.factory('clienteService', function (authConfig, $http, $location) {
         })
     }
 
+    function buscarCliente(cpf) {
+        return $http({
+            url: urlclientes+'/cpf/'+cpf,
+            method: 'GET'
+        })
+    }    
+
+
     return {
-        cadastrar: cadastrar
+        cadastrar: cadastrar,
+        buscarCliente: buscarCliente
     }
 })

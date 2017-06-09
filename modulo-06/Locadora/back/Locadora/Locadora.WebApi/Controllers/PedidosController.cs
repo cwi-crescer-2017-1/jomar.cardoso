@@ -37,7 +37,7 @@ namespace Locadora.Api.Controllers
         public HttpResponseMessage Registrar([FromBody]RegistrarPedidoModel model)
         {
             var itens = pedidoRepositorio.BuscarItens(model.IdCliente, model.IdProduto, model.IdPacote, model.IdOpcional);
-            var pedido = new Pedido((Cliente)itens[0], (Produto)itens[1], (Pacote)itens[2], new List<Opcional>() { (Opcional)itens[3]}, model.DiasAlugado);
+            var pedido = new Pedido((Cliente)itens[0], (Produto)itens[1], (Pacote)itens[2], (List<Opcional>)itens[3], (int)model.DiasAlugado);
             if (pedido.Validar())
             {
                 List<string> mensagens = null;
@@ -49,6 +49,24 @@ namespace Locadora.Api.Controllers
                 return ResponderErro(pedido.Mensagens);
             }
             return ResponderOK(pedidoRepositorio.Registrar(pedido));
+        }
+
+        [HttpPost, Route("calcular")]
+        public HttpResponseMessage Calcular([FromBody]RegistrarPedidoModel model)
+        {
+            var itens = pedidoRepositorio.BuscarItens(model.IdCliente, model.IdProduto, model.IdPacote, model.IdOpcional);
+            var pedido = new Pedido((Cliente)itens[0], (Produto)itens[1], (Pacote)itens[2], (List<Opcional>)itens[3], (int)model.DiasAlugado);
+            if (pedido.Validar())
+            {
+                List<string> mensagens = null;
+                if (pedidoRepositorio.Validar(pedido).Mensagens.Count != 0)
+                    return ResponderErro(mensagens);
+            }
+            else
+            {
+                return ResponderErro(pedido.Mensagens);
+            }
+            return ResponderOK(new {pedido.Valor});
         }
 
         [HttpGet, Route("devolver/{id:int}")]
