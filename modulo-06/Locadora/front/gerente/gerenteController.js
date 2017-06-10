@@ -1,15 +1,18 @@
 biblioteca.controller('gerenteController', function($scope, authService, gerenteService){
-    $scope.pedidosNaoRevisados
-    $scope.buscarNaoRevisados = buscarNaoRevisados
+    $scope.pedidos = {}
+    $scope.buscarPedidos = buscarPedidos
+    buscarPedidos()
 
-    buscarNaoRevisados()
-    function buscarNaoRevisados() {
-        gerenteService.buscarNaoRevisados()
+    function buscarPedidos() {
+        gerenteService.buscarPedidos()
         .then(response => {
-            console.log(response.data)
-            $scope.pedidosNaoRevisados = response.data
+            pedidos = response.data.dados
+            console.log(pedidos)
+            for(pedido of pedidos) {
+                pedido.DataEntregaRealizada = new Date(pedido.DataEntregaRealizada)
+                console.log(pedido.DataEntregaRealizada)
+            }
+            $scope.pedidos = pedidos
         })
     }
-
-
 })

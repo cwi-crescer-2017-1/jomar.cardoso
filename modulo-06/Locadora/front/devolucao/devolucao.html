@@ -1,25 +1,27 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <h2 class="text-center">Últimas Locações</h2>            
-        </div>        
+<div class="container text-center"> 
+    <div class="row">   
+        <div class="col-md-12 col-sm-12">
+            <h2>Devoluções</h2>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-12">
             <table class="table table-striped .table-hover .table-condensed">
                 <tr>
                     <th>Cliente</th>
-                    <th>Produto</th>
-                    <th>Pacote</th>                    
+                    <th>Produto</th>                    
+                    <th>Valor</th>  
                     <th>Data Devolução</th>                  
                     <th>Valor Total</th>
+                    <th>Devolver</th>
                 </tr>
                 <tr ng-repeat="pedido in pedidos">
                     <td>{{pedido.Cliente.Nome}}</td>
                     <td>{{pedido.Produto.Nome}}</td>
-                    <td>{{pedido.Pacote.Nome}}</td>
-                    <td>{{pedido.DataEntregaRealizada | date : "dd/MM/yyyy"}}</td>
+                    <td>{{pedido.Valor}}</td>
+                    <td>{{pedido.DataEntregaPrevista | date : "dd/MM/yyyy"}}</td>
                     <td>{{pedido.ValorTotal}}</td>
+                    <td><button ng-click="devolverPedido(pedido.Id)">OK</button></td>
                 </tr>
             </table>
         </div>

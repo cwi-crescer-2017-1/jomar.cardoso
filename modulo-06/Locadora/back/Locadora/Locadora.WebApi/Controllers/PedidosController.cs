@@ -21,7 +21,24 @@ namespace Locadora.Api.Controllers
         [HttpGet]
         public HttpResponseMessage Obter()
         {
-            return ResponderOK(pedidoRepositorio.Obter());
+            var pedidos = pedidoRepositorio.Obter();
+            return ResponderOK(pedidos);
+        }
+        [HttpGet, Route("alugados")]
+        public HttpResponseMessage ObterAlugados()
+        {
+            var pedidos = pedidoRepositorio.ObterAlugados();
+            foreach (var pedido in pedidos)
+            {
+                pedido.calculaDevolucao();
+            }
+            return ResponderOK(pedidos);
+        }
+
+        [HttpGet, Route("finalizados"), BasicAuthorization(Roles = "Gerente")]
+        public HttpResponseMessage ObterFinalizados()
+        {
+            return ResponderOK(pedidoRepositorio.ObterFinalizados());
         }
 
         [HttpGet, Route("{id:int}")]

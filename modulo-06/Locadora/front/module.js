@@ -34,3 +34,5 @@ angular.module('biblioteca').constant('authConfig', {
 });
 
 
+
+ angular.module('biblioteca').filter('lpad2', () => numero => numero.toString().padStart(2, '0'))

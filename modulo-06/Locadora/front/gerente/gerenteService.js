@@ -1,13 +1,14 @@
 biblioteca.factory('gerenteService', function($http, $location, authConfig){
 
-    let urlpedidos = authConfig.urlpedidos
-  
-    function buscarNaoRevisados() {
-        return $http.get(urlpedidos+"/naopublicados")
+    let urlPedidos = authConfig.urlpedidos
+
+    function buscarPedidos() {
+        return $http({
+            url: urlPedidos+'/finalizados',
+            method: 'GET'
+        })
     }
-
-
     return {
-        buscarNaoRevisados: buscarNaoRevisados
+        buscarPedidos: buscarPedidos
     }
 })

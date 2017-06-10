@@ -23,7 +23,29 @@ namespace Locadora.Infraestrutura.Repositorios
                 .Include(x => x.Pacote)
                 .Include(x => x.Produto)
                 .Include(x => x.Opcionais)
-                .Include(x => x.Cliente).ToList();
+                .Include(x => x.Cliente)
+                .ToList();
+        }
+
+        public List<Pedido> ObterAlugados()
+        {
+            return contexto.Pedido
+                .Include(x => x.Pacote)
+                .Include(x => x.Produto)
+                .Include(x => x.Opcionais)
+                .Include(x => x.Cliente)
+                .Where(x => x.DataEntregaRealizada == null)
+                .ToList();
+        }
+
+        public List<Pedido> ObterFinalizados()
+        {
+            return contexto.Pedido
+                .Include(x => x.Cliente)
+                .Include(x => x.Pacote)
+                .Include(x => x.Produto)
+                .Where(x => x.DataEntregaRealizada != null)
+                .ToList();
         }
 
         public Pedido Obter(int id)

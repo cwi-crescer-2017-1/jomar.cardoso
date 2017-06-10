@@ -74,13 +74,33 @@ namespace Locadora.Dominio.Entidades
                 Mensagens.Add("Data de devolução menor que a data atual.");
             return Mensagens.Count == 0;
         }
-        public void devolver()
+
+        public void calculaDevolucao()
         {
             DataEntregaRealizada = DateTime.Now;
-            if(DataEntregaPrevista < DataEntregaRealizada)
+            if (DataEntregaPrevista < DataEntregaRealizada)
             {
                 var diasExcedidos = Convert.ToInt32(DataEntregaRealizada.Value.Subtract(DataEntregaPrevista).TotalDays);
                 ValorTotal = Valor + CalcularValor(diasExcedidos);
+            }
+            else
+            {
+                ValorTotal = Valor;
+            }
+        }
+
+        public void devolver()
+        {
+            calculaDevolucao();
+            Produto.adicionar();
+            if (Pacote != null)
+                Pacote.adicionar();
+            if (Opcionais != null)
+            {
+                foreach (var opcional in Opcionais)
+                {
+                    opcional.adicionar();
+                }
             }
         }
     }

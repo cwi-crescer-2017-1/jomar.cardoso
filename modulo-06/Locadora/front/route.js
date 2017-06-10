@@ -31,15 +31,24 @@ biblioteca.config(function($routeProvider){
             }
         }
     })
-    // .when('/gerente', {
-    //     controller: 'gerenteController',
-    //     templateUrl: 'gerente/gerente.html',
-    //     resolve: {
-    //         autenticado: function (authService) {
-    //             return authService.possuiPermissaoPromise('Gerente')
-    //         }
-    //     }
-    // })
+    .when('/devolucao', {
+        controller: 'devolucaoController',
+        templateUrl: 'devolucao/devolucao.html',
+        resolve: {
+            autenticado: function (authService) {
+                return authService.isAutenticadoPromise()
+            }
+        }
+    })
+    .when('/gerente', {
+        controller: 'gerenteController',
+        templateUrl: 'gerente/gerente.html',
+        resolve: {
+            autenticado: function (authService) {
+                return authService.possuiPermissaoPromise('Gerente')
+            }
+        }
+    })
     .otherwise({
         redirectTo: '/menu'
     })

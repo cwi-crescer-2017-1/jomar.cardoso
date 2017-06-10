@@ -19,5 +19,9 @@ namespace Locadora.Dominio.Entidades
         {
             QuantidadeDisponivel -= 1;
         }
+        public void adicionar()
+        {
+            QuantidadeDisponivel += 1;
+        }
     }
 }
