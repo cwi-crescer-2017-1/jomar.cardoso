@@ -1,0 +1,1 @@
+ Create user CRESCER2017 identified by CRESCER2017 default tablespace CRESCER17;
