@@ -3,7 +3,7 @@ namespace Locadora.Infraestrutura.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class criarTabelas : DbMigration
+    public partial class criarTodasTabelas : DbMigration
     {
         public override void Up()
         {
@@ -28,8 +28,8 @@ namespace Locadora.Infraestrutura.Migrations
                         Nome = c.String(maxLength: 50),
                         Valor = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Descricao = c.String(maxLength: 511),
-                        quantidade = c.Int(nullable: false),
-                        quantidadeDisponivel = c.Int(nullable: false),
+                        Quantidade = c.Int(nullable: false),
+                        QuantidadeDisponivel = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -41,8 +41,8 @@ namespace Locadora.Infraestrutura.Migrations
                         Nome = c.String(maxLength: 50),
                         Valor = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Descricao = c.String(maxLength: 511),
-                        quantidade = c.Int(nullable: false),
-                        quantidadeDisponivel = c.Int(nullable: false),
+                        Quantidade = c.Int(nullable: false),
+                        QuantidadeDisponivel = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -76,8 +76,8 @@ namespace Locadora.Infraestrutura.Migrations
                         Nome = c.String(maxLength: 50),
                         Valor = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Descricao = c.String(maxLength: 511),
-                        quantidade = c.Int(nullable: false),
-                        quantidadeDisponivel = c.Int(nullable: false),
+                        Quantidade = c.Int(nullable: false),
+                        QuantidadeDisponivel = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             

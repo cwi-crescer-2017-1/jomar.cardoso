@@ -7,13 +7,13 @@ namespace Locadora.Infraestrutura.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class criarTabelas : IMigrationMetadata
+    public sealed partial class criarTodasTabelas : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(criarTabelas));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(criarTodasTabelas));
         
         string IMigrationMetadata.Id
         {
-            get { return "201706091758072_criarTabelas"; }
+            get { return "201706121326447_criarTodasTabelas"; }
         }
         
         string IMigrationMetadata.Source
