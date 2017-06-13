@@ -1,0 +1,59 @@
+/*
+Exercício 1: Cidades Duplicadas
+Atualmente a tabela de Cidade tem registros duplicados (nome e UF). 
+Faça um código (PL/SQL) que liste quais são as cidades duplicadas. 
+Após isso liste todos os clientes que estão relacionados com estas cidades
+*/
+
+
+DECLARE
+  CURSOR TODOS_CLIENTES IS
+    SELECT CL.NOME NOME_CLIENTE, CI.NOME NOME_CIDADE
+    FROM CLIENTE CL
+    INNER JOIN CIDADE CI ON CI.IDCIDADE = CL.IDCIDADE;
+    
+BEGIN
+  FOR UM_CLIENTE IN TODOS_CLIENTES LOOP
+    DBMS_OUTPUT.PUT_LINE(UM_CLIENTE.NOME_CLIENTE);
+  END LOOP;  
+END;
+
+/*------------------------------------------------*/
+
+DECLARE
+  CURSOR REPETIDOS IS
+    SELECT NOME, UF 
+      FROM CIDADE
+      GROUP BY NOME, UF
+      HAVING COUNT(1) > 1;
+      
+BEGIN
+  FOR REPETIDO IN REPETIDOS LOOP
+    DBMS_OUTPUT.PUT_LINE(REPETIDO.NOME);
+  END LOOP;  
+END;
+
+/*------------------------------------------------*/
+DECLARE
+  CURSOR TODOS_CLIENTES IS
+    SELECT CL.NOME NOME_CLIENTE, CI.NOME NOME_CIDADE
+    FROM CLIENTE CL
+    INNER JOIN CIDADE CI ON CI.IDCIDADE = CL.IDCIDADE;
+    
+DECLARE
+  CURSOR REPETIDOS IS
+    SELECT NOME, UF 
+      FROM CIDADE
+      GROUP BY NOME, UF
+      HAVING COUNT(1) > 1;   
+
+BEGIN
+  FOR UM_CLIENTE IN TODOS_CLIENTES LOOP
+    FOR REPETIDO IN REPETIDOS LOOP
+      IF UM_CLIENTE.NOME_CIDADE = REPETIDO.NOME THEN
+        DBMS_OUTPUT.PUT_LINE(UM_CLIENTE.NOME_CIDADE);
+    END LOOP;
+  END LOOP;    
+END;
+
+
