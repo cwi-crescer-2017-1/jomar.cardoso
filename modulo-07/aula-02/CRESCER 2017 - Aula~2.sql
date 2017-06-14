@@ -117,8 +117,49 @@ BEGIN
 END;
 
 
+/*
+Exercício 4: Previsão de Materiais
+Faça uma rotina que receba dois parâmetros:
+IDProduto
+Mês e Ano
+E então faça uma rotina que verifique no ANO/MÊS para o produto informado qual a lista de materiais
+(incluindo a quantidade) é necessário para atender todos os Pedidos desde período.
+Deve imprimir o nome do material e quantidade total.
+*/
 
+DECLARE 
+    CURSOR PEDIDOS_DO_MES (vANO IN NUMBER, vMES IN NUMBER) IS
+    SELECT IDPEDIDO
+    FROM PEDIDO
+    WHERE EXTRACT(YEAR FROM DATAPEDIDO) = vANO
+    AND EXTRACT(MONTH FROM DATAPEDIDO) = vMES;
+    
+    CURSOR PEDIDOS_ITENS (vID_PEDIDO IN NUMBER) IS
+    SELECT IDPRODUTO
+    FROM PEDIDOITEM
+    WHERE IDPEDIDO = vID_PEDIDO;
+    
+    CURSOR TODOS_PRODUTOS (vID_PRODUTO IN NUMBER) IS
+    SELECT IDMATERIAL, QUANTIDADE
+    FROM PRODUTOMATERIAL
+    WHERE IDPRODUTO = vID_PRODUTO;
+    
+    CURSOR TODOS_MATERIAIS (vID_MATERIAL IN NUMBER) IS
+    SELECT DESCRICAO
+    FROM MATERIAL
+    WHERE IDMATERIAL = vID_MATERIAL;
 
+BEGIN
+    FOR UM_PEDIDO IN PEDIDOS_DO_MES(2014, 6) LOOP
+        FOR UM_PEDIDO_ITEM IN PEDIDOS_ITENS(UM_PEDIDO.IDPEDIDO) LOOP
+            FOR UM_PRODUTO IN TODOS_PRODUTOS(UM_PEDIDO_ITEM.IDPRODUTO) LOOP
+                FOR UM_MATERIAL IN TODOS_MATERIAIS(UM_PRODUTO.IDMATERIAL) LOOP
+                    DBMS_OUTPUT.PUT_LINE(UM_MATERIAL.DESCRICAO || ' - ' || UM_PRODUTO.QUANTIDADE);
+                END LOOP;
+            END LOOP;
+        END LOOP;
+    END LOOP;
+END;
 
 
 
