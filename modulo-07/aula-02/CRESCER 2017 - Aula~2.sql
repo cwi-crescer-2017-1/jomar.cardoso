@@ -5,7 +5,7 @@ Faça um código (PL/SQL) que liste quais são as cidades duplicadas.
 Após isso liste todos os clientes que estão relacionados com estas cidades
 */
 
-
+/*-----------------------todos os clientes-------------------------*/
 DECLARE
   CURSOR TODOS_CLIENTES IS
     SELECT CL.NOME NOME_CLIENTE, CI.NOME NOME_CIDADE
@@ -18,8 +18,7 @@ BEGIN
   END LOOP;  
 END;
 
-/*------------------------------------------------*/
-
+/*------------------------sidades repetidas------------------------*/
 DECLARE
   CURSOR REPETIDOS IS
     SELECT NOME, UF 
@@ -33,14 +32,12 @@ BEGIN
   END LOOP;  
 END;
 
-/*------------------------------------------------*/
+/*-----------------------clientes nas cidades repetidas-------------------------*/
 DECLARE
   CURSOR TODOS_CLIENTES IS
     SELECT CL.NOME NOME_CLIENTE, CI.NOME NOME_CIDADE
     FROM CLIENTE CL
     INNER JOIN CIDADE CI ON CI.IDCIDADE = CL.IDCIDADE;
-    
-DECLARE
   CURSOR REPETIDOS IS
     SELECT NOME, UF 
       FROM CIDADE
@@ -48,12 +45,98 @@ DECLARE
       HAVING COUNT(1) > 1;   
 
 BEGIN
-  FOR UM_CLIENTE IN TODOS_CLIENTES LOOP
-    FOR REPETIDO IN REPETIDOS LOOP
-      IF UM_CLIENTE.NOME_CIDADE = REPETIDO.NOME THEN
-        DBMS_OUTPUT.PUT_LINE(UM_CLIENTE.NOME_CIDADE);
+  FOR REPETIDO IN REPETIDOS LOOP
+    FOR UM_CLIENTE IN TODOS_CLIENTES LOOP
+      IF (UM_CLIENTE.NOME_CIDADE = REPETIDO.NOME) THEN
+        DBMS_OUTPUT.PUT_LINE(UM_CLIENTE.NOME_CIDADE || ' - ' || UM_CLIENTE.NOME_CLIENTE);
+      END IF;        
     END LOOP;
   END LOOP;    
 END;
+
+/* 
+Exercício 2: Atualizando Valor do Pedido
+Faça uma rotina que permita atualizar o valor do pedido a partir dos seus itens. 
+Esta rotina deve receber por parametro o IDPedido e então verificar o valor total
+de seus itens (quantidade x valor unitário).
+*/
+
+DECLARE
+  vVALOR_PEDIDO NUMBER;
+  CURSOR TODOS_PEDIDOS IS  
+  SELECT IDPEDIDO
+    FROM PEDIDO;    
+  CURSOR VALOR_ITENS (vID_PEDIDO IN NUMBER) IS
+  SELECT SUM(QUANTIDADE * PRECOUNITARIO) AS VALOR_TOTAL
+    FROM PEDIDOITEM
+   WHERE IDPEDIDO = vID_PEDIDO
+   GROUP BY IDPEDIDO;  
+BEGIN
+  FOR UM_PEDIDO IN TODOS_PEDIDOS LOOP
+    FOR VALOR_ITEM IN VALOR_ITENS(UM_PEDIDO.IDPEDIDO) LOOP      
+      vVALOR_PEDIDO := VALOR_ITEM.VALOR_TOTAL;             
+      DBMS_OUTPUT.PUT_LINE( UM_PEDIDO.IDPEDIDO || ' - ' || vVALOR_PEDIDO );
+    END LOOP;
+    UPDATE PEDIDO SET VALORPEDIDO = vVALOR_PEDIDO
+    WHERE IDPEDIDO = UM_PEDIDO.IDPEDIDO;
+  END LOOP;
+END;
+COMMIT;
+
+/*
+Exercício 3: Atualização de Clientes
+Crie uma rotina que atualize todos os clientes que não realizaram nenhum pedido nos últimos 6 meses 
+(considere apenas o mês, dia 01 do 6º mês anterior). Definir o atributo Situacao para I.
+*/
+
+DECLARE
+    vCLIENTE_I NUMBER;
+    vCONTEM CHAR(1);
+    CURSOR TODOS_PEDIDOS IS
+        SELECT IDCLIENTE
+        FROM PEDIDO PED
+        WHERE PED.DATAPEDIDO > ADD_MONTHS(TRUNC(SYSDATE), -6);
+    CURSOR TODOS_CLIENTES IS
+        SELECT IDCLIENTE, NOME, SITUACAO 
+        FROM CLIENTE;
+BEGIN    
+    FOR UM_CLIENTE IN TODOS_CLIENTES LOOP
+        vCONTEM := 'N';
+        vCLIENTE_I := UM_CLIENTE.IDCLIENTE;
+        FOR UM_PEDIDO IN TODOS_PEDIDOS LOOP
+            IF (UM_CLIENTE.IDCLIENTE = UM_PEDIDO.IDCLIENTE) THEN
+                vCONTEM := 'Y';                
+            END IF;
+            EXIT WHEN vCONTEM = 'Y';
+        END LOOP;
+        IF ( vCONTEM = 'N') THEN
+            UPDATE CLIENTE SET SITUACAO = 'I';
+            DBMS_OUTPUT.PUT_LINE(UM_CLIENTE.NOME || ' - ' || UM_CLIENTE.SITUACAO);
+        END IF;
+    END LOOP;
+END;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
