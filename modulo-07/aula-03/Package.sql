@@ -1,50 +1,83 @@
-create or replace package pck_cidades_repetidas as
-  procedure mostrarRepetidos;
-  procedure atribuirCidade;
-end;
+/*
+Exercício 1: Cidades Duplicadas
+A partir do conhecimento de procedures/functions e packages obtidos (rapidamente)
+crie uma package que permita eliminar cidades duplicadas. Para essa tarefa respeite
+as seguintes regras: -> identifique as cidades duplicadas; -> identifique os clientes 
+que estão relacionados com ela; -> altere no cliente (idcidade) para manter apenas 
+a cidade duplicada de menor ID; -> certificando-se que não há mais clientes 
+utilizando cidades duplicadas elimine-as.
+Utilize uma codificação que possibilite o uso de teste unitário.
+*/
 
-create or replace package body pck_cidades_repetidas as
-  procedure mostrarRepetidos is
-  begin
-    declare
-      cursor c_cidades is
-           select Nome, UF, min(IDCIDADE) as ID_MINIMO
-           from   Cidade
-           group  by Nome, UF
-           having count(1) >1;
-      cursor c_clientes (pNome in varchar2,
-                         pUF   in varchar2) is
-         select cli.IDCliente,
-                cli.Nome as Nome_Cliente,
-                cid.Nome as Nome_Cidade,                
-                cid.UF
-         from   Cliente cli
-          inner join Cidade cid on cid.IDCidade = cli.IDCidade
-         where  cid.Nome = pNome
-         and    cid.UF   = pUF;
-    begin
-      FOR c in c_cidades LOOP     
-          dbms_output.put_line('Cidade: '|| c.Nome );
-          FOR i in c_clientes (c.Nome, c.UF) LOOP
-               dbms_output.put_line('Cliente: '|| i.Nome_Cliente );
-               atribuirCidade(i.IDCliente, c.ID_MINIMO);
-          END LOOP;
-      END LOOP;
-    end;
-  end;
-end;
+CREATE OR REPLACE PACKAGE ELIMINAR_CIDADES_REPETIDAS AS
+    PROCEDURE VERIFICA_CIDADES_REPETIDAS;
+    PROCEDURE EXECUTAR;
+    PROCEDURE VERIFICA_CLIENTES_NAS_CIDADES (C_NOME IN VARCHAR2, C_UF IN VARCHAR2, C_NOVO_ID_CIDADE IN NUMBER);
+    PROCEDURE ATUALIZAR_CLIENTE_CIDADE(C_IDCLIENTE IN NUMBER, C_NOVO_ID_CIDADE IN NUMBER);
+END;
 
-create or replace package body pck_cidades_repetidas as
-  procedure atribuirCidade (P_ID_CLIENTE NUMBER, PID_CIDADE NUMBER) is
-    begin
-      update CLIENTE set IDCIDADE = PID_CIDADE WHERE IDCLIENTE = P_ID_CLIENTE;
-    end;
-  end;
-end;
+CREATE OR REPLACE PACKAGE BODY ELIMINAR_CIDADES_REPETIDAS AS
+    /*------*/
+    PROCEDURE VERIFICA_CIDADES_REPETIDAS IS
+    BEGIN
+        DECLARE 
+            CURSOR CIDADES_REPETIDAS IS
+                SELECT NOME, UF, MIN(IDCIDADE) AS MIN_IDCIDADE
+                FROM CIDADE
+                GROUP BY NOME, UF
+                HAVING COUNT(1) >1;
+            BEGIN
+                FOR CIDADE IN CIDADES_REPETIDAS LOOP
+                    DBMS_OUTPUT.PUT_LINE('Cidade: ' || CIDADE.NOME || ' - ' || CIDADE.UF);
+                    VERIFICA_CLIENTES_NAS_CIDADES(CIDADE.NOME, CIDADE.UF, CIDADE.MIN_IDCIDADE);
+                END LOOP;
+            END;
+    END VERIFICA_CIDADES_REPETIDAS;
+    /*------*/
+    PROCEDURE VERIFICA_CLIENTES_NAS_CIDADES (C_NOME IN VARCHAR2, C_UF IN VARCHAR2, C_NOVO_ID_CIDADE IN NUMBER) IS
+    BEGIN
+        DECLARE
+            CURSOR CLIENTES_NAS_CIDADES (C_NOME IN VARCHAR2, C_UF   IN VARCHAR2) IS
+                SELECT CLI.IDCLIENTE, CLI.NOME
+                FROM CLIENTE CLI
+                INNER JOIN CIDADE CID ON CID.IDCIDADE = CLI.IDCIDADE
+                WHERE CID.NOME = C_NOME
+                AND CID.UF = C_UF;
+        BEGIN
+            FOR CLIENTE IN CLIENTES_NAS_CIDADES(C_NOME, C_UF) LOOP
+                DBMS_OUTPUT.PUT_LINE('Cliente: ' || CLIENTE.NOME);
+                ATUALIZAR_CLIENTE_CIDADE(CLIENTE.IDCLIENTE, C_NOVO_ID_CIDADE);
+            END LOOP;
+        END;
+    END VERIFICA_CLIENTES_NAS_CIDADES;
+    /*------*/
+    PROCEDURE ATUALIZAR_CLIENTE_CIDADE(C_IDCLIENTE IN NUMBER, C_NOVO_ID_CIDADE IN NUMBER) IS
+    BEGIN
+        UPDATE CLIENTE SET IDCIDADE = C_NOVO_ID_CIDADE WHERE IDCLIENTE = C_IDCLIENTE;
+        DBMS_OUTPUT.PUT_LINE(C_NOVO_ID_CIDADE);
+    END ATUALIZAR_CLIENTE_CIDADE;
+    /*------*/
+    PROCEDURE EXECUTAR IS
+    BEGIN
+        VERIFICA_CIDADES_REPETIDAS;
+    END EXECUTAR;
+END;    
+
+EXEC ELIMINAR_CIDADES_REPETIDAS.EXECUTAR;
 
 
 
- begin
-  pck_cidades_repetidas.mostrarRepetidos;
-end;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
