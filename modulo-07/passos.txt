@@ -1,0 +1,32 @@
+1. Executar linha de comandos SQL: conn system/##senha aqui##@xe
+2. Oracle SQL Developer: + conexão
+ Nome da Conexão: Acho que tanto faz
+ Nome do Usuário: sytem
+ Senha: ##senha aqui##
+testar, salvar, conectar
+3. Oracle SQL Developer - Create tablespace CRESCER17DAT 
+ datafile 'C:\oraclexe\app\oracle\oradata\XE\crescer17dat01.dbf' 
+ size 100m 
+ autoextend on 
+ next 100m 
+ maxsize 2048m;
+4. racle SQL Developer - Query Builder: Create user CRESCER2017 identified by CRESCER2017 default tablespace CRESCER17DAT;
+grant connect, resource, create view to CRESCER2017;
+5. criar pasta 'C:\ORACLEXE\DATAPUMP'
+6. colocar imports nesta pasta
+7. Oracle SQL Developer - Query Builder: create directory ORACLE_DUMP as 'C:\ORACLEXE\DATAPUMP';
+8. console log em: c:\oraclexe\app\oracle\product\11.2.0\server\bin> Impdp system/##senha aqui##@xe schemas=CRESCER2017 directory=ORACLE_DUMP dumpfile=CRESCER2017 logfile=ImportCRESCER-2017
+
+
+Fazer backup
+expdp system/##senha aqui##@xe dumpfile=CRESCER2017_2 logfile=CRESCER2017_2 schemas=CRESCER2017 directory=ORACLE_DUMP
+
+Usar debugger
+usuário sys ou system: grant DEBUG ANY PROCEDURE to CRESCER2017;
+usuário sys ou system: grant DEBUG CONNECT SESSION to CRESCER2017;
+http://www.oracle.com/webfolder/technetwork/tutorials/obe/db/sqldev/r40/mod2_sqldev_v4/mod2_sqldev_v4.html#section5
+
+Testes Unitários
+http://www.oracle.com/webfolder/technetwork/tutorials/obe/db/sqldev/r40/mod2_sqldev_v4/mod2_sqldev_v4.html#section5
+Exibir/Teste de Unidade
+Ferramentas/Teste da Unidade/Selecionar Repositório Atual
