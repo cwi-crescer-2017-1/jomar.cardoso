@@ -74,7 +74,6 @@ Begin
                                   Novo_Valor,
                                   Velho_Bolao,
                                   Novo_Bolao,
-                                  Data_Operacao,
                                   Usuario,
                                   Operacao)
         values                    (sqlogcliente_operacao.nextval, 
@@ -89,11 +88,10 @@ Begin
                                   v_Novo_Valor,
                                   v_Velho_Bolao,
                                   v_Novo_Bolao,
-                                  sysdate,
                                   user,
                                   v_operacao);
 
-End TR_AUD1_CLIENTE;
+End TR_AUD1_APOSTA;
 
 SELECT * FROM LogAposta_Operacao;
 
