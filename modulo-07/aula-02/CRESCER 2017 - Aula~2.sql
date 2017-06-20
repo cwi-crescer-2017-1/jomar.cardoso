@@ -62,7 +62,7 @@ CREATE INDEX IX_CLIENTE_CIDADE ON CLIENTE (IDCIDADE);
 
 declare
   cursor c_cidades is
-       select Nome, UF, min(IDCIDADE)
+       select Nome, UF
        from   Cidade
        group  by Nome, UF
        having count(1) >1;

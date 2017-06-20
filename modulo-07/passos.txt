@@ -1,7 +1,7 @@
 1. Executar linha de comandos SQL: conn system/##senha aqui##@xe
 2. Oracle SQL Developer: + conexão
  Nome da Conexão: Acho que tanto faz
- Nome do Usuário: sytem
+ Nome do Usuário: system
  Senha: ##senha aqui##
 testar, salvar, conectar
 3. Oracle SQL Developer - Create tablespace CRESCER17DAT 
@@ -10,7 +10,7 @@ testar, salvar, conectar
  autoextend on 
  next 100m 
  maxsize 2048m;
-4. racle SQL Developer - Query Builder: Create user CRESCER2017 identified by CRESCER2017 default tablespace CRESCER17DAT;
+4. Oracle SQL Developer - Query Builder: Create user CRESCER2017 identified by CRESCER2017 default tablespace CRESCER17DAT;
 grant connect, resource, create view to CRESCER2017;
 5. criar pasta 'C:\ORACLEXE\DATAPUMP'
 6. colocar imports nesta pasta
@@ -30,3 +30,7 @@ Testes Unitários
 http://www.oracle.com/webfolder/technetwork/tutorials/obe/db/sqldev/r40/mod2_sqldev_v4/mod2_sqldev_v4.html#section5
 Exibir/Teste de Unidade
 Ferramentas/Teste da Unidade/Selecionar Repositório Atual
+
+Drops
+ drop tablespace #### INCLUDING CONTENTS; 
+ drop user #### cascade;
