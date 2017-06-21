@@ -60,18 +60,31 @@ public class MeuString implements StringUtils {
     //caracteres sem os espaços, acentuação e case sensitive, exemplo - "ovo", "Ame a ema", "A sogra má e amargosa")
     @Override
     public boolean isPalindromo(String string) {
-    if (isEmpty(string)) {
-        return false;
+        string = normalize(string).replaceAll(" ", "");
+        return string.equalsIgnoreCase(inverter(string));
     }
-    string = normalize(string.trim());
-    if( string.compareToIgnoreCase(inverter(string)) == 0) {
-        return true;
-    }
-    return false;
-    }
-    
+
     private static String normalize(String nome) { 
         return Normalizer.normalize(nome, Normalizer.Form.NFD) 
                 .replaceAll("\\p{InCombiningDiacriticalMarks}+", ""); 
     }
+        
+    public static void main(String[] args){
+        MeuString meuString = new MeuString();
+        
+        System.out.println("verifica string vazia");
+        System.out.println(meuString.isEmpty(""));
+        System.out.println("alguma coisa - " + meuString.isEmpty("alguma coisa"));
+        
+        System.out.println("\nconta vogais");
+        System.out.println("abc - " + meuString.contaVogais("abc"));
+        System.out.println("ABC - " + meuString.contaVogais("ABC"));
+        System.out.println("AeIoU - " + meuString.contaVogais("AeIoU"));
+        
+        System.out.println("\nVerificar palindromos");
+        System.out.println("ana - " + meuString.isPalindromo("ana"));
+        System.out.println("a sogra má e amargosa - " + meuString.isPalindromo("a sogra má e amargosa"));
+        System.out.println("Jomar - " + meuString.isPalindromo("Jomar"));
+    }
 }
+ 
