@@ -9,6 +9,9 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import static java.util.Calendar.DAY_OF_MONTH;
+import static java.util.Calendar.MONTH;
+import static java.util.Calendar.YEAR;
 import java.util.Date;
 import java.util.Locale;
 
@@ -17,6 +20,10 @@ import java.util.Locale;
  * @author Jomar
  */
 public class MeuCalendario implements CalendarUtils {
+    
+    private static final Calendar CALENDAR = Calendar.getInstance();
+    private static final String TEMPLATE = "%s ano(s), %s messe(s) e %s dia(s)";
+ 
 
     //O método diaSemana recebe uma data e devolve o dia da semana conforme enum.
     @Override
@@ -44,28 +51,17 @@ public class MeuCalendario implements CalendarUtils {
     //O método tempoDecorrido recebe uma data e devolve o tempo decorrido até a data atual no formato 30 ano(s), 3 messe(s) e 12 dia(s)
     @Override
     public String tempoDecorrido(Date date) {
-        Calendar dataAntiga = Calendar.getInstance();  
-        dataAntiga.setTime(date); 
-        Calendar hoje = Calendar.getInstance();  
-        int anos = hoje.get(Calendar.YEAR) - dataAntiga.get(Calendar.YEAR); 
-        int meses = hoje.get(Calendar.MONTH) - dataAntiga.get(Calendar.MONTH);
-        int dias = hoje.get(Calendar.DAY_OF_MONTH) - dataAntiga.get(Calendar.DAY_OF_MONTH);  
-        if (hoje.get(Calendar.MONTH) < dataAntiga.get(Calendar.MONTH)) {
-            anos--;  
-        } 
-            else 
-        { 
-            if (hoje.get(Calendar.MONTH) == dataAntiga.get(Calendar.MONTH) && hoje.get(Calendar.DAY_OF_MONTH) < dataAntiga.get(Calendar.DAY_OF_MONTH)) {
-                anos--;                 
-            }
-        }        
-        if (hoje.get(Calendar.DAY_OF_MONTH) < dataAntiga.get(Calendar.DAY_OF_MONTH)) {
-            meses--;  
-            dias = 30 - (dataAntiga.get(Calendar.DAY_OF_MONTH) - hoje.get(Calendar.DAY_OF_MONTH));  
-            //descobri que a forma que utilizei ocorrerá um erro aqui, pois os meses não tem apenas 30 dias
-        } 
-        return anos + " anos " + meses + " meses e " + dias + " dias" ;        
+        CALENDAR.setTime(new Date(this.getHoraZero(new Date()).getTime() - this.getHoraZero(date).getTime())); 
+        return String.format(TEMPLATE, (CALENDAR.get(YEAR) - 1970), CALENDAR.get(MONTH), CALENDAR.get(DAY_OF_MONTH));
+        
     }
+    
+    private Date getHoraZero(Date date) { 
+        CALENDAR.setTime(date); 
+        CALENDAR.set(CALENDAR.get(YEAR), CALENDAR.get(MONTH), CALENDAR.get(DAY_OF_MONTH), 0, 0, 0); 
+        return CALENDAR.getTime(); 
+    }
+ 
     
     public static void main(String[] args) throws ParseException {
         

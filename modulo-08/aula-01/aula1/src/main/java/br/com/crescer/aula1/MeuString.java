@@ -16,10 +16,7 @@ public class MeuString implements StringUtils {
     //O método isEmpty deve validar se a string está nula e vazia.
     @Override
     public boolean isEmpty(String string) {        
-        if(string.isEmpty()) {
-            return true;
-        }
-        return false;
+        return string == null || string.trim().isEmpty(); 
     }
 
     //O método inverter deve inverter uma string caso a mesma não estiver vazia, exemplo - carlos > solrac
