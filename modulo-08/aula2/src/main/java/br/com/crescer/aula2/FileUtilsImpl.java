@@ -56,6 +56,7 @@ public class FileUtilsImpl implements FileUtils{
     //O método mv deve mover o arquivo, caso for um diretório deve exibir uma mensagem que o arquivo é invalido.
     @Override
     public boolean mv(String in, String out) {
+        new File(in).delete();
         File source = new File(in);
         if(source.isDirectory()) {  
             System.out.println("Envie um arquivo");             

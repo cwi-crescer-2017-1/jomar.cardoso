@@ -174,8 +174,8 @@ public class FileUtilsImplTest {
         boolean result = instance.mv(stringArquivo, stringPasta + "teste/");
         assertEquals(expResult, result);
             
-        //String result2 = arquivo.getAbsolutePath();
-        //assertTrue(expResult2.contains(result2));
+        String result2 = arquivo.getAbsolutePath();
+        assertTrue(result2.endsWith(expResult2));
         System.out.println("");
     }
 
@@ -184,6 +184,8 @@ public class FileUtilsImplTest {
      */
     @Test
     public void testIsArquivo() throws IOException {
+        new File(stringArquivo).delete();
+        new File(stringPasta).delete();
         String string = "arquivo.txt";
         String expResult = "arquivo.txt";
         String result = FileUtilsImpl.isArquivo(string);
@@ -196,6 +198,8 @@ public class FileUtilsImplTest {
      */
     @Test(expected = IOException.class)
     public void testIsArquivoInvalido() throws IOException {
+        new File(stringArquivo).delete();
+        new File(stringPasta).delete();
         String string = "arquivo.exe";
         String expResult = "arquivo.txt";
         String result = FileUtilsImpl.isArquivo(string);
