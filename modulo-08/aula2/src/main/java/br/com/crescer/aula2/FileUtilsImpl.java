@@ -11,6 +11,7 @@ import java.nio.file.Files;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.lang.String;
+import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
 /**
  *
@@ -22,9 +23,12 @@ public class FileUtilsImpl implements FileUtils{
     @Override
     public boolean mk(String string) {
         try {
-            return new File(string).createNewFile();
-        } catch (IOException ex) {
-            Logger.getLogger(FileUtilsImpl.class.getName()).log(Level.SEVERE, null, ex);
+            if(string.contains(".")){
+                return new File(string).createNewFile();
+            }
+            return new File(string).mkdir();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return false;
     }
@@ -33,25 +37,52 @@ public class FileUtilsImpl implements FileUtils{
     @Override
     public boolean rm(String string) {
         File file = new File(string);
+        if(file.isDirectory()) {  
+            System.out.println("Envie um arquivo");             
+        }
         return file.delete();
     }
 
     //O método ls deve mostra o caminho absoluto, se for um diretório listar o nome dos arquivos internos.
     @Override
     public String ls(String string) {
-        return new File("aula2.txt").getAbsolutePath();
+        File file = new File(string);
+        if(file.isDirectory()) {  
+            
+            return String.join(", ", file.list());
+        }
+        return file.getAbsolutePath();
     }
 
     //O método mv deve mover o arquivo, caso for um diretório deve exibir uma mensagem que o arquivo é invalido.
     @Override
     public boolean mv(String in, String out) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        File source = new File(in);
+        if(source.isDirectory()) {  
+            System.out.println("Envie um arquivo");             
+        } else {
+            if(source.renameTo(new File(out + source.getName()))){
+                return true;
+            }else{
+    		System.out.println("Erro ao mover");
+            } 
+        }
+        return false;
+    }
+    
+    public static String isArquivo(String string) throws IOException {
+        if(string.endsWith(".txt")) {
+            return string;            
+        }
+        throw new IOException();
     }
     
     public static void main(String[] args) {
         FileUtils fileUtils = new FileUtilsImpl();
-        System.out.println("criar: " + fileUtils.mk("aula2.txt"));
-        System.out.println("apagar: " + fileUtils.ls("aula2.txt"));
-        System.out.println("apagar: " + fileUtils.rm("aula2.txt"));        
+        //System.out.println("criar: " + fileUtils.mk("doce"));
+        //System.out.println("caminho: " + fileUtils.ls("file"));
+        //System.out.println("apagar: " + fileUtils.rm("file/aula2.txt"));
+        //System.out.println("criar: " + fileUtils.mk("file/aulaMovida.txt"));
+        //System.out.println("mover: " + fileUtils.mv("file/aulaMovida.txt", "file/move/"));
     }
 }
