@@ -47,8 +47,7 @@ public class FileUtilsImpl implements FileUtils{
     @Override
     public String ls(String string) {
         File file = new File(string);
-        if(file.isDirectory()) {  
-            
+        if(file.isDirectory()) {
             return String.join(", ", file.list());
         }
         return file.getAbsolutePath();
