@@ -9,6 +9,7 @@ package model;
  *
  * @author jomar.cardoso
  */
-public class PaisDao {
+public interface PaisDao extends Dao<Pais>{
     
+
 }
