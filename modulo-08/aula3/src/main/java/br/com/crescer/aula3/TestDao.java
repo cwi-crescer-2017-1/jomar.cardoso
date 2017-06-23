@@ -9,17 +9,8 @@ package br.com.crescer.aula3;
  */
  
 public interface TestDao {
- 
-
- 
-    void insert();
- 
-
- 
+    void insert(); 
     void create();
- 
-
- 
     void drop();
  
 

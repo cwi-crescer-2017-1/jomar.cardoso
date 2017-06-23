@@ -66,9 +66,7 @@ public class PaisDaoImpl implements PaisDao{
             System.err.format("SQLException: %s", e); 
         } 
     }
- 
-
- 
+    
     @Override 
     public Pais loadBy(Long id) { 
         final Pais pais = new Pais(); 
@@ -76,23 +74,24 @@ public class PaisDaoImpl implements PaisDao{
                 = ConnectionUtils.getConnection().prepareStatement(LOAD_PAIS)) { 
             preparedStatement.setLong(1, id); 
             try (final ResultSet resultSet = preparedStatement.executeQuery()) {
- 
-
- 
                 while (resultSet.next()) { 
                     pais.setId(resultSet.getLong("ID")); 
                     pais.setNome(resultSet.getString("NOME")); 
-                }
- 
+                } 
             } catch (final SQLException e) { 
                 System.err.format("SQLException: %s", e); 
-            }
- 
+            } 
         } catch (final SQLException e) { 
             System.err.format("SQLException: %s", e); 
-        }
- 
+        } 
         return pais; 
     }
     
+    public static void main(String[] args) {
+        PaisDaoImpl paisDaoImpl = new PaisDaoImpl();
+        Pais pais = paisDaoImpl.loadBy(Long.valueOf(1));
+        System.out.println(pais.getId());
+                    System.out.println(pais.getNome());
+                    System.out.println(pais.getSigla());
+    }
 }
