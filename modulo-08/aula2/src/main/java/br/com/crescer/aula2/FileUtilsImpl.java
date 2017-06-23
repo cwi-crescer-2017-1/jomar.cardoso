@@ -71,7 +71,7 @@ public class FileUtilsImpl implements FileUtils{
     }
     
     public static String isArquivo(String string) throws IOException {
-        if(string.endsWith(".txt")) {
+        if(string.endsWith(".txt") || string.endsWith(".sql")) {
             return string;            
         }
         throw new IOException();
@@ -80,7 +80,7 @@ public class FileUtilsImpl implements FileUtils{
     public static void main(String[] args) {
         FileUtils fileUtils = new FileUtilsImpl();
         //System.out.println("criar: " + fileUtils.mk("doce"));
-        //System.out.println("caminho: " + fileUtils.ls("file"));
+        System.out.println("caminho: " + fileUtils.ls("file"));
         //System.out.println("apagar: " + fileUtils.rm("file/aula2.txt"));
         //System.out.println("criar: " + fileUtils.mk("file/aulaMovida.txt"));
         //System.out.println("mover: " + fileUtils.mv("file/aulaMovida.txt", "file/move/"));

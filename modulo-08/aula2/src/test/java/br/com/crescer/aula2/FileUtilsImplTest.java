@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
  * @author Jomar
  */
 public class FileUtilsImplTest {
-    
+    /*
     private final FileUtilsImpl instance = new FileUtilsImpl();    
     private final String stringArquivo = "file/teste/teste.txt";
     private final String stringPasta = "file/teste/";
@@ -45,9 +45,7 @@ public class FileUtilsImplTest {
     public void tearDown() {
     }
 
-    /**
-     * Testa criar um arquivo válido
-     */
+
     @Test
     public void testCriarArquivoValido() throws IOException {      
         boolean expResult = true;
@@ -63,9 +61,7 @@ public class FileUtilsImplTest {
         pasta.deleteOnExit();
     }
     
-    /**
-     * Testa criar uma pasta
-     */
+
     @Test
     public void testCriarPasta() {      
         boolean expResult = true;
@@ -79,9 +75,7 @@ public class FileUtilsImplTest {
         file.delete();
     }
     
-     /**
-     * Testa criar um arquivo inválido
-     */
+
     @Test
     public void testCriarArquivoInvalido() {      
         boolean expResult = false;
@@ -95,9 +89,7 @@ public class FileUtilsImplTest {
         file.delete();
     }
 
-    /**
-     * Teste remover
-     */
+
     @Test
     public void testeRemoverValido() throws IOException {     
         boolean expResult = true;
@@ -108,9 +100,7 @@ public class FileUtilsImplTest {
         assertEquals(expResult, result);        
     }
     
-    /**
-     * Teste remover inválido
-     */
+
     @Test
     public void testeRemoverInvalido() {      
         boolean expResult = false;
@@ -119,9 +109,7 @@ public class FileUtilsImplTest {
         assertEquals(expResult, result);        
     }
 
-    /**
-     * Test of ls method, of class FileUtilsImpl.
-     */
+
     @Test
     public void testCaminhoDeArquivo() throws IOException {
         String string = "c:/temp/teste.txt";
@@ -135,9 +123,7 @@ public class FileUtilsImplTest {
         file.delete();
     }
     
-        /**
-     * Test of ls method, of class FileUtilsImpl.
-     */
+
     @Test
     public void testArquivosNaPasta() throws IOException {
         File pasta = new File(stringPasta);
@@ -157,9 +143,7 @@ public class FileUtilsImplTest {
         pasta.deleteOnExit();
     }    
 
-    /**
-     * Test of mv method, of class FileUtilsImpl.
-     */
+
     @Test
     public void testMover() throws IOException {
         File pasta1 = new File(stringPasta);
@@ -179,9 +163,7 @@ public class FileUtilsImplTest {
         System.out.println("");
     }
 
-    /**
-     * Test of isArquivo method, of class FileUtilsImpl.
-     */
+
     @Test
     public void testIsArquivo() throws IOException {
         new File(stringArquivo).delete();
@@ -193,9 +175,7 @@ public class FileUtilsImplTest {
         assertEquals(expResult, result);
     }
     
-        /**
-     * Test of isArquivo method, of class FileUtilsImpl.
-     */
+
     @Test(expected = IOException.class)
     public void testIsArquivoInvalido() throws IOException {
         new File(stringArquivo).delete();
@@ -204,5 +184,5 @@ public class FileUtilsImplTest {
         String expResult = "arquivo.txt";
         String result = FileUtilsImpl.isArquivo(string);
     }
-     
+     */
 }
