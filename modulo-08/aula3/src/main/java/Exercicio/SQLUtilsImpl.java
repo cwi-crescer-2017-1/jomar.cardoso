@@ -8,20 +8,17 @@ package Exercicio;
 
 import br.com.crescer.aula3.ConnectionUtils;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.Pais;
+
 
 
 /**
@@ -46,22 +43,22 @@ public class SQLUtilsImpl implements SQLUtils{
 
     @Override
     public String executeQuery(String query) {
-        String retorno = "";
+        StringBuffer retorno = null;
         try(final Statement statement
                 = ConnectionUtils.getConnection().createStatement()){
             try(final ResultSet resultSet = statement.executeQuery(query)) {                
                 ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
                 while (resultSet.next()) { 
                     for (int i = 1; i <= resultSetMetaData.getColumnCount(); i++) {
-                        retorno = retorno.concat(resultSetMetaData.getColumnName(i) + ": ");
-                        retorno = retorno.concat(resultSet.getString(i));
+                        retorno.append(resultSetMetaData.getColumnName(i) + ": ");
+                        retorno.append(resultSet.getString(i));
                     }                                        
                 } 
             }
         } catch (SQLException ex) {
              Logger.getLogger(SQLUtilsImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return retorno;
+        return retorno.toString();
     }
 
     @Override
@@ -97,7 +94,22 @@ public class SQLUtilsImpl implements SQLUtils{
 
     @Override
     public File exportCSV(String query, String arquivo) {
-         return null;
+                 StringBuffer retorno = null;
+        try(final Statement statement
+                = ConnectionUtils.getConnection().createStatement()){
+            try(final ResultSet resultSet = statement.executeQuery(query)) {                
+                ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
+                while (resultSet.next()) { 
+                    for (int i = 1; i <= resultSetMetaData.getColumnCount(); i++) {
+                        retorno.append(resultSetMetaData.getColumnName(i) + ": ");
+                        retorno.append(resultSet.getString(i));
+                    }                                        
+                } 
+            }
+        } catch (SQLException ex) {
+             Logger.getLogger(SQLUtilsImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return retorno.toString();
     }
 
     
