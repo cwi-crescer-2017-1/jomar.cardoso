@@ -34,3 +34,6 @@ Ferramentas/Teste da Unidade/Selecionar Repositório Atual
 Drops
  drop tablespace #### INCLUDING CONTENTS; 
  drop user #### cascade;
+
+
+https://nunes-andre.gitbooks.io/banco-de-dados-ii/content/6-plsql.html
