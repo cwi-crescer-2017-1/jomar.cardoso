@@ -12,21 +12,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
-
 /**
  *
  * @author Jomar
  */
-@Entity 
-public class Cliente extends Pessoa{
-     
+
+@Entity
+class Genero {
+    
     @Id 
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ")
-    @SequenceGenerator(name = "SQ", sequenceName = "SEQ_CLIENTE", allocationSize=1)
+    @SequenceGenerator(name = "SQ", sequenceName = "SEQ_GENERO", allocationSize=1)
     @Basic(optional = false) 
-    private long id;
-
+    private long id; 
+    
+    @Basic(optional = false)
+    private String descricao;
 }
- 
-
-
