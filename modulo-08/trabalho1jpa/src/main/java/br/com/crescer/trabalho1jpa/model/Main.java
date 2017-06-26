@@ -21,9 +21,9 @@ public class Main {
         //generoDao.findAll();
         //generoDao.remove(17l);
         
-        GenericDao clienteDao = new ClienteDao();
-        EntidadeBase cliente = new Cliente("Comédia");
-        cliente = (EntidadeBase) clienteDao.save(cliente);
+        //GenericDao clienteDao = new ClienteDao();
+        //EntidadeBase cliente = new Cliente("Comédia");
+        //cliente = (EntidadeBase) clienteDao.save(cliente);
         
     } 
 }

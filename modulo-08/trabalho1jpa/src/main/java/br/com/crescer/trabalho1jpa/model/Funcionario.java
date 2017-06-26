@@ -6,6 +6,7 @@
 package br.com.crescer.trabalho1jpa.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,6 +33,10 @@ public class Funcionario extends Pessoa{
                 
     @Basic(optional = true)
     private String funcao; 
+
+    public Funcionario(String bairro, String celular, String cidade, String cpf, String email, Date nascimento, String nome, String numeroCasa, String rg, String rua, String telefone) {
+        super(bairro, celular, cidade, cpf, email, nascimento, nome, numeroCasa, rg, rua, telefone);
+    }
 
     @Override
     public Serializable getId() {
