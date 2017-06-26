@@ -36,7 +36,7 @@ public abstract class Pessoa extends EntidadeBase implements Serializable{
     
     @Column(name = "NUMERO_CASA") 
     @Basic (optional = true)
-    private String numerocasa;
+    private String numeroCasa;
     
     @Basic (optional = true)
     private String email;
@@ -49,4 +49,30 @@ public abstract class Pessoa extends EntidadeBase implements Serializable{
             
     @Basic (optional = true)
     private Date nascimento;
+    
+    public Pessoa (
+                    String bairro,
+                    String celular,
+                    String cidade,
+                    String cpf,
+                    String email,
+                    Date nascimento,
+                    String nome,
+                    String numeroCasa,
+                    String rg,
+                    String rua,
+                    String telefone
+                    ) {
+        this.bairro = bairro;
+        this.celular = celular;
+        this.cidade = cidade;
+        this.cpf = cpf;
+        this.email = email;
+        this.nascimento = nascimento;
+        this.nome = nome;
+        this.numeroCasa = numeroCasa;
+        this.rg = rg;
+        this.rua = rua;
+        this.telefone = telefone;
+    }
 }

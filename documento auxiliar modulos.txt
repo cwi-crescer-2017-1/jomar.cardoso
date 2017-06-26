@@ -1,0 +1,3 @@
+
+MUDAR PORTA PARA DO BANCO PARA USAR O GLASSFISH
+SQL dev: EXEC dbms_xdb.sethttpport('7070');

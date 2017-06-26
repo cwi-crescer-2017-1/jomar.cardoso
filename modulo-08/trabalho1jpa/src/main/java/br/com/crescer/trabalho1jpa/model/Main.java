@@ -14,7 +14,7 @@ import br.com.crescer.trabalho1jpa.repository.GenericDao;
 public class Main {
         public static void main(String[] args) {
         //GenericDao generoDao = new GeneroDao();
-        //EntidadeBase genero = new Genero(1l, "Comédia");
+        //EntidadeBase genero = new Genero("Comédia");
         //genero = (EntidadeBase) generoDao.save(genero);
         //Genero genero = (Genero) generoDao.loadById(1l);
         //System.out.println(genero.getDescricao());
@@ -22,6 +22,8 @@ public class Main {
         //generoDao.remove(17l);
         
         GenericDao clienteDao = new ClienteDao();
+        EntidadeBase cliente = new Cliente("Comédia");
+        cliente = (EntidadeBase) clienteDao.save(cliente);
         
     } 
 }

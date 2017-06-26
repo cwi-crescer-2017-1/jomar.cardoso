@@ -6,11 +6,7 @@
 package br.com.crescer.trabalho1jpa.repository;
 
 import br.com.crescer.trabalho1jpa.model.EntidadeBase;
-import br.com.crescer.trabalho1jpa.repository.CrudDao;
-import java.io.Serializable;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -48,7 +44,7 @@ public abstract class GenericDao<T extends EntidadeBase, Serializable> implement
     public void remove(Serializable id) {        
         try {
             em.getTransaction().begin();
-            T t = loadById(id); //busca certo
+            T t = em.find(classe, id);
             em.remove(t); //erro no remove
             em.getTransaction().commit();
         } catch(Exception e) {
