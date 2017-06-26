@@ -22,5 +22,6 @@ public class Main {
         //generoDao.remove(17l);
         
         GenericDao clienteDao = new ClienteDao();
+        
     } 
 }
