@@ -1,3 +1,10 @@
 
 MUDAR PORTA PARA DO BANCO PARA USAR O GLASSFISH
 SQL dev: EXEC dbms_xdb.sethttpport('7070');
+copiar o arquivo 
+C:\Users\jomar.cardoso\.m2\repository\com\oracle\ojdbc6\11.2.0.3 ojdbc6-11.2.0.3
+C:\Program Files\glassfish-4.1.1\glassfish\lib
+
+atalhos NetBeans
+
+CTRL+\ mostrar opções de override
