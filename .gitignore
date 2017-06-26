@@ -2,4 +2,9 @@
 
 *.bluej
 /modulo-08/aula3/target/
+<<<<<<< HEAD
 /modulo-08/aula4/target/
+=======
+/modulo-08/aula3/nbproject/
+/modulo-08/trabalho1/target/
+>>>>>>> master

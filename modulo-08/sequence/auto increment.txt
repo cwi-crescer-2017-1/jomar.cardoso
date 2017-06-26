@@ -1,0 +1,6 @@
+  @Id 
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ")
+    @SequenceGenerator(name = "SQ", sequenceName = "SQCLIENTE", allocationSize=1)
+    @Basic(optional = false) 
+    @Column(name = "ID_CLIENTE") 
+    private int id; 

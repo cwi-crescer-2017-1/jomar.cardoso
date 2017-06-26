@@ -1,0 +1,105 @@
+CREATE TABLE CLIENTE 
+(
+  ID_CLIENTE NUMBER(8) NOT NULL 
+, NM_CLIENTE VARCHAR2(60) NOT NULL 
+, CONSTRAINT CLIENTE_PK PRIMARY KEY 
+  (
+    ID_CLIENTE 
+  )
+  ENABLE 
+);
+
+CREATE TABLE FILHO  (    
+   ID_FILHO NUMBER(8), 
+    NM_FILHO VARCHAR2(60), 
+    ID_PESSOA NUMBER(8)
+   ) ;
+
+ ALTER TABLE FILHO ADD CONSTRAINT "FILHO_PK" PRIMARY KEY ("ID_FILHO");
+
+ALTER TABLE FILHO
+ADD CONSTRAINT FILHO_FK1 FOREIGN KEY
+(
+  ID_PESSOA 
+)
+REFERENCES PESSOA
+(
+  ID 
+)
+ENABLE;
+
+   <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>4.3.1.Final</version>
+        </dependency>
+		
+		
+		
+		```<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence                                   http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+    <persistence-unit name="CRESCER" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <class>br.com.crescer.aula4.Cliente</class>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+            <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
+            <property name="javax.persistence.jdbc.user" value="crescer"/>
+            <property name="javax.persistence.jdbc.password" value="crescer"/>
+            <!--<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>-->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>```
+
+
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?> 
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"> 
+    <modelVersion>4.0.0</modelVersion> 
+    <groupId>br.com.crescer</groupId> 
+    <artifactId>aula4</artifactId> 
+    <version>1.0-SNAPSHOT</version> 
+    <packaging>jar</packaging> 
+     
+    <dependencies> 
+        <dependency> 
+            <groupId>com.oracle</groupId> 
+            <artifactId>ojdbc6</artifactId> 
+            <version>11.2.0.3</version> 
+        </dependency> 
+        <dependency> 
+            <groupId>org.eclipse.persistence</groupId> 
+            <artifactId>eclipselink</artifactId> 
+            <version>2.5.2</version> 
+        </dependency> 
+        <!--     
+        <dependency> 
+            <groupId>org.hibernate</groupId> 
+            <artifactId>hibernate-entitymanager</artifactId> 
+            <version>4.3.1.Final</version> 
+        </dependency> 
+        --> 
+    </dependencies> 
+     
+    <properties> 
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> 
+        <maven.compiler.source>1.8</maven.compiler.source> 
+        <maven.compiler.target>1.8</maven.compiler.target> 
+    </properties> 
+     
+    <repositories> 
+        <repository> 
+            <id>codelds</id> 
+            <url>https://code.lds.org/nexus/content/groups/main-repo</url> 
+        </repository> 
+    </repositories> 
+</project>
+
+
+
+
