@@ -14,8 +14,7 @@ import javax.persistence.Column;
  *
  * @author Jomar
  */
-
-public abstract class Pessoa implements Serializable{
+public abstract class Pessoa extends EntidadeBase implements Serializable{
     
     @Basic(optional = false)  
     private String nome;

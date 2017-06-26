@@ -5,6 +5,8 @@
  */
 package br.com.crescer.trabalho1.model;
 
+import java.io.Serializable;
+import java.lang.annotation.Annotation;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +19,7 @@ import javax.persistence.SequenceGenerator;
  *
  * @author Jomar
  */
-@Entity 
+@Entity
 public class Cliente extends Pessoa{
      
     @Id 
@@ -25,6 +27,21 @@ public class Cliente extends Pessoa{
     @SequenceGenerator(name = "SQ", sequenceName = "SEQ_CLIENTE", allocationSize=1)
     @Basic(optional = false) 
     private long id;
+
+    @Override
+    public Serializable getId() {
+        return this.id;
+    }
+
+    @Override
+    public String name() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Class<? extends Annotation> annotationType() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }
  

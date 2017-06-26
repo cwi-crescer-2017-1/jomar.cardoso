@@ -6,6 +6,7 @@
 package br.com.crescer.trabalho1.model;
 
 import java.io.Serializable;
+import java.lang.annotation.Annotation;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -23,7 +24,7 @@ import javax.persistence.SequenceGenerator;
  */
 
 @Entity
-public class Video implements Serializable {
+public class Video implements Entity, Serializable {
     
     @Id 
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ")
@@ -52,4 +53,14 @@ public class Video implements Serializable {
     @Basic(optional = true)
     @Column(name = "DATA_LANCAMENTO") 
     private Date dataLancamento;
+
+    @Override
+    public String name() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Class<? extends Annotation> annotationType() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

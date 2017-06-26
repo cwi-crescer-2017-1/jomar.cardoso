@@ -31,12 +31,12 @@ public class Run {
         
  
         em.getTransaction().begin(); 
-        Cliente cliente = new Cliente("Rocky");
-        em.merge(cliente); 
+        //Cliente cliente = new Cliente("Rocky");
+        //em.merge(cliente); 
         em.getTransaction().commit(); 
 
  
-        System.out.println(cliente.getNome()); 
+        //System.out.println(cliente.getNome()); 
 
  
 //        em.persist(cliente);
