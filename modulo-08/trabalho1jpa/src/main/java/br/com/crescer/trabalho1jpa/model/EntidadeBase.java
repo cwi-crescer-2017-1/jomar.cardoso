@@ -3,17 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.crescer.trabalho1.model;
+package br.com.crescer.trabalho1jpa.model;
 
-import javax.persistence.Id;
+import java.io.Serializable;
 
 /**
  *
  * @author Jomar
  */
-public class VideoDao extends CrudDaoImpl<Video, Id>{  
+
+public abstract class EntidadeBase {
     
-    public VideoDao() {
-        super(Video.class);
-    }
+    public abstract Serializable getId();
 }

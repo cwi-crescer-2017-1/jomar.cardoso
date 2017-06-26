@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.crescer.trabalho1.model;
+package br.com.crescer.trabalho1jpa.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -19,7 +20,7 @@ import javax.persistence.SequenceGenerator;
  *
  * @author Jomar
  */
-public class Locacao {
+public class Locacao extends EntidadeBase implements  Serializable {
     @Id 
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ")
     @SequenceGenerator(name = "SQ", sequenceName = "SEQ_LOCACAO", allocationSize=1)
@@ -50,4 +51,9 @@ public class Locacao {
     @Column(name = "DATA_DEVOLUCAO")
     @Basic(optional = true) 
     private Date dataDevolucao;
+
+    @Override
+    public Serializable getId() {
+        return this.id;
+    }
 }

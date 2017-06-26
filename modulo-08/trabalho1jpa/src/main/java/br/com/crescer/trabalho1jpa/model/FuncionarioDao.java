@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.crescer.trabalho1.model;
+package br.com.crescer.trabalho1jpa.model;
 
+import br.com.crescer.trabalho1jpa.repository.GenericDao;
 import javax.persistence.Id;
 
 /**
  *
  * @author Jomar
  */
-public class FuncionarioDao extends CrudDaoImpl<Funcionario, Id>{  
+public class FuncionarioDao extends GenericDao<Funcionario, Id>{  
     
     public FuncionarioDao() {
         super(Funcionario.class);

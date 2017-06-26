@@ -3,17 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.crescer.trabalho1.model;
+package br.com.crescer.trabalho1jpa.model;
 
+import br.com.crescer.trabalho1jpa.repository.GenericDao;
 import javax.persistence.Id;
 
 /**
  *
  * @author Jomar
  */
-public class ClienteDao extends CrudDaoImpl<Cliente, Id>{  
+public class VideoDao extends GenericDao<Video, Id>{  
     
-    public ClienteDao() {
-        super(Cliente.class);
+    public VideoDao() {
+        super(Video.class);
     }
 }

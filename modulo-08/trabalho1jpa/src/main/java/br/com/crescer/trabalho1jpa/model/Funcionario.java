@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.crescer.trabalho1.model;
+package br.com.crescer.trabalho1jpa.model;
 
+import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,6 +32,11 @@ public class Funcionario extends Pessoa{
                 
     @Basic(optional = true)
     private String funcao; 
+
+    @Override
+    public Serializable getId() {
+        return this.id;
+    }
     
     
     

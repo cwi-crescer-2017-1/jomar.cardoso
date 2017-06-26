@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.crescer.trabalho1.model;
+package br.com.crescer.trabalho1jpa.model;
 
 import java.io.Serializable;
 import java.lang.annotation.Annotation;
@@ -24,7 +24,7 @@ import javax.persistence.SequenceGenerator;
  */
 
 @Entity
-public class Video implements Entity, Serializable {
+public class Video extends EntidadeBase implements  Serializable {
     
     @Id 
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ")
@@ -55,12 +55,7 @@ public class Video implements Entity, Serializable {
     private Date dataLancamento;
 
     @Override
-    public String name() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Class<? extends Annotation> annotationType() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Serializable getId() {
+        return this.id;
     }
 }
