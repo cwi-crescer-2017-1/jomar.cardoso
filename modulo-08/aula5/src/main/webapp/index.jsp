@@ -1,3 +1,10 @@
+<%-- 
+    Document   : index
+    Created on : 27/06/2017, 01:10:00
+    Author     : Jomar
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,7 +55,7 @@
                                             <label for="senha">Senha</label>
                                             <input type="password" class="form-control" name="senha">
                                         </div>
-                                        <button class="btn btn-default">Entrar</button>
+                                        <button class="btn btn-default" type="button">Entrar</button>
                                         </form>
                                     </div>
                                 </div>
