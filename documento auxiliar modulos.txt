@@ -8,3 +8,9 @@ C:\Program Files\glassfish-4.1.1\glassfish\lib
 atalhos NetBeans
 
 CTRL+\ mostrar opções de override
+
+ERRO DO GLASSFISH NÃO RODAR LOCALHOST
+projeto/propriedades/executar e mudar para a versão usada do Glassfish
+
+SIMULAR SERVIDOR
+herokuapp

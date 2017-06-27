@@ -1,0 +1,6 @@
+ICONES CSS
+http://getbootstrap.com/components/#glyphicons
+http://fontawesome.io/icons/
+
+TESTAR CÓDIGOS HTML
+https://plnkr.co/edit/?p=catalogue
