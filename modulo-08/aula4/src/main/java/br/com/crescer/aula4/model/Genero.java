@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.crescer.trabalho1jpa.model;
+package br.com.crescer.aula4.model;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
@@ -25,7 +25,7 @@ import javax.persistence.SequenceGenerator;
 @NamedQuery(name = "EntidadeBase.findAll", query = "SELECT p.id, p.descricao FROM Genero p") 
 }) 
 
-class Genero extends EntidadeBase implements Serializable{   
+public class Genero extends EntidadeBase implements Serializable{   
 
     @Id 
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQGENERO")

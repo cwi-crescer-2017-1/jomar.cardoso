@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.crescer.trabalho1jpa.repository;
+package br.com.crescer.aula4.repository;
 
-import br.com.crescer.trabalho1jpa.model.EntidadeBase;
+import br.com.crescer.aula4.model.EntidadeBase;
 import java.io.Serializable;
 import java.util.List;
 

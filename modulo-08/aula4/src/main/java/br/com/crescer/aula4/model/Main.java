@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.crescer.trabalho1jpa.model;
+package br.com.crescer.aula4.model;
 
-import br.com.crescer.trabalho1jpa.repository.GenericDao;
+import br.com.crescer.aula4.repository.GenericDao;
 
 /**
  *
@@ -13,9 +13,9 @@ import br.com.crescer.trabalho1jpa.repository.GenericDao;
  */
 public class Main {
         public static void main(String[] args) {
-        //GenericDao generoDao = new GeneroDao();
-        //EntidadeBase genero = new Genero("Comédia");
-        //genero = (EntidadeBase) generoDao.save(genero);
+        GenericDao generoDao = new GeneroDao();
+        EntidadeBase genero = new Genero("Russo");
+        genero = (EntidadeBase) generoDao.save(genero);
         //Genero genero = (Genero) generoDao.loadById(1l);
         //System.out.println(genero.getDescricao());
         //generoDao.findAll();
