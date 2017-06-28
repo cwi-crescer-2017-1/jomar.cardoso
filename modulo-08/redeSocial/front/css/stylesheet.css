@@ -1,0 +1,221 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(233,235,238);
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.container {
+    
+}
+
+header {
+    background-color: #42b267;
+}
+
+header .header {
+    margin: 7px 0 8px 0;
+}
+
+.fa .fa-contao .fa-2x .fa-inverse {
+    float: left;
+}
+
+.pesquisa {
+    padding-left: 0;
+}
+
+#busca-pessoas {
+    /*float: left;*/
+    position: relative;
+    padding-left: 0;
+}
+
+.busca-pessoas .form-group-sm input{
+    line-height: 1.2;
+    height: 26px;
+    width: 95%;
+    margin-right: -46px;
+    border: none;
+    border-radius: 2px 0 0 2px;    
+}
+
+.busca-pessoas .btn-busca-pessoas {
+    background-color: #f6f7f9;
+    border: none;
+    border-radius: 0 2px 2px 0;
+    cursor: pointer;
+    height: 26px;
+    width: 46px;
+    position: absolute;
+    right: 0;
+}
+
+.busca-pessoas .btn-busca-pessoas .glyphicon-search {
+    margin-top: 3px;
+}
+
+.menu-usuario {
+    color: white;
+    text-decoration: none;
+    line-height: 28px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.menu-usuario a{
+     color: white;   
+}
+
+.menu-usuario .perfil{ 
+    border-right: 1px solid #2c9946;
+    padding-right: 0;    
+}
+
+
+.menu-usuario .perfil-nome::before {
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 2px;
+    box-sizing: border-box;
+    content: '';
+    height: 24px;
+    left: 2px;
+    position: absolute;
+    top: 2px;
+    width: 24px;
+    background-color: white;
+    display: inline-block;
+    margin: 0px 6px 0px -19px;
+    vertical-align: inherit;
+}
+
+.menu-usuario .perfil-img img{ 
+    border: 0;
+}
+
+.menu-usuario .perfil-nome {
+    background-color: transparent;
+    display: inline-block;  
+    -webkit-font-smoothing: antialiased;    
+    height: 27px;
+    padding: 0 10px 1px;
+    position: relative;    
+    vertical-align: top;
+    white-space: nowrap;    
+}
+
+.menu-usuario .pagina-inicial::before {
+    content: '';
+    display: block;
+    height: 18px;
+    left: -1px;
+    position: absolute;
+    top: 12px;
+    width: 1px;
+}
+
+.pagina {
+    padding-left: 0;
+}
+
+.menu-usuario .pagina-inicial {
+    background-color: transparent;
+    display: inline-block;;
+    -webkit-font-smoothing: antialiased;
+    height: 27px;
+    line-height: 28px;
+    padding: 0 10px 1px;
+    position: relative;
+    text-decoration: none;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+.menu-usuario .navegacao {
+    padding-left: 4px;
+}
+
+.menu-usuario .navegacao .navegacao-icone {
+    float: left;
+    
+}
+
+.menu-usuario .navegacao .navegacao-icone .navegacao-icone-icone{
+    float: none;
+    position: relative;    
+}
+
+.menu-usuario .navegacao .navegacao-icone .navegacao-icone-icone a{ 
+    display: block;
+    margin: 0;
+    outline: none;
+    position: relative;
+    text-decoration: none;
+    padding: 0 3px;
+}
+
+.menu-usuario .navegacao .navegacao-icone .navegacao-icone-icone a div{ 
+    background-image: url(../img/icones.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    opacity: .6;
+    background-clip: content-box;
+    background-origin: content-box;
+    height: 24px;
+    width: 24px;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.menu-usuario .navegacao .navegacao-icone .navegacao-icone-icone a div.amizade{ 
+    background-position: 0 -113px;
+}
+
+.menu-usuario .navegacao .navegacao-icone .navegacao-icone-icone a div.mensagens{ 
+    background-position: 0 -363px;
+}
+
+.menu-usuario .navegacao .navegacao-icone .navegacao-icone-icone a div.notificacoes{ 
+    background-position: 0 -163px;
+}
+
+
+
+
+    
