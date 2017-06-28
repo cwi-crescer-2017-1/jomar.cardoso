@@ -16,3 +16,6 @@ projeto/propriedades/executar e mudar para a versão usada do Glassfish
 
 SIMULAR SERVIDOR
 herokuapp
+
+INICIAR JAR
+java -jar + o primeiro jar
