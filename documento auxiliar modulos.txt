@@ -19,3 +19,13 @@ herokuapp
 
 INICIAR JAR
 java -jar + o primeiro jar
+
+CRIAR ENTIDADES ATRAVÉS DO BANCO
+novo / persistencias // engtidades de banco
+
+
+CRIAR BREAKPOINTS QUANDO HOUVER EXCEPTION
+janela / depuração  / pontos de interrupção / 
+
+CRIAR RESPOSTA DE BADREQUEST
+https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc
