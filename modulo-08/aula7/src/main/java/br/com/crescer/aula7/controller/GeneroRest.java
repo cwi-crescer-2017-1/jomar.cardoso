@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,7 +31,7 @@ public class GeneroRest {
     GeneroService generoService;
 
     @PostMapping()
-    public String post(@PathVariable Genero genero) {
+    public String post(@RequestBody Genero genero) {
         generoService.post(genero);
         return "Ok";
     }
