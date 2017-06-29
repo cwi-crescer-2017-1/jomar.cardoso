@@ -5,6 +5,7 @@
  */
 package br.com.crescer.aula4.model;
 
+import br.com.crescer.aula7.model.Funcionario;
 import br.com.crescer.aula4.repository.GenericDao;
 import javax.persistence.Id;
 
