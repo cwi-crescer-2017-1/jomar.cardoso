@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.crescer.aula7;
-
-import org.springframework.data.repository.CrudRepository;
+package br.com.crescer.aula7.controller;
 
 /**
  *
- * @author jomar.cardoso
+ * @author Jomar
  */
-public interface GeneroRepository extends CrudRepository<Genero, Long> {
-
+public class ClienteRest {
+    
 }
