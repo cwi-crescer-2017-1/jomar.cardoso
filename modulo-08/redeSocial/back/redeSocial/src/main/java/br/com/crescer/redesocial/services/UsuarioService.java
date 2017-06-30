@@ -3,21 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.crescer.redesocial.service;
+package br.com.crescer.redesocial.services;
 
-import br.com.crescer.redesocial.model.Usuario;
-import br.com.crescer.redesocial.repository.UsuarioRepository;
+import br.com.crescer.redesocial.models.Usuario;
+import br.com.crescer.redesocial.repositories.UsuarioRepository;
+import java.math.BigDecimal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 /**
  *
- * @author Jomar
+ * @author jomar.cardoso
  */
 @Service
 public class UsuarioService {
-    
+     
     @Autowired
     UsuarioRepository usuarioRepository;
     
@@ -25,11 +25,11 @@ public class UsuarioService {
         usuarioRepository.save(usuario);
     }
     
-    public void delete (Long id) {
+    public void delete (BigDecimal id) {
         usuarioRepository.delete(id);
     }
     
-    public Usuario loadById (Long id) {
+    public Usuario loadById (BigDecimal id) {
         return usuarioRepository.findOne(id);
     }
     
@@ -37,4 +37,3 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
 }
-

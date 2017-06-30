@@ -10,14 +10,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  *
- * @author jomar.cardoso
+ * @author Jomar
  */
 @SpringBootApplication
-
-public class Run {
-
+public class Main {
     public static void main(String[] args) throws Exception {
-        SpringApplication.run(Run.class, args);
+        SpringApplication.run(Main.class, args);
     }
-
 }
