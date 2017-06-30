@@ -2,14 +2,28 @@
     box-sizing: border-box;
 }
 
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
 body {
     background-color: rgb(233,235,238);
 }
 
 .clearfix::after {
-    content: "";
     clear: both;
-    display: table;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
+img {
+    border: 0;
 }
 
 .container {
@@ -97,9 +111,6 @@ header .header {
     vertical-align: inherit;
 }
 
-.menu-usuario .perfil-img img{ 
-    border: 0;
-}
 
 .menu-usuario .perfil-nome {
     background-color: transparent;
@@ -143,25 +154,6 @@ header .header {
     padding-left: 4px;
 }
 
-.menu-usuario .navegacao .navegacao-icone {
-    float: left;
-    
-}
-
-.menu-usuario .navegacao .navegacao-icone .navegacao-icone-icone{
-    float: none;
-    position: relative;    
-}
-
-.menu-usuario .navegacao .navegacao-icone .navegacao-icone-icone a{ 
-    display: block;
-    margin: 0;
-    outline: none;
-    position: relative;
-    text-decoration: none;
-    padding: 0 3px;
-}
-
 .menu-usuario .navegacao .navegacao-icone .navegacao-icone-icone a div{ 
     background-image: url(../img/icones.png);
     background-repeat: no-repeat;
@@ -170,40 +162,8 @@ header .header {
     background-clip: content-box;
     background-origin: content-box;
     height: 24px;
-    width: 24px;
-    
+    width: 24px;    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .menu-usuario .navegacao .navegacao-icone .navegacao-icone-icone a div.amizade{ 
     background-position: 0 -113px;
 }
@@ -216,7 +176,89 @@ header .header {
     background-position: 0 -163px;
 }
 
+section .postagens {
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 14px;
+    border-radius: 4px;    
+    border: 1px solid #D3D3D3;
+    border-bottom-width: 2px;
+}
+
+.postagens.publicacao {
+    padding-top: 0;
+}
+
+.postagens .divisao {
+    margin-top: 10px;
+    border-bottom: 1px solid #DCDCDC;
+    margin-bottom: 10px;
+}
+
+.publicacao .abas {
+    background-color: #f6f7f9;
+    padding: 10px;
+    border-radius: 4px 4px 0 0;
+    border-bottom: 1px solid #DCDCDC;
+}
+
+.publicacao .abas .aba {
+    font-weight: bold;
+}
+
+.publicacao .abas .aba .icone{
+    margin-right: 6px;
+}
+
+.publicacao .corpo {
+    padding-top: 10px;
+}
+
+.img-perfil {
+    width: 40px;
+    height: 40px;
+    background: gray;
+} 
+
+.postagem {
+    padding-bottom: 0 !important;
+}
+
+.postagem .header .titulo {
+    color: #006400;
+}
+
+.postagem .header .titulo .nome {
+    font-weight: bold;
+}
+
+.postagem .header .titulo .data {
+    color: #90949c;
+}
+
+.postagem .corpo {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.postagem .corpo .imagem {
+    min-height: 300px;
+    width: 100%;
+    background: gray;
+}
+
+.postagem .reacao {
+    color: #4b4f56;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.postagem .footer {
+    border-top: 1px solid #DCDCDC;;
+    border-radius: 0 0 4px 4px;
+    background-color: #f6f7f9;
+    padding: 10px;
+}
 
 
-
-    
