@@ -9,6 +9,7 @@ import br.com.crescer.redesocial.models.Usuario;
 import br.com.crescer.redesocial.repositories.UsuarioRepository;
 import java.math.BigDecimal;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 /**
@@ -22,6 +23,7 @@ public class UsuarioService {
     UsuarioRepository usuarioRepository;
     
     public void post (Usuario usuario) {
+        usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
         usuarioRepository.save(usuario);
     }
     
@@ -31,6 +33,10 @@ public class UsuarioService {
     
     public Usuario loadById (BigDecimal id) {
         return usuarioRepository.findOne(id);
+    }
+    
+    public Usuario findByEmail (String username) {
+        return usuarioRepository.findByEmail(username);
     }
     
     public Iterable<Usuario> findAll() {
