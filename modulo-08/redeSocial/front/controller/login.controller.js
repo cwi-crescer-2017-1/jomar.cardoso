@@ -1,13 +1,11 @@
-angular.module('app').controller('loginController', function ($scope, authService) {
+angular.module('app').controller('loginController', function ($scope, authService, loginService, $location) {
 
   $scope.login = function (usuario) {
-
-  authService.login(usuario)
+    authService.login(usuario)
     .then(
       function (response) {
         console.log(response);
         alert('Login com sucesso!');
-
       },
       function (response) {
         console.log(response);
@@ -15,6 +13,13 @@ angular.module('app').controller('loginController', function ($scope, authServic
       });
   };
 
+  $scope.cadastrar = function (novoUsuario) {
+    loginService.cadastrar(novoUsuario)
+    .then( response => {
+      console.log(response)
+      $location.path('/home')
+    })
+  }
   
 
 });

@@ -12,7 +12,7 @@
                     </h1>
                 </div>
                 <div class="login col-md-6">
-                    <form novalidate action="post" ng-submit="login(usuario)">
+                    <form novalidate ng-submit="login(usuario)">
                         <table>
                             <tbody>
                                 <tr>
@@ -50,112 +50,112 @@
         </div>
     </header>
     <div class="row corpo">
-                <article class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h3>
-                                Crescerbook ajuda você a conectar e compartilhar com os colegas do crescer.
-                            </h3>
+        <article class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3>
+                                    Crescerbook ajuda você a conectar e compartilhar com os colegas do crescer.
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="banner"> 
+                                    <img src="../img/mapa.png" alt="">                                       
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="banner"> 
-                                <img src="../img/mapa.png" alt="">                                       
+                    <div class="col-md-5 col-md-offset-1">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1>
+                                    Abra uma conta
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>É gratuito e sempre será.</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form novalidate ng-submit="cadastrar(novoUsuario)">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input type="text" name="novonome" placeholder="Nome" class="form-control" ng-model="novoUsuario.nome">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" name="novafoto" placeholder="Foto" class="form-control" ng-model="novoUsuario.foto">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input type="email" name="novoemail" placeholder="email" class="form-control" ng-model="novoUsuario.email">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input type="text" name="novasenha" placeholder="Nova Senha" class="form-control" ng-model="novoUsuario.senha">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 form-group">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <label for=""><h4>Data de nascimento</h4></label>
+                                                    </div>
+                                                </div>
+                                                <div class=" data-nascimento row">                                                    
+                                                    <div class="col-md-6">
+                                                        <input type="date" class="form-control" ng-model="novoUsuario.datadenascimento">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <a href="">
+                                                            Por que preciso informar minha data de nascimento?
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="sexo row radio text-center">
+                                                    <div class="col-md-4">                                                        
+                                                        <label class="_58mt" for="u_0_h"><input type="radio" name="sex" value="F" id="u_0_h" ng-model="novoUsuario.sexo">Feminino</label>
+                                                    </div>
+                                                    <div class="col-md-4">                                                        
+                                                        <label class="_58mt" for="u_0_i"><input type="radio" name="sex" value="M" id="u_0_i" ng-model="novoUsuario.sexo">Masculino</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row contrato">
+                                                    <div class="col-md-10">
+                                                        <p>Ao clicar em Abrir uma conta, você concorda com nossos Termos e que leu nossa Política de Dados, incluindo nosso Uso de Cookies. Você pode receber notificações por SMS do Crescerbook e pode cancelar o recebimento a qualquer momento.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="abrir-conta row clearfix">   
+                                                    <div class="col-md-6">
+                                                        <button type="submit" class="btn" name="websubmit">Abrir uma conta</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>  
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <a href="">
+                                        Criar uma Página
+                                    </a> para uma celebridade, banda ou empresa.
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-5 col-md-offset-1">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1>
-                                Abra uma conta
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h4>É gratuito e sempre será.</h4>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <form action="post">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <input type="text" name="novonome" placeholder="Nome" class="form-control">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <input type="text" name="novosobrenome" placeholder="Sobrenome" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <input type="email" name="novoemail" placeholder="email" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <input type="email" name="novasenha" placeholder="Nova Senha" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12 form-group">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <label for=""><h4>Data de nascimento</h4></label>
-                                                </div>
-                                            </div>
-                                            <div class=" data-nascimento row">                                                    
-                                                <div class="col-md-6">
-                                                    <input type="date" class="form-control">
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <a href="">
-                                                        Por que preciso informar minha data de nascimento?
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="sexo row radio text-center">
-                                                <div class="col-md-4">                                                        
-                                                    <label class="_58mt" for="u_0_h"><input type="radio" name="sex" value="1" id="u_0_h">Feminino</label>
-                                                </div>
-                                                <div class="col-md-4">                                                        
-                                                    <label class="_58mt" for="u_0_i"><input type="radio" name="sex" value="2" id="u_0_i">Masculino</label>
-                                                </div>
-                                            </div>
-                                            <div class="row contrato">
-                                                <div class="col-md-10">
-                                                    <p>Ao clicar em Abrir uma conta, você concorda com nossos Termos e que leu nossa Política de Dados, incluindo nosso Uso de Cookies. Você pode receber notificações por SMS do Crescerbook e pode cancelar o recebimento a qualquer momento.</p>
-                                                </div>
-                                            </div>
-                                            <div class="abrir-conta row clearfix">   
-                                                <div class="col-md-6">
-                                                    <button type="submit" class="btn" name="websubmit">Abrir uma conta</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>  
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <a href="">
-                                    Criar uma Página
-                                </a> para uma celebridade, banda ou empresa.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>            
-    </article>
+            </div>            
+        </article>
     </div>
     <footer class="row">
         <div class="col-md-12">

@@ -8,10 +8,16 @@ angular.module('app').config(function ($routeProvider) {
       templateUrl: 'html/home.html'
     })
 
-    // pública
+    // privada
     .when('/login', {
       controller: 'loginController',
       templateUrl: 'html/login.html'
+    })
+
+    // privada
+    .when('/feed', {
+      controller: 'feedController',
+      templateUrl: 'html/feed.html'
     })
 
     // privado
