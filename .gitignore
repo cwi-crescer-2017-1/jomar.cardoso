@@ -1,5 +1,6 @@
 
 *.netbeans_automatic_build
+*.jar
 
 *.bluej
 /modulo-08/aula3/target/
