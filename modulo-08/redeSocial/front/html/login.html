@@ -1,254 +1,239 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/vendors/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/login.css"> 
-    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">   
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-    <title>Crescerbook</title>
-</head>
-<body>  
-    <div class="container-fluid">
-        <header>
-            <div class="clearfix  container">
-                <div class="row menubar" >
-                    <div class="logo col-md-6">
-                        <h1>
-                            <a href="">
-                                <div>
-                                    <span>crescerbook</span>
-                                </div>
-                            </a>
-                        </h1>
-                    </div>
-                    <div class="login col-md-6">
-                        <form action="post">
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <label for="email">Email ou telefone</label>
-                                        </td>
-                                        <td>
-                                            <label for="senha">Senha</label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="email" name="email" value="" tabindex="1">
-                                        </td>
-                                        <td>
-                                            <input type="password" class="inputtext" name="senha" tabindex="2">
-                                        </td>
-                                        <td>
-                                            <input value="Entrar" tabindex="4" type="submit">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>
-                                            <div>
-                                                <a href="">Esqueceu a conta?</a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </form>
-                    </div>
-                </div>                
-            </div>
-        </header>
-        <div class="row corpo">
-                    <article class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h3>
-                                    Crescerbook ajuda você a conectar e compartilhar com os colegas do crescer.
-                                </h3>
+<div class="container-fluid">
+    <header>
+        <div class="clearfix  container">
+            <div class="row menubar" >
+                <div class="logo col-md-6">
+                    <h1>
+                        <a href="">
+                            <div>
+                                <span>crescerbook</span>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="banner"> 
-                                    <img src="../img/mapa.png" alt="">                                       
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5 col-md-offset-1">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h1>
-                                    Abra uma conta
-                                </h1>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h4>É gratuito e sempre será.</h4>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <form action="post">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <input type="text" name="novonome" placeholder="Nome" class="form-control">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <input type="text" name="novosobrenome" placeholder="Sobrenome" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <input type="email" name="novoemail" placeholder="email" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <input type="email" name="novasenha" placeholder="Nova Senha" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12 form-group">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <label for=""><h4>Data de nascimento</h4></label>
-                                                    </div>
-                                                </div>
-                                                <div class=" data-nascimento row">                                                    
-                                                    <div class="col-md-6">
-                                                        <input type="date" class="form-control">
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <a href="">
-                                                            Por que preciso informar minha data de nascimento?
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="sexo row radio text-center">
-                                                    <div class="col-md-4">                                                        
-                                                        <label class="_58mt" for="u_0_h"><input type="radio" name="sex" value="1" id="u_0_h">Feminino</label>
-                                                    </div>
-                                                    <div class="col-md-4">                                                        
-                                                        <label class="_58mt" for="u_0_i"><input type="radio" name="sex" value="2" id="u_0_i">Masculino</label>
-                                                    </div>
-                                                </div>
-                                                <div class="row contrato">
-                                                    <div class="col-md-10">
-                                                        <p>Ao clicar em Abrir uma conta, você concorda com nossos Termos e que leu nossa Política de Dados, incluindo nosso Uso de Cookies. Você pode receber notificações por SMS do Crescerbook e pode cancelar o recebimento a qualquer momento.</p>
-                                                    </div>
-                                                </div>
-                                                <div class="abrir-conta row clearfix">   
-                                                    <div class="col-md-6">
-                                                        <button type="submit" class="btn" name="websubmit">Abrir uma conta</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>  
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <a href="">
-                                        Criar uma Página
-                                    </a> para uma celebridade, banda ou empresa.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        </a>
+                    </h1>
                 </div>
-            </div>            
-        </article>
+                <div class="login col-md-6">
+                    <form novalidate action="post" ng-submit="login(usuario)">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <label for="email">Email ou telefone</label>
+                                    </td>
+                                    <td>
+                                        <label for="senha">Senha</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="email" name="email" value="" tabindex="1" ng-model="usuario.email">
+                                    </td>
+                                    <td>
+                                        <input type="password" class="inputtext" name="senha" tabindex="2" ng-model="usuario.senha">
+                                    </td>
+                                    <td>
+                                        <input value="Entrar" tabindex="4" type="submit">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <div>
+                                            <a href="">Esqueceu a conta?</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>                
         </div>
-        <footer class="row">
+    </header>
+    <div class="row corpo">
+                <article class="container">
+        <div class="row">
             <div class="col-md-12">
-                <div class="rodape container">
+                <div class="col-md-6">
                     <div class="row">
                         <div class="col-md-12">
-                            <ul class="list-unstyled list-inline">
-                                <li>Português (Brasil)</li>
-                                <li>English (US)</li>
-                                <li>Español</li>
-                                <li>Français (France)</li>
-                                <li>Italiano</li>
-                                <li>Deutsch</li>
-                                <li>العربية</li>
-                                <li>हिन्दी</li>
-                                <li>中文(简体)</li>
-                                <li>日本語</li>
-                                <li><button>+</button></li>
-                            </ul>
-                            <div class="divisao"></div>                                
+                            <h3>
+                                Crescerbook ajuda você a conectar e compartilhar com os colegas do crescer.
+                            </h3>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <ul class="list-unstyled list-inline">
-                                <li>Cadastre-se</li>
-                                <li>Entrar</li>
-                                <li>Celular</li>
-                                <li>Encontrar amigos</li>
-                                <li>Páginas</li>
-                                <li>Ajuda</li>
-                            </ul>
-                            <div class="divisao"></div> 
-                        </div>                            
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td>Messenger</td>
-                                        <td>Crescerbook Lite</td>
-                                        <td>Pessoas</td>
-                                        <td>Locais</td>
-                                        <td>Jogos</td>
-                                        <td>Locais</td>
-                                        <td>Celebridades</td>
-                                        <td>Vende-se</td>
-                                        <td>Grupos</td>
-                                        <td>Receitas</td>
-                                        <td>Moments</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Instagram</td>
-                                        <td>Sobre</td>
-                                        <td>Criar anúncio</td>
-                                        <td>Criar Página</td>
-                                        <td>Desenvolvedores</td>
-                                        <td>Carreiras</td>
-                                        <td>Privacidade</td>
-                                        <td>Cookies</td>
-                                        <td>Opções de anúncio</td>
-                                        <td>Termos</td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            Crescerbook © 2017
+                            <div class="banner"> 
+                                <img src="../img/mapa.png" alt="">                                       
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>                                 
-        </footer>
+                <div class="col-md-5 col-md-offset-1">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>
+                                Abra uma conta
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>É gratuito e sempre será.</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form action="post">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <input type="text" name="novonome" placeholder="Nome" class="form-control">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" name="novosobrenome" placeholder="Sobrenome" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input type="email" name="novoemail" placeholder="email" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input type="email" name="novasenha" placeholder="Nova Senha" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 form-group">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label for=""><h4>Data de nascimento</h4></label>
+                                                </div>
+                                            </div>
+                                            <div class=" data-nascimento row">                                                    
+                                                <div class="col-md-6">
+                                                    <input type="date" class="form-control">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <a href="">
+                                                        Por que preciso informar minha data de nascimento?
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="sexo row radio text-center">
+                                                <div class="col-md-4">                                                        
+                                                    <label class="_58mt" for="u_0_h"><input type="radio" name="sex" value="1" id="u_0_h">Feminino</label>
+                                                </div>
+                                                <div class="col-md-4">                                                        
+                                                    <label class="_58mt" for="u_0_i"><input type="radio" name="sex" value="2" id="u_0_i">Masculino</label>
+                                                </div>
+                                            </div>
+                                            <div class="row contrato">
+                                                <div class="col-md-10">
+                                                    <p>Ao clicar em Abrir uma conta, você concorda com nossos Termos e que leu nossa Política de Dados, incluindo nosso Uso de Cookies. Você pode receber notificações por SMS do Crescerbook e pode cancelar o recebimento a qualquer momento.</p>
+                                                </div>
+                                            </div>
+                                            <div class="abrir-conta row clearfix">   
+                                                <div class="col-md-6">
+                                                    <button type="submit" class="btn" name="websubmit">Abrir uma conta</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>  
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a href="">
+                                    Criar uma Página
+                                </a> para uma celebridade, banda ou empresa.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>            
+    </article>
     </div>
-</body>
-</html>
+    <footer class="row">
+        <div class="col-md-12">
+            <div class="rodape container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="list-unstyled list-inline">
+                            <li>Português (Brasil)</li>
+                            <li>English (US)</li>
+                            <li>Español</li>
+                            <li>Français (France)</li>
+                            <li>Italiano</li>
+                            <li>Deutsch</li>
+                            <li>العربية</li>
+                            <li>हिन्दी</li>
+                            <li>中文(简体)</li>
+                            <li>日本語</li>
+                            <li><button>+</button></li>
+                        </ul>
+                        <div class="divisao"></div>                                
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="list-unstyled list-inline">
+                            <li>Cadastre-se</li>
+                            <li>Entrar</li>
+                            <li>Celular</li>
+                            <li>Encontrar amigos</li>
+                            <li>Páginas</li>
+                            <li>Ajuda</li>
+                        </ul>
+                        <div class="divisao"></div> 
+                    </div>                            
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>Messenger</td>
+                                    <td>Crescerbook Lite</td>
+                                    <td>Pessoas</td>
+                                    <td>Locais</td>
+                                    <td>Jogos</td>
+                                    <td>Locais</td>
+                                    <td>Celebridades</td>
+                                    <td>Vende-se</td>
+                                    <td>Grupos</td>
+                                    <td>Receitas</td>
+                                    <td>Moments</td>
+                                </tr>
+                                <tr>
+                                    <td>Instagram</td>
+                                    <td>Sobre</td>
+                                    <td>Criar anúncio</td>
+                                    <td>Criar Página</td>
+                                    <td>Desenvolvedores</td>
+                                    <td>Carreiras</td>
+                                    <td>Privacidade</td>
+                                    <td>Cookies</td>
+                                    <td>Opções de anúncio</td>
+                                    <td>Termos</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        Crescerbook © 2017
+                    </div>
+                </div>
+            </div>
+        </div>                                 
+    </footer>
+</div>
+
 
 

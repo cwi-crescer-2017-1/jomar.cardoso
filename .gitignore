@@ -13,3 +13,4 @@
 modulo-08/aula2/target/test-classes/\.netbeans_automatic_build
 /modulo-08/aula6/target/
 /modulo-08/aula7/target/
+*.class

@@ -27,7 +27,7 @@ angular.module('auth').factory('authService', function (authConfig, $http, $q, $
 
     $http({
       //url: urlUsuario+'/colaborador',
-      url: urlUsuario+'/usuario',
+      url: urlUsuario,
       method: 'GET',
       headers: headerAuth
     }).then(
@@ -36,7 +36,7 @@ angular.module('auth').factory('authService', function (authConfig, $http, $q, $
       function (response) {
 
         // Adiciona usuário e header ao localstorage
-        $localStorage.usuarioLogado = response.data.dados;
+        $localStorage.usuarioLogado = response.data;
         $localStorage.headerAuth = montarHeader(usuario)['Authorization'];
 
         // Adiciona header de autenticação em todos os próximos requests
@@ -124,7 +124,7 @@ angular.module('auth').factory('authService', function (authConfig, $http, $q, $
   };
 
   function montarHeader(usuario) {
-    let hash = window.btoa(`${usuario.login}:${usuario.senha}`);
+    let hash = window.btoa(`${usuario.email}:${usuario.senha}`);
     return {
       'Authorization': `Basic ${hash}`
     };

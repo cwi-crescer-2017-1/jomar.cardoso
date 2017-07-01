@@ -1,18 +1,20 @@
-angular.module('app').controller('LoginController', function ($scope, authService) {
+angular.module('app').controller('loginController', function ($scope, authService) {
 
   $scope.login = function (usuario) {
 
-    authService.login(usuario)
-      .then(
-        function (response) {
-          console.log(response);
-          alert('Login com sucesso!');
+  authService.login(usuario)
+    .then(
+      function (response) {
+        console.log(response);
+        alert('Login com sucesso!');
 
-        },
-        function (response) {
-          console.log(response);
-          alert('Erro no Login!');
-        });
+      },
+      function (response) {
+        console.log(response);
+        alert('Erro no Login!');
+      });
   };
+
+  
 
 });

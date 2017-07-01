@@ -4,13 +4,13 @@ angular.module('app').config(function ($routeProvider) {
 
     // pública
     .when('/home', {
-      controller: 'HomeController',
+      controller: 'homeController',
       templateUrl: 'html/home.html'
     })
 
     // pública
     .when('/login', {
-      controller: 'LoginController',
+      controller: 'loginController',
       templateUrl: 'html/login.html'
     })
 
