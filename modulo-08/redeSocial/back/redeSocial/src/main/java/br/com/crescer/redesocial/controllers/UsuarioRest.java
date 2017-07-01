@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,9 +32,9 @@ public class UsuarioRest {
     UsuarioService usuarioService;
     
     @PostMapping()
-    public String post(@RequestBody Usuario usuario) {
+    public Usuario post(@RequestBody Usuario usuario) {
         usuarioService.post(usuario);
-        return "Ok";
+        return usuario;
     }
     
     @DeleteMapping(value = "/{id}")
@@ -54,7 +55,7 @@ public class UsuarioRest {
     }
     
     @GetMapping(value = "/login")
-    public Usuario login(@RequestBody Usuario usuario) {
-        return usuarioService.findByEmail(usuario.getEmail());
+    public Usuario login(@RequestParam String email) {
+        return usuarioService.findByEmail(email);
     }
 }
