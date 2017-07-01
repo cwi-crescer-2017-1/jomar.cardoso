@@ -21,7 +21,7 @@ INICIAR JAR
 java -jar + o primeiro jar
 
 CRIAR ENTIDADES ATRAVÉS DO BANCO
-novo / persistencias // engtidades de banco
+novo / persistencias / entidades de banco / nova conexão / Oracle Thin / com/oracle/
 
 
 CRIAR BREAKPOINTS QUANDO HOUVER EXCEPTION
@@ -29,3 +29,12 @@ janela / depuração  / pontos de interrupção /
 
 CRIAR RESPOSTA DE BADREQUEST
 https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc
+
+EMOJIS GITHUB
+https://www.webpagefx.com/tools/emoji-cheat-sheet/
+https://github.com/scotch-io/All-Github-Emoji-Icons
+
+
+<img alt="" class="avatar width-full rounded-2" height="230" src="https://avatars3.githubusercontent.com/u/6123421?v=3&amp;s=460" width="230">
+#js-pjax-container > div > div.h-card.col-3.float-left.pr-3 > a > img
+//*[@id="js-pjax-container"]/div/div[1]/a/img
