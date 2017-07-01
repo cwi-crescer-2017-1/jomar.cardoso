@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,5 +51,10 @@ public class UsuarioRest {
     @GetMapping
     public List<Usuario> list() {
         return (List<Usuario>) usuarioService.findAll();
+    }
+    
+    @GetMapping(value = "/login")
+    public Usuario login(@RequestBody Usuario usuario) {
+        return usuarioService.findByEmail(usuario.getEmail());
     }
 }

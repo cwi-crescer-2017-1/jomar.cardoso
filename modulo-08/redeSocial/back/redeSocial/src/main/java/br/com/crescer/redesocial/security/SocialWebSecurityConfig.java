@@ -34,7 +34,8 @@ public class SocialWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout().logoutUrl("/logout").deleteCookies("JSESSIONID").permitAll()
                 .and()
-                .cors().disable()
+                .cors()
+                .and()
                 .csrf().disable();
     }
 
