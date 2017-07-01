@@ -2,8 +2,10 @@ C:\Users\Jomar\OneDrive\Crescer 2017\jomar.cardoso\modulo-08\redeSocial\back\red
 C:\Users\Jomar\OneDrive\Crescer 2017\jomar.cardoso\modulo-08\redeSocial\back\redeSocial\src\main\java\br\com\crescer\redesocial\Dao\UsuarioDao.java
 C:\Users\Jomar\OneDrive\Crescer 2017\jomar.cardoso\modulo-08\redeSocial\back\redeSocial\src\main\java\br\com\crescer\redesocial\repositories\UsuarioRepository.java
 C:\Users\Jomar\OneDrive\Crescer 2017\jomar.cardoso\modulo-08\redeSocial\back\redeSocial\src\main\java\br\com\crescer\redesocial\Dao\AbstractCrudDao.java
+C:\Users\Jomar\OneDrive\Crescer 2017\jomar.cardoso\modulo-08\redeSocial\back\redeSocial\src\main\java\br\com\crescer\redesocial\repositories\PostRepository.java
 C:\Users\Jomar\OneDrive\Crescer 2017\jomar.cardoso\modulo-08\redeSocial\back\redeSocial\src\main\java\br\com\crescer\redesocial\Dao\CrudDao.java
 C:\Users\Jomar\OneDrive\Crescer 2017\jomar.cardoso\modulo-08\redeSocial\back\redeSocial\src\main\java\br\com\crescer\redesocial\models\Usuario.java
+C:\Users\Jomar\OneDrive\Crescer 2017\jomar.cardoso\modulo-08\redeSocial\back\redeSocial\src\main\java\br\com\crescer\redesocial\controllers\PostRest.java
 C:\Users\Jomar\OneDrive\Crescer 2017\jomar.cardoso\modulo-08\redeSocial\back\redeSocial\src\main\java\br\com\crescer\redesocial\models\Amizade.java
 C:\Users\Jomar\OneDrive\Crescer 2017\jomar.cardoso\modulo-08\redeSocial\back\redeSocial\src\main\java\br\com\crescer\redesocial\controllers\LoggedUserController.java
 C:\Users\Jomar\OneDrive\Crescer 2017\jomar.cardoso\modulo-08\redeSocial\back\redeSocial\src\main\java\br\com\crescer\redesocial\controllers\UsuarioRest.java
@@ -13,6 +15,7 @@ C:\Users\Jomar\OneDrive\Crescer 2017\jomar.cardoso\modulo-08\redeSocial\back\red
 C:\Users\Jomar\OneDrive\Crescer 2017\jomar.cardoso\modulo-08\redeSocial\back\redeSocial\src\main\java\br\com\crescer\redesocial\models\Post.java
 C:\Users\Jomar\OneDrive\Crescer 2017\jomar.cardoso\modulo-08\redeSocial\back\redeSocial\src\main\java\br\com\crescer\redesocial\security\SocialUserDetailsService.java
 C:\Users\Jomar\OneDrive\Crescer 2017\jomar.cardoso\modulo-08\redeSocial\back\redeSocial\src\main\java\br\com\crescer\redesocial\services\UsuarioService.java
+C:\Users\Jomar\OneDrive\Crescer 2017\jomar.cardoso\modulo-08\redeSocial\back\redeSocial\src\main\java\br\com\crescer\redesocial\services\PostService.java
 C:\Users\Jomar\OneDrive\Crescer 2017\jomar.cardoso\modulo-08\redeSocial\back\redeSocial\src\main\java\br\com\crescer\redesocial\security\SocialWebSecurityConfig.java
 C:\Users\Jomar\OneDrive\Crescer 2017\jomar.cardoso\modulo-08\redeSocial\back\redeSocial\src\main\java\br\com\crescer\redesocial\Main.java
 C:\Users\Jomar\OneDrive\Crescer 2017\jomar.cardoso\modulo-08\redeSocial\back\redeSocial\src\main\java\br\com\crescer\redesocial\models\Comentario.java
