@@ -24,3 +24,15 @@ angular.module('app').constant('appConfig', {
     urlHealth: 'http://localhost:9090/api/health'
 })
 
+
+angular.module('app')
+  .directive('backgroundImage', function(){
+	return function(scope, element, attrs){
+		attrs.$observe('backgroundImage', function(value) {
+      // If I remove ::before it will apply image background to .item correctly.
+      var style = "<style>"+
+          ".item:before{background-color: blue}</style>"
+      angular.element("head").append(style);
+		});
+	};
+});

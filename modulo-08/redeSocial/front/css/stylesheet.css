@@ -96,6 +96,10 @@ header .header {
 
 
 .menu-usuario .perfil-nome::before {
+    
+}
+
+.menu-usuario .perfil-img {
     border: 1px solid rgba(0, 0, 0, .1);
     border-radius: 2px;
     box-sizing: border-box;
@@ -109,6 +113,10 @@ header .header {
     display: inline-block;
     margin: 0px 6px 0px -19px;
     vertical-align: inherit;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-clip: content-box;
+    background-origin: content-box;
 }
 
 
