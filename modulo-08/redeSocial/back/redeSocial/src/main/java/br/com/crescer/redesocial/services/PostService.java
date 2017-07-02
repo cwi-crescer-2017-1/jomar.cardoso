@@ -23,8 +23,12 @@ public class PostService {
      
     @Autowired
     PostRepository postRepository;
+    @Autowired
+    UsuarioService usuarioService;
     
     public void post (Post post) {
+        //Usuario usuario = usuarioService.getLogado();
+        //post.setIdusuario(usuario);
         postRepository.save(post);
     }
     
@@ -38,5 +42,6 @@ public class PostService {
     
     public Iterable<Post> findAll() {
         return postRepository.findAll();
+        //return (Iterable<Post>) postRepository.findByIdusuario(usuarioService.getLogado().getId());
     }
 }

@@ -2,56 +2,48 @@
         <header class="row">
             <div class="container">
                 <div class="header row">
-                    <div class="col-md-5 col-sm-5 col-md-offset-0 col-sm-offset-1">
-                        <div class="col-md-1 col-sm-2">
-                            <i class="fa fa-contao fa-2x fa-inverse clearfix" style="float: right; margin-top: -2px;" aria-hidden="true"></i>                    
-                        </div>
-                        <div class="col-md-11 col-sm-10 pesquisa">                            
-                            <form action="get" id="busca-pessoas" class="busca-pessoas">
-                                <div class="form-group-sm form-inline">
-                                    <input type="text" class="">
-                                    <button type="submit" class="btn-busca-pessoas"><span class="glyphicon glyphicon-search"></span></button>
-                                </div>
-                            </form>
-                        </div>
+                    <div class="col-md-1 col-sm-1">
+                        <i class="fa fa-contao fa-2x fa-inverse clearfix" style="float: right; margin-top: -2px;" aria-hidden="true"></i>                    
                     </div>
-                    <div class="col-md-7 col-sm-6 menu-usuario">
-                        <div class="col-md-4 col-sm-5 perfil text-right">
-                            <a href="">
-                                <div class="perfil-img" ng-style="elementoUsuario"></div>
-                                <span class="perfil-nome" id="nome-usuario" >{{usuarioLogado.nome}}</span>
-                            </a>
-                        </div>
-                        <div class=" pagina col-md-5 col-sm-6">
-                            <div class="col-md-5  col-sm-5 pagina-inicial">
-                                <span>Página Inicial</span>
+                    <div class="col-md-3 col-sm-3 pesquisa">                            
+                        <form action="get" id="busca-pessoas" class="busca-pessoas">
+                            <div class="form-group-sm form-inline">
+                                <input type="text" class="">
+                                <button type="submit" class="btn-busca-pessoas"><span class="glyphicon glyphicon-search"></span></button>
                             </div>
-                            <div class="col-md-6 col-sm-6 navegacao" >
+                        </form>
+                    </div>                    
+                    <div class="col-md-8 col-sm-8 menu-usuario">
+                        <div class="row ">
+                            <div class="col-md-7 col-sm-7">
                                 <div class="row">
-                                    <div class="navegacao-icone col-sm-4">
-                                        <div class="navegacao-icone-icone">
-                                            <a href="">
-                                                <div class="amizade"></div>
-                                            </a>
+                                    <div class="col-md-12 col-sm-12">
+                                        <div class="col-md-1 col-sm-1">
+                                            <div class="perfil-img" ng-style="elementoUsuario"></div>
                                         </div>
-                                    </div>
-                                    <div class="navegacao-icone col-sm-4">
-                                        <div class="navegacao-icone-icone ">
-                                            <a href="">
-                                                <div class="mensagens"></div>
-                                            </a>
+                                        <div class="col-md-6 col-sm-6"> 
+                                            <div class="perfil-nome text-left " id="nome-usuario" >{{usuario.nome}}</div>
                                         </div>
-                                    </div>
-                                    <div class="navegacao-icone col-sm-4">
-                                        <div class="navegacao-icone-icone ">
-                                            <a href="">
-                                                <div class="notificacoes"></div>
-                                            </a>
+                                        <div class="col-md-3 col-sm-3 pagina-inicial">
+                                            <span>Página Inicial</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-8"></div>
+                            <div class="col-md-5 col-sm-5 navegacao" >
+                                <div class="row">
+                                    <div class="navegacao-icone col-sm-1">
+                                        <div class="navegacao-icone-icone amizade"></div>
+                                    </div>
+                                    <div class="navegacao-icone col-sm-1">
+                                        <div class="navegacao-icone-icone mensagens "></div>
+                                    </div>
+                                    <div class="navegacao-icone col-sm-1">
+                                        <a ng-click="logout()"><div class="navegacao-icone-icone sair ">  </div></a>
+                                    </div>
+                                </div>
+                            </div>
+                                
                         </div>
                     </div>
                 </div>                
@@ -65,43 +57,46 @@
                <div class="col-md-7 col-sm-10">
 
                     <div class="row">
-                        <div class="postagens col-md-12 col-sm-12 publicacao">  
-                            <div class="abas row">
-                                <div class="aba aba-texto col-md-4 col-sm-4 col-md-offset-2 col-sm-offset-2">
-                                    <span class="icone glyphicon glyphicon-pencil"></span>
-                                    <span>Texto</span>
-                                </div>
-                                 <div class="aba aba-codigo col-md-6 col-sm-6  ">
-                                     <span class="icone glyphicon glyphicon-barcode"></span>
-                                     <span>Código</span>                                    
-                                </div>
-                            </div>
-                            <div class="row corpo">               
-                                <div class="col-md-1 col-sm-1">
-                                    <div class="img-perfil">
+                        <form novalidate ng-submit="publicar(publicacao)">
+                            <div class="postagens col-md-12 col-sm-12 publicacao">  
+                                <div class="abas row">
+                                    <div class="aba aba-texto col-md-4 col-sm-4 col-md-offset-2 col-sm-offset-2">
+                                        <span class="icone glyphicon glyphicon-pencil"></span>
+                                        <span>Texto</span>
+                                    </div>
+                                    <div class="aba aba-codigo col-md-6 col-sm-6  ">
+                                        <span class="icone glyphicon glyphicon-barcode"></span>
+                                        <span>Código</span>                                    
                                     </div>
                                 </div>
-                                <div class="col-md-11 col-sm-11">
-                                    <textarea name="" id="" cols="30" rows="3" class="form-control"></textarea>
+                                <div class="row corpo">               
+                                    <div class="col-md-1 col-sm-1">
+                                        <div class="img-perfil">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-11 col-sm-11">
+                                        <textarea name="" id="" cols="30" rows="3" class="form-control" ng-model="publicacao.mensagem"></textarea>
+                                    </div>
+                                </div>
+                                <div class="divisao"></div>
+                                <div class="row footer">
+                                    <div class="col-md-offset-10 col-md-2 col-sm-offset-10 col-sm-2">
+                                        <button type="submit" class="btn">Enviar</button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="divisao"></div>
-                            <div class="row footer">
-                                <div class="col-md-offset-10 col-md-2 col-sm-offset-10 col-sm-2">
-                                    <button type="submit" class="btn">Enviar</button>
-                                </div>
-                            </div>
-                        </div>
+                        </form>
                     </div>
-                    <div class="row">
+                    <div class="row" ng-repeat="p in postagens">
                         <div class="postagens col-md-12 col-sm-12 postagem">
                             <div class="header row">
                                 <div class="col-md-1 col-sm-1">
                                     <div class="img-perfil">
+                                        <img src="https://github.com/{{p.idusuario.nome}}.png"  style="width: 40px; height: 40px"alt="">
                                     </div>
                                 </div>
                                 <div class="titulo col-md-11 col-sm-11">
-                                    <div><span class="nome">Raffa Wenzel</span>
+                                    <div><span class="nome">{{p.idusuario.nome}}</span>
                                     compartilhou o vídeo de Top Secret.</div>
                                     <div class="data">22 de junho às 10:45 · </div>
                                 </div>
@@ -109,7 +104,7 @@
                             <div class="divisao"></div>
                             <div class="descricao row">
                                 <div class="col-md-12 col-sm-12">
-                                    Ele e a namorada estavam gravando um vídeo
+                                    {{p.mensagem}}
                                 </div>
                             </div>
                             <div class="corpo row">

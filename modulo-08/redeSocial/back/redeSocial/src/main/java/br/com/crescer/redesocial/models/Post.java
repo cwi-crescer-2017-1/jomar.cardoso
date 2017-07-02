@@ -5,6 +5,8 @@
  */
 package br.com.crescer.redesocial.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -25,7 +27,6 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
@@ -58,6 +59,8 @@ public class Post implements Serializable {
     private Set<Gostei> gosteiSet;
     @JoinColumn(name = "IDUSUARIO", referencedColumnName = "ID")
     @ManyToOne(optional = false)
+    @JsonIgnore
+    @JsonProperty("usuario")
     private Usuario idusuario;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idpost")
     private Set<Comentario> comentarioSet;

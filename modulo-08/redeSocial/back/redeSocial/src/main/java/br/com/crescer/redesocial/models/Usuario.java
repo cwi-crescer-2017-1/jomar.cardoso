@@ -49,7 +49,6 @@ public class Usuario implements Serializable {
     private BigDecimal id;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="E-mail inválido")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "EMAIL")
     private String email;
@@ -62,24 +61,23 @@ public class Usuario implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date datadenascimento;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 255)
     @Column(name = "SENHA")
     private String senha;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
-    private Set<Gostei> gosteiSet;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
-    private Set<Post> postSet;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
-    private Set<Comentario> comentarioSet;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idsolicitante")
-    private Set<Solicitacaoamizade> solicitacaoamizadeSet;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idsolicitado")
-    private Set<Solicitacaoamizade> solicitacaoamizadeSet1;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
-    private Set<Amizade> amizadeSet;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idamigo")
-    private Set<Amizade> amizadeSet1;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
+//    private Set<Gostei> gosteiSet;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
+//    private Set<Post> postSet;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
+//    private Set<Comentario> comentarioSet;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idsolicitante")
+//    private Set<Solicitacaoamizade> solicitacaoamizadeSet;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idsolicitado")
+//    private Set<Solicitacaoamizade> solicitacaoamizadeSet1;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
+//    private Set<Amizade> amizadeSet;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idamigo")
+//    private Set<Amizade> amizadeSet1;
 
     public Usuario() {
     }
@@ -142,61 +140,61 @@ public class Usuario implements Serializable {
         this.senha = senha;
     }
 
-    public Set<Gostei> getGosteiSet() {
-        return gosteiSet;
-    }
-
-    public void setGosteiSet(Set<Gostei> gosteiSet) {
-        this.gosteiSet = gosteiSet;
-    }
-
-    public Set<Post> getPostSet() {
-        return postSet;
-    }
-
-    public void setPostSet(Set<Post> postSet) {
-        this.postSet = postSet;
-    }
-
-    public Set<Comentario> getComentarioSet() {
-        return comentarioSet;
-    }
-
-    public void setComentarioSet(Set<Comentario> comentarioSet) {
-        this.comentarioSet = comentarioSet;
-    }
-
-    public Set<Solicitacaoamizade> getSolicitacaoamizadeSet() {
-        return solicitacaoamizadeSet;
-    }
-
-    public void setSolicitacaoamizadeSet(Set<Solicitacaoamizade> solicitacaoamizadeSet) {
-        this.solicitacaoamizadeSet = solicitacaoamizadeSet;
-    }
-
-    public Set<Solicitacaoamizade> getSolicitacaoamizadeSet1() {
-        return solicitacaoamizadeSet1;
-    }
-
-    public void setSolicitacaoamizadeSet1(Set<Solicitacaoamizade> solicitacaoamizadeSet1) {
-        this.solicitacaoamizadeSet1 = solicitacaoamizadeSet1;
-    }
-
-    public Set<Amizade> getAmizadeSet() {
-        return amizadeSet;
-    }
-
-    public void setAmizadeSet(Set<Amizade> amizadeSet) {
-        this.amizadeSet = amizadeSet;
-    }
-
-    public Set<Amizade> getAmizadeSet1() {
-        return amizadeSet1;
-    }
-
-    public void setAmizadeSet1(Set<Amizade> amizadeSet1) {
-        this.amizadeSet1 = amizadeSet1;
-    }
+//    public Set<Gostei> getGosteiSet() {
+//        return gosteiSet;
+//    }
+//
+//    public void setGosteiSet(Set<Gostei> gosteiSet) {
+//        this.gosteiSet = gosteiSet;
+//    }
+//
+//    public Set<Post> getPostSet() {
+//        return postSet;
+//    }
+//
+//    public void setPostSet(Set<Post> postSet) {
+//        this.postSet = postSet;
+//    }
+//
+//    public Set<Comentario> getComentarioSet() {
+//        return comentarioSet;
+//    }
+//
+//    public void setComentarioSet(Set<Comentario> comentarioSet) {
+//        this.comentarioSet = comentarioSet;
+//    }
+//
+//    public Set<Solicitacaoamizade> getSolicitacaoamizadeSet() {
+//        return solicitacaoamizadeSet;
+//    }
+//
+//    public void setSolicitacaoamizadeSet(Set<Solicitacaoamizade> solicitacaoamizadeSet) {
+//        this.solicitacaoamizadeSet = solicitacaoamizadeSet;
+//    }
+//
+//    public Set<Solicitacaoamizade> getSolicitacaoamizadeSet1() {
+//        return solicitacaoamizadeSet1;
+//    }
+//
+//    public void setSolicitacaoamizadeSet1(Set<Solicitacaoamizade> solicitacaoamizadeSet1) {
+//        this.solicitacaoamizadeSet1 = solicitacaoamizadeSet1;
+//    }
+//
+//    public Set<Amizade> getAmizadeSet() {
+//        return amizadeSet;
+//    }
+//
+//    public void setAmizadeSet(Set<Amizade> amizadeSet) {
+//        this.amizadeSet = amizadeSet;
+//    }
+//
+//    public Set<Amizade> getAmizadeSet1() {
+//        return amizadeSet1;
+//    }
+//
+//    public void setAmizadeSet1(Set<Amizade> amizadeSet1) {
+//        this.amizadeSet1 = amizadeSet1;
+//    }
 
     @Override
     public int hashCode() {

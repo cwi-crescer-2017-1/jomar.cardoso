@@ -8,7 +8,11 @@ package br.com.crescer.redesocial.services;
 import br.com.crescer.redesocial.models.Usuario;
 import br.com.crescer.redesocial.repositories.UsuarioRepository;
 import java.math.BigDecimal;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -41,5 +45,14 @@ public class UsuarioService {
     
     public Iterable<Usuario> findAll() {
         return usuarioRepository.findAll();
+    }
+    
+    public Usuario getLogado() {
+        return Optional.ofNullable(SecurityContextHolder.getContext().getAuthentication())
+        .map(Authentication::getPrincipal)
+        .map(User.class::cast)
+        .map(User::getUsername)
+        .map(this::findByEmail)
+        .orElse(null);
     }
 }

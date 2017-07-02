@@ -99,19 +99,17 @@ header .header {
     
 }
 
-.menu-usuario .perfil-img {
+.perfil-img {
     border: 1px solid rgba(0, 0, 0, .1);
     border-radius: 2px;
     box-sizing: border-box;
     content: '';
     height: 24px;
-    left: 2px;
     position: absolute;
     top: 2px;
     width: 24px;
     background-color: white;
     display: inline-block;
-    margin: 0px 6px 0px -19px;
     vertical-align: inherit;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -120,7 +118,7 @@ header .header {
 }
 
 
-.menu-usuario .perfil-nome {
+.perfil-nome {
     background-color: transparent;
     display: inline-block;  
     -webkit-font-smoothing: antialiased;    
@@ -131,7 +129,7 @@ header .header {
     white-space: nowrap;    
 }
 
-.menu-usuario .pagina-inicial::before {
+.pagina-inicial::before {
     content: '';
     display: block;
     height: 18px;
@@ -141,11 +139,8 @@ header .header {
     width: 1px;
 }
 
-.pagina {
-    padding-left: 0;
-}
 
-.menu-usuario .pagina-inicial {
+.pagina-inicial {
     background-color: transparent;
     display: inline-block;;
     -webkit-font-smoothing: antialiased;
@@ -158,11 +153,11 @@ header .header {
     white-space: nowrap;
 }
 
-.menu-usuario .navegacao {
+.navegacao {
     padding-left: 4px;
 }
 
-.menu-usuario .navegacao .navegacao-icone .navegacao-icone-icone a div{ 
+.navegacao-icone-icone{ 
     background-image: url(../img/icones.png);
     background-repeat: no-repeat;
     background-size: auto;
@@ -172,15 +167,21 @@ header .header {
     height: 24px;
     width: 24px;    
 }
-.menu-usuario .navegacao .navegacao-icone .navegacao-icone-icone a div.amizade{ 
+ .amizade{ 
     background-position: 0 -113px;
 }
 
-.menu-usuario .navegacao .navegacao-icone .navegacao-icone-icone a div.mensagens{ 
+.mensagens{ 
     background-position: 0 -363px;
 }
 
-.menu-usuario .navegacao .navegacao-icone .navegacao-icone-icone a div.notificacoes{ 
+.sair {
+    padding: 5px 4px;
+    background-image: url(../img/icones4.png);
+    background-position: 0 -113px;
+}
+
+.navegacao .navegacao-icone .navegacao-icone-icone a div.notificacoes{ 
     background-position: 0 -163px;
 }
 
@@ -220,7 +221,8 @@ section .postagens {
 }
 
 .publicacao .corpo {
-    padding-top: 10px;
+    padding-top: 10px;    
+    background-color: white;
 }
 
 .img-perfil {
@@ -248,6 +250,7 @@ section .postagens {
 .postagem .corpo {
     padding-top: 4px;
     padding-bottom: 4px;
+    background-color: white;
 }
 
 .postagem .corpo .imagem {

@@ -4,8 +4,8 @@ angular.module('app').controller('loginController', function ($scope, authServic
     authService.login(usuario)
     .then(
       function (response) {
-        console.log(response);
-        alert('Login com sucesso!');
+        console.log(response);   
+        //$scope.verificaLogin(response.data)
       },
       function (response) {
         console.log(response);
