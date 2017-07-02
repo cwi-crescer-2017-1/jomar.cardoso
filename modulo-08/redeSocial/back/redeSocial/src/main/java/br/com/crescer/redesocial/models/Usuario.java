@@ -5,6 +5,7 @@
  */
 package br.com.crescer.redesocial.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -16,6 +17,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -50,34 +52,61 @@ public class Usuario implements Serializable {
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="E-mail inválido")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
     @Size(min = 1, max = 100)
+    
     @Column(name = "EMAIL")
     private String email;
     @Size(max = 100)
+    
     @Column(name = "NOME")
     private String nome;
+    
     @Column(name = "SEXO")
     private Character sexo;
+    
     @Column(name = "DATADENASCIMENTO")
     @Temporal(TemporalType.TIMESTAMP)
     private Date datadenascimento;
     @Basic(optional = false)
     @Size(min = 1, max = 255)
+    
     @Column(name = "SENHA")
     private String senha;
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
-//    private Set<Gostei> gosteiSet;
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
-//    private Set<Post> postSet;
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
-//    private Set<Comentario> comentarioSet;
+    
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
+    private Set<Gostei> gosteiSet;
+    
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
+    private Set<Post> postSet;
+    
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
+    private Set<Comentario> comentarioSet;
+    
+//    @JsonIgnore
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idsolicitante")
 //    private Set<Solicitacaoamizade> solicitacaoamizadeSet;
+    
+//    @JsonIgnore
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idsolicitado")
 //    private Set<Solicitacaoamizade> solicitacaoamizadeSet1;
+    
+//    @JsonIgnore
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
 //    private Set<Amizade> amizadeSet;
+    
+//    @JsonIgnore
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idamigo")
 //    private Set<Amizade> amizadeSet1;
+    
+     @JsonIgnore
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<Usuario> amizadeSet;
+
+    @JsonIgnore
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<Usuario> solicitacaoamizadeSet;
 
     public Usuario() {
     }
@@ -140,37 +169,37 @@ public class Usuario implements Serializable {
         this.senha = senha;
     }
 
-//    public Set<Gostei> getGosteiSet() {
-//        return gosteiSet;
-//    }
-//
-//    public void setGosteiSet(Set<Gostei> gosteiSet) {
-//        this.gosteiSet = gosteiSet;
-//    }
-//
-//    public Set<Post> getPostSet() {
-//        return postSet;
-//    }
-//
-//    public void setPostSet(Set<Post> postSet) {
-//        this.postSet = postSet;
-//    }
-//
-//    public Set<Comentario> getComentarioSet() {
-//        return comentarioSet;
-//    }
-//
-//    public void setComentarioSet(Set<Comentario> comentarioSet) {
-//        this.comentarioSet = comentarioSet;
-//    }
-//
+    public Set<Gostei> getGosteiSet() {
+        return gosteiSet;
+    }
+
+    public void setGosteiSet(Set<Gostei> gosteiSet) {
+        this.gosteiSet = gosteiSet;
+    }
+
+    public Set<Post> getPostSet() {
+        return postSet;
+    }
+
+    public void setPostSet(Set<Post> postSet) {
+        this.postSet = postSet;
+    }
+
+    public Set<Comentario> getComentarioSet() {
+        return comentarioSet;
+    }
+
+    public void setComentarioSet(Set<Comentario> comentarioSet) {
+        this.comentarioSet = comentarioSet;
+    }
+
 //    public Set<Solicitacaoamizade> getSolicitacaoamizadeSet() {
 //        return solicitacaoamizadeSet;
 //    }
 //
 //    public void setSolicitacaoamizadeSet(Set<Solicitacaoamizade> solicitacaoamizadeSet) {
 //        this.solicitacaoamizadeSet = solicitacaoamizadeSet;
-//    }
+//    };
 //
 //    public Set<Solicitacaoamizade> getSolicitacaoamizadeSet1() {
 //        return solicitacaoamizadeSet1;
@@ -195,6 +224,22 @@ public class Usuario implements Serializable {
 //    public void setAmizadeSet1(Set<Amizade> amizadeSet1) {
 //        this.amizadeSet1 = amizadeSet1;
 //    }
+    
+     public Set<Usuario> getAmizadeSet() {
+        return amizadeSet;
+    }
+     
+    public void setAmizadeSet(Set<Usuario> amizades) {
+        this.amizadeSet = amizadeSet;
+    }
+    
+    public Set<Usuario> getSolicitacaoamizadeSet() {
+        return solicitacaoamizadeSet;
+    }
+
+    public void setSolicitacaoamizadeSet(Set<Usuario> solicitacaoamizadeSet) {
+        this.solicitacaoamizadeSet = solicitacaoamizadeSet;
+    }
 
     @Override
     public int hashCode() {
