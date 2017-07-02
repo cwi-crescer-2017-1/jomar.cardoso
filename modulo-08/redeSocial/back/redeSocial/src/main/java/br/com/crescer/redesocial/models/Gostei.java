@@ -5,6 +5,7 @@
  */
 package br.com.crescer.redesocial.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import javax.persistence.Basic;
@@ -42,13 +43,14 @@ public class Gostei implements Serializable {
     @Column(name = "ID")
     private BigDecimal id;
     
+    @JsonIgnore 
     @JoinColumn(name = "IDPOST", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private Post idpost;
     
     @JoinColumn(name = "IDUSUARIO", referencedColumnName = "ID")
     @ManyToOne(optional = false)
-    private Usuario idusuario;
+    private Usuario usuario;
 
     public Gostei() {
     }
@@ -73,12 +75,12 @@ public class Gostei implements Serializable {
         this.idpost = idpost;
     }
 
-    public Usuario getIdusuario() {
-        return idusuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setIdusuario(Usuario idusuario) {
-        this.idusuario = idusuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     @Override

@@ -73,15 +73,15 @@ public class Usuario implements Serializable {
     private String senha;
     
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
     private Set<Gostei> gosteiSet;
     
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
     private Set<Post> postSet;
     
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
     private Set<Comentario> comentarioSet;
     
 //    @JsonIgnore

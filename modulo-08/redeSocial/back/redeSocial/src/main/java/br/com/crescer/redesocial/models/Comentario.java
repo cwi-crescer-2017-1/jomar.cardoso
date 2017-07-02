@@ -5,6 +5,7 @@
  */
 package br.com.crescer.redesocial.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -32,7 +33,7 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "COMENTARIO")
 @NamedQueries({
-    @NamedQuery(name = "Comentario.findAll", query = "SELECT c FROM Comentario c")})
+@NamedQuery(name = "Comentario.findAll", query = "SELECT c FROM Comentario c")})
 public class Comentario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -54,13 +55,14 @@ public class Comentario implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date datacomentario;
     
+    @JsonIgnore
     @JoinColumn(name = "IDPOST", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private Post idpost;
     
     @JoinColumn(name = "IDUSUARIO", referencedColumnName = "ID")
     @ManyToOne(optional = false)
-    private Usuario idusuario;
+    private Usuario usuario;
 
     public Comentario() {
     }
@@ -101,12 +103,12 @@ public class Comentario implements Serializable {
         this.idpost = idpost;
     }
 
-    public Usuario getIdusuario() {
-        return idusuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setIdusuario(Usuario idusuario) {
-        this.idusuario = idusuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     @Override

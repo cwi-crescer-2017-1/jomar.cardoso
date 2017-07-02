@@ -50,18 +50,21 @@ public class Post implements Serializable {
     @Column(name = "ID")
     private BigDecimal id;
     @Size(max = 1000)
+    
     @Column(name = "MENSAGEM")
     private String mensagem;
+    
     @Column(name = "DATAPUBLICACAO")
     @Temporal(TemporalType.TIMESTAMP)
     private Date datapublicacao;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idpost")
     private Set<Gostei> gosteiSet;
-    @JoinColumn(name = "IDUSUARIO", referencedColumnName = "ID")
+
+    @JoinColumn(name = "IDUSUARIO", referencedColumnName = "ID")    
     @ManyToOne(optional = false)
-    @JsonIgnore
-    @JsonProperty("usuario")
-    private Usuario idusuario;
+    private Usuario usuario;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idpost")
     private Set<Comentario> comentarioSet;
 
@@ -104,12 +107,12 @@ public class Post implements Serializable {
         this.gosteiSet = gosteiSet;
     }
 
-    public Usuario getIdusuario() {
-        return idusuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setIdusuario(Usuario idusuario) {
-        this.idusuario = idusuario;
+    public void setIdusuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public Set<Comentario> getComentarioSet() {

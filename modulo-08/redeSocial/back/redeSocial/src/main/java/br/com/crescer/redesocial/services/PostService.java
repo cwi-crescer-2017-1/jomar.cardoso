@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -33,8 +34,8 @@ public class PostService {
     UsuarioService usuarioService;
     
     public void post (User user, Post post) {
-        //Usuario usuario = usuarioService.getLogado();
-        //post.setIdusuario(usuario);
+        Usuario usuario = usuarioService.getLogado();
+        post.setIdusuario(usuario);
         postRepository.save(post);
     }
     
@@ -46,14 +47,8 @@ public class PostService {
         return postRepository.findOne(id);
     }
     
-//    public Iterable<Post> findAll() {
-//        return postRepository.findAll();
-//        //return (Iterable<Post>) postRepository.findByIdusuario(usuarioService.getLogado().getId());
-//    }
-    
-    public List<Post> findAll(User user, Pageable pageable) {
-        //Set<Usuario> amizades = usuarioService.findByEmail(user.getUsername()).getAmizadeSet1().stream().map(amizade -> amizade.getIdamigo());
-        Set<Usuario> amizades = usuarioService.findByEmail(user.getUsername()).getAmizadeSet();
-        return postRepository.findByUsuarioInOrderByIdDesc(amizades, pageable);
+    public List<Post> findAll(int pagina) {        
+        return postRepository.findByUsuarioInOrderByIdDesc(usuarioService.getLogado().getAmizadeSet(), (Pageable) new PageRequest(pagina, 14));
+        //return postRepository.findAll();
     }
 }

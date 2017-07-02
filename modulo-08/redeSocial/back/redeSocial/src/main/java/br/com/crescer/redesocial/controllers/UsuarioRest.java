@@ -10,6 +10,8 @@ import br.com.crescer.redesocial.services.UsuarioService;
 import java.math.BigDecimal;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,8 +34,8 @@ public class UsuarioRest {
     UsuarioService usuarioService;
     
     @PostMapping()
-    public Usuario post(@RequestBody Usuario usuario) {
-        usuarioService.post(usuario);
+    public Usuario post(@AuthenticationPrincipal User user, @RequestBody Usuario usuario) {
+        usuarioService.post(user, usuario);
         return usuario;
     }
     

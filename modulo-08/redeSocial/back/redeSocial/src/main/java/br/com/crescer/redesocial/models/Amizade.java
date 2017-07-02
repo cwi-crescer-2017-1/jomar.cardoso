@@ -41,9 +41,11 @@ public class Amizade implements Serializable {
     @Basic(optional = false)
     @Column(name = "ID")
     private BigDecimal id;
+    
     @JoinColumn(name = "IDUSUARIO", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private Usuario idusuario;
+    
     @JoinColumn(name = "IDAMIGO", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private Usuario idamigo;

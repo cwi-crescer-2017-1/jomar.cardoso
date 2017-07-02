@@ -26,7 +26,10 @@ public class UsuarioService {
     @Autowired
     UsuarioRepository usuarioRepository;
     
-    public void post (Usuario usuario) {
+    public void post(User user, Usuario usuario) {
+        if(this.getLogado() != null) {
+            return;
+        }        
         usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
         usuarioRepository.save(usuario);
     }
