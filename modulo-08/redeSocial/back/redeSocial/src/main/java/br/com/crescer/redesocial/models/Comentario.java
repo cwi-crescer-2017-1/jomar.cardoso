@@ -46,14 +46,18 @@ public class Comentario implements Serializable {
     @Column(name = "ID")
     private BigDecimal id;
     @Size(max = 1000)
+    
     @Column(name = "MENSAGEM")
     private String mensagem;
+    
     @Column(name = "DATACOMENTARIO")
     @Temporal(TemporalType.TIMESTAMP)
     private Date datacomentario;
+    
     @JoinColumn(name = "IDPOST", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private Post idpost;
+    
     @JoinColumn(name = "IDUSUARIO", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private Usuario idusuario;

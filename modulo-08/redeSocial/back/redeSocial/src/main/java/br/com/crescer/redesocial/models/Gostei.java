@@ -41,9 +41,11 @@ public class Gostei implements Serializable {
     @Basic(optional = false)
     @Column(name = "ID")
     private BigDecimal id;
+    
     @JoinColumn(name = "IDPOST", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private Post idpost;
+    
     @JoinColumn(name = "IDUSUARIO", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private Usuario idusuario;
