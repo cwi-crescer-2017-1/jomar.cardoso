@@ -53,8 +53,10 @@ $scope.verificarLogin = verificarLogin
     
     $scope.elementoUsuario = {"background-image" : `url(${$scope.fotinho})`}
 
+
+    //publicar
     function publicar (publicacao) {
-      publicacao.usuario = {id: $localStorage.usuarioLogado.id}
+      //publicacao.usuario = {id: $localStorage.usuarioLogado.id}
       homeService.publicar(publicacao)
       .then(response => {
         console.log(response.data)

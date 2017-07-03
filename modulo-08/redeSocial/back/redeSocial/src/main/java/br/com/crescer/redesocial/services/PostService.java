@@ -43,6 +43,10 @@ public class PostService {
         return postRepository.findOne(id);
     }
     
+    public Iterable<Post> findAll() {
+        return postRepository.findAll();
+    }
+    
     public Page<Post> findAll(int pagina) {        
         Set<Usuario> amizades = usuarioService.getLogado().getAmizadeSet();        
         //Usuario amigo = usuarioService.getLogado().getAmizadeSet().;        

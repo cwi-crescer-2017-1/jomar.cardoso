@@ -46,13 +46,12 @@ public class PostRest {
     @GetMapping(value = "/{id}")
     public Post get(@PathVariable BigDecimal id) {
         return postService.loadById(id);
-    }
+    }    
     
-//    @ResponseBody
-//    @GetMapping
-//    public List<Post> list() {
-//        return (List<Post>) postService.findAll();
-//    }  
+    @GetMapping
+    public List<Post> list() {
+        return (List<Post>) postService.findAll();
+    }  
     
     @GetMapping(value = "/feed/{pagina}")
     public Page<Post> getFeedPosts(@PathVariable int pagina) {

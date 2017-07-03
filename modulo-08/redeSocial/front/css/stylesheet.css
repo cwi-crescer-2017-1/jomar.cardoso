@@ -231,6 +231,11 @@ section .postagens {
     background: gray;
 } 
 
+.img-perfil img {
+    width: 40px;
+    height: 40px;
+}
+
 .postagem {
     padding-bottom: 0 !important;
 }
