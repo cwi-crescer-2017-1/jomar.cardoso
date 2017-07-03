@@ -100,7 +100,7 @@ public class Usuario implements Serializable {
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idamigo")
 //    private Set<Amizade> amizadeSet1;
     
-     @JsonIgnore
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
     private Set<Usuario> amizadeSet;
 
@@ -230,7 +230,7 @@ public class Usuario implements Serializable {
     }
      
     public void setAmizadeSet(Set<Usuario> amizades) {
-        this.amizadeSet = amizadeSet;
+        this.amizadeSet = amizades;
     }
     
     public Set<Usuario> getSolicitacaoamizadeSet() {

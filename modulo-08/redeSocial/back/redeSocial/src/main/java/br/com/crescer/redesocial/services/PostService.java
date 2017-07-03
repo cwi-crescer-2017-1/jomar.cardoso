@@ -5,20 +5,16 @@
  */
 package br.com.crescer.redesocial.services;
 
-import br.com.crescer.redesocial.models.Amizade;
 import br.com.crescer.redesocial.models.Post;
 import br.com.crescer.redesocial.models.Usuario;
 import br.com.crescer.redesocial.repositories.PostRepository;
-import br.com.crescer.redesocial.repositories.UsuarioRepository;
-import java.awt.print.Pageable;
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 /**
@@ -33,7 +29,7 @@ public class PostService {
     @Autowired
     UsuarioService usuarioService;
     
-    public void post (User user, Post post) {
+    public void post (Post post) {
         Usuario usuario = usuarioService.getLogado();
         post.setIdusuario(usuario);
         postRepository.save(post);
@@ -47,8 +43,13 @@ public class PostService {
         return postRepository.findOne(id);
     }
     
-    public List<Post> findAll(int pagina) {        
-        return postRepository.findByUsuarioInOrderByIdDesc(usuarioService.getLogado().getAmizadeSet(), (Pageable) new PageRequest(pagina, 14));
-        //return postRepository.findAll();
+    public Page<Post> findAll(int pagina) {        
+        Set<Usuario> amizades = usuarioService.getLogado().getAmizadeSet();        
+        //Usuario amigo = usuarioService.getLogado().getAmizadeSet().;        
+        //Page<Post> postagens = postRepository.findByUsuario(amizades, new PageRequest(pagina, 14));
+        Page<Post> postagens = postRepository.findByUsuario(usuarioService.getLogado(), new PageRequest(pagina, 14));
+        return postagens;
     }
+    
+
 }

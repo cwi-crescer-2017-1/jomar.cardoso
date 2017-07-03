@@ -10,14 +10,12 @@ import br.com.crescer.redesocial.services.UsuarioService;
 import java.math.BigDecimal;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -34,9 +32,14 @@ public class UsuarioRest {
     UsuarioService usuarioService;
     
     @PostMapping()
-    public Usuario post(@AuthenticationPrincipal User user, @RequestBody Usuario usuario) {
-        usuarioService.post(user, usuario);
+    public Usuario post(@RequestBody Usuario usuario) {
+        usuarioService.post(usuario);
         return usuario;
+    }
+    
+    @PutMapping()
+    public void put(@RequestBody Usuario usuario) {
+        usuarioService.put(usuario);
     }
     
     @DeleteMapping(value = "/{id}")
@@ -59,5 +62,15 @@ public class UsuarioRest {
     @GetMapping(value = "/login")
     public Usuario login(@RequestParam String email) {
         return usuarioService.findByEmail(email);
+    }
+    
+    @PostMapping(value = "/solicitaramizade/{id}")
+    public void enviarConvite(@PathVariable BigDecimal id) {
+        usuarioService.solicitarAmizade(id);
+    }
+    
+    @PostMapping(value = "/aceitaramizade/{id}")
+    public void aceitarConvite(@PathVariable BigDecimal id) {
+        usuarioService.aceitarAmizade(id);
     }
 }

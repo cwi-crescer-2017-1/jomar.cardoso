@@ -7,12 +7,10 @@ package br.com.crescer.redesocial.controllers;
 
 import br.com.crescer.redesocial.models.Post;
 import br.com.crescer.redesocial.services.PostService;
-import java.awt.print.Pageable;
 import java.math.BigDecimal;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.AbstractPageRequest;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Page;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -34,8 +32,8 @@ public class PostRest {
     PostService postService;
     
     @PostMapping()
-    public Post post(@AuthenticationPrincipal User user, @RequestBody Post postagem) {
-        postService.post(user, postagem);
+    public Post post(@RequestBody Post postagem) {
+        postService.post(postagem);
         return postagem;
     }
     
@@ -57,7 +55,9 @@ public class PostRest {
 //    }  
     
     @GetMapping(value = "/feed/{pagina}")
-    public List<Post> getFeedPosts(@PathVariable int pagina) {
+    public Page<Post> getFeedPosts(@PathVariable int pagina) {
         return postService.findAll(pagina);
     }
+    
+
 }

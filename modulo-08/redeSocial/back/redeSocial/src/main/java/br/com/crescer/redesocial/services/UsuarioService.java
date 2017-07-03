@@ -9,6 +9,7 @@ import br.com.crescer.redesocial.models.Usuario;
 import br.com.crescer.redesocial.repositories.UsuarioRepository;
 import java.math.BigDecimal;
 import java.util.Optional;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -26,11 +27,13 @@ public class UsuarioService {
     @Autowired
     UsuarioRepository usuarioRepository;
     
-    public void post(User user, Usuario usuario) {
-        if(this.getLogado() != null) {
-            return;
-        }        
-        usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
+    public void post(Usuario usuario) {
+            usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
+            usuarioRepository.save(usuario);
+             
+    }
+    
+    public void put(Usuario usuario) {
         usuarioRepository.save(usuario);
     }
     
@@ -51,11 +54,33 @@ public class UsuarioService {
     }
     
     public Usuario getLogado() {
-        return Optional.ofNullable(SecurityContextHolder.getContext().getAuthentication())
-        .map(Authentication::getPrincipal)
-        .map(User.class::cast)
-        .map(User::getUsername)
-        .map(this::findByEmail)
-        .orElse(null);
+        try {
+            return Optional.ofNullable(SecurityContextHolder.getContext().getAuthentication())
+            .map(Authentication::getPrincipal)
+            .map(User.class::cast)
+            .map(User::getUsername)
+            .map(this::findByEmail)
+            .orElse(null);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+    
+    public void solicitarAmizade(BigDecimal id){ 
+        Usuario solicitante = this.getLogado();
+        Usuario solicitado = this.loadById(id);
+        solicitado.getSolicitacaoamizadeSet().add(solicitante);
+        this.put(solicitado);
+    }
+    
+    public void aceitarAmizade (BigDecimal id) {
+        Usuario solicitante = this.loadById(id); 
+        Usuario solicitado = this.getLogado();
+        solicitante.getSolicitacaoamizadeSet().remove(solicitado);
+        solicitante.getAmizadeSet().add(solicitado);
+        solicitado.getSolicitacaoamizadeSet().remove(solicitante);
+        solicitado.getAmizadeSet().add(solicitante);
+        this.put(solicitado);
+        this.put(solicitante);
     }
 }

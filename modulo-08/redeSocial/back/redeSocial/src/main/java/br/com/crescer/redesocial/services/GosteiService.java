@@ -30,9 +30,9 @@ public class GosteiService {
     @Autowired
     PostService postService;
     
-    public void post(Gostei gostei, BigDecimal idPost) {
-        Usuario usuario = usuarioService.getLogado();
-        gostei.setUsuario(usuario);
+    public void post(BigDecimal idPost) {
+        Gostei gostei = new Gostei();
+        gostei.setUsuario(usuarioService.getLogado());
         gostei.setIdpost(postService.loadById(idPost));
         gosteiRepository.save(gostei);
     }
