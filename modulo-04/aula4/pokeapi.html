@@ -19,13 +19,13 @@
             border: 3px solid black;            
         }
         .bandeira .bola {
-
+transform: translatex(-50%) translateY(-50%);
         }
         .bandeira .bola, .pokebola {
             position: absolute;
             left: 50%;
             top: 50%;
-            transform: translatex(-50%) translateY(-50%);
+            
             width: 300px;
             height: 300px;
             background-color: red;
@@ -33,6 +33,10 @@
             border: 3px solid black;
         }
         .bandeira .pokebola {
+			position: absolute;
+			top: -3px;
+			left: -3px;
+		
             display: none;
             /*background-color: white;*/
             background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAANSURBVBhXY/j///9/AAn7A/0FQ0XKAAAAAElFTkSuQmCC');
@@ -138,8 +142,8 @@
             */
             document.getElementById('botao1').addEventListener('click', function(){
                 document.getElementById('pokebola').style.display = 'block'; 
-                /*document.getElementById('pokebola').style.transform = 'rotate(180deg)';
-                document.getElementById('pokebola').style.transformOrigin = '25% 25%';*/
+                document.getElementById('pokebola').style.transform = 'rotate(360deg)';
+                document.getElementById('pokebola').style.transformOrigin = 'center';
                 document.getElementById('botao1').style.left = '85%'; 
                 // document.getElementById('consulta').style.display = 'block'; 
                 document.getElementById('consulta').style.visibility = 'visible'; 

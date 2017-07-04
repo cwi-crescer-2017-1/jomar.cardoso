@@ -21,7 +21,6 @@ angular.module('app').controller('indexController', function (homeService, $scop
 
 
 // daqui para baixo é da home
-
 $scope.verificarLogin = verificarLogin
     $scope.fotinho = ''
     $scope.publicar = publicar
@@ -42,14 +41,7 @@ $scope.verificarLogin = verificarLogin
     }
     verificarLogin()    
 
-    function sessaoUsuario() {
-      let    fotinho
-      console.log($localStorage.usuarioLogado.nome) 
-      fotinho = `https://github.com/${$localStorage.usuarioLogado.nome}.png`;
-      $scope.fotinho = fotinho;    
-      $scope.elementoUsuario = {"background-image" : `url(${fotinho})`}
-    }
-    sessaoUsuario()
+    
     
     $scope.elementoUsuario = {"background-image" : `url(${$scope.fotinho})`}
 
@@ -69,15 +61,6 @@ $scope.verificarLogin = verificarLogin
         verificarLogin()
     }
 
-    //feed
-    $scope.postagens = []
-    function atualizarFeed() {
-      homeService.atualizarFeed()
-      .then(response =>{
-        $scope.postagens = response.data
-        console.log(response.data)
-      })
-    }
-    atualizarFeed()
+    
     
 })

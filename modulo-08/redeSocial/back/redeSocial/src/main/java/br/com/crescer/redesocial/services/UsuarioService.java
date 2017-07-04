@@ -23,58 +23,62 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UsuarioService {
-     
+
     @Autowired
     UsuarioRepository usuarioRepository;
-    
+
     public void post(Usuario usuario) {
-            usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
-            usuarioRepository.save(usuario);
-             
+        usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
+        usuarioRepository.save(usuario);
+
     }
-    
+
     public void put(Usuario usuario) {
         usuarioRepository.save(usuario);
     }
-    
-    public void delete (BigDecimal id) {
+
+    public void delete(BigDecimal id) {
         usuarioRepository.delete(id);
     }
-    
-    public Usuario loadById (BigDecimal id) {
+
+    public Usuario loadById(BigDecimal id) {
         return usuarioRepository.findOne(id);
     }
-    
-    public Usuario findByEmail (String username) {
+
+    public Usuario findByEmail(String username) {
         return usuarioRepository.findByEmail(username);
     }
-    
+
+    public Set<Usuario> getAmigos() {
+        return usuarioRepository.findByEmail(this.getLogado().getEmail()).getAmizadeSet();
+    }
+
     public Iterable<Usuario> findAll() {
         return usuarioRepository.findAll();
     }
-    
+
     public Usuario getLogado() {
         try {
             return Optional.ofNullable(SecurityContextHolder.getContext().getAuthentication())
-            .map(Authentication::getPrincipal)
-            .map(User.class::cast)
-            .map(User::getUsername)
-            .map(this::findByEmail)
-            .orElse(null);
+                    .map(Authentication::getPrincipal)
+                    .map(User.class::cast)
+                    .map(User::getUsername)
+                    .map(this::findByEmail)
+                    .orElse(null);
         } catch (Exception e) {
             return null;
         }
     }
-    
-    public void solicitarAmizade(BigDecimal id){ 
+
+    public void solicitarAmizade(BigDecimal id) {
         Usuario solicitante = this.getLogado();
         Usuario solicitado = this.loadById(id);
         solicitado.getSolicitacaoamizadeSet().add(solicitante);
         this.put(solicitado);
     }
-    
-    public void aceitarAmizade (BigDecimal id) {
-        Usuario solicitante = this.loadById(id); 
+
+    public void aceitarAmizade(BigDecimal id) {
+        Usuario solicitante = this.loadById(id);
         Usuario solicitado = this.getLogado();
         solicitante.getSolicitacaoamizadeSet().remove(solicitado);
         solicitante.getAmizadeSet().add(solicitado);
@@ -83,4 +87,13 @@ public class UsuarioService {
         this.put(solicitado);
         this.put(solicitante);
     }
+
+//    public Set<Usuario> getInimigos() {
+//        final Usuario logado = this.getLogado();
+//        final Set<BigDecimal> ids = logado.getAmizadeSet().stream()
+//                .map(Usuario::getId)
+//                .collect(toSet());
+//        ids.add(logado.getId());
+//        return usuarioRepository.findByUsuarioNotIn(ids);
+//    }
 }

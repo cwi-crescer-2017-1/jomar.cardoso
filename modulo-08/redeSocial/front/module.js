@@ -22,7 +22,8 @@ angular.module('app').constant('appConfig', {
 
     urlUsuario: 'http://localhost:9090/api/usuario',
     urlHealth: 'http://localhost:9090/api/health',
-    urlPostagem: 'http://localhost:9090/api/postagem'
+    urlPostagem: 'http://localhost:9090/api/postagem',
+    urlGostei: 'http://localhost:9090/api/gostei'
 })
 
 

@@ -265,6 +265,7 @@ section .postagens {
 }
 
 .postagem .reacao {
+    padding-bottom: 6px;
     color: #4b4f56;
     font-size: 13px;
     font-weight: bold;

@@ -56,44 +56,37 @@
         </div>
     </header>
     <section class="clearfix container">   
-           <div class="row">
-               <div class="col-md-2 col-sm-2">
-               </div>
-               <div class="col-md-6 col-sm-8">
-                    <div class="row">
-                        <div class="postagens col-md-12 col-sm-12 postagem">
-                            <div class="header row" ng-repeat="usuario in usuariosBuscados">
-                                <div class="col-md-2 col-sm-2 col-sm-offset-1">
-                                    <div class="img-perfil">
-                                       <img src="https://github.com/{{usuario.nome}}.png"  style="width: 40px; height: 40px"alt="">
-                                    </div>                                     
-                                </div>
-                                <div class="titulo col-md-6 col-sm-6">
-                                    <div><span class="nome">{{usuario.nome}}</div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <button type="button" ng-click="adicionarAmigo(usuario.id)" class="btn btn-primary">Adicionar</button>
-                                </div>
-                                <div class="row">
-                                    <div class="divisao col-sm-10 col-sm-offset-1" style="padding-top:4px"></div>
-                                </div>
+        <div class="row">
+            <div class="col-md-2 col-sm-2">
+            </div>
+            <div class="col-md-6 col-sm-8">
+                <div class="row">
+                    <div class="postagens col-md-12 col-sm-12 postagem">
+                        <div class="header row" ng-repeat="usuario in usuariosBuscados">
+                            <div class="col-md-2 col-sm-2 col-sm-offset-1">
+                                <div class="img-perfil">
+                                    <img src="https://github.com/{{usuario.nome}}.png"  style="width: 40px; height: 40px"alt="">
+                                </div>                                     
                             </div>
-                            
-                            <div class="footer row">
-                                <div class="col-md-12 col-sm-12">
-                                    <div class="likes row">
-                                    </div>
+                            <div class="titulo col-md-6 col-sm-6">
+                                <div><span class="nome">{{usuario.nome}}</div>
+                            </div>
+                            <div class="col-sm-3">
+                                <button type="button" ng-click="adicionarAmigo(usuario.id)" class="btn btn-primary">Adicionar</button>
+                            </div>
+                            <div class="row">
+                                <div class="divisao col-sm-10 col-sm-offset-1" style="padding-top:4px"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="footer row">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="likes row">
                                 </div>
                             </div>
                         </div>
                     </div>
-               </div>
-
-
-
-               <div class="col-md-5">
-
-               </div>
-           </div>
-        </section>
+                </div>
+            </div>
+    </section>
 </div>

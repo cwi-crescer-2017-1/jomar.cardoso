@@ -1,53 +1,56 @@
-<head>
-    <link rel="stylesheet" href="../css/login.css"> 
-</head>
 <div class="container-fluid">
-    <header>
-        <div class="clearfix  container">
-            <div class="row menubar" >
-                <div class="logo col-md-6">
-                    <h1>
-                        <a href="">
-                            <div>
-                                <span>crescerbook</span>
-                            </div>
-                        </a>
-                    </h1>
+    <header class="row">
+        <div class="container">
+            <div class="header row">
+                <div class="col-md-1 col-sm-1">
+                    <a href="#!/home">
+                        <i class="fa fa-contao fa-2x fa-inverse clearfix" style="float: right; margin-top: -2px;" aria-hidden="true"></i>                    
+                    </a>
                 </div>
-                <div class="login col-md-6">
-                    <form novalidate ng-submit="login(usuario)">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <label for="email">Email ou telefone</label>
-                                    </td>
-                                    <td>
-                                        <label for="senha">Senha</label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="email" name="email" value="" tabindex="1" ng-model="usuario.email">
-                                    </td>
-                                    <td>
-                                        <input type="password" class="inputtext" name="senha" tabindex="2" ng-model="usuario.senha">
-                                    </td>
-                                    <td>
-                                        <input value="Entrar" tabindex="4" type="submit">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>
-                                        <div>
-                                            <a href="">Esqueceu a conta?</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div class="col-md-3 col-sm-3 pesquisa">                            
+                    <form action="get" id="busca-pessoas" class="busca-pessoas">
+                        <div class="form-group-sm form-inline">
+                            <input type="text" class="">
+                            <a href="#!/busca">
+                                <button type="button" class="btn-busca-pessoas"><span class="glyphicon glyphicon-search"></span></button>
+                            </a>
+                        </div>
                     </form>
+                </div>                    
+                <div class="col-md-8 col-sm-8 menu-usuario">
+                    <div class="row ">
+                        <div class="col-md-7 col-sm-7">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="col-md-1 col-sm-1">
+                                        <div class="perfil-img" ng-style="elementoUsuario"></div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6"> 
+                                        <div class="perfil-nome text-left " id="nome-usuario" >{{usuario.nome}}</div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 pagina-inicial">
+                                        <span><a href="#!/home">Página Inicial</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-sm-5 navegacao" >
+                            <div class="row">
+                               <a href="#!/amigos">
+                                    <div class="navegacao-icone col-sm-1">
+                                        <div class="navegacao-icone-icone amizade"></div>
+                                    </div>
+                                </a>
+                                <div class="navegacao-icone col-sm-1">
+                                    <div class="navegacao-icone-icone mensagens "></div>
+                                </div>
+                                <div class="navegacao-icone col-sm-1">
+                                    <a ng-click="logout()"><div class="navegacao-icone-icone sair ">  </div></a>
+                                </div>
+                            </div>
+                        </div>
+                            
+                    </div>
                 </div>
             </div>                
         </div>

@@ -9,6 +9,7 @@ import br.com.crescer.redesocial.models.Usuario;
 import br.com.crescer.redesocial.services.UsuarioService;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,49 +29,60 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/usuario")
 public class UsuarioRest {
+
     @Autowired
     UsuarioService usuarioService;
-    
+
     @PostMapping()
     public Usuario post(@RequestBody Usuario usuario) {
         usuarioService.post(usuario);
         return usuario;
     }
-    
+
     @PutMapping()
     public void put(@RequestBody Usuario usuario) {
         usuarioService.put(usuario);
     }
-    
+
     @DeleteMapping(value = "/{id}")
     public String delete(@PathVariable BigDecimal id) {
         usuarioService.delete(id);
         return "Ok";
     }
-    
+
     @GetMapping(value = "/{id}")
     public Usuario get(@PathVariable BigDecimal id) {
         return usuarioService.loadById(id);
     }
-    
+
     @ResponseBody
     @GetMapping
     public List<Usuario> list() {
         return (List<Usuario>) usuarioService.findAll();
     }
-    
+
     @GetMapping(value = "/login")
     public Usuario login(@RequestParam String email) {
         return usuarioService.findByEmail(email);
     }
-    
+
     @PostMapping(value = "/solicitaramizade/{id}")
     public void enviarConvite(@PathVariable BigDecimal id) {
         usuarioService.solicitarAmizade(id);
     }
-    
+
     @PostMapping(value = "/aceitaramizade/{id}")
     public void aceitarConvite(@PathVariable BigDecimal id) {
         usuarioService.aceitarAmizade(id);
     }
+
+    @GetMapping(value = "/amigos")
+    public Set<Usuario> amigos() {
+        return usuarioService.getAmigos();
+    }
+
+//    @GetMapping(value = "/inimigos")
+//    public Set<Usuario> inimigos() {
+//        return usuarioService.getInimigos();
+//    }
 }
