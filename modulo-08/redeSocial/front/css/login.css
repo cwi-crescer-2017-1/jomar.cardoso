@@ -2,20 +2,18 @@
     box-sizing: border-box;
 }
 
-body {
-    background-color: white;
-    
+input[type="text"] {
+  background-color: white !important;
 }
-
 .container-fluid, .container {
     padding: 0;
 }
 
-a {
-    text-decoration: none; 
+.tela-login a {
+    text-decoration: none;
 }
 
-.corpo {
+.tela-login .corpo {
     background-color: rgb(233,235,238);
 }
 
@@ -25,107 +23,107 @@ a {
     display: table;
 }
 
-.container {
+.tela-login .container {
     width: 980px;
 }
 
-header {
+.tela-login header {
     background-color: #42b267;
     border-bottom: 1px solid #2c9946;
     min-height: 82px;
 }
 
-header .menubar {
+.tela-login header .menubar {
     margin: 0 auto;
     padding-top: 13px;
 }
 
-header .menubar .logo h1{
+.tela-login header .menubar .logo h1{
     margin: 0;
     padding: 0;
-    
 }
 
-header .menubar .login > form{
+
+
+.tela-login header .menubar .login  form{
     float: right;
     margin-right: 24px;
 }
 
-body > div > header > div > div > div.logo > h1 > a{
+ .tela-login .logo {
     color: white;
 }
 
-body > div > header > div > div > div.logo > h1 > a > div{
+.tela-login div.logo > h1 div{
     width: 170px;
     height: 34px;
     background-position: 0 0;
     margin-top: 14px;
-     
+
 }
 
-body > div > header > div > div > div.logo > h1 > a > div span{
+.tela-login .logo > h1  div span{
     position: absolute;
     font-family: 'Oswald', sans-serif;
     font-size: 39px;
-} 
+}
 
-body > div > header > div > div > div.login {
+.tela-login body > div > header > div > div > div.login {
     float: right;
 }
 
-body > div > header > div > div > div.login > form {
+.tela-login header div.login > form {
     margin: 0;
     padding: 0;
 }
 
-body > div > header > div > div > div.login > form > table {
+.tela-login header .login > form > table {
     display: table;
     border-collapse: separate;
 }
 
-body > div > header > div > div > div.login > form > table > tbody {
+.tela-login header .login table > tbody {
     display: table-row-group;
     vertical-align: middle;
     border-color: none;
 }
 
-body > div > header > div > div > div.login > form > table > tbody > tr {
+.tela-login header .login table > tbody > tr {
     vertical-align: top;
     width: 392px;
     height: 21px;
 }
 
-body > div > header > div > div > div.login > form > table > tbody > tr > td {
+.tela-login  header  .login  form > table > tbody > tr > td {
     display: table-cell;
     padding: 0 0 0 14px;
 }
 
-body > div > header > div > div > div.login > form > table > tbody > tr:nth-child(2) > td > input {
-    border: 1px solid #2c9946;  
+.tela-login header .login form > table > tbody > tr:nth-child(2) > td > input {
+    border: 1px solid #2c9946;
     margin: 0;
     width: 142px;
     padding-bottom: 4px;
 }
 
-div.login > form > table > tbody > tr:nth-child(1) > td { 
+.tela-login header .login form  > table > tbody > tr:nth-child(1) > td {
     font-size: 12px;
     color: #fff;
     font-weight: normal;
-    padding-bottom: 4px;    
+    padding-bottom: 4px;
 }
 
-#email {
-    
+.tela-login #email {
     margin: 0;
     width: 142px;
     padding-bottom: 4px;
 }
-body > div > header > div > div > div.login > form > table > tbody > tr:nth-child(2) > td:nth-child(3) {
+.tela-login header .login  form > table > tbody > tr:nth-child(2) > td:nth-child(3) {
     width: 53px;
 }
 
 
-body > div > header > div > div > div.login > form > table > tbody > tr:nth-child(2) > td:nth-child(3) > input[type="submit"] {
+.tela-login header .login  form > table > tbody > tr:nth-child(2) > td:nth-child(3) > input[type="submit"] {
         color: #fff;
         border-radius: 2px;
     cursor: pointer;
@@ -141,49 +139,49 @@ body > div > header > div > div > div.login > form > table > tbody > tr:nth-chil
     vertical-align: top;
     white-space: nowrap;
     background-color: #64e479;
-    border: 1px solid #2c9946;   
-    width: 53px; 
+    border: 1px solid #2c9946;
+    width: 53px;
 }
 
-body > div > header > div > div > div.login > form > table > tbody > tr:nth-child(3) > td:nth-child(2) > div > a {
+.tela-login header .login  form > table > tbody > tr:nth-child(3) > td:nth-child(2) > div > a {
     color: #9cd8b4;
     font-weight: normal;
 }
 
-article {
+.tela-login article {
     background-color: rgb(233,235,238);
 }
 
-article > div:nth-child(1) {
+.tela-login article > div:nth-child(1) {
     padding-bottom: 20px;
     padding-top: 20px;
     background-color: #e9ebee;
-     
+
 }
 
-article > div:nth-child(1) > div > div:nth-child(1) > div:nth-child(1) > div h3{
+.tela-login article > div:nth-child(1) > div > div:nth-child(1) > div:nth-child(1) > div h3{
     padding-bottom: 43px;
     color: #333;
     font-family: 'Source Sans Pro', sans-serif;
 }
 
-article > div:nth-child(1) > div > div:nth-child(1) > div:nth-child(2) > div > div {
+.tela-login article > div:nth-child(1) > div > div:nth-child(1) > div:nth-child(2) > div > div {
     width: 100%;
 }
 
-article > div:nth-child(1) > div > div:nth-child(1) > div:nth-child(2) > div > div img{
+.tela-login article > div:nth-child(1) > div > div:nth-child(1) > div:nth-child(2) > div > div img{
     width: 100%;
     opacity: 0.7;
 }
 
-article > div:nth-child(1) > div > div:nth-child(2) > div:nth-child(1) > div h1{
+.tela-login article > div:nth-child(1) > div > div:nth-child(2) > div:nth-child(1) > div h1{
     font-family: 'Source Sans Pro', sans-serif;
     color: #333;
     font-size: 45px;
     font-weight: bold;
 }
 
-article > div:nth-child(1) > div > div.col-md-5.col-md-offset-1 > div:nth-child(3) > div:nth-child(2) > div {
+.tela-login article > div:nth-child(1) > div > div.col-md-5.col-md-offset-1 > div:nth-child(3) > div:nth-child(2) > div {
     border-top: 1px solid #dddfe2;
     color: #666;
     font-size: 13px;
@@ -192,37 +190,37 @@ article > div:nth-child(1) > div > div.col-md-5.col-md-offset-1 > div:nth-child(
     padding-top: 15px;
 }
 
-article > div:nth-child(1) > div > div.col-md-5.col-md-offset-1 > div:nth-child(3) > div:nth-child(1) > div > form input, 
-article > div:nth-child(1) > div > div.col-md-5.col-md-offset-1 > div:nth-child(3) > div:nth-child(1) > div > form label {
+.tela-login article > div:nth-child(1) > div > div.col-md-5.col-md-offset-1 > div:nth-child(3) > div:nth-child(1) > div > form input,
+.tela-login article > div:nth-child(1) > div > div.col-md-5.col-md-offset-1 > div:nth-child(3) > div:nth-child(1) > div > form label {
     font-size: 18px;
-    
+
 }
 
-article > div:nth-child(1) > div > div.col-md-5.col-md-offset-1 > div:nth-child(3) > div:nth-child(1) > div > form input[type="text"], 
-article > div:nth-child(1) > div > div.col-md-5.col-md-offset-1 > div:nth-child(3) > div:nth-child(1) > div > form input[type="email"] {    
+.tela-login article > div:nth-child(1) > div > div.col-md-5.col-md-offset-1 > div:nth-child(3) > div:nth-child(1) > div > form input[type="text"],
+.tela-login article > div:nth-child(1) > div > div.col-md-5.col-md-offset-1 > div:nth-child(3) > div:nth-child(1) > div > form input[type="email"] {
     padding: 8px 10px;
     text-overflow: ellipsis;
     white-space: nowrap;
     height: 40px;
-    margin-bottom: 10px;    
+    margin-bottom: 10px;
 }
 
-article > div:nth-child(1) > div > div.col-md-5.col-md-offset-1 > div:nth-child(3) > div:nth-child(1) > div > form > div:nth-child(4) > div > div:nth-child(2) > div:nth-child(2) > a {
+.tela-login article > div:nth-child(1) > div > div.col-md-5.col-md-offset-1 > div:nth-child(3) > div:nth-child(1) > div > form > div:nth-child(4) > div > div:nth-child(2) > div:nth-child(2) > a {
     font-size: 13px;
 }
 
-article > div:nth-child(1) > div > div.col-md-5.col-md-offset-1 > div:nth-child(3) > div:nth-child(1) > div > form > div:nth-child(4) > div > .contrato > div{
+.tela-login article > div:nth-child(1) > div > div.col-md-5.col-md-offset-1 > div:nth-child(3) > div:nth-child(1) > div > form > div:nth-child(4) > div > .contrato > div{
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-article > div:nth-child(1) > div > div.col-md-5.col-md-offset-1 > div:nth-child(3) > div:nth-child(1) > div > form > div:nth-child(4) > div > .contrato > div p{
+.tela-login article > div:nth-child(1) > div > div.col-md-5.col-md-offset-1 > div:nth-child(3) > div:nth-child(1) > div > form > div:nth-child(4) > div > .contrato > div p{
     color: #777;
     font-size: 11px;
     width: 316px;
 }
 
-article > div:nth-child(1) > div > div.col-md-5.col-md-offset-1 > div:nth-child(3) > div:nth-child(1) > div > form > div:nth-child(4) > div > div.abrir-conta > div > button {
+.tela-login article > div:nth-child(1) > div > div.col-md-5.col-md-offset-1 > div:nth-child(3) > div:nth-child(1) > div > form > div:nth-child(4) > div > div.abrir-conta > div > button {
     background: linear-gradient(#79bc64, #578843);
         font-size: 19px;
         top: 1px;
@@ -233,35 +231,30 @@ article > div:nth-child(1) > div > div.col-md-5.col-md-offset-1 > div:nth-child(
         color: white;
 }
 
-footer {
+.tela-login footer {
     background-color: white;
     font-size: 12px;
 }
 
-footer > div > .rodape {
+.tela-login footer > div > .rodape {
     color: #737373;
     margin: 0 auto;
 }
 
-footer > div > .rodape > div:nth-child(1) > div > ul {
+.tela-login footer > div > .rodape > div:nth-child(1) > div > ul {
     padding-top: 8px;
 }
 
-footer > div > .rodape .divisao {
+.tela-login footer > div > .rodape .divisao {
         border-top: 1px solid #e9ebee;
     margin: 6px 0 9px;
 }
 
-footer > div > .rodape table {
+.tela-login footer > div > .rodape table {
     line-height: 20px;
 }
 
-footer > div > .rodape table td {
+.tela-login footer > div > .rodape table td {
     padding-right: 10px;
     text-align: left;
 }
-
-
-
-   
-

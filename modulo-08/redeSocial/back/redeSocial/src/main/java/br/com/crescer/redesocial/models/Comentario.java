@@ -58,7 +58,7 @@ public class Comentario implements Serializable {
     @JsonIgnore
     @JoinColumn(name = "IDPOST", referencedColumnName = "ID")
     @ManyToOne(optional = false)
-    private Post idpost;
+    private Post post;
     
     @JoinColumn(name = "IDUSUARIO", referencedColumnName = "ID")
     @ManyToOne(optional = false)
@@ -95,12 +95,12 @@ public class Comentario implements Serializable {
         this.datacomentario = datacomentario;
     }
 
-    public Post getIdpost() {
-        return idpost;
+    public Post getPost() {
+        return post;
     }
 
-    public void setIdpost(Post idpost) {
-        this.idpost = idpost;
+    public void setPost(Post post) {
+        this.post = post;
     }
 
     public Usuario getUsuario() {

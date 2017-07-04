@@ -43,7 +43,7 @@ angular.module('app').factory('homeService', function (appConfig, $http, $locati
 
     function desapoiar(id) {
         return $http({
-            url: urlGostei + '/' + id + '/desgostar',
+            url: urlGostei + '/desgostar/' + id,
             method: 'DELETE'
         })
     }

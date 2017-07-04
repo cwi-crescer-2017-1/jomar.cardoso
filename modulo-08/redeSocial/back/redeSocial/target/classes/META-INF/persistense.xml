@@ -4,12 +4,12 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>br.com.crescer.redesocial.entidades.Post</class>
     <class>br.com.crescer.redesocial.entidades.Usuario</class>
-    <class>br.com.crescer.redesocial.entidades.PostLike</class>
-    <class>br.com.crescer.redesocial.entidades.UsuarioAmizade</class>
+    <class>br.com.crescer.redesocial.entidades.Gostei</class>
+    <class>br.com.crescer.redesocial.entidades.Comentario</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
       <property name="javax.persistence.jdbc.user" value="REDESOCIAL"/>
-      <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
+      <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/> 
       <property name="javax.persistence.jdbc.password" value="REDESOCIAL"/>
     </properties>
   </persistence-unit>

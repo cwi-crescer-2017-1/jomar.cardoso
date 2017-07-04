@@ -30,7 +30,7 @@ public class GosteiRest {
         gosteiService.post(id);
     }
 
-    @DeleteMapping(value = "/{id}/desgostar")
+    @DeleteMapping(value = "/desgostar/{id}")
     public void delete(@PathVariable BigDecimal id) {
         gosteiService.delete(id);
     }

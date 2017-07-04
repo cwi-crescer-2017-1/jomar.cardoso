@@ -1,58 +1,57 @@
-.menu-amigos {
+.tela-home .menu-amigos {
     background-color: #f6f7f9;
     border: 1px solid #D3D3D3;
 }
 
-.menu-amigos .titulo {
+.tela-home .menu-amigos .titulo {
     font-weight: bold;
     padding-top: 8px;
     padding-bottom: 8px;
 }
 
-.menu-amigos .amigo {
+.tela-home .menu-amigos .amigo  {
     padding-top: 6px;
     padding-bottom: 6px;
     border-top: 1px solid #DCDCDC;
 }
 
-.menu-amigos .amigo .img-perfil {
+.tela-home .menu-amigos .amigo .img-.tela-home perfil {
     margin-left: 6px;
     margin-right: 6px;
     height: 22px;
     width: 22px;
 }
 
-.menu-amigos .amigo .img-perfil img {
+.tela-home .menu-amigos .amigo .img.tela-home -perfil img {
     height: 22px;
     width: 22px;
 }
 
-.menu-amigos .amigo .amigo-nome {
-    padding-top: px;    
+.tela-home .menu-amigos .amigo .amigo-nome {
+    padding-top: px;
 }
 
-.comentario {
+.tela-home .comentario {
 
 }
 
-.comentario .comentario-img {
+.tela-home .comentario .comentario-img {
     margin-left: 12px;
 }
 
-.comentario .comentario-img,  .comentario-img img{
+.tela-home .comentario .comentario-img,  .comentario-img img{
     height: 16px;
     width: 16px;
 }
 
-.apoios > div{
+.tela-home .apoios > div{
     padding-left: 6px;
 }
 
-.comentario .comentario-nome {
+.tela-home .comentario .comentario-nome {
     font-weight: bold;
 }
 
-.comentario .comentario-mensagem {
+.tela-home .comentario .comentario-mensagem {
 
 }
-

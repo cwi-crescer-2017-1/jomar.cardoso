@@ -5,30 +5,33 @@ angular.module('app').controller('indexController', function (homeService, $scop
 
     $scope.usuarioLogado = authService.isAutenticado()
     $scope.nomeIndexLogado
-    $scope.logout = logout 
+    $scope.logout = logout
 
     authService.isAutenticado()
 
-    
+    // function sessaoUsuario() {
+    //   let    fotinho
+    //   console.log($localStorage.usuarioLogado.nome)
+    //   fotinho = `https://github.com/${$localStorage.usuarioLogado.nome}.png`;
+    //   $scope.fotinho = fotinho;
+    //   $scope.elementoUsuario = {"background-image" : `url(${fotinho})`}
+    // }
+    // sessaoUsuario()
 
     function logout() {
         authService.logout()
         $scope.usuarioLogado = authService.isAutenticado()
         verificarLogin()
     }
-    
+
 
 
 
 // daqui para baixo é da home
-$scope.verificarLogin = verificarLogin
-    $scope.fotinho = ''
-    $scope.publicar = publicar
-
-    $scope.logout = authService.logout;
+  $scope.verificarLogin = verificarLogin
 
     $http.get(appConfig.urlHealth).then(function (response) {
-      console.log(response.data);
+      console.log('servidor online? ' + response.data);
     });
 
     function verificarLogin() {
@@ -39,11 +42,11 @@ $scope.verificarLogin = verificarLogin
             $scope.nomeIndexLogado = authService.getUsuario().Nome
         }
     }
-    verificarLogin()    
+    verificarLogin()
 
-    
-    
-    $scope.elementoUsuario = {"background-image" : `url(${$scope.fotinho})`}
+
+
+    //$scope.elementoUsuario = {"background-image" : `url(${$scope.fotinho})`}
 
 
     //publicar
@@ -61,6 +64,6 @@ $scope.verificarLogin = verificarLogin
         verificarLogin()
     }
 
-    
-    
+
+
 })

@@ -28,7 +28,7 @@ public class ComentarioService {
     UsuarioService usuarioService;
     
     public void post(BigDecimal idPost, Comentario comentario){
-        comentario.setIdpost(postService.loadById(idPost));
+        comentario.setPost(postService.loadById(idPost));
         comentario.setUsuario(usuarioService.getLogado());
         comentarioRepository.save(comentario);
     }

@@ -33,12 +33,14 @@ public class GosteiService {
     public void post(BigDecimal idPost) {
         Gostei gostei = new Gostei();
         gostei.setUsuario(usuarioService.getLogado());
-        gostei.setIdpost(postService.loadById(idPost));
+        gostei.setPost(postService.loadById(idPost));
         gosteiRepository.save(gostei);
     }
     
     public void delete (BigDecimal id) {
-        gosteiRepository.delete(id);
+        Usuario usuario = usuarioService.getLogado();
+        Gostei gostei = gosteiRepository.findByPostAndUsuario(postService.loadById(id), usuario);
+        gosteiRepository.delete(gostei);
     }
     
     public Gostei loadById (BigDecimal id) {

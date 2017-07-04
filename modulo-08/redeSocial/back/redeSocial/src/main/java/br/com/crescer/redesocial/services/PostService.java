@@ -30,7 +30,7 @@ public class PostService {
 
     public void post(Post post) {
         Usuario usuario = usuarioService.getLogado();
-        post.setIdusuario(usuario);
+        post.setUsuario(usuario);
         postRepository.save(post);
     }
 
@@ -48,7 +48,7 @@ public class PostService {
 
     public Page<Post> findAll(int pagina) {
         final Usuario logado = usuarioService.getLogado();
-        final Set<BigDecimal> ids = logado.getAmizadeSet().stream()
+        final Set<BigDecimal> ids = logado.getAmigo().stream()
                 .map(Usuario::getId)
                 .collect(toSet());
         ids.add(logado.getId());

@@ -18,6 +18,7 @@ br\com\crescer\redesocial\handler\HandlerException.class
 br\com\crescer\redesocial\security\SocialWebSecurityConfig$1.class
 br\com\crescer\redesocial\Dao\UsuarioDao.class
 br\com\crescer\redesocial\repositories\GosteiRepository.class
+br\com\crescer\redesocial\controllers\GosteiRest.class
 br\com\crescer\redesocial\models\Gostei.class
 br\com\crescer\redesocial\models\Post.class
 br\com\crescer\redesocial\controllers\UsuarioRest.class

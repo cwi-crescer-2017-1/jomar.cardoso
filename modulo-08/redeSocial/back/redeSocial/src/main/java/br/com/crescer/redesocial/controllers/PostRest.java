@@ -56,7 +56,5 @@ public class PostRest {
     @GetMapping(value = "/feed/{pagina}")
     public Page<Post> getFeedPosts(@PathVariable int pagina) {
         return postService.findAll(pagina);
-    }
-    
-
+    }  
 }

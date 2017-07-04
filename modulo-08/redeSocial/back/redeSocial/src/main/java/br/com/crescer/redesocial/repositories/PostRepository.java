@@ -24,7 +24,6 @@ public interface PostRepository extends PagingAndSortingRepository<Post, BigDeci
     //Page<Post> findByUsuarioIn(@Param("amizades") Set<Usuario> amizades, PageRequest pageable);
     //public Page<Post> findByUsuarioIn(Set<Usuario> amizades, PageRequest pageRequest);
     Page<Post> findByUsuario(Usuario amigo, Pageable pageable);
-
     Page<Post> findByUsuario_idIn(Set<BigDecimal> ids, Pageable pageable);
 
 }

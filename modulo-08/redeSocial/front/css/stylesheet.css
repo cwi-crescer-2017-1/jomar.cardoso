@@ -27,42 +27,43 @@ img {
 }
 
 .container {
-    
+
 }
 
-header {
+
+.tela-home header {
     background-color: #42b267;
     border-bottom: 1px solid #2c9946;
 }
 
-header .header {
+.tela-home header .header {
     margin: 7px 0 8px 0;
 }
 
-.fa .fa-contao .fa-2x .fa-inverse {
+.tela-home .fa .fa-contao .fa-2x .fa-inverse {
     float: left;
 }
 
-.pesquisa {
+.tela-home .pesquisa {
     padding-left: 0;
 }
 
-#busca-pessoas {
+.tela-home #busca-pessoas {
     /*float: left;*/
     position: relative;
     padding-left: 0;
 }
 
-.busca-pessoas .form-group-sm input{
+.tela-home .busca-pessoas .form-group-sm input{
     line-height: 1.2;
     height: 26px;
     width: 95%;
     margin-right: -46px;
     border: none;
-    border-radius: 2px 0 0 2px;    
+    border-radius: 2px 0 0 2px;
 }
 
-.busca-pessoas .btn-busca-pessoas {
+.tela-home .busca-pessoas .btn-busca-pessoas {
     background-color: #f6f7f9;
     border: none;
     border-radius: 0 2px 2px 0;
@@ -73,11 +74,11 @@ header .header {
     right: 0;
 }
 
-.busca-pessoas .btn-busca-pessoas .glyphicon-search {
+.tela-home .busca-pessoas .btn-busca-pessoas .glyphicon-search {
     margin-top: 3px;
 }
 
-.menu-usuario {
+.tela-home .menu-usuario {
     color: white;
     text-decoration: none;
     line-height: 28px;
@@ -85,21 +86,21 @@ header .header {
     font-size: 12px;
 }
 
-.menu-usuario a{
-     color: white;   
+.tela-home .menu-usuario a{
+     color: white;
 }
 
-.menu-usuario .perfil{ 
+.tela-home .menu-usuario .perfil{
     border-right: 1px solid #2c9946;
-    padding-right: 0;    
+    padding-right: 0;
 }
 
 
-.menu-usuario .perfil-nome::before {
-    
+.tela-home .menu-usuario .perfil-nome::before {
+
 }
 
-.perfil-img {
+.tela-home .perfil-img img {
     border: 1px solid rgba(0, 0, 0, .1);
     border-radius: 2px;
     box-sizing: border-box;
@@ -118,18 +119,18 @@ header .header {
 }
 
 
-.perfil-nome {
+.tela-home .perfil-nome {
     background-color: transparent;
-    display: inline-block;  
-    -webkit-font-smoothing: antialiased;    
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
     height: 27px;
     padding: 0 10px 1px;
-    position: relative;    
+    position: relative;
     vertical-align: top;
-    white-space: nowrap;    
+    white-space: nowrap;
 }
 
-.pagina-inicial::before {
+.tela-home .pagina-inicial::before {
     content: '';
     display: block;
     height: 18px;
@@ -140,7 +141,7 @@ header .header {
 }
 
 
-.pagina-inicial {
+.tela-home .pagina-inicial {
     background-color: transparent;
     display: inline-block;;
     -webkit-font-smoothing: antialiased;
@@ -153,11 +154,11 @@ header .header {
     white-space: nowrap;
 }
 
-.navegacao {
+.tela-home .navegacao {
     padding-left: 4px;
 }
 
-.navegacao-icone-icone{ 
+.tela-home .navegacao-icone-icone{
     background-image: url(../img/icones.png);
     background-repeat: no-repeat;
     background-size: auto;
@@ -165,117 +166,115 @@ header .header {
     background-clip: content-box;
     background-origin: content-box;
     height: 24px;
-    width: 24px;    
+    width: 24px;
 }
- .amizade{ 
+ .tela-home .amizade{
     background-position: 0 -113px;
 }
 
-.mensagens{ 
+.tela-home .mensagens{
     background-position: 0 -363px;
 }
 
-.sair {
+.tela-home .sair {
     padding: 5px 4px;
     background-image: url(../img/icones4.png);
     background-position: 0 -113px;
 }
 
-.navegacao .navegacao-icone .navegacao-icone-icone a div.notificacoes{ 
+.tela-home .navegacao .navegacao-icone .navegacao-icone-icone a div.notificacoes{
     background-position: 0 -163px;
 }
 
-section .postagens {
+.tela-home section .postagens {
     background-color: white;
     padding-top: 10px;
     padding-bottom: 10px;
     margin-top: 14px;
-    border-radius: 4px;    
+    border-radius: 4px;
     border: 1px solid #D3D3D3;
     border-bottom-width: 2px;
 }
 
-.postagens.publicacao {
+.tela-home .postagens.publicacao {
     padding-top: 0;
 }
 
-.postagens .divisao {
+.tela-home .postagens .divisao {
     margin-top: 10px;
     border-bottom: 1px solid #DCDCDC;
     margin-bottom: 10px;
 }
 
-.publicacao .abas {
+.tela-home .publicacao .abas {
     background-color: #f6f7f9;
     padding: 10px;
     border-radius: 4px 4px 0 0;
     border-bottom: 1px solid #DCDCDC;
 }
 
-.publicacao .abas .aba {
+.tela-home .publicacao .abas .aba {
     font-weight: bold;
 }
 
-.publicacao .abas .aba .icone{
+.tela-home .publicacao .abas .aba .icone{
     margin-right: 6px;
 }
 
-.publicacao .corpo {
-    padding-top: 10px;    
+.tela-home .publicacao .corpo {
+    padding-top: 10px;
     background-color: white;
 }
 
-.img-perfil {
+.tela-home .img-perfil {
     width: 40px;
     height: 40px;
     background: gray;
-} 
+}
 
-.img-perfil img {
+.tela-home .img-perfil img {
     width: 40px;
     height: 40px;
 }
 
-.postagem {
+.tela-home .postagem {
     padding-bottom: 0 !important;
 }
 
-.postagem .header .titulo {
+.tela-home .postagem .header .titulo {
     color: #006400;
 }
 
-.postagem .header .titulo .nome {
+.tela-home .postagem .header .titulo .nome {
     font-weight: bold;
 }
 
-.postagem .header .titulo .data {
+.tela-home .postagem .header .titulo .data {
     color: #90949c;
 }
 
-.postagem .corpo {
+.tela-home .postagem .corpo {
     padding-top: 4px;
     padding-bottom: 4px;
     background-color: white;
 }
 
-.postagem .corpo .imagem {
-    min-height: 300px;
+.tela-home .postagem .corpo .imagem {
+    /*min-height: 30px;
     width: 100%;
-    background: gray;
+    background: gray;*/
 }
 
-.postagem .reacao {
+.tela-home .postagem .reacao {
     padding-bottom: 6px;
     color: #4b4f56;
     font-size: 13px;
     font-weight: bold;
 }
 
-.postagem .footer {
+.tela-home .postagem .footer {
     border-top: 1px solid #DCDCDC;;
     border-radius: 0 0 4px 4px;
     background-color: #f6f7f9;
     padding: 10px;
 }
-
-

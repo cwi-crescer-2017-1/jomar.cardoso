@@ -6,6 +6,8 @@
 package br.com.crescer.redesocial.repositories;
 
 import br.com.crescer.redesocial.models.Gostei;
+import br.com.crescer.redesocial.models.Post;
+import br.com.crescer.redesocial.models.Usuario;
 import java.math.BigDecimal;
 import org.springframework.data.repository.CrudRepository;
 
@@ -14,5 +16,7 @@ import org.springframework.data.repository.CrudRepository;
  * @author Jomar
  */
 public interface GosteiRepository extends CrudRepository<Gostei, BigDecimal>{
+
+    public Gostei findByPostAndUsuario(Post loadById, Usuario usuario);
     
 }

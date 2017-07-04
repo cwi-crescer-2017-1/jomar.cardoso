@@ -67,13 +67,23 @@ public class UsuarioRest {
     }
 
     @PostMapping(value = "/solicitaramizade/{id}")
-    public void enviarConvite(@PathVariable BigDecimal id) {
-        usuarioService.solicitarAmizade(id);
+    public void enviarConviteAmizade(@PathVariable BigDecimal id) {
+        usuarioService.enviarConviteAmizade(id);
+    }
+    
+    @PostMapping(value = "/cancelarsolicitaramizade/{id}")
+    public void cancelarConviteAmizade(@PathVariable BigDecimal id) {
+        usuarioService.cancelarConviteAmizade(id);
     }
 
     @PostMapping(value = "/aceitaramizade/{id}")
-    public void aceitarConvite(@PathVariable BigDecimal id) {
+    public void aceitarAmizade(@PathVariable BigDecimal id) {
         usuarioService.aceitarAmizade(id);
+    }
+    
+    @PostMapping(value = "/cancelaramizade/{id}")
+    public void rejeitarAmizade(@PathVariable BigDecimal id) {
+        usuarioService.rejeitarAmizade(id);
     }
 
     @GetMapping(value = "/amigos")
@@ -81,8 +91,13 @@ public class UsuarioRest {
         return usuarioService.getAmigos();
     }
 
-//    @GetMapping(value = "/inimigos")
-//    public Set<Usuario> inimigos() {
-//        return usuarioService.getInimigos();
-//    }
+    @GetMapping(value = "/inimigos")
+    public Set<Usuario> inimigos() {
+        return usuarioService.getInimigos();
+    }
+    
+    @GetMapping(value = "/solicitacoes")
+    public Set<Usuario> solicitacoes() {
+        return usuarioService.solicitacoes();
+    }
 }

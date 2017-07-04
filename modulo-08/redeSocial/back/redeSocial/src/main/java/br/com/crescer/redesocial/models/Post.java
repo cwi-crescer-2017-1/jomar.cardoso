@@ -58,15 +58,15 @@ public class Post implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date datapublicacao;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idpost")
-    private Set<Gostei> gosteiSet;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
+    private Set<Gostei> gostei;
 
     @JoinColumn(name = "IDUSUARIO", referencedColumnName = "ID")    
     @ManyToOne(optional = false)
     private Usuario usuario;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idpost")
-    private Set<Comentario> comentarioSet;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
+    private Set<Comentario> comentario;
 
     public Post() {
     }
@@ -99,28 +99,28 @@ public class Post implements Serializable {
         this.datapublicacao = datapublicacao;
     }
 
-    public Set<Gostei> getGosteiSet() {
-        return gosteiSet;
+    public Set<Gostei> getGostei() {
+        return gostei;
     }
 
-    public void setGosteiSet(Set<Gostei> gosteiSet) {
-        this.gosteiSet = gosteiSet;
+    public void setGostei(Set<Gostei> gostei) {
+        this.gostei = gostei;
     }
 
     public Usuario getUsuario() {
         return usuario;
     }
 
-    public void setIdusuario(Usuario usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 
-    public Set<Comentario> getComentarioSet() {
-        return comentarioSet;
+    public Set<Comentario> getComentario() {
+        return comentario;
     }
 
-    public void setComentarioSet(Set<Comentario> comentarioSet) {
-        this.comentarioSet = comentarioSet;
+    public void setComentario(Set<Comentario> comentario) {
+        this.comentario = comentario;
     }
 
     @Override

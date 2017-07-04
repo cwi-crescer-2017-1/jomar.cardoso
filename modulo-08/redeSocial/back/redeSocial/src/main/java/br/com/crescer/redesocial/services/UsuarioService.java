@@ -10,6 +10,7 @@ import br.com.crescer.redesocial.repositories.UsuarioRepository;
 import java.math.BigDecimal;
 import java.util.Optional;
 import java.util.Set;
+import static java.util.stream.Collectors.toSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -50,7 +51,7 @@ public class UsuarioService {
     }
 
     public Set<Usuario> getAmigos() {
-        return usuarioRepository.findByEmail(this.getLogado().getEmail()).getAmizadeSet();
+        return usuarioRepository.findByEmail(this.getLogado().getEmail()).getAmigo();
     }
 
     public Iterable<Usuario> findAll() {
@@ -70,30 +71,58 @@ public class UsuarioService {
         }
     }
 
-    public void solicitarAmizade(BigDecimal id) {
+
+
+    public Set<Usuario> getInimigos() {
+        final Usuario logado = this.getLogado();
+        final Set<BigDecimal> ids = logado.getAmigo().stream()
+                .map(Usuario::getId)
+                .collect(toSet());
+        final Set<Usuario> amigos = logado.getAmigo();
+        ids.add(logado.getId());
+        return usuarioRepository.findByIdNotIn(ids);        
+    }
+
+    public void enviarConviteAmizade(BigDecimal id) {
         Usuario solicitante = this.getLogado();
         Usuario solicitado = this.loadById(id);
-        solicitado.getSolicitacaoamizadeSet().add(solicitante);
+        solicitado.getSolicitacaoamizade().add(solicitante);
+        this.put(solicitado);
+    }
+
+    public void cancelarConviteAmizade(BigDecimal id) {
+        Usuario solicitante = this.getLogado();
+        Usuario solicitado = this.loadById(id);
+        solicitado.getSolicitacaoamizade()
+                .stream()
+                .filter(p -> p.getId() != solicitante.getId())
+                .collect(toSet());
         this.put(solicitado);
     }
 
     public void aceitarAmizade(BigDecimal id) {
         Usuario solicitante = this.loadById(id);
         Usuario solicitado = this.getLogado();
-        solicitante.getSolicitacaoamizadeSet().remove(solicitado);
-        solicitante.getAmizadeSet().add(solicitado);
-        solicitado.getSolicitacaoamizadeSet().remove(solicitante);
-        solicitado.getAmizadeSet().add(solicitante);
+        solicitante.getSolicitacaoamizade().remove(solicitado);
+        solicitante.getAmigo().add(solicitado);
+        solicitado.getSolicitacaoamizade().remove(solicitante);
+        solicitado.getAmigo().add(solicitante);
         this.put(solicitado);
         this.put(solicitante);
     }
 
-//    public Set<Usuario> getInimigos() {
-//        final Usuario logado = this.getLogado();
-//        final Set<BigDecimal> ids = logado.getAmizadeSet().stream()
-//                .map(Usuario::getId)
-//                .collect(toSet());
-//        ids.add(logado.getId());
-//        return usuarioRepository.findByUsuarioNotIn(ids);
-//    }
+    public void rejeitarAmizade(BigDecimal id) {
+        Usuario solicitado = this.getLogado();
+        Usuario solicitante = this.loadById(id);
+        solicitado.getSolicitacaoamizade()
+                .stream()
+                .filter(p -> p.getId() != solicitante.getId())
+                .collect(toSet());
+        this.put(solicitado);
+    }
+
+    public Set<Usuario> solicitacoes() {
+        Usuario usuario = this.getLogado();
+        return usuario.getSolicitacaoamizade();        
+    }
 }

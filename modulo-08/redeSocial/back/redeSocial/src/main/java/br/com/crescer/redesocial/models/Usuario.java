@@ -74,39 +74,23 @@ public class Usuario implements Serializable {
     
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
-    private Set<Gostei> gosteiSet;
+    private Set<Gostei> gostei;
     
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
-    private Set<Post> postSet;
+    private Set<Post> post;
     
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
-    private Set<Comentario> comentarioSet;
-    
-//    @JsonIgnore
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idsolicitante")
-//    private Set<Solicitacaoamizade> solicitacaoamizadeSet;
-    
-//    @JsonIgnore
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idsolicitado")
-//    private Set<Solicitacaoamizade> solicitacaoamizadeSet1;
-    
-//    @JsonIgnore
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
-//    private Set<Amizade> amizadeSet;
-    
-//    @JsonIgnore
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idamigo")
-//    private Set<Amizade> amizadeSet1;
-    
+    private Set<Comentario> comentario;
+   
     @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
-    private Set<Usuario> amizadeSet;
+    private Set<Usuario> amigo;
 
     @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
-    private Set<Usuario> solicitacaoamizadeSet;
+    private Set<Usuario> solicitacaoamizade;
 
     public Usuario() {
     }
@@ -169,76 +153,44 @@ public class Usuario implements Serializable {
         this.senha = senha;
     }
 
-    public Set<Gostei> getGosteiSet() {
-        return gosteiSet;
+    public Set<Gostei> getGostei() {
+        return gostei;
     }
 
-    public void setGosteiSet(Set<Gostei> gosteiSet) {
-        this.gosteiSet = gosteiSet;
+    public void setGostei(Set<Gostei> gostei) {
+        this.gostei = gostei;
     }
 
-    public Set<Post> getPostSet() {
-        return postSet;
+    public Set<Post> getPost() {
+        return post;
     }
 
-    public void setPostSet(Set<Post> postSet) {
-        this.postSet = postSet;
+    public void setPost(Set<Post> post) {
+        this.post = post;
     }
 
-    public Set<Comentario> getComentarioSet() {
-        return comentarioSet;
+    public Set<Comentario> getComentario() {
+        return comentario;
     }
 
-    public void setComentarioSet(Set<Comentario> comentarioSet) {
-        this.comentarioSet = comentarioSet;
+    public void setComentario(Set<Comentario> comentario) {
+        this.comentario = comentario;
     }
 
-//    public Set<Solicitacaoamizade> getSolicitacaoamizadeSet() {
-//        return solicitacaoamizadeSet;
-//    }
-//
-//    public void setSolicitacaoamizadeSet(Set<Solicitacaoamizade> solicitacaoamizadeSet) {
-//        this.solicitacaoamizadeSet = solicitacaoamizadeSet;
-//    };
-//
-//    public Set<Solicitacaoamizade> getSolicitacaoamizadeSet1() {
-//        return solicitacaoamizadeSet1;
-//    }
-//
-//    public void setSolicitacaoamizadeSet1(Set<Solicitacaoamizade> solicitacaoamizadeSet1) {
-//        this.solicitacaoamizadeSet1 = solicitacaoamizadeSet1;
-//    }
-//
-//    public Set<Amizade> getAmizadeSet() {
-//        return amizadeSet;
-//    }
-//
-//    public void setAmizadeSet(Set<Amizade> amizadeSet) {
-//        this.amizadeSet = amizadeSet;
-//    }
-//
-//    public Set<Amizade> getAmizadeSet1() {
-//        return amizadeSet1;
-//    }
-//
-//    public void setAmizadeSet1(Set<Amizade> amizadeSet1) {
-//        this.amizadeSet1 = amizadeSet1;
-//    }
-    
-     public Set<Usuario> getAmizadeSet() {
-        return amizadeSet;
-    }
-     
-    public void setAmizadeSet(Set<Usuario> amizades) {
-        this.amizadeSet = amizades;
-    }
-    
-    public Set<Usuario> getSolicitacaoamizadeSet() {
-        return solicitacaoamizadeSet;
+    public Set<Usuario> getAmigo() {
+        return amigo;
     }
 
-    public void setSolicitacaoamizadeSet(Set<Usuario> solicitacaoamizadeSet) {
-        this.solicitacaoamizadeSet = solicitacaoamizadeSet;
+    public void setAmigo(Set<Usuario> amigo) {
+        this.amigo = amigo;
+    }
+
+    public Set<Usuario> getSolicitacaoamizade() {
+        return solicitacaoamizade;
+    }
+
+    public void setSolicitacaoamizade(Set<Usuario> solicitacaoamizade) {
+        this.solicitacaoamizade = solicitacaoamizade;
     }
 
     @Override

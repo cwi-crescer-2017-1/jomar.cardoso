@@ -1,58 +1,50 @@
-<div class="container-fluid">
-    <header class="row">
-        <div class="container">
-            <div class="header row">
-                <div class="col-md-1 col-sm-1">
-                    <a href="#!/home">
-                        <i class="fa fa-contao fa-2x fa-inverse clearfix" style="float: right; margin-top: -2px;" aria-hidden="true"></i>                    
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-3 pesquisa">                            
-                    <form action="get" id="busca-pessoas" class="busca-pessoas">
-                        <div class="form-group-sm form-inline">
-                            <input type="text" class="">
-                            <a href="#!/busca">
-                                <button type="button" class="btn-busca-pessoas"><span class="glyphicon glyphicon-search"></span></button>
-                            </a>
+<div class="tela-login container-fluid">
+    <header>
+        <div class="clearfix  container">
+            <div class="row menubar" >
+                <div class="logo col-md-6">
+                    <h1>
+                        <div>
+                            <span>crescerbook</span>
                         </div>
+                    </h1>
+                 </div>
+                <div class="login col-md-6">
+                    <form novalidate ng-submit="login(usuario)">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <label for="email">Email ou telefone</label>
+                                    </td>
+                                    <td>
+                                        <label for="senha">Senha</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="email" name="email" value="" tabindex="1" ng-model="usuario.email">
+                                    </td>
+                                    <td>
+                                        <input type="password" class="inputtext" name="senha" tabindex="2" ng-model="usuario.senha">
+                                    </td>
+                                    <td>
+                                        <input value="Entrar" tabindex="4" type="submit">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <div>
+                                            <a href="">Esqueceu a conta?</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </form>
-                </div>                    
-                <div class="col-md-8 col-sm-8 menu-usuario">
-                    <div class="row ">
-                        <div class="col-md-7 col-sm-7">
-                            <div class="row">
-                                <div class="col-md-12 col-sm-12">
-                                    <div class="col-md-1 col-sm-1">
-                                        <div class="perfil-img" ng-style="elementoUsuario"></div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6"> 
-                                        <div class="perfil-nome text-left " id="nome-usuario" >{{usuario.nome}}</div>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 pagina-inicial">
-                                        <span><a href="#!/home">Página Inicial</a></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-5 col-sm-5 navegacao" >
-                            <div class="row">
-                               <a href="#!/amigos">
-                                    <div class="navegacao-icone col-sm-1">
-                                        <div class="navegacao-icone-icone amizade"></div>
-                                    </div>
-                                </a>
-                                <div class="navegacao-icone col-sm-1">
-                                    <div class="navegacao-icone-icone mensagens "></div>
-                                </div>
-                                <div class="navegacao-icone col-sm-1">
-                                    <a ng-click="logout()"><div class="navegacao-icone-icone sair ">  </div></a>
-                                </div>
-                            </div>
-                        </div>
-                            
-                    </div>
                 </div>
-            </div>                
+            </div>
         </div>
     </header>
     <div class="row corpo">
@@ -69,8 +61,8 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="banner"> 
-                                    <img src="../img/mapa.png" alt="">                                       
+                                <div class="banner">
+                                    <img ng-src="../img/mapa.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -97,7 +89,7 @@
                                                 <input type="text" name="novonome" placeholder="Nome" class="form-control" ng-model="novoUsuario.nome">
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="text" name="novafoto" placeholder="Foto" class="form-control" ng-model="novoUsuario.foto">
+                                                <input type="text" name="novafoto" placeholder="Foto" class="form-control">
                                             </div>
                                         </div>
                                         <div class="row">
@@ -117,7 +109,7 @@
                                                         <label for=""><h4>Data de nascimento</h4></label>
                                                     </div>
                                                 </div>
-                                                <div class=" data-nascimento row">                                                    
+                                                <div class=" data-nascimento row">
                                                     <div class="col-md-6">
                                                         <input type="date" class="form-control" ng-model="novoUsuario.datadenascimento">
                                                     </div>
@@ -128,10 +120,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="sexo row radio text-center">
-                                                    <div class="col-md-4">                                                        
+                                                    <div class="col-md-4">
                                                         <label class="_58mt" for="u_0_h"><input type="radio" name="sex" value="F" id="u_0_h" ng-model="novoUsuario.sexo">Feminino</label>
                                                     </div>
-                                                    <div class="col-md-4">                                                        
+                                                    <div class="col-md-4">
                                                         <label class="_58mt" for="u_0_i"><input type="radio" name="sex" value="M" id="u_0_i" ng-model="novoUsuario.sexo">Masculino</label>
                                                     </div>
                                                 </div>
@@ -140,7 +132,7 @@
                                                         <p>Ao clicar em Abrir uma conta, você concorda com nossos Termos e que leu nossa Política de Dados, incluindo nosso Uso de Cookies. Você pode receber notificações por SMS do Crescerbook e pode cancelar o recebimento a qualquer momento.</p>
                                                     </div>
                                                 </div>
-                                                <div class="abrir-conta row clearfix">   
+                                                <div class="abrir-conta row clearfix">
                                                     <div class="col-md-6">
                                                         <button type="submit" class="btn" name="websubmit">Abrir uma conta</button>
                                                     </div>
@@ -148,7 +140,7 @@
                                             </div>
                                         </div>
                                     </form>
-                                </div>  
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
@@ -160,7 +152,7 @@
                         </div>
                     </div>
                 </div>
-            </div>            
+            </div>
         </article>
     </div>
     <footer class="row">
@@ -181,7 +173,7 @@
                             <li>日本語</li>
                             <li><button>+</button></li>
                         </ul>
-                        <div class="divisao"></div>                                
+                        <div class="divisao"></div>
                     </div>
                 </div>
                 <div class="row">
@@ -194,8 +186,8 @@
                             <li>Páginas</li>
                             <li>Ajuda</li>
                         </ul>
-                        <div class="divisao"></div> 
-                    </div>                            
+                        <div class="divisao"></div>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
@@ -237,9 +229,6 @@
                     </div>
                 </div>
             </div>
-        </div>                                 
+        </div>
     </footer>
 </div>
-
-
-

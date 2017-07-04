@@ -3,6 +3,7 @@ package br.com.crescer.redesocial.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
 import static org.springframework.http.HttpMethod.POST;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -46,7 +47,9 @@ public class SocialWebSecurityConfig extends WebSecurityConfigurerAdapter {
     
     @Override
     public void configure(WebSecurity webSecurity) throws Exception {
-        webSecurity.ignoring().antMatchers(securityPublic);
+        webSecurity.ignoring()
+                .antMatchers(securityPublic)
+                .antMatchers(HttpMethod.POST, "/usuario");
     }
 
     @Bean
