@@ -1,7 +1,4 @@
-angular.module('app').controller('homeController', function (homeService, $scope, authService, $http, appConfig, $localStorage) {
-
-
-
+angular.module('app').controller('homeController', function (homeService, $scope, $location, authService, $http, appConfig, $localStorage) {
 
     function buscarAmigos() {
       homeService.buscarAmigos()
@@ -44,8 +41,19 @@ angular.module('app').controller('homeController', function (homeService, $scope
 
         $scope.postagens = response.data
         console.log(response.data)
+
       })
     }
     atualizarFeed()
+
+    $scope.publicar = publicar
+    function publicar (publicacao) {
+      //publicacao.usuario = {id: $localStorage.usuarioLogado.id}
+      homeService.publicar(publicacao)
+      .then(response => {
+        console.log(response.data)
+        $location.path("/home")
+      })
+    }
 
   });

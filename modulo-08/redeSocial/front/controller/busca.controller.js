@@ -9,7 +9,9 @@ angular.module('app').controller('buscaController', function (buscaService, $sco
     function buscaUsuarios() {
       buscaService.buscaUsuarios()
       .then(response => {
+
         $scope.usuariosBuscados = response.data
+        $scope.usuariosBuscados.forEach(p => p.botaoConvite = true )
         console.log(response.data);
         })
       }
@@ -17,20 +19,20 @@ angular.module('app').controller('buscaController', function (buscaService, $sco
     buscaUsuarios()
 
     $scope.adicionarAmigo = adicionarAmigo
-    function adicionarAmigo(id) {
-     buscaService.adicionarAmigo(id)
+    function adicionarAmigo(usuario) {
+     buscaService.adicionarAmigo(usuario.id)
        .then(response => {
-        $scope.botaoConvite = false
-        $scope.botaoCancelaConvite = true
+        usuario.botaoConvite = false
+        usuario.botaoCancelaConvite = true
        })
     }
 
     $scope.naoAdicionarAmigo = naoAdicionarAmigo
-    function naoAdicionarAmigo(id) {
-       buscaService.naoAdicionarAmigo(id)
+    function naoAdicionarAmigo(usuario) {
+       buscaService.naoAdicionarAmigo(usuario.id)
        .then(response => {
-        $scope.botaoConvite = true
-        $scope.botaoCancelaConvite = false
+         usuario.botaoConvite = true
+         usuario.botaoCancelaConvite = false
        })
     }
 

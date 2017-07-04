@@ -71,8 +71,6 @@ public class UsuarioService {
         }
     }
 
-
-
     public Set<Usuario> getInimigos() {
         final Usuario logado = this.getLogado();
         final Set<BigDecimal> ids = logado.getAmigo().stream()
@@ -80,7 +78,7 @@ public class UsuarioService {
                 .collect(toSet());
         final Set<Usuario> amigos = logado.getAmigo();
         ids.add(logado.getId());
-        return usuarioRepository.findByIdNotIn(ids);        
+        return usuarioRepository.findByIdNotIn(ids);
     }
 
     public void enviarConviteAmizade(BigDecimal id) {
@@ -114,15 +112,16 @@ public class UsuarioService {
     public void rejeitarAmizade(BigDecimal id) {
         Usuario solicitado = this.getLogado();
         Usuario solicitante = this.loadById(id);
-        solicitado.getSolicitacaoamizade()
+        Set<Usuario> solicitacoes = solicitado.getSolicitacaoamizade()
                 .stream()
                 .filter(p -> p.getId() != solicitante.getId())
                 .collect(toSet());
+        solicitado.setSolicitacaoamizade(solicitacoes);
         this.put(solicitado);
     }
 
     public Set<Usuario> solicitacoes() {
         Usuario usuario = this.getLogado();
-        return usuario.getSolicitacaoamizade();        
+        return usuario.getSolicitacaoamizade();
     }
 }

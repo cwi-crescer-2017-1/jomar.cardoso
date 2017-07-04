@@ -9,12 +9,14 @@ angular.module('app').factory('amigosService', function (appConfig, $http, $loca
     })
   }
 
-  rejeitarAmigo(id) {
+
+  function rejeitarAmigo(id) {
     return $http({
         url: urlUsuario + '/cancelaramizade/' + id,
         method: 'POST'
     })
   }
+
 
 
   function aceitarAmigo(id) {

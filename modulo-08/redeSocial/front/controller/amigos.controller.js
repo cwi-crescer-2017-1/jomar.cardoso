@@ -1,4 +1,4 @@
-angular.module('app').controller('amigosController', function ($scope, amigosService, authService, $http, appConfig, $localStorage) {
+angular.module('app').controller('amigosController', function ($scope, amigosService, authService, $http, appConfig, $location, $localStorage) {
   $scope.solicitacoesAmizade
 
   $scope.buscaSolicitacoes = buscaSolicitacoes
@@ -11,7 +11,8 @@ angular.module('app').controller('amigosController', function ($scope, amigosSer
   }
   buscaSolicitacoes()
 
-  rejeitarAmigo(id) {
+$scope.rejeitarAmigo = rejeitarAmigo
+  function rejeitarAmigo(id) {
       amigosService.rejeitarAmigo()
       .then( response => {
           console.log(response.data)
@@ -20,10 +21,12 @@ angular.module('app').controller('amigosController', function ($scope, amigosSer
   }
 
 
+  $scope.aceitarAmigo = aceitarAmigo
   function aceitarAmigo(id) {
-    amigosService.aceitarAmigo()
+    amigosService.aceitarAmigo(id)
       .then( response => {
           console.log(response.data)
+          $location.path('/home')
         }
       )
   }
