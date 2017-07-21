@@ -114,6 +114,12 @@
     <div class="bandeira">
       <div class="mostra-pokemon mostra-pokemon1" id="mostra-pokemon1">
         <h3>POKEMON</h3>
+        <img src="" alt="" height="40px" width="40px">
+        <p clas="tipo"><span>Tipo:</span> tipos</p>
+        <h4>habilidades</h4>
+        <div class="habilidades">
+          <p clas="tipo"><span>Tipo:</span> tipos</p>
+        </div>
       </div>
       <div class="bola">
         <div class="pokebola" id="pokebola">
@@ -139,7 +145,15 @@
   </div>
   <script>
   document.addEventListener('DOMContentLoaded', () => {
+
     let pokemon1 = document.getElementById('mostra-pokemon1');
+    pokemon1.nome = pokemon1.getElementsByTagName('h3')[0];
+    pokemon1.foto = pokemon1.getElementsByTagName('img')[0];
+    pokemon1.tipo = pokemon1.getElementsByClassName('tipo')[0];
+    pokemon1.nome.innerHTML = "Pikachu";
+
+    console.log(pokemon1.nome)
+
     let pokemon2 = document.getElementById('mostra-pokemon2');
     /*
     let btnPesquisar = document.getElementById('btnPesquisar');
@@ -159,24 +173,24 @@
       pokemon2.style.visibility = 'visible';
       pokemon2.style.bottom = '20px';
     })
-    var g = '1';
-    console.log(window.document);
-    console.log(pokemon1);
-    console.log(pokemon1);
-    console.log(typeof pokemon1)
-    pokemon1.getElementsByTagName("h3")[0].innerHTML = "Pikachu";
-    console.log(pokemon1.getElementsByTagName("h3"));
+    // var g = '1';
+    // console.log(window.document);
+    // console.log(pokemon1);
+    // console.log(typeof pokemon1)
+    // console.log(typeof pokemon1.template)
+    // pokemon1.getElementsByTagName("h3")[0].innerHTML = "Pikachu";
+    // console.log(pokemon1.getElementsByTagName("h3"));
 
-    // document.getElementById('id')
-    // function buscar() {
-    //   fetch('http://pokeapi.co/api/v2/pokemon/35')
-    //   .then(response => response.json())
-    //   .then(pokemon => {
-    //     console.log(pokemon);
-    //     pokemon1.
-    //   })
-    // }
-    // buscar();
+    document.getElementById('id')
+    function buscar() {
+      fetch('http://pokeapi.co/api/v2/pokemon/25')
+      .then(response => response.json())
+      .then(pokemon => {
+        console.log(pokemon);
+      })
+    }
+    buscar();
+
   })
   /*
   function buscar() {
@@ -186,54 +200,55 @@
 }
 buscar()
 */
+
+
+
+
+//
+//
+// let pokemonElement = document.getElementByClassName('pokemon');
+//
+//     let pokemon = {
+//       name: pokemonElement.getElementByClassName('pokemon-name'),
+//       race: pokemonElement.getElementByClassName('span > pokemon-race'),
+//       element: pokemonElement
+//     };
+//
+//     pokemon.name
+//     pokemon.race
+//
+//
+//
+//
+// function ShowPokemons(pokemons) {
+//   for (var i; i < pokemons.lenght; i++)
+//     showPokemon(pokemons[i]);
+// }
+//
+// function ShowPokemon(pokemon) {
+//   let template = $("#templates").clone();
+//
+//   template.getElementByClass('pokemon-name').innerHTML = pokemon.name;
+//   template.getElementByClass('pokemon-description').innerHTML = pokemon.description;
+//
+//   document.getElementById('list-pokemons').appendChild(template);
+// }
+//
+// <html>
+//
+//  <div id="list-pokemons">
+//   <!-- Listagem dos pokemons -->
+//  </div>
+//
+//  <div id="templates" class="hidden">
+//   <div id="pokemon-template">
+//     <h3 class="pokemon-name>Bulbasauro<h3>
+//     <p class="pokemon-description></p>
+//   </div>
+//  </div>
+//  </body>
+// </html>
+
 </script>
 </body>
-</html>
-
-
-
-
-
-
-let pokemonElement = document.getElementByClassName('pokemon');
-
-    let pokemon = {
-      name: pokemonElement.getElementByClassName('pokemon-name'),
-      race: pokemonElement.getElementByClassName('span > pokemon-race'),
-      element: pokemonElement
-    };
-
-    pokemon.name
-    pokemon.race
-
-
-
-
-function ShowPokemons(pokemons) {
-  for (var i; i < pokemons.lenght; i++)
-    showPokemon(pokemons[i]);
-}
-
-function ShowPokemon(pokemon) {
-  let template = $("#templates").clone();
-
-  template.getElementByClass('pokemon-name').innerHTML = pokemon.name;
-  template.getElementByClass('pokemon-description').innerHTML = pokemon.description;
-
-  document.getElementById('list-pokemons').appendChild(template);
-}
-
-<html>
-
- <div id="list-pokemons">
-  <!-- Listagem dos pokemons -->
- </div>
-
- <div id="templates" class="hidden">
-  <div id="pokemon-template">
-    <h3 class="pokemon-name>Bulbasauro<h3>
-    <p class="pokemon-description></p>
-  </div>
- </div>
- </body>
 </html>
