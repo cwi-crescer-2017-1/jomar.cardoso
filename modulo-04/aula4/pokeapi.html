@@ -104,6 +104,12 @@
     border: .6px solid #dfdfdf;
     transition: .4s;
   }
+  .mostra-pokemon h3 {
+    text-transform: uppercase;
+  }
+  .mostra-pokemon .tipos {
+    text-transform: capitalize;
+  }
   .mostra-pokemon1 {
     left: 20px;
   }
@@ -123,11 +129,12 @@
         <img src="" alt="" height="70px" width="70px">
         <h4>Tipos</h4>
         <div class="tipos">
-          <p class="tipo hidden"><span>Tipo: </span> tipos</p>
         </div>
+        <template id="template-p">
+          <p class="tipo"><span>Tipo: </span> tipos</p>
+        </template>
         <h4>Poderzinhos</h4>
         <div class="habilidades">
-          <p clas="habilidade hidden"><span>Poderzinho:</span> poderzinho</p>
         </div>
       </div>
       <div class="bola">
@@ -172,21 +179,28 @@
     pokemon1.nome = pokemon1.getElementsByTagName('h3')[0];
     pokemon1.foto = pokemon1.getElementsByTagName('img')[0];
     pokemon1.tipos = pokemon1.getElementsByClassName('tipos')[0];
-    pokemon1.tipos.tipo = pokemon1.tipos.getElementsByClassName('tipo')[0];
+    pokemon1.habilidades = pokemon1.querySelector('.habilidades');
+    //pokemon1.tipos.tipo = pokemon1.tipos.getElementsByClassName('tipo')[0];
+    pokemon1.templateTipos = document.querySelector('#template-p');
+    pokemon1.templateTiposP = pokemon1.templateTipos.content.querySelector('p');
+
     console.log(pokemon1.tipos.tipo);
+    console.log(document.querySelector('#template-p'));
 
     function inserirPokemon(pokemon) {
       console.log(pokemon);
       pokemon1.nome.innerHTML = pokemon.name;
       pokemon1.foto.src = pokemon.sprites.front_default;
       for(i=0; i<pokemon.types.length; i++) {
-        let textnode = document.createTextNode(pokemon.types[i].type.name);
-        pokemon1.clone();
-        pokemon1.tipos.tipo
-        .clone()
-        .removeClasss('hidden')
-        .appendChild(pokemon.types.type.name);
-        pokemon1.tipos.appendChild(pokemon1.tipo);
+        inserirVarios(pokemon.types[i].type.name, pokemon1.tipos)
+      }
+      for(i=0; i<pokemon.types.length; i++) {
+        inserirVarios(pokemon.abilities[i].ability.name, pokemon1.habilidades)
+      }
+      function inserirVarios(tipo, onde) {
+        pokemon1.templateTiposP.textContent = tipo;
+        let clone = document.importNode(pokemon1.templateTipos.content, true);
+        onde.appendChild(clone);
       }
     }
 
@@ -201,13 +215,14 @@
 
     document.getElementById('id')
     function buscar() {
-      // fetch('http://pokeapi.co/api/v2/pokemon/25')
-      // .then(response => response.json())
-      // .then(pokemon => {
-      //   inserirPokemon(pokemon);
-        inserirPokemon(pok);
-      }
-      //})
+      fetch('http://pokeapi.co/api/v2/pokemon/6')
+      .then(response => response.json())
+      .then(pokemon => {
+        inserirPokemon(pokemon);
+      })
+      //  inserirPokemon(pok);
+    }
+
 
 
     buscar();
@@ -268,109 +283,109 @@ buscar()
 //  </body>
 // </html>
 
-var pok =
-{
-    "id": 1,
-    "name": "bulbasaur",
-    "base_experience": 64,
-    "height": 7,
-    "is_default": true,
-    "order": 1,
-    "weight": 69,
-    "abilities": [
-        {
-            "is_hidden": true,
-            "slot": 3,
-            "ability": {
-                "name": "chlorophyll",
-                "url": "http://pokeapi.co/api/v2/ability/34/"
-            }
-        }
-    ],
-    "forms": [
-        {
-            "name": "bulbasaur",
-            "url": "http://pokeapi.co/api/v2/pokemon-form/1/"
-        }
-    ],
-    "game_indices": [
-        {
-            "game_index": 1,
-            "version": {
-                "name": "white-2",
-                "url": "http://pokeapi.co/api/v2/version/22/"
-            }
-        }
-    ],
-    "held_items": [],
-    "location_area_encounters": [],
-    "moves": [
-        {
-            "move": {
-                "name": "captivate",
-                "url": "http://pokeapi.co/api/v2/move/445/"
-            },
-            "version_group_details": [
-                {
-                    "level_learned_at": 0,
-                    "version_group": {
-                        "name": "heartgold-soulsilver",
-                        "url": "http://pokeapi.co/api/v2/version-group/10/"
-                    },
-                    "move_learn_method": {
-                        "name": "machine",
-                        "url": "http://pokeapi.co/api/v2/move-learn-method/4/"
-                    }
-                },
-                {
-                    "level_learned_at": 0,
-                    "version_group": {
-                        "name": "platinum",
-                        "url": "http://pokeapi.co/api/v2/version-group/9/"
-                    },
-                    "move_learn_method": {
-                        "name": "machine",
-                        "url": "http://pokeapi.co/api/v2/move-learn-method/4/"
-                    }
-                },
-                {
-                    "level_learned_at": 0,
-                    "version_group": {
-                        "name": "diamond-pearl",
-                        "url": "http://pokeapi.co/api/v2/version-group/8/"
-                    },
-                    "move_learn_method": {
-                        "name": "machine",
-                        "url": "http://pokeapi.co/api/v2/move-learn-method/4/"
-                    }
-                }
-            ]
-        }
-    ],
-    "species": {
-        "name": "bulbasaur",
-        "url": "http://pokeapi.co/api/v2/pokemon-species/1/"
-    },
-    "stats": [
-        {
-            "base_stat": 45,
-            "effort": 0,
-            "stat": {
-                "name": "speed",
-                "url": "http://pokeapi.co/api/v2/stat/6/"
-            }
-        }
-    ],
-    "types": [
-        {
-            "slot": 2,
-            "type": {
-                "name": "poison",
-                "url": "http://pokeapi.co/api/v2/type/4/"
-            }
-        }
-    ]
-}
+//var pok =
+// {
+//     "id": 1,
+//     "name": "bulbasaur",
+//     "base_experience": 64,
+//     "height": 7,
+//     "is_default": true,
+//     "order": 1,
+//     "weight": 69,
+//     "abilities": [
+//         {
+//             "is_hidden": true,
+//             "slot": 3,
+//             "ability": {
+//                 "name": "chlorophyll",
+//                 "url": "http://pokeapi.co/api/v2/ability/34/"
+//             }
+//         }
+//     ],
+//     "forms": [
+//         {
+//             "name": "bulbasaur",
+//             "url": "http://pokeapi.co/api/v2/pokemon-form/1/"
+//         }
+//     ],
+//     "game_indices": [
+//         {
+//             "game_index": 1,
+//             "version": {
+//                 "name": "white-2",
+//                 "url": "http://pokeapi.co/api/v2/version/22/"
+//             }
+//         }
+//     ],
+//     "held_items": [],
+//     "location_area_encounters": [],
+//     "moves": [
+//         {
+//             "move": {
+//                 "name": "captivate",
+//                 "url": "http://pokeapi.co/api/v2/move/445/"
+//             },
+//             "version_group_details": [
+//                 {
+//                     "level_learned_at": 0,
+//                     "version_group": {
+//                         "name": "heartgold-soulsilver",
+//                         "url": "http://pokeapi.co/api/v2/version-group/10/"
+//                     },
+//                     "move_learn_method": {
+//                         "name": "machine",
+//                         "url": "http://pokeapi.co/api/v2/move-learn-method/4/"
+//                     }
+//                 },
+//                 {
+//                     "level_learned_at": 0,
+//                     "version_group": {
+//                         "name": "platinum",
+//                         "url": "http://pokeapi.co/api/v2/version-group/9/"
+//                     },
+//                     "move_learn_method": {
+//                         "name": "machine",
+//                         "url": "http://pokeapi.co/api/v2/move-learn-method/4/"
+//                     }
+//                 },
+//                 {
+//                     "level_learned_at": 0,
+//                     "version_group": {
+//                         "name": "diamond-pearl",
+//                         "url": "http://pokeapi.co/api/v2/version-group/8/"
+//                     },
+//                     "move_learn_method": {
+//                         "name": "machine",
+//                         "url": "http://pokeapi.co/api/v2/move-learn-method/4/"
+//                     }
+//                 }
+//             ]
+//         }
+//     ],
+//     "species": {
+//         "name": "bulbasaur",
+//         "url": "http://pokeapi.co/api/v2/pokemon-species/1/"
+//     },
+//     "stats": [
+//         {
+//             "base_stat": 45,
+//             "effort": 0,
+//             "stat": {
+//                 "name": "speed",
+//                 "url": "http://pokeapi.co/api/v2/stat/6/"
+//             }
+//         }
+//     ],
+//     "types": [
+//         {
+//             "slot": 2,
+//             "type": {
+//                 "name": "poison",
+//                 "url": "http://pokeapi.co/api/v2/type/4/"
+//             }
+//         }
+//     ]
+// }
 
 </script>
 </body>
