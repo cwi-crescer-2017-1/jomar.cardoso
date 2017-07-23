@@ -9,6 +9,12 @@
   * {
     box-sizing: border-box;
   }
+  ul {
+    padding-left: 0;
+  }
+  li {
+    list-style: none;
+  }
   .hidden {
     display: none;
   }
@@ -103,12 +109,24 @@
     border-radius: 3px;
     border: .6px solid #dfdfdf;
     transition: .4s;
+    overflow-y: auto;
   }
   .mostra-pokemon h3 {
     text-transform: uppercase;
   }
-  .mostra-pokemon .tipos {
+  .mostra-pokemon .tipos,
+  .mostra-pokemon .habilidades {
     text-transform: capitalize;
+  }
+  .mostra-pokemon .status table {
+    width: 100%;
+  }
+  .mostra-pokemon .status ul li:nth-child(even) {
+    background-color: yellow;
+  }
+  .mostra-pokemon .status ul li:nth-child(even) td {
+    background-color: red;
+    width: 50%;
   }
   .mostra-pokemon1 {
     left: 20px;
@@ -130,12 +148,23 @@
         <h4>Tipos</h4>
         <div class="tipos">
         </div>
-        <template id="template-p">
-          <p class="tipo"><span>Tipo: </span> tipos</p>
-        </template>
         <h4>Poderzinhos</h4>
         <div class="habilidades">
         </div>
+        <template id="template-p">
+          <p></p>
+        </template>
+        <h4>Status</h4>
+        <div class="status">
+          <ul>
+          </ul>
+        </div>
+        <template id="template-table">
+          <li>
+            <div class="">
+            </div>
+          </li>
+        </template>
       </div>
       <div class="bola">
         <div class="pokebola" id="pokebola">
@@ -178,11 +207,17 @@
     let pokemon1 = document.getElementById('mostra-pokemon1');
     pokemon1.nome = pokemon1.getElementsByTagName('h3')[0];
     pokemon1.foto = pokemon1.getElementsByTagName('img')[0];
+
     pokemon1.tipos = pokemon1.getElementsByClassName('tipos')[0];
     pokemon1.habilidades = pokemon1.querySelector('.habilidades');
-    //pokemon1.tipos.tipo = pokemon1.tipos.getElementsByClassName('tipo')[0];
     pokemon1.templateTipos = document.querySelector('#template-p');
     pokemon1.templateTiposP = pokemon1.templateTipos.content.querySelector('p');
+
+    pokemon1.status = pokemon1.querySelector('.status');
+    pokemon1.statusTb = pokemon1.status.querySelector('ul');
+    pokemon1.templateTabela = document.querySelector('#template-table');
+    pokemon1.templateTabelaTd = pokemon1.templateTabela.content.querySelector('li');
+    pokemon1.templateTabelaTdDiv = pokemon1.templateTabelaTd.querySelector('div');
 
     console.log(pokemon1.tipos.tipo);
     console.log(document.querySelector('#template-p'));
@@ -194,12 +229,21 @@
       for(i=0; i<pokemon.types.length; i++) {
         inserirVarios(pokemon.types[i].type.name, pokemon1.tipos)
       }
-      for(i=0; i<pokemon.types.length; i++) {
+      for(i=0; i<pokemon.abilities.length; i++) {
         inserirVarios(pokemon.abilities[i].ability.name, pokemon1.habilidades)
+      }
+      for(i=0; i<pokemon.stats.length; i++) {
+        inserirTabelas(pokemon.stats[i].stat.name, pokemon1.statusTb);
+        inserirTabelas(pokemon.stats[i].base_stat, pokemon1.statusTb)
       }
       function inserirVarios(tipo, onde) {
         pokemon1.templateTiposP.textContent = tipo;
         let clone = document.importNode(pokemon1.templateTipos.content, true);
+        onde.appendChild(clone);
+      }
+      function inserirTabelas(valor, onde) {
+        pokemon1.templateTabelaTdDiv.textContent = valor;
+        let clone = document.importNode(pokemon1.templateTabela.content, true);
         onde.appendChild(clone);
       }
     }
@@ -215,7 +259,7 @@
 
     document.getElementById('id')
     function buscar() {
-      fetch('http://pokeapi.co/api/v2/pokemon/6')
+      fetch('http://pokeapi.co/api/v2/pokemon/lugia')
       .then(response => response.json())
       .then(pokemon => {
         inserirPokemon(pokemon);
