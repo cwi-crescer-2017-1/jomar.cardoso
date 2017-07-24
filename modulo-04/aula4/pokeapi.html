@@ -90,7 +90,7 @@
     width: 45px;
     border: 3px solid black;
   }
-  .consulta {
+  #busca .consulta {
     /*display: none;*/
     visibility: hidden;
     margin-top: 9px;
@@ -124,14 +124,14 @@
   .mostra-pokemon .status ul li:nth-child(even) {
     background-color: yellow;
   }
-  .mostra-pokemon .status ul li:nth-child(even) td {
+  .mostra-pokemon .status ul li:nth-child(even) div {
     background-color: red;
     width: 50%;
   }
-  .mostra-pokemon1 {
+  .bandeira .mostra-pokemon1 {
     left: 20px;
   }
-  .mostra-pokemon2 {
+  .bandeira .mostra-pokemon2 {
     right: 20px;
   }
   .mostra-pokemon h3 {
@@ -172,7 +172,7 @@
             <form action="" id="busca">
               <input type="text" id="consulta" class="consulta">
               <div type="button" class="botao1" id="botao1">
-                <div class="botao2">
+                <div class="botao2" id="botao2" disabled>
                 </div>
               </div>
             </form>
@@ -181,255 +181,125 @@
       </div>
       <div class="mostra-pokemon mostra-pokemon2" id="mostra-pokemon2">
         <h3>POKEMON</h3>
-        <p>alguma coisa</p>
-        <div class="img">
-          <img src="" alt="">
+        <img src="" alt="" height="70px" width="70px">
+        <h4>Tipos</h4>
+        <div class="tipos">
         </div>
+        <h4>Poderzinhos</h4>
+        <div class="habilidades">
+        </div>
+        <template id="template-p">
+          <p></p>
+        </template>
+        <h4>Status</h4>
+        <div class="status">
+          <ul>
+          </ul>
+        </div>
+        <template id="template-table">
+          <li>
+            <div class="">
+            </div>
+          </li>
+        </template>
       </div>
     </div>
   </div>
   <script>
   document.addEventListener('DOMContentLoaded', () => {
+    let pokebola = document.querySelector('.bandeira .pokebola');
+    let botao1 = document.querySelector('.pokebola .separador .botao1');
+    let botao2 = document.querySelector('.pokebola .separador .botao1 .botao2');
+    let consulta = document.querySelector('#busca .consulta');
+    let pokemon1 = document.querySelector('.bandeira .mostra-pokemon1');
+    let pokemon2 = document.querySelector('.bandeira .mostra-pokemon2');
+
+    //console.log(pokemon1.tipos.tipo);
+    //console.log(document.querySelector('#template-p'));
 
     document.getElementById('botao1').addEventListener('click', function(){
-      document.getElementById('pokebola').style.display = 'block';
-      document.getElementById('pokebola').style.transform = 'rotate(360deg)';
-      document.getElementById('pokebola').style.transformOrigin = 'center';
-      document.getElementById('botao1').style.left = '85%';
-      document.getElementById('consulta').style.visibility = 'visible';
-      document.getElementById('consulta').style.width = '195px';
-      pokemon1.style.visibility = 'visible';
-      pokemon1.style.bottom = '20px';
-      pokemon2.style.visibility = 'visible';
-      pokemon2.style.bottom = '20px';
+      pokebola.style.display = 'block';
+      pokebola.style.transform = 'rotate(360deg)';
+      pokebola.style.transformOrigin = 'center';
+      botao1.style.left = '85%';
+      console.log(botao2);
+      consulta.style.visibility = 'visible';
+      consulta.style.width = '195px';
     })
 
-    let pokemon1 = document.getElementById('mostra-pokemon1');
+
     pokemon1.nome = pokemon1.getElementsByTagName('h3')[0];
     pokemon1.foto = pokemon1.getElementsByTagName('img')[0];
-
     pokemon1.tipos = pokemon1.getElementsByClassName('tipos')[0];
     pokemon1.habilidades = pokemon1.querySelector('.habilidades');
     pokemon1.templateTipos = document.querySelector('#template-p');
     pokemon1.templateTiposP = pokemon1.templateTipos.content.querySelector('p');
-
     pokemon1.status = pokemon1.querySelector('.status');
     pokemon1.statusTb = pokemon1.status.querySelector('ul');
     pokemon1.templateTabela = document.querySelector('#template-table');
     pokemon1.templateTabelaTd = pokemon1.templateTabela.content.querySelector('li');
     pokemon1.templateTabelaTdDiv = pokemon1.templateTabelaTd.querySelector('div');
 
-    console.log(pokemon1.tipos.tipo);
-    console.log(document.querySelector('#template-p'));
+    pokemon2.nome = pokemon2.getElementsByTagName('h3')[0];
+    pokemon2.foto = pokemon2.getElementsByTagName('img')[0];
+    pokemon2.tipos = pokemon2.getElementsByClassName('tipos')[0];
+    pokemon2.habilidades = pokemon2.querySelector('.habilidades');
+    pokemon2.templateTipos = document.querySelector('#template-p');
+    pokemon2.templateTiposP = pokemon2.templateTipos.content.querySelector('p');
+    pokemon2.status = pokemon2.querySelector('.status');
+    pokemon2.statusTb = pokemon2.status.querySelector('ul');
+    pokemon2.templateTabela = document.querySelector('#template-table');
+    pokemon2.templateTabelaTd = pokemon2.templateTabela.content.querySelector('li');
+    pokemon2.templateTabelaTdDiv = pokemon2.templateTabelaTd.querySelector('div');
 
-    function inserirPokemon(pokemon) {
+    function inserirPokemon(pokemon, direitaEsqueda) {
       console.log(pokemon);
-      pokemon1.nome.innerHTML = pokemon.name;
-      pokemon1.foto.src = pokemon.sprites.front_default;
+      direitaEsqueda.nome.innerHTML = pokemon.name;
+      direitaEsqueda.foto.src = pokemon.sprites.front_default;
       for(i=0; i<pokemon.types.length; i++) {
-        inserirVarios(pokemon.types[i].type.name, pokemon1.tipos)
+        inserirVarios(pokemon.types[i].type.name, direitaEsqueda.tipos)
       }
       for(i=0; i<pokemon.abilities.length; i++) {
-        inserirVarios(pokemon.abilities[i].ability.name, pokemon1.habilidades)
+        inserirVarios(pokemon.abilities[i].ability.name, direitaEsqueda.habilidades)
       }
       for(i=0; i<pokemon.stats.length; i++) {
-        inserirTabelas(pokemon.stats[i].stat.name, pokemon1.statusTb);
-        inserirTabelas(pokemon.stats[i].base_stat, pokemon1.statusTb)
+        inserirTabelas(pokemon.stats[i].stat.name, direitaEsqueda.statusTb);
+        inserirTabelas(pokemon.stats[i].base_stat, direitaEsqueda.statusTb)
       }
       function inserirVarios(tipo, onde) {
-        pokemon1.templateTiposP.textContent = tipo;
-        let clone = document.importNode(pokemon1.templateTipos.content, true);
+        direitaEsqueda.templateTiposP.textContent = tipo;
+        let clone = document.importNode(direitaEsqueda.templateTipos.content, true);
         onde.appendChild(clone);
       }
       function inserirTabelas(valor, onde) {
-        pokemon1.templateTabelaTdDiv.textContent = valor;
-        let clone = document.importNode(pokemon1.templateTabela.content, true);
+        direitaEsqueda.templateTabelaTdDiv.textContent = valor;
+        let clone = document.importNode(direitaEsqueda.templateTabela.content, true);
         onde.appendChild(clone);
       }
+      direitaEsqueda.style.visibility = 'visible';
+      direitaEsqueda.style.bottom = '20px';
     }
 
     console.log(pokemon1.nome)
-
-    let pokemon2 = document.getElementById('mostra-pokemon2');
-    /*
-    let btnPesquisar = document.getElementById('btnPesquisar');
-    btnPesquisar.onclick = function() {
-    console.log("clicou...");
-    */
-
-    document.getElementById('id')
-    function buscar() {
-      fetch('http://pokeapi.co/api/v2/pokemon/lugia')
-      .then(response => response.json())
-      .then(pokemon => {
-        inserirPokemon(pokemon);
-      })
-      //  inserirPokemon(pok);
+    botao2.onclick = function() {
+      buscar(consulta.value)
     }
 
-
-
-    buscar();
-
+    var parPokemon = 1;
+    function buscar(valor, pokemo) {
+      fetch(`http://pokeapi.co/api/v2/pokemon/${valor}`)
+      .then(response => response.json())
+      .then(pokemon => {
+        let n = pokemon1;
+        if (parPokemon%2 === 0) {
+          n = pokemon2;
+        }
+        parPokemon++;
+        inserirPokemon(pokemon, n);
+      })
+    }
 
   })
-  /*
-  function buscar() {
-  fetch('http://pokeapi.co/api/v2/pokemon/35')
-  .then(response => response.json())
-  .then(pokemon => console.log(pokemon))
-}
-buscar()
-*/
-
-//
-//
-// let pokemonElement = document.getElementByClassName('pokemon');
-//
-//     let pokemon = {
-//       name: pokemonElement.getElementByClassName('pokemon-name'),
-//       race: pokemonElement.getElementByClassName('span > pokemon-race'),
-//       element: pokemonElement
-//     };
-//
-//     pokemon.name
-//     pokemon.race
-//
-//
-//
-//
-// function ShowPokemons(pokemons) {
-//   for (var i; i < pokemons.lenght; i++)
-//     showPokemon(pokemons[i]);
-// }
-//
-// function ShowPokemon(pokemon) {
-//   let template = $("#templates").clone();
-//
-//   template.getElementByClass('pokemon-name').innerHTML = pokemon.name;
-//   template.getElementByClass('pokemon-description').innerHTML = pokemon.description;
-//
-//   document.getElementById('list-pokemons').appendChild(template);
-// }
-//
-// <html>
-//
-//  <div id="list-pokemons">
-//   <!-- Listagem dos pokemons -->
-//  </div>
-//
-//  <div id="templates" class="hidden">
-//   <div id="pokemon-template">
-//     <h3 class="pokemon-name>Bulbasauro<h3>
-//     <p class="pokemon-description></p>
-//   </div>
-//  </div>
-//  </body>
-// </html>
-
-//var pok =
-// {
-//     "id": 1,
-//     "name": "bulbasaur",
-//     "base_experience": 64,
-//     "height": 7,
-//     "is_default": true,
-//     "order": 1,
-//     "weight": 69,
-//     "abilities": [
-//         {
-//             "is_hidden": true,
-//             "slot": 3,
-//             "ability": {
-//                 "name": "chlorophyll",
-//                 "url": "http://pokeapi.co/api/v2/ability/34/"
-//             }
-//         }
-//     ],
-//     "forms": [
-//         {
-//             "name": "bulbasaur",
-//             "url": "http://pokeapi.co/api/v2/pokemon-form/1/"
-//         }
-//     ],
-//     "game_indices": [
-//         {
-//             "game_index": 1,
-//             "version": {
-//                 "name": "white-2",
-//                 "url": "http://pokeapi.co/api/v2/version/22/"
-//             }
-//         }
-//     ],
-//     "held_items": [],
-//     "location_area_encounters": [],
-//     "moves": [
-//         {
-//             "move": {
-//                 "name": "captivate",
-//                 "url": "http://pokeapi.co/api/v2/move/445/"
-//             },
-//             "version_group_details": [
-//                 {
-//                     "level_learned_at": 0,
-//                     "version_group": {
-//                         "name": "heartgold-soulsilver",
-//                         "url": "http://pokeapi.co/api/v2/version-group/10/"
-//                     },
-//                     "move_learn_method": {
-//                         "name": "machine",
-//                         "url": "http://pokeapi.co/api/v2/move-learn-method/4/"
-//                     }
-//                 },
-//                 {
-//                     "level_learned_at": 0,
-//                     "version_group": {
-//                         "name": "platinum",
-//                         "url": "http://pokeapi.co/api/v2/version-group/9/"
-//                     },
-//                     "move_learn_method": {
-//                         "name": "machine",
-//                         "url": "http://pokeapi.co/api/v2/move-learn-method/4/"
-//                     }
-//                 },
-//                 {
-//                     "level_learned_at": 0,
-//                     "version_group": {
-//                         "name": "diamond-pearl",
-//                         "url": "http://pokeapi.co/api/v2/version-group/8/"
-//                     },
-//                     "move_learn_method": {
-//                         "name": "machine",
-//                         "url": "http://pokeapi.co/api/v2/move-learn-method/4/"
-//                     }
-//                 }
-//             ]
-//         }
-//     ],
-//     "species": {
-//         "name": "bulbasaur",
-//         "url": "http://pokeapi.co/api/v2/pokemon-species/1/"
-//     },
-//     "stats": [
-//         {
-//             "base_stat": 45,
-//             "effort": 0,
-//             "stat": {
-//                 "name": "speed",
-//                 "url": "http://pokeapi.co/api/v2/stat/6/"
-//             }
-//         }
-//     ],
-//     "types": [
-//         {
-//             "slot": 2,
-//             "type": {
-//                 "name": "poison",
-//                 "url": "http://pokeapi.co/api/v2/type/4/"
-//             }
-//         }
-//     ]
-// }
 
 </script>
 </body>
